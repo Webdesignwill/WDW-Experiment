@@ -13,10 +13,9 @@ function (Backbone, handlebars, template, content, credentials) {
 
   var FooterContactView = Backbone.View.extend({
 
-    el : '.footer-contact',
-
     initialize : function () {
       content.credentials = credentials;
+      this.render();
     },
 
     render : function () {

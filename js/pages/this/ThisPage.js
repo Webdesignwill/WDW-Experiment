@@ -13,7 +13,7 @@ function (Backbone, handlebars, template, content) {
   var ThisPage = Backbone.Page.extend({
 
     id : 'this-page',
-    className : 'width-auto this',
+    className : 'width-auto this-page',
 
     render : function () {
 

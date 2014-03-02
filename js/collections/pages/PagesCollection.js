@@ -2,7 +2,7 @@
 define('pagesCollection', [
     'Backbone',
     'PageModel',
-    'text!site-config.json'
+    'text!site.json'
 ], function (Backbone, PageModel, siteConfig) {
 
   "use strict";
@@ -11,9 +11,15 @@ define('pagesCollection', [
 
     model : PageModel,
 
+    defaultRoutes : [{
+      "name" : "404",
+      "page" : "PageNotFound"
+    }],
+
     initialize : function () {
       this.set(JSON.parse(siteConfig)['site-map']);
-    }
+      this.add(this.defaultRoutes);
+    },
 
   });
 

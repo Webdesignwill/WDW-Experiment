@@ -1,12 +1,11 @@
 html, body {
   height:100%;
-  background-color: #333;
 }
 body {
-  @include transition(background-color, 1000ms);
+  @include transition(background-color, 0.5s);
   @include box-shadow(inset rgba(0,0,0,0.5) 0 0 100px);
-  height:100%;
   background: $darkBlue url('../img/body-bg.png') top left;
+  height:100%;
   margin: 0;
   padding: 0;
 }
@@ -16,7 +15,7 @@ body.home-page {
 body.contact-page {
   background-color: $blood;
 }
-body.skills-page {
+body.this-page {
   background-color: $racingGreen;
 }
 .clear:after {
@@ -45,4 +44,9 @@ body.skills-page {
       padding:20px 40px;
     }
   }
+}
+
+@keyframes nodeInserted {
+  from { opacity: 0.99; }
+  to { opacity: 1; }
 }

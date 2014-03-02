@@ -1,6 +1,6 @@
 define({
   "root" : {
-    "quote" : "Web design isn’t just about how it looks, it’s also about how it feels"
+    "quote" : "I'm pretty easy to talk and I love coffee"
   },
   "nl" : true
 });

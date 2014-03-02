@@ -17,9 +17,7 @@ function (Backbone, handlebars, appModel, template) {
       'click' : 'navigate'
     },
 
-    initialize : function (element) {
-      var self = this;
-      this.element = element;
+    initialize : function () {
       this.setElements();
       this.setEvents();
     },
@@ -29,30 +27,28 @@ function (Backbone, handlebars, appModel, template) {
     },
 
     setEvents : function () {
-      appModel.on('change:navigation', function (ev) {
-        self.highlightActive(ev);
+      var self = this;
+      appModel.broker.on('page:change', function (opts) {
+        self.highlightActive(opts);
       });
     },
 
-    highlightActive : function (ev) {
-      if(appModel.get('navigation') === this.element.name) {
-        this.$body.removeClass()
-              .addClass(this.element.name + '-page');
-
+    highlightActive : function (opts) {
+      if(opts.newPageModel.get('name') === this.options.name) {
         this.$el.addClass('active');
-      } else {
-        this.$el.removeClass('active');
+        return;
       }
+      this.$el.removeClass('active');
     },
 
     navigate : function () {
-      appModel.router.navigate(this.element.name, {trigger: true});
+      appModel.router.navigate(this.options.name, {trigger: true});
     },
 
     render : function () {
 
       var tpl = handlebars.compile(template);
-      var compiled = tpl(this.element);
+      var compiled = tpl(this.options);
 
       this.$el.html(compiled);
 

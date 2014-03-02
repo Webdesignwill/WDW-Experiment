@@ -71,73 +71,84 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 /* line 1, sass/_globals.scss */
 html, body {
   height: 100%;
-  background-color: #333;
 }
 
-/* line 5, sass/_globals.scss */
+/* line 4, sass/_globals.scss */
 body {
-  -webkit-transition: background-color 1000ms linear;
-  -moz-transition: background-color 1000ms linear;
-  -o-transition: background-color 1000ms linear;
-  -ms-transition: background-color 1000ms linear;
-  transition: background-color 1000ms linear;
+  -webkit-transition: background-color 0.5s linear;
+  -moz-transition: background-color 0.5s linear;
+  -o-transition: background-color 0.5s linear;
+  -ms-transition: background-color 0.5s linear;
+  transition: background-color 0.5s linear;
   -webkit-box-shadow: inset rgba(0, 0, 0, 0.5) 0 0 100px;
   -moz-box-shadow: inset rgba(0, 0, 0, 0.5) 0 0 100px;
   box-shadow: inset rgba(0, 0, 0, 0.5) 0 0 100px;
-  height: 100%;
   background: #444f64 url("../img/body-bg.png") top left;
+  height: 100%;
   margin: 0;
   padding: 0;
 }
 
-/* line 13, sass/_globals.scss */
+/* line 12, sass/_globals.scss */
 body.home-page {
   background-color: #444f64;
 }
 
-/* line 16, sass/_globals.scss */
+/* line 15, sass/_globals.scss */
 body.contact-page {
   background-color: #76312d;
 }
 
-/* line 19, sass/_globals.scss */
-body.skills-page {
+/* line 18, sass/_globals.scss */
+body.this-page {
   background-color: #376018;
 }
 
-/* line 22, sass/_globals.scss */
+/* line 21, sass/_globals.scss */
 .clear:after {
   content: "";
   display: table;
   clear: both;
 }
 
-/* line 27, sass/_globals.scss */
+/* line 26, sass/_globals.scss */
 #page-container {
   background: url("../../img/borders/trim-top-site-content.png") repeat-x top left;
   padding-top: 7px;
 }
-/* line 30, sass/_globals.scss */
+/* line 29, sass/_globals.scss */
 #page-container .page-container-inner {
   background: #eeeeee url("../img/body-bg.png") repeat top left;
 }
 
-/* line 35, sass/_globals.scss */
+/* line 34, sass/_globals.scss */
 .site-content-header {
   position: absolute;
   width: 100%;
   top: -32px;
 }
-/* line 39, sass/_globals.scss */
+/* line 38, sass/_globals.scss */
 .site-content-header .site-content-header-inner {
   text-align: center;
   margin: 0 auto;
 }
-/* line 42, sass/_globals.scss */
+/* line 41, sass/_globals.scss */
 .site-content-header .site-content-header-inner h4 {
   color: #fdedcd;
   margin-left: -17px;
   padding: 20px 40px;
+}
+
+@keyframes nodeInserted {
+  /* line 50, sass/_globals.scss */
+  from {
+    opacity: 0.99;
+  }
+
+  /* line 51, sass/_globals.scss */
+  to {
+    opacity: 1;
+  }
 }
 
 /* line 2, sass/_typography.scss */
@@ -175,7 +186,7 @@ a {
 
 /* line 22, sass/_typography.scss */
 #site-content p, #site-content h3 {
-  color: inset rgba(0, 0, 0, 0.5) 0 0 100px;
+  color: #444444;
 }
 
 /* line 1, sass/components/_abstracts.scss */
@@ -246,7 +257,7 @@ body.home-page .logo-small {
 }
 
 /* line 13, sass/components/_logos.scss */
-body.skills-page .logo-small {
+body.this-page .logo-small {
   background-position: 0 -151px;
 }
 
@@ -278,18 +289,18 @@ body.contact-page .logo-small {
 }
 
 /* line 1, sass/pages/_home.scss */
-#home {
+#home-page {
   background: url("../../img/backgrounds/thankyou.png") no-repeat center bottom;
   position: relative;
 }
 /* line 4, sass/pages/_home.scss */
-#home .giant-button {
+#home-page .giant-button {
   width: 100%;
   clear: both;
   display: inline-block;
 }
 /* line 8, sass/pages/_home.scss */
-#home .giant-button h3 {
+#home-page .giant-button h3 {
   -webkit-transition: color 250ms linear;
   -moz-transition: color 250ms linear;
   -o-transition: color 250ms linear;
@@ -297,27 +308,26 @@ body.contact-page .logo-small {
   transition: color 250ms linear;
   text-align: center;
   background: none;
-  border: none;
-  border-top: 1px dotted inset rgba(0, 0, 0, 0.5) 0 0 100px;
-  border-bottom: 1px dotted inset rgba(0, 0, 0, 0.5) 0 0 100px;
+  border-top: 1px dotted #444444;
+  border-bottom: 1px dotted #444444;
   color: #444f64;
   width: 100%;
   cursor: pointer;
   font-weight: 300;
 }
-/* line 20, sass/pages/_home.scss */
-#home .giant-button h3:hover {
+/* line 19, sass/pages/_home.scss */
+#home-page .giant-button h3:hover {
   color: #76312d;
 }
 
 /* line 1, sass/pages/_contact.scss */
-#contact {
+#contact-page {
   background: url("../../img/backgrounds/thankyou.png") no-repeat center bottom;
   position: relative;
 }
 
 /* line 1, sass/pages/_this.scss */
-#this {
+#this-page {
   background: url("../../img/backgrounds/thankyou.png") no-repeat center bottom;
   position: relative;
 }
@@ -381,7 +391,7 @@ body.contact-page #primary-nav ul li.active {
 }
 
 /* line 50, sass/views/_nav.scss */
-body.skills-page #primary-nav ul li.active {
+body.this-page #primary-nav ul li.active {
   color: #b2d233;
 }
 
@@ -400,7 +410,7 @@ body.skills-page #primary-nav ul li.active {
 }
 /* line 6, sass/views/_footer.scss */
 #site-footer .site-footer-inner {
-  background: inset rgba(0, 0, 0, 0.5) 0 0 100px url("../../img/body-bg.png") repeat top left;
+  background: #444444 url("../../img/body-bg.png") repeat top left;
   width: 100%;
   padding: 40px 0 40px 0;
   margin-bottom: -7px;
@@ -486,7 +496,7 @@ body.contact-page #site-footer .site-footer-inner a:hover {
 }
 
 /* line 97, sass/views/_footer.scss */
-body.skills-page #site-footer .site-footer-inner a:hover {
+body.this-page #site-footer .site-footer-inner a:hover {
   color: #b2d233;
 }
 
@@ -523,7 +533,7 @@ body.skills-page #site-footer .site-footer-inner a:hover {
   }
 
   /* line 28, sass/handheld/views/_header.scss */
-  body.skills-page #site-header h1 {
+  body.this-page #site-header h1 {
     background-position: center -283px;
   }
 
@@ -612,11 +622,11 @@ body.skills-page #site-footer .site-footer-inner a:hover {
 
   /* Handheld */
   /* line 5, sass/handheld/pages/_home.scss */
-  #home .giant-button {
+  #home-page .giant-button {
     margin-bottom: 200px;
   }
   /* line 7, sass/handheld/pages/_home.scss */
-  #home .giant-button h3 {
+  #home-page .giant-button h3 {
     padding: 40px 0;
     letter-spacing: 12px;
     font-size: 39px;
@@ -624,7 +634,7 @@ body.skills-page #site-footer .site-footer-inner a:hover {
 
   /* line 10, sass/handheld/_main.scss */
   .site-content-header .site-content-header-inner {
-    background-color: inset rgba(0, 0, 0, 0.5) 0 0 100px;
+    background-color: #444444;
   }
   /* line 12, sass/handheld/_main.scss */
   .site-content-header .site-content-header-inner h4 {
@@ -667,7 +677,7 @@ body.skills-page #site-footer .site-footer-inner a:hover {
   }
 
   /* line 29, sass/desktop/views/_header.scss */
-  body.skills-page #site-header h1 {
+  body.this-page #site-header h1 {
     background-position: center -180px;
   }
 
@@ -783,13 +793,12 @@ body.skills-page #site-footer .site-footer-inner a:hover {
     float: right;
   }
 
-  /* Desktop */
-  /* line 4, sass/desktop/pages/_home.scss */
-  #home {
+  /* line 2, sass/desktop/pages/_home.scss */
+  #home-page {
     padding-bottom: 180px;
   }
-  /* line 7, sass/desktop/pages/_home.scss */
-  #home .giant-button h3 {
+  /* line 5, sass/desktop/pages/_home.scss */
+  #home-page .giant-button h3 {
     padding: 40px 0;
     letter-spacing: 50px;
     font-size: 108px;

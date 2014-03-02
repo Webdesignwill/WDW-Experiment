@@ -4,7 +4,7 @@
   padding-top:7px;
   margin-top:-7px;
   .site-footer-inner {
-    background:$shadow url('../../img/body-bg.png') repeat top left;
+    background:$shade url('../../img/body-bg.png') repeat top left;
     width:100%;
     padding:40px 0 40px 0;
     margin-bottom: -7px;
@@ -91,7 +91,7 @@ body.contact-page {
     }
   }
 }
-body.skills-page {
+body.this-page {
   #site-footer {
     .site-footer-inner {
       a:hover {

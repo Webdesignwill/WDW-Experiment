@@ -16,23 +16,23 @@ function (Backbone, appModel, PageController, pagesCollection) {
       this.setRoutes();
       this.setElements();
       this.pageController = new PageController({
-        el: this.$pageContentInner
+        el: this.$pageContainerInner
       });
+    },
+
+    setElements : function () {
+      this.$pageContainerInner = $('#page-container-inner');
     },
 
     setRoutes : function () {
       var self = this;
       pagesCollection.each(function (pageModel, index, array) {
-        self.route(pageModel.get('route'), function () {
-          require([pageModel.get('page')], function (ob, as) {
-            self.pageController.goto(pageModel.get('page'));
+        self.route(pageModel.get('name') + '(/)', function () {
+          require([pageModel.get('page')], function (Page) {
+            self.pageController.goto(pageModel, Page, {});
           });
         });
       });
-    },
-
-    setElements : function () {
-      this.$pageContentInner = $('#site-content-inner');
     }
 
   });

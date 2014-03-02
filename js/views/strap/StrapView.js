@@ -12,6 +12,10 @@ function (Backbone, handlebars, template, content) {
 
   var StrapView = Backbone.View.extend({
 
+    initialize : function () {
+      this.render();
+    },
+
     render : function () {
 
       var tpl = handlebars.compile(template);

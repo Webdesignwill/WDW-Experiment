@@ -12,7 +12,9 @@ function (Backbone, handlebars, template, content) {
 
   var FooterSocialView = Backbone.View.extend({
 
-    el : '.footer-social',
+    initialize : function () {
+      this.render();
+    },
 
     render : function () {
 

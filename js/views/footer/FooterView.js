@@ -15,27 +15,42 @@ function (Backbone, handlebars, FooterSocialView, FooterNewsView, FooterContactV
 
   var FooterView = Backbone.View.extend({
 
+    initialize : function () {
+      this.render();
+      this.setElements();
+      this.renderSubViews();
+    },
+
+    setElements : function () {
+      this.$social = this.$el.find('.footer-social');
+      this.$news = this.$el.find('.footer-news');
+      this.$contact = this.$el.find('.footer-contact');
+    },
+
     render : function () {
 
       var tpl = handlebars.compile(template);
       var compiled = tpl(content);
 
       this.$el.html(compiled);
-      this.renderSubViews();
 
       return this;
     },
 
     renderSubViews : function () {
-      // Todo pass in the view el
-      var footerSocialView = new FooterSocialView();
-      footerSocialView.render();
 
-      var footerNewsView = new FooterNewsView();
-      footerNewsView.render();
+      new FooterSocialView({
+        el : this.$social
+      });
 
-      var footerContactView = new FooterContactView();
-      footerContactView.render();
+      // new FooterNewView({
+      //   el : this.$news
+      // });
+
+      new FooterContactView({
+        el : this.$contact
+      });
+
     }
 
   });

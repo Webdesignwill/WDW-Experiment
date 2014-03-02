@@ -13,7 +13,7 @@ define('app', [
     };
 
     this.start = function () {
-      var path = utils.getUrlPath() || '/';
+      var path = utils.getUrlPath() || '/home';
       appModel.router.navigate(path, {trigger: true});
       appModel.broker.trigger('app:started');
       console.log('%c The app is started ', 'background: #7AFF4D; color: #000');

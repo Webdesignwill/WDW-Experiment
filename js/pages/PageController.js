@@ -6,8 +6,6 @@ define('PageController', [
     'HeaderView',
     'StrapView',
     'FooterView',
-    // 'pagesCollection'
-// ], function (Backbone, appModel, NavView, HeaderView, StrapView, FooterView, pagesCollection) {
   ], function (Backbone, appModel, NavView, HeaderView, StrapView, FooterView) {
 
     "use strict";
@@ -20,9 +18,10 @@ define('PageController', [
       },
 
       setElements : function () {
+        this.$body = $('body');
         this.$siteHeader = $('#site-header');
         this.$siteStrap = $('#site-strap');
-        this.$siteFooter = $('#site-footer');
+        this.$siteFooter = $('#site-footer-inner');
         this.$primaryNav = $('#primary-nav');
       },
 
@@ -43,29 +42,40 @@ define('PageController', [
 
       },
 
-      goto : function (PageConstructor, page, options) {
-        var self = this,
-              obj = options || null;
+      goto : function (newPageModel, Page, options) {
 
-        appModel.set('currentPage', page);
+        var opts = options || null;
 
-        this.transitionOut(function () {
-          // self.closePages();
-          var pageInstance = new PageConstructor(obj);
-          self.$el.append(pageInstance.render().el);
-          self.transitionIn();
-          // pagesCollection.add(pageInstance);
+        var newPage = new Page(opts);
+        this.$el.html(newPage.render().el);
+
+        appModel.broker.trigger('page:change', {
+          newPage : newPage,
+          newPageModel : newPageModel
         });
+
+        this.setBodyClass(newPageModel.get('name'));
+
+        // this.transitionOut(function () {
+
+          // var page = new Page(opts);
+          // self.$el.append(page.render().el);
+          // self.transitionIn();
+
+        // });
       },
 
-      closePages : function () {
-        if(pagesCollection.length > 0) {
-          pagesCollection.each(function (model, index, array) {
-            if(model.attributes.close !== undefined && typeof model.attributes.close === 'function') {
-              model.attributes.close();
-              pagesCollection.remove(model);
-            }
-          });
+      setBodyClass : function (name) {
+        this.removeExistingPageClasses();
+        this.$body.addClass(name + '-page');
+      },
+
+      removeExistingPageClasses : function () {
+        if(this.$body.attr('class') !== undefined) {
+          var classArray = this.$body.attr('class').split(' ');
+          for(var i = 0; i < classArray.length; i++) {
+            this.$body.removeClass(classArray[i]);
+          }
         }
       },
 

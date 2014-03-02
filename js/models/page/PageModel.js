@@ -1,10 +1,11 @@
 
 define('PageModel', [
   'Backbone',
+  'appModel',
   'i18n!nls/nav'
 ],
 
-function (Backbone, content) {
+function (Backbone, appModel, content) {
 
   "use strict";
 
@@ -12,6 +13,34 @@ function (Backbone, content) {
 
     initialize : function () {
       this.setNavSubText();
+      this.setEvents();
+    },
+
+    setEvents : function () {
+      var self = this;
+      appModel.broker.on('page:change', function (opts) {
+        self.toggleCurrentPage(opts);
+      });
+    },
+
+    toggleCurrentPage : function (opts) {
+      if(this.cid === opts.newPageModel.cid) {
+        this.set({
+          currentPage : true,
+          pageInstance : opts.newPage
+        });
+        return;
+      }
+      this.closePageInstance();
+    },
+
+    closePageInstance : function () {
+      var pageInstance = this.get('pageInstance');
+      if(pageInstance) {
+        pageInstance.close();
+        this.unset('pageInstance', {silent : true});
+      }
+      this.set('currentPage', false);
     },
 
     setNavSubText : function () {
