@@ -1,0 +1,21 @@
+
+/* Desktop */
+
+.abstracts-container {
+  width:100%;
+  .abstract-icon-text {
+    display:inline-block;
+    width:49%;
+    .skill-icon {
+      float:left;
+      margin-right:20px;
+    }
+    .skill-text {
+      float:left;
+      width:70%;
+    }
+  }
+  .abstract-icon-text:nth-child(even) {
+    float:right;
+  }
+}

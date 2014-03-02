@@ -1,0 +1,15 @@
+
+.social-icons {
+  background: url('../img/icons/social-icons.png') no-repeat top left;
+  height:24px;
+  width:24px;
+}
+.social-icons.facebook {
+  background-position: 0 0;
+}
+.social-icons.linkedin {
+  background-position: 0 -25px;
+}
+.social-icons.twitter {
+  background-position: 0 -50px;
+}

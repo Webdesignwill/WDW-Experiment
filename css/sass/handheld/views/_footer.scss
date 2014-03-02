@@ -1,0 +1,31 @@
+
+/* Handheld */
+
+#site-footer {
+  .footer-social {
+    margin-bottom:40px;
+  }
+  .footer-news {
+    margin:40px 0;
+    padding:40px 0;
+    border-top:1px dotted $white;
+    border-bottom:1px dotted $white;
+    .footer-news-items {
+      .footer-news-item {
+        .news-header {
+          width:100%;
+          display:inline-block;
+          margin-bottom:20px;
+        }
+      }
+    }
+  }
+  .footer-contact {
+    .text {
+      float:left;
+    }
+    .logo-small {
+      float:right;
+    }
+  }
+}

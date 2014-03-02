@@ -1,0 +1,39 @@
+
+/* Handheld */
+
+#site-header {
+  background:url("../../img/borders/opaqueHeaderSmall.png") no-repeat bottom center;
+  padding: 75px 0 20px 0;
+  margin-bottom:20px;
+  h1 {
+    background:url('../../img/header/logo-badge-huge.png') no-repeat;
+    width:$handheld;
+    height:268px;
+    margin-bottom:25px;
+    font-size:50px;
+  }
+  h2 {
+    font-size:14px;
+  }
+}
+body.home-page {
+  #site-header  {
+    h1 {
+      background-position: center 0;
+    }
+  }
+}
+body.skills-page {
+  #site-header  {
+    h1 {
+      background-position: center -283px
+    }
+  }
+}
+body.contact-page {
+  #site-header  {
+    h1 {
+      background-position: center -556px;
+    }
+  }
+}

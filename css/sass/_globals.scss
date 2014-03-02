@@ -1,0 +1,48 @@
+html, body {
+  height:100%;
+  background-color: #333;
+}
+body {
+  @include transition(background-color, 1000ms);
+  @include box-shadow(inset rgba(0,0,0,0.5) 0 0 100px);
+  height:100%;
+  background: $darkBlue url('../img/body-bg.png') top left;
+  margin: 0;
+  padding: 0;
+}
+body.home-page {
+  background-color: $darkBlue;
+}
+body.contact-page {
+  background-color: $blood;
+}
+body.skills-page {
+  background-color: $racingGreen;
+}
+.clear:after {
+  content:"";
+  display:table;
+  clear:both;
+}
+#page-container {
+  background:url('../../img/borders/trim-top-site-content.png') repeat-x top left;
+  padding-top:7px;
+  .page-container-inner {
+    background:$grey url('../img/body-bg.png') repeat top left;
+  }
+}
+
+.site-content-header {
+  position:absolute;
+  width:100%;
+  top:-32px;
+  .site-content-header-inner {
+    text-align:center;
+    margin:0 auto;
+    h4 {
+      color:$beige;
+      margin-left:-17px;
+      padding:20px 40px;
+    }
+  }
+}

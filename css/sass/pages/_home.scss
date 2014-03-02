@@ -1,0 +1,24 @@
+#home {
+  background:url('../../img/backgrounds/thankyou.png') no-repeat center bottom;
+  position:relative;
+  .giant-button {
+    width:100%;
+    clear:both;
+    display:inline-block;
+    h3 {
+      @include transition(color, 250ms);
+      text-align:center;
+      background: none;
+      border: none;
+      border-top: 1px dotted $shadow;
+      border-bottom: 1px dotted $shadow;
+      color: $darkBlue;
+      width: 100%;
+      cursor:pointer;
+      font-weight:300;
+    }
+    h3:hover {
+      color:$blood;
+    }
+  }
+}

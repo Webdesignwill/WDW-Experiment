@@ -1,0 +1,18 @@
+@import "dimensions";
+@import "views/header";
+@import "views/nav";
+@import "views/strap";
+@import "views/footer";
+@import "components/abstracts";
+@import "pages/home";
+
+.site-content-header {
+  .site-content-header-inner {
+    background-color:$shadow;
+    h4 {
+      font-weight:300;
+      font-size:17px;
+      line-height:25px;
+    }
+  }
+}

@@ -1,0 +1,3 @@
+define({
+  "companyName" : "webdesignwill"
+});

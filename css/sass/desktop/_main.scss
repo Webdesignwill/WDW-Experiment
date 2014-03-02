@@ -1,0 +1,19 @@
+@import "dimensions";
+@import "views/header";
+@import "views/nav";
+@import "views/strap";
+@import "views/footer";
+@import "components/abstracts";
+@import "pages/home";
+
+.site-content-header {
+  .site-content-header-inner {
+    background: url('../../img/backgrounds/site-content-header.png') no-repeat top right;
+    width:450px;
+    h4 {
+      background: url('../../img/backgrounds/site-content-header-bit.png') no-repeat top left;
+      font-weight:300;
+      font-size:17px;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+
+/* Handheld */
+
+#primary-nav {
+  padding:25px 0 18px 0;
+  ul {
+    width:$handheld;
+    text-align:center;
+    li {
+      margin-right:7px;
+      padding-right:7px;
+    }
+    h3 {
+      font-size:20px;
+      margin-bottom:0;
+    }
+    cite {
+      display:none;
+    }
+  }
+}

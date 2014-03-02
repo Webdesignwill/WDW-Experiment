@@ -1,0 +1,55 @@
+#primary-nav {
+  background: url('../../img/borders/trim-top.png') repeat-x top left;
+  padding: 30px 0 0 0;
+  position: absolute;
+  z-index: $primaryNav;
+  top: 0;
+  right: 0;
+  left: 0;
+  ul {
+    text-align:right;
+    li {
+      color:$beige;
+      @include transition(color, 250ms);
+      display:inline-block;
+      text-align:left;
+      cursor:pointer;
+      border-right:1px dotted $beige;
+    }
+    li:hover {
+      color:$white;
+    }
+    li:last-child {
+      margin-right:0;
+      padding-right:0;
+      border: none;
+    }
+  }
+}
+body.home-page {
+  #primary-nav {
+    ul {
+      li.active {
+        color:$lightBlue;
+      }
+    }
+  }
+}
+body.contact-page {
+  #primary-nav {
+    ul {
+      li.active {
+        color:$lightBlood;
+      }
+    }
+  }
+}
+body.skills-page {
+  #primary-nav {
+    ul {
+      li.active {
+        color:$vomit;
+      }
+    }
+  }
+}

@@ -1,0 +1,1 @@
+<h2 class="width-auto">{{strap}}</h2>

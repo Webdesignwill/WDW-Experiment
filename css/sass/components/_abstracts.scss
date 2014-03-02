@@ -1,0 +1,44 @@
+.abstracts-container {
+  padding:90px 0 20px 0;
+  width:100%;
+  display:inline-block;
+  .abstract-icon-text {
+    margin-bottom:50px;
+    .skill-icon {
+      background:url(../../img/icons/skill-icons.png) no-repeat;
+      width:116px;
+      height:116px;
+    }
+    .skill-icon.javascript {
+      background-position: 0 0;
+    }
+    .skill-icon.html {
+      background-position: 0 -378px;
+    }
+    .skill-icon.css {
+      background-position: 0 -126px;
+    }
+    .skill-icon.design {
+      background-position: 0 -252px;
+    }
+    .skill-icon.javascript:hover {
+      background-position: -116px 0;
+    }
+    .skill-icon.html:hover {
+      background-position: -116px -378px;
+    }
+    .skill-icon.css:hover {
+      background-position: -116px -126px;
+    }
+    .skill-icon.design:hover {
+      background-position: -116px -252px;
+    }
+    .skill-text {
+      h3 {
+        font-size:22px;
+        font-weight:400;
+        margin-bottom:18px;
+      }
+    }
+  }
+}

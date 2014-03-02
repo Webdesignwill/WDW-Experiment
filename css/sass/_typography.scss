@@ -1,0 +1,25 @@
+
+h1, h2, h3, h4 {
+  font-family:$globalHeaderText;
+}
+h1, h2, h3 {
+  text-transform:uppercase;
+  letter-spacing: 1px;
+}
+p {
+  font-family:$globalParagraphText;
+  line-height:120%;
+  font-weight:normal;
+}
+cite {
+  font-family:$globalScriptText;
+}
+a {
+  @include transition(color, 250ms);
+  text-decoration:none;
+}
+#site-content {
+  p, h3 {
+    color:$shadow;
+  }
+}

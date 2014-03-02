@@ -1,0 +1,18 @@
+{
+  "site-map" : [{
+    "name" : "home",
+    "route" : "home(/)",
+    "page" : "HomePage",
+    "nav" : true
+  },{
+    "name" : "this",
+    "route" : "this(/)",
+    "page" : "ThisPage",
+    "nav" : true
+  },{
+    "name" : "contact",
+    "route" : "contact(/)",
+    "page" : "HomePage",
+    "nav" : true
+  }]
+}

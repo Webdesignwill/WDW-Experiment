@@ -1,0 +1,55 @@
+
+/* Desktop */
+
+#site-footer {
+  .site-footer-inner {
+    .footer-social {
+      float:left;
+      width:190px;
+      margin-right:20px;
+    }
+    .footer-news {
+      float:left;
+      border-left: 1px dotted $grey;
+      padding-left:25px;
+      width:330px;
+      .footer-news-items {
+        .footer-news-item {
+          .news-header {
+            width:100%;
+            display:inline-block;
+            margin-bottom:20px;
+            h4 {
+              width:60%;
+              font-size:18px;
+              float:left;
+            }
+            aside {
+              font-family:$globalHeaderText;
+              font-weight:300;
+              font-size:20px;
+              text-align:right;
+              float:right;
+              width:20%
+            }
+          }
+        }
+      }
+    }
+    .footer-contact {
+      width:340px;
+      float:right;
+      .text {
+        text-align:right;
+        width:62%;
+        float:left;
+        p {
+          line-height:34px;
+        }
+      }
+      .logo-small {
+        float:right;
+      }
+    }
+  }
+}

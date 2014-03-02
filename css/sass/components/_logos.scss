@@ -1,0 +1,21 @@
+
+.logo-small {
+  background: url('../img/logos/small.png') top left;
+  width:110px;
+  height:141px;
+}
+body.home-page {
+  .logo-small {
+    background-position:0 0;
+  }
+}
+body.skills-page {
+  .logo-small {
+    background-position:0 -151px;
+  }
+}
+body.contact-page {
+  .logo-small {
+    background-position:0 -302px;
+  }
+}
