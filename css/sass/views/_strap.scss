@@ -1,7 +1,15 @@
 #site-strap {
+  @include transition(height, 0.2s);
+  @include opacity(0);
+  height:10px;
+  overflow:hidden;
   h2 {
     text-align:center;
     color:$beige;
     font-weight:400;
   }
+}
+.home-page #site-strap {
+  @include opacity(1);
+  height:120px;
 }

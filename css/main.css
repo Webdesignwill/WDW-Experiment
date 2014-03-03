@@ -395,11 +395,30 @@ body.this-page #primary-nav ul li.active {
   color: #b2d233;
 }
 
-/* line 2, sass/views/_strap.scss */
+/* line 1, sass/views/_strap.scss */
+#site-strap {
+  -webkit-transition: height 0.2s linear;
+  -moz-transition: height 0.2s linear;
+  -o-transition: height 0.2s linear;
+  -ms-transition: height 0.2s linear;
+  transition: height 0.2s linear;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  height: 10px;
+  overflow: hidden;
+}
+/* line 6, sass/views/_strap.scss */
 #site-strap h2 {
   text-align: center;
   color: #fdedcd;
   font-weight: 400;
+}
+
+/* line 12, sass/views/_strap.scss */
+.home-page #site-strap {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
+  height: 120px;
 }
 
 /* line 2, sass/views/_footer.scss */
@@ -569,10 +588,15 @@ body.this-page #site-footer .site-footer-inner a:hover {
 
   /* line 1, sass/handheld/views/_strap.scss */
   #site-strap {
-    margin-bottom: 60px;
+    height: 35px;
   }
-  /* line 3, sass/handheld/views/_strap.scss */
-  #site-strap h2 {
+
+  /* line 4, sass/handheld/views/_strap.scss */
+  .home-page #site-strap {
+    margin-bottom: 20px;
+  }
+  /* line 6, sass/handheld/views/_strap.scss */
+  .home-page #site-strap h2 {
     font-size: 16px;
     line-height: 24px;
   }
@@ -703,12 +727,11 @@ body.this-page #site-footer .site-footer-inner a:hover {
   }
 
   /* line 1, sass/desktop/views/_strap.scss */
-  #site-strap {
-    margin-bottom: 80px;
+  .home-page #site-strap {
     text-align: center;
   }
-  /* line 4, sass/desktop/views/_strap.scss */
-  #site-strap h2 {
+  /* line 3, sass/desktop/views/_strap.scss */
+  .home-page #site-strap h2 {
     font-size: 20px;
     line-height: 30px;
   }
