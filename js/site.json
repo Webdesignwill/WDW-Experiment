@@ -1,15 +1,38 @@
 {
-  "site-map" : [{
+  "sitemap" : [{
     "name" : "home",
     "page" : "HomePage",
     "nav" : true
   },{
     "name" : "this",
     "page" : "ThisPage",
-    "nav" : true
+    "nav" : true,
+    "subpages" : [{
+      "name" : "description",
+      "page" : "DescriptionPage"
+    },{
+      "name" : "code",
+      "page" : "CodePage"
+    },{
+      "name" : "example",
+      "page" : "ExamplePage",
+      "subpages" : [{
+        "name" : "javascript",
+        "page" : "JavascriptPage"
+      },{
+        "name" : "html",
+        "page" : "HtmlPage"
+      },{
+        "name" : "css",
+        "page" : "CssPage"
+      }]
+    }]
   },{
     "name" : "contact",
     "page" : "ContactPage",
     "nav" : true
+  },{
+    "name" : "404",
+    "page" : "PageNotFound"
   }]
 }

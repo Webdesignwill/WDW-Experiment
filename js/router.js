@@ -14,20 +14,15 @@ function (Backbone, appModel, PageController, pagesCollection) {
 
     initialize : function () {
       this.setRoutes();
-      this.setElements();
       this.pageController = new PageController({
-        el: this.$pageContainerInner
+        el: $('#page-container-inner')
       });
-    },
-
-    setElements : function () {
-      this.$pageContainerInner = $('#page-container-inner');
     },
 
     setRoutes : function () {
       var self = this;
       pagesCollection.each(function (pageModel, index, array) {
-        self.route(pageModel.get('name') + '(/)', function () {
+        self.route(pageModel.get('route'), function () {
           require([pageModel.get('page')], function (Page) {
             self.pageController.goto(pageModel, Page, {});
           });
@@ -37,6 +32,6 @@ function (Backbone, appModel, PageController, pagesCollection) {
 
   });
 
-  appModel.router = new Router();
+  return Router;
 
 });

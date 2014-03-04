@@ -2,19 +2,26 @@
 define('app', [
   'Backbone',
   'appModel',
-  'utils'
-], function (Backbone, appModel, utils) {
+  'pagesCollection',
+  'utils',
+  'router'
+], function (Backbone, appModel, pagesCollection, utils, Router) {
 
   var App = function () {
     this.init = function () {
-      Backbone.history.start();
-      this.start();
+
+      var self = this;
+
+      pagesCollection.fetch();
+      pagesCollection.on('reset', function () {
+        var router = new Router();
+        Backbone.history.start();
+        self.start();
+      });
       return this;
     };
 
     this.start = function () {
-      var path = utils.getUrlPath() || '/home';
-      appModel.router.navigate(path, {trigger: true});
       appModel.broker.trigger('app:started');
       console.log('%c The app is started ', 'background: #7AFF4D; color: #000');
     };

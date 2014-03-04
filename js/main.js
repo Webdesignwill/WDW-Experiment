@@ -59,7 +59,7 @@ require.config({
       deps : ['page']
     },
     'app' : {
-      deps : ['router', 'broker']
+      deps : ['broker']
     }
   }
 
