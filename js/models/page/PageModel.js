@@ -2,10 +2,11 @@
 define('PageModel', [
   'Backbone',
   'appModel',
-  'i18n!nls/nav'
+  'i18n!nls/nav',
+  'pagesCollection'
 ],
 
-function (Backbone, appModel, content) {
+function (Backbone, appModel, content, pagesCollection) {
 
   "use strict";
 
@@ -14,6 +15,10 @@ function (Backbone, appModel, content) {
     initialize : function () {
       this.setNavSubText();
       this.setEvents();
+    },
+
+    parse : function (model, options) {
+      return model;
     },
 
     setEvents : function () {
@@ -46,6 +51,18 @@ function (Backbone, appModel, content) {
     setNavSubText : function () {
       var navSubText = content[this.get('name')] && content[this.get('name')].subText || '';
       this.set('navSubText', navSubText);
+    },
+
+    getNextPage : function (pagesCollection) {
+      var self = this;
+      return pagesCollection.filter(function (model) {
+        var thisModelNextPageName = self.get('nextPage') && self.get('nextPage').name,
+              thisModelName = self.get('name'),
+              testModelName = model.get('name'),
+              testModelPreviousPageName = model.get('previousPage') && model.get('previousPage').name;
+
+        return thisModelNextPageName === testModelName && testModelPreviousPageName === thisModelName;
+      });
     }
 
   });

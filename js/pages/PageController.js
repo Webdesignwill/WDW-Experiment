@@ -46,7 +46,11 @@ define('PageController', [
 
         var opts = options || null;
 
-        var newPage = new Page(opts);
+        var newPage = new Page({
+          model : newPageModel,
+          options : opts
+        });
+
         this.$el.html(newPage.render().el);
 
         appModel.broker.trigger('page:change', {

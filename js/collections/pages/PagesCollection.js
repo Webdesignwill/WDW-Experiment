@@ -1,9 +1,8 @@
 
 define('pagesCollection', [
     'Backbone',
-    'PageModel',
-    'text!site.json'
-], function (Backbone, PageModel, siteConfig) {
+    'PageModel'
+], function (Backbone, PageModel) {
 
   "use strict";
 
@@ -11,39 +10,50 @@ define('pagesCollection', [
 
     url : '/js/site.json',
     model : PageModel,
-    collection : [],
+    pageModels : [],
 
-    parse : function (response) {
+    parse : function (response, options) {
       this.parseModels(response.sitemap);
-      this.reset(this.collection);
+      return this.pageModels;
     },
 
     parseModels : function (pagesAry) {
       for(var i = 0; i < pagesAry.length; i++) {
-        this.generateRoute(pagesAry[i], '', 0);
+        this.augmentModel(
+          pagesAry[i-1] || null,
+          pagesAry[i],
+          pagesAry[i+1] || null,
+          '',
+          0
+        );
       }
     },
 
-    generateRoute : function (page, route, level) {
-
-      var pageModel = new PageModel(page);
-
+    augmentModel : function (previousPage, page, nextPage, route, level, parent) {
       level += 1;
-      if(pageModel.get('subpages') !== undefined) {
-        route += pageModel.get('name') + '/';
-        for(var i = 0; i < pageModel.get('subpages').length; i++) {
-          this.generateRoute(pageModel.get('subpages')[i], route, level);
+      if(page.subpages) {
+        route += page.name + '/';
+        for(var i = 0; i < page.subpages.length; i++) {
+          this.augmentModel(
+            page.subpages[i-1] || null,
+            page.subpages[i],
+            page.subpages[i+1] || null,
+            route,
+            level,
+            page
+          );
         }
       } else {
-        route += pageModel.get('name') + '(/)'; // so the route /home/page/ will not return 404
+        route += page.name + '(/)';
       }
 
-      pageModel.set({
-        level : level,
-        route : route
-      });
+      page.level = level;
+      page.route = route;
+      page.parent = parent || null;
+      page.previousPage = previousPage;
+      page.nextPage = nextPage;
 
-      this.collection.push(pageModel);
+      this.pageModels.push(page);
 
     }
 

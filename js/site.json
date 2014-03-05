@@ -31,8 +31,5 @@
     "name" : "contact",
     "page" : "ContactPage",
     "nav" : true
-  },{
-    "name" : "404",
-    "page" : "PageNotFound"
   }]
 }

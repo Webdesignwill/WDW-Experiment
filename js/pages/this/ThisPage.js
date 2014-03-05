@@ -3,10 +3,11 @@ define('ThisPage', [
   'Backbone',
   'handlebars',
   'text!pages/this/templates/this.tpl',
-  "i18n!nls/this"
+  'i18n!nls/this',
+  'pagesCollection'
 ],
 
-function (Backbone, handlebars, template, content) {
+function (Backbone, handlebars, template, content, pagesCollection) {
 
   "use strict";
 
@@ -14,6 +15,10 @@ function (Backbone, handlebars, template, content) {
 
     id : 'this-page',
     className : 'width-auto this-page',
+
+    initialize : function () {
+      console.log('My next page : ', this.model.getNextPage(pagesCollection));
+    },
 
     render : function () {
 

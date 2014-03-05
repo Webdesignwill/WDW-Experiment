@@ -12,12 +12,12 @@ define('app', [
 
       var self = this;
 
-      pagesCollection.fetch();
+      pagesCollection.fetch({reset: true});
       pagesCollection.on('reset', function () {
-        var router = new Router();
+        appModel.router = new Router();
         Backbone.history.start();
         self.start();
-      });
+      }, {parse : true});
       return this;
     };
 
