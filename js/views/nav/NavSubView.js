@@ -18,12 +18,7 @@ function (Backbone, handlebars, appModel, template) {
     },
 
     initialize : function () {
-      this.setElements();
       this.setEvents();
-    },
-
-    setElements : function () {
-      this.$body = $('body');
     },
 
     setEvents : function () {

@@ -11,18 +11,17 @@ define('app', [
     this.init = function () {
 
       var self = this;
-
-      pagesCollection.fetch({reset: true});
-      pagesCollection.on('reset', function () {
-        appModel.router = new Router();
-        Backbone.history.start();
-        self.start();
-      }, {parse : true});
+      pagesCollection.fetch({
+        success : function (model, response, options) {
+          appModel.router = new Router();
+          self.start();
+        }, reset : true
+      });
       return this;
     };
 
     this.start = function () {
-      appModel.broker.trigger('app:started');
+      Backbone.history.start();
       console.log('%c The app is started ', 'background: #7AFF4D; color: #000');
     };
 

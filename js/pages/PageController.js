@@ -78,6 +78,15 @@ define('PageController', [
         if(this.$body.attr('class') !== undefined) {
           var classArray = this.$body.attr('class').split(' ');
           for(var i = 0; i < classArray.length; i++) {
+            // TODO if has index of page, remove it
+            /*
+
+              if(classArray[i].indexOf('sidebar-') !== -1) {
+                this.$body.removeClass(classArray[i]);
+              }
+
+
+            */
             this.$body.removeClass(classArray[i]);
           }
         }

@@ -13,47 +13,34 @@ define('pagesCollection', [
     pageModels : [],
 
     parse : function (response, options) {
-      this.parseModels(response.sitemap);
+      var models = [];
+      for(var i = 0; i < response.sitemap.length; i++) {
+        models.push(this.createModel(response.sitemap[i], 0));
+      }
       return this.pageModels;
     },
 
-    parseModels : function (pagesAry) {
-      for(var i = 0; i < pagesAry.length; i++) {
-        this.augmentModel(
-          pagesAry[i-1] || null,
-          pagesAry[i],
-          pagesAry[i+1] || null,
-          '',
-          0
-        );
-      }
-    },
+    createModel : function (sitemap, level, route) {
 
-    augmentModel : function (previousPage, page, nextPage, route, level, parent) {
-      level += 1;
-      if(page.subpages) {
-        route += page.name + '/';
-        for(var i = 0; i < page.subpages.length; i++) {
-          this.augmentModel(
-            page.subpages[i-1] || null,
-            page.subpages[i],
-            page.subpages[i+1] || null,
-            route,
-            level,
-            page
-          );
+      var model;
+
+      model = {
+        level : level += 1,
+        name : sitemap.name,
+        subpages : [],
+        route : route ? route : ''
+      };
+
+      model.route += sitemap.name;
+      model.route += sitemap.subpages ? '/' : '(/)';
+
+      if(sitemap.subpages) {
+        for(var i = 0; i < sitemap.subpages.length; i++) {
+          model.subpages.push(this.createModel(sitemap.subpages[i], model.level, model.route));
         }
-      } else {
-        route += page.name + '(/)';
       }
 
-      page.level = level;
-      page.route = route;
-      page.parent = parent || null;
-      page.previousPage = previousPage;
-      page.nextPage = nextPage;
-
-      this.pageModels.push(page);
+      return model;
 
     }
 
