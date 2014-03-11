@@ -29,7 +29,7 @@ function (Backbone, handlebars, appModel, template) {
     },
 
     highlightActive : function (opts) {
-      if(opts.newPageModel.get('name') === this.options.name) {
+      if(opts.newPageModel.get('name') === this.model.get('name')) {
         this.$el.addClass('active');
         return;
       }
@@ -37,13 +37,13 @@ function (Backbone, handlebars, appModel, template) {
     },
 
     navigate : function () {
-      appModel.router.navigate(this.options.name, {trigger: true});
+      appModel.router.navigate(this.model.get('path'), {trigger: true});
     },
 
     render : function () {
 
       var tpl = handlebars.compile(template);
-      var compiled = tpl(this.options);
+      var compiled = tpl(this.model.attributes);
 
       this.$el.html(compiled);
 

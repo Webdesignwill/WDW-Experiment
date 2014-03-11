@@ -22,7 +22,7 @@ function (Backbone, appModel, PageController, pagesCollection) {
     setRoutes : function () {
       var self = this;
       pagesCollection.each(function (pageModel, index, array) {
-        self.route(pageModel.get('route'), function () {
+        self.route(pageModel.get('route'), pageModel.get('name'), function (e) {
           require([pageModel.get('page')], function (Page) {
             self.pageController.goto(pageModel, Page, {});
           });

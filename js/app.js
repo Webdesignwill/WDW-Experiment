@@ -22,6 +22,7 @@ define('app', [
 
     this.start = function () {
       Backbone.history.start();
+      appModel.router.navigate('home/', {trigger:true});
       console.log('%c The app is started ', 'background: #7AFF4D; color: #000');
     };
 

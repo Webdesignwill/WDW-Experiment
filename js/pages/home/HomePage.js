@@ -14,15 +14,7 @@ function (Backbone, handlebars, appModel, template, content) {
   var HomePage = Backbone.Page.extend({
 
     id : 'home-page',
-    className : 'width-auto home-page',
-
-    events : {
-      'click #giant-button' : 'navigate'
-    },
-
-    navigate : function () {
-      appModel.router.navigate('this', {trigger: true});
-    },
+    className : 'width-auto home-page page',
 
     render : function () {
 

@@ -25,7 +25,7 @@ function (Backbone, handlebars, NavSubView, pagesCollection) {
 
       pagesCollection.each(function (pageModel, index, array) {
         if(pageModel.get('nav')) {
-          var navSubView = new NavSubView({name : pageModel.get('name'), subText : pageModel.get('navSubText')});
+          var navSubView = new NavSubView({model : pageModel});
           fragment.appendChild(navSubView.render().el);
         }
       });

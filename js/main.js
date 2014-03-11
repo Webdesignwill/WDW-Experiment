@@ -13,7 +13,6 @@ require.config({
     text                                      : 'libs/require/text-min',
     domReady                            : 'libs/require/domReady',
 
-    broker                                  : 'broker',
     utils                                     : 'utils',
 
     // Helpers
@@ -35,9 +34,11 @@ require.config({
     FooterNewsItemView             : 'views/footer/FooterNewsItemView',
     FooterContactView                : 'views/footer/FooterContactView',
     HeaderView                           : 'views/header/HeaderView',
+    SiteContentHeaderView         : 'views/siteContentHeader/SiteContentHeaderView',
     NavView                                : 'views/nav/NavView',
     NavSubView                          : 'views/nav/NavSubView',
     StrapView                             : 'views/strap/StrapView',
+    PageControlsView                 : 'views/pageControls/PageControlsView',
 
     // Pages
     PageController                      : 'pages/PageController',
@@ -59,7 +60,7 @@ require.config({
       deps : ['page']
     },
     'app' : {
-      deps : ['broker']
+      deps : ['appModel']
     }
   }
 

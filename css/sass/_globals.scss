@@ -1,11 +1,13 @@
 html, body {
   height:100%;
+  min-height:100%;
 }
 body {
   @include transition(background-color, 0.5s);
   @include box-shadow(inset rgba(0,0,0,0.5) 0 0 100px);
   background: $darkBlue url('../img/body-bg.png') top left;
   height:100%;
+  overflow-x:hidden;
   margin: 0;
   padding: 0;
 }
@@ -26,15 +28,19 @@ body.this-page {
 #page-container {
   background:url('../../img/borders/trim-top-site-content.png') repeat-x top left;
   padding-top:7px;
+  position:relative;
   .page-container-inner {
     background:$grey url('../img/body-bg.png') repeat top left;
+    div.page {
+      position:relative;
+    }
   }
 }
 
-.site-content-header {
+#site-content-header {
   position:absolute;
   width:100%;
-  top:-32px;
+  top:-27px;
   .site-content-header-inner {
     text-align:center;
     margin:0 auto;

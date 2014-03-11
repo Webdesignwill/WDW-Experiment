@@ -5,8 +5,10 @@ define('PageController', [
     'NavView',
     'HeaderView',
     'StrapView',
+    'PageControlsView',
     'FooterView',
-  ], function (Backbone, appModel, NavView, HeaderView, StrapView, FooterView) {
+    'SiteContentHeaderView'
+  ], function (Backbone, appModel, NavView, HeaderView, StrapView, PageControlsView, FooterView, SiteContentHeaderView) {
 
     "use strict";
 
@@ -14,7 +16,7 @@ define('PageController', [
 
       initialize : function () {
         this.setElements();
-        this.renderTopTail();
+        this.renderPageComponents();
       },
 
       setElements : function () {
@@ -23,9 +25,11 @@ define('PageController', [
         this.$siteStrap = $('#site-strap');
         this.$siteFooter = $('#site-footer-inner');
         this.$primaryNav = $('#primary-nav');
+        this.$pageControls = $('#page-controls');
+        this.$siteContentHeader = $('#site-content-header');
       },
 
-      renderTopTail : function () {
+      renderPageComponents : function () {
         this.$primaryNav.html(new NavView().render().el);
 
         new HeaderView({
@@ -34,6 +38,14 @@ define('PageController', [
 
         new StrapView({
           el : this.$siteStrap
+        });
+
+        new SiteContentHeaderView({
+          el : this.$siteContentHeader
+        });
+
+        new PageControlsView({
+          el : this.$pageControls
         });
 
         new FooterView({
@@ -46,27 +58,20 @@ define('PageController', [
 
         var opts = options || null;
 
-        var newPage = new Page({
+        var newPageView = new Page({
           model : newPageModel,
           options : opts
         });
 
-        this.$el.html(newPage.render().el);
+        this.$el.html(newPageView.render().el);
 
         appModel.broker.trigger('page:change', {
-          newPage : newPage,
+          newPageView : newPageView,
           newPageModel : newPageModel
         });
 
         this.setBodyClass(newPageModel.get('name'));
 
-        // this.transitionOut(function () {
-
-          // var page = new Page(opts);
-          // self.$el.append(page.render().el);
-          // self.transitionIn();
-
-        // });
       },
 
       setBodyClass : function (name) {
@@ -78,32 +83,11 @@ define('PageController', [
         if(this.$body.attr('class') !== undefined) {
           var classArray = this.$body.attr('class').split(' ');
           for(var i = 0; i < classArray.length; i++) {
-            // TODO if has index of page, remove it
-            /*
-
-              if(classArray[i].indexOf('sidebar-') !== -1) {
-                this.$body.removeClass(classArray[i]);
-              }
-
-
-            */
-            this.$body.removeClass(classArray[i]);
+            if(classArray[i].indexOf('-page') !== -1) {
+              this.$body.removeClass(classArray[i]);
+            }
           }
         }
-      },
-
-      transitionIn : function () {
-        this.$el.animate({
-          opacity : 1,
-          duration : 10
-        });
-      },
-
-      transitionOut : function (callback) {
-        this.$el.animate({
-          opacity : 0,
-          duration : 10
-        }, callback);
       }
 
     });

@@ -3,6 +3,16 @@
   background:url('../../img/borders/trim-site-footer.png') repeat-x top left;
   padding-top:7px;
   margin-top:-7px;
+  position:relative;
+  .thankyou {
+    background:url('../../img/backgrounds/thankyou.png') no-repeat center bottom;
+    display: block;
+    width: 300px;
+    height: 126px;
+    position: relative;
+    margin: 0 auto;
+    margin-top: -126px;
+  }
   .site-footer-inner {
     background:$shade url('../../img/body-bg.png') repeat top left;
     width:100%;

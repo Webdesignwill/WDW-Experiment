@@ -71,9 +71,10 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 /* line 1, sass/_globals.scss */
 html, body {
   height: 100%;
+  min-height: 100%;
 }
 
-/* line 4, sass/_globals.scss */
+/* line 5, sass/_globals.scss */
 body {
   -webkit-transition: background-color 0.5s linear;
   -moz-transition: background-color 0.5s linear;
@@ -85,67 +86,73 @@ body {
   box-shadow: inset rgba(0, 0, 0, 0.5) 0 0 100px;
   background: #444f64 url("../img/body-bg.png") top left;
   height: 100%;
+  overflow-x: hidden;
   margin: 0;
   padding: 0;
 }
 
-/* line 12, sass/_globals.scss */
+/* line 14, sass/_globals.scss */
 body.home-page {
   background-color: #444f64;
 }
 
-/* line 15, sass/_globals.scss */
+/* line 17, sass/_globals.scss */
 body.contact-page {
   background-color: #76312d;
 }
 
-/* line 18, sass/_globals.scss */
+/* line 20, sass/_globals.scss */
 body.this-page {
   background-color: #376018;
 }
 
-/* line 21, sass/_globals.scss */
+/* line 23, sass/_globals.scss */
 .clear:after {
   content: "";
   display: table;
   clear: both;
 }
 
-/* line 26, sass/_globals.scss */
+/* line 28, sass/_globals.scss */
 #page-container {
   background: url("../../img/borders/trim-top-site-content.png") repeat-x top left;
   padding-top: 7px;
+  position: relative;
 }
-/* line 29, sass/_globals.scss */
+/* line 32, sass/_globals.scss */
 #page-container .page-container-inner {
   background: #eeeeee url("../img/body-bg.png") repeat top left;
 }
-
 /* line 34, sass/_globals.scss */
-.site-content-header {
+#page-container .page-container-inner div.page {
+  position: relative;
+}
+
+/* line 40, sass/_globals.scss */
+#site-content-header {
   position: absolute;
   width: 100%;
-  top: -32px;
+  top: -27px;
 }
-/* line 38, sass/_globals.scss */
-.site-content-header .site-content-header-inner {
+/* line 44, sass/_globals.scss */
+#site-content-header .site-content-header-inner {
   text-align: center;
   margin: 0 auto;
 }
-/* line 41, sass/_globals.scss */
-.site-content-header .site-content-header-inner h4 {
+/* line 47, sass/_globals.scss */
+#site-content-header .site-content-header-inner h4 {
   color: #fdedcd;
   margin-left: -17px;
   padding: 20px 40px;
 }
 
 @keyframes nodeInserted {
-  /* line 50, sass/_globals.scss */
+  /* line 56, sass/_globals.scss */
   from {
     opacity: 0.99;
   }
 
-  /* line 51, sass/_globals.scss */
+  /* line 57, sass/_globals.scss */
   to {
     opacity: 1;
   }
@@ -288,48 +295,25 @@ body.contact-page .logo-small {
   background-position: 0 -50px;
 }
 
-/* line 1, sass/pages/_home.scss */
-#home-page {
-  background: url("../../img/backgrounds/thankyou.png") no-repeat center bottom;
-  position: relative;
-}
-/* line 4, sass/pages/_home.scss */
-#home-page .giant-button {
+/* line 2, sass/pages/_home.scss */
+#home-page h1 {
+  padding: 200px 0;
   width: 100%;
-  clear: both;
-  display: inline-block;
-}
-/* line 8, sass/pages/_home.scss */
-#home-page .giant-button h3 {
-  -webkit-transition: color 250ms linear;
-  -moz-transition: color 250ms linear;
-  -o-transition: color 250ms linear;
-  -ms-transition: color 250ms linear;
-  transition: color 250ms linear;
   text-align: center;
-  background: none;
-  border-top: 1px dotted #444444;
-  border-bottom: 1px dotted #444444;
-  color: #444f64;
+}
+
+/* line 2, sass/pages/_contact.scss */
+#contact-page h1 {
+  padding: 200px 0;
   width: 100%;
-  cursor: pointer;
-  font-weight: 300;
-}
-/* line 19, sass/pages/_home.scss */
-#home-page .giant-button h3:hover {
-  color: #76312d;
+  text-align: center;
 }
 
-/* line 1, sass/pages/_contact.scss */
-#contact-page {
-  background: url("../../img/backgrounds/thankyou.png") no-repeat center bottom;
-  position: relative;
-}
-
-/* line 1, sass/pages/_this.scss */
-#this-page {
-  background: url("../../img/backgrounds/thankyou.png") no-repeat center bottom;
-  position: relative;
+/* line 2, sass/pages/_this.scss */
+#this-page h1 {
+  padding: 200px 0;
+  width: 100%;
+  text-align: center;
 }
 
 /* line 2, sass/views/_header.scss */
@@ -426,8 +410,19 @@ body.this-page #primary-nav ul li.active {
   background: url("../../img/borders/trim-site-footer.png") repeat-x top left;
   padding-top: 7px;
   margin-top: -7px;
+  position: relative;
 }
-/* line 6, sass/views/_footer.scss */
+/* line 7, sass/views/_footer.scss */
+#site-footer .thankyou {
+  background: url("../../img/backgrounds/thankyou.png") no-repeat center bottom;
+  display: block;
+  width: 300px;
+  height: 126px;
+  position: relative;
+  margin: 0 auto;
+  margin-top: -126px;
+}
+/* line 16, sass/views/_footer.scss */
 #site-footer .site-footer-inner {
   background: #444444 url("../../img/body-bg.png") repeat top left;
   width: 100%;
@@ -436,13 +431,13 @@ body.this-page #primary-nav ul li.active {
   color: #eeeeee;
   display: inline-block;
 }
-/* line 13, sass/views/_footer.scss */
+/* line 23, sass/views/_footer.scss */
 #site-footer .site-footer-inner h3 {
   font-size: 22px;
   font-weight: 300;
   margin-bottom: 25px;
 }
-/* line 18, sass/views/_footer.scss */
+/* line 28, sass/views/_footer.scss */
 #site-footer .site-footer-inner p, #site-footer .site-footer-inner li {
   font-family: "Oswald", sans-serif;
   font-weight: 300;
@@ -450,11 +445,11 @@ body.this-page #primary-nav ul li.active {
   line-height: 24px;
   letter-spacing: 1px;
 }
-/* line 25, sass/views/_footer.scss */
+/* line 35, sass/views/_footer.scss */
 #site-footer .site-footer-inner a {
   color: #FFF;
 }
-/* line 29, sass/views/_footer.scss */
+/* line 39, sass/views/_footer.scss */
 #site-footer .site-footer-inner .footer-social li {
   line-height: 28px;
   width: 100%;
@@ -462,27 +457,27 @@ body.this-page #primary-nav ul li.active {
   padding-left: 36px;
   cursor: pointer;
 }
-/* line 38, sass/views/_footer.scss */
+/* line 48, sass/views/_footer.scss */
 #site-footer .site-footer-inner .footer-news .footer-news-items {
   display: inline-block;
 }
-/* line 40, sass/views/_footer.scss */
+/* line 50, sass/views/_footer.scss */
 #site-footer .site-footer-inner .footer-news .footer-news-items .footer-news-item {
   display: inline-block;
 }
-/* line 42, sass/views/_footer.scss */
+/* line 52, sass/views/_footer.scss */
 #site-footer .site-footer-inner .footer-news .footer-news-items .footer-news-item .news-header {
   width: 100%;
   display: inline-block;
   margin-bottom: 20px;
 }
-/* line 46, sass/views/_footer.scss */
+/* line 56, sass/views/_footer.scss */
 #site-footer .site-footer-inner .footer-news .footer-news-items .footer-news-item .news-header h4 {
   width: 60%;
   font-size: 18px;
   float: left;
 }
-/* line 51, sass/views/_footer.scss */
+/* line 61, sass/views/_footer.scss */
 #site-footer .site-footer-inner .footer-news .footer-news-items .footer-news-item .news-header aside {
   font-family: "Oswald", sans-serif;
   font-weight: 300;
@@ -491,32 +486,61 @@ body.this-page #primary-nav ul li.active {
   float: right;
   width: 20%;
 }
-/* line 64, sass/views/_footer.scss */
+/* line 74, sass/views/_footer.scss */
 #site-footer .site-footer-inner .footer-contact .text {
   width: 62%;
 }
-/* line 66, sass/views/_footer.scss */
+/* line 76, sass/views/_footer.scss */
 #site-footer .site-footer-inner .footer-contact .text p {
   line-height: 34px;
 }
-/* line 70, sass/views/_footer.scss */
+/* line 80, sass/views/_footer.scss */
 #site-footer .site-footer-inner .footer-contact .logo-small {
   float: right;
 }
 
-/* line 79, sass/views/_footer.scss */
+/* line 89, sass/views/_footer.scss */
 body.home-page #site-footer .site-footer-inner a:hover {
   color: #c0e4ed;
 }
 
-/* line 88, sass/views/_footer.scss */
+/* line 98, sass/views/_footer.scss */
 body.contact-page #site-footer .site-footer-inner a:hover {
   color: #e86158;
 }
 
-/* line 97, sass/views/_footer.scss */
+/* line 107, sass/views/_footer.scss */
 body.this-page #site-footer .site-footer-inner a:hover {
   color: #b2d233;
+}
+
+/* line 2, sass/views/_page-controls.scss */
+#page-controls {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  left: 0;
+}
+/* line 7, sass/views/_page-controls.scss */
+#page-controls .next-page, #page-controls .prev-page {
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  background: #FFF;
+  display: block;
+  cursor: pointer;
+}
+/* line 15, sass/views/_page-controls.scss */
+#page-controls .next-page {
+  right: 0;
+}
+/* line 18, sass/views/_page-controls.scss */
+#page-controls .prev-page {
+  left: 0;
+}
+/* line 21, sass/views/_page-controls.scss */
+#page-controls .next-page.hide, #page-controls .prev-page.hide {
+  display: none;
 }
 
 @media only screen and (max-width: 420px) {
@@ -629,39 +653,12 @@ body.this-page #site-footer .site-footer-inner a:hover {
   }
 
   /* Handheld */
-  /* line 4, sass/handheld/components/_abstracts.scss */
-  .abstracts-container {
-    width: 100%;
-    text-align: center;
-  }
-  /* line 7, sass/handheld/components/_abstracts.scss */
-  .abstracts-container .abstract-icon-text {
-    display: inline-block;
-    width: 100%;
-  }
-  /* line 10, sass/handheld/components/_abstracts.scss */
-  .abstracts-container .abstract-icon-text .skill-icon {
-    margin: 0 auto 20px auto;
-  }
-
-  /* Handheld */
-  /* line 5, sass/handheld/pages/_home.scss */
-  #home-page .giant-button {
-    margin-bottom: 200px;
-  }
-  /* line 7, sass/handheld/pages/_home.scss */
-  #home-page .giant-button h3 {
-    padding: 40px 0;
-    letter-spacing: 12px;
-    font-size: 39px;
-  }
-
-  /* line 10, sass/handheld/_main.scss */
-  .site-content-header .site-content-header-inner {
+  /* line 9, sass/handheld/_main.scss */
+  #site-content-header .site-content-header-inner {
     background-color: #444444;
   }
-  /* line 12, sass/handheld/_main.scss */
-  .site-content-header .site-content-header-inner h4 {
+  /* line 11, sass/handheld/_main.scss */
+  #site-content-header .site-content-header-inner h4 {
     font-weight: 300;
     font-size: 17px;
     line-height: 25px;
@@ -791,49 +788,13 @@ body.this-page #site-footer .site-footer-inner a:hover {
     float: right;
   }
 
-  /* Desktop */
-  /* line 4, sass/desktop/components/_abstracts.scss */
-  .abstracts-container {
-    width: 100%;
-  }
-  /* line 6, sass/desktop/components/_abstracts.scss */
-  .abstracts-container .abstract-icon-text {
-    display: inline-block;
-    width: 49%;
-  }
-  /* line 9, sass/desktop/components/_abstracts.scss */
-  .abstracts-container .abstract-icon-text .skill-icon {
-    float: left;
-    margin-right: 20px;
-  }
-  /* line 13, sass/desktop/components/_abstracts.scss */
-  .abstracts-container .abstract-icon-text .skill-text {
-    float: left;
-    width: 70%;
-  }
-  /* line 18, sass/desktop/components/_abstracts.scss */
-  .abstracts-container .abstract-icon-text:nth-child(even) {
-    float: right;
-  }
-
-  /* line 2, sass/desktop/pages/_home.scss */
-  #home-page {
-    padding-bottom: 180px;
-  }
-  /* line 5, sass/desktop/pages/_home.scss */
-  #home-page .giant-button h3 {
-    padding: 40px 0;
-    letter-spacing: 50px;
-    font-size: 108px;
-  }
-
-  /* line 10, sass/desktop/_main.scss */
-  .site-content-header .site-content-header-inner {
+  /* line 9, sass/desktop/_main.scss */
+  #site-content-header .site-content-header-inner {
     background: url("../../img/backgrounds/site-content-header.png") no-repeat top right;
     width: 450px;
   }
-  /* line 13, sass/desktop/_main.scss */
-  .site-content-header .site-content-header-inner h4 {
+  /* line 12, sass/desktop/_main.scss */
+  #site-content-header .site-content-header-inner h4 {
     background: url("../../img/backgrounds/site-content-header-bit.png") no-repeat top left;
     font-weight: 300;
     font-size: 17px;

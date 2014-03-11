@@ -2,11 +2,10 @@
 define('PageModel', [
   'Backbone',
   'appModel',
-  'i18n!nls/nav',
-  'pagesCollection'
+  'i18n!nls/nav'
 ],
 
-function (Backbone, appModel, content, pagesCollection) {
+function (Backbone, appModel, content) {
 
   "use strict";
 
@@ -32,7 +31,7 @@ function (Backbone, appModel, content, pagesCollection) {
       if(this.cid === opts.newPageModel.cid) {
         this.set({
           currentPage : true,
-          pageInstance : opts.newPage
+          pageInstance : opts.newPageView
         });
         return;
       }
@@ -53,16 +52,20 @@ function (Backbone, appModel, content, pagesCollection) {
       this.set('navSubText', navSubText);
     },
 
-    getNextPage : function (pagesCollection) {
+    getNextPage : function () {
       var self = this;
-      return pagesCollection.filter(function (model) {
-        var thisModelNextPageName = self.get('nextPage') && self.get('nextPage').name,
-              thisModelName = self.get('name'),
-              testModelName = model.get('name'),
-              testModelPreviousPageName = model.get('previousPage') && model.get('previousPage').name;
-
-        return thisModelNextPageName === testModelName && testModelPreviousPageName === thisModelName;
+      var nextPage = this.collection.filter(function (model) {
+        return self.get('nextPage') === model.get('name') && self.get('level') === model.get('level');
       });
+      return nextPage[0];
+    },
+
+    getPrevPage : function () {
+      var self = this;
+      var prevPage = this.collection.filter(function (model) {
+        return self.get('prevPage') === model.get('name') && self.get('level') === model.get('level');
+      });
+      return prevPage[0];
     }
 
   });

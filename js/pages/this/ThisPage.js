@@ -2,23 +2,19 @@
 define('ThisPage', [
   'Backbone',
   'handlebars',
+  'appModel',
   'text!pages/this/templates/this.tpl',
-  'i18n!nls/this',
-  'pagesCollection'
+  'i18n!nls/this'
 ],
 
-function (Backbone, handlebars, template, content, pagesCollection) {
+function (Backbone, handlebars, appModel, template, content) {
 
   "use strict";
 
   var ThisPage = Backbone.Page.extend({
 
     id : 'this-page',
-    className : 'width-auto this-page',
-
-    initialize : function () {
-      console.log('My next page : ', this.model.getNextPage(pagesCollection));
-    },
+    className : 'width-auto this-page page',
 
     render : function () {
 

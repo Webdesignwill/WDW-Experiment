@@ -3,10 +3,9 @@
 @import "views/nav";
 @import "views/strap";
 @import "views/footer";
-@import "components/abstracts";
 @import "pages/home";
 
-.site-content-header {
+#site-content-header {
   .site-content-header-inner {
     background: url('../../img/backgrounds/site-content-header.png') no-repeat top right;
     width:450px;

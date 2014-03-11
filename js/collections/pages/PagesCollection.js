@@ -13,30 +13,34 @@ define('pagesCollection', [
     pageModels : [],
 
     parse : function (response, options) {
-      var models = [];
       for(var i = 0; i < response.sitemap.length; i++) {
-        models.push(this.createModel(response.sitemap[i], 0));
+        var nextPage = response.sitemap[i+1], prevPage = response.sitemap[i-1];
+        this.pageModels.push(this.createModel(response.sitemap[i], 0, '', '', nextPage, prevPage));
       }
       return this.pageModels;
     },
 
-    createModel : function (sitemap, level, route) {
+    createModel : function (sitemap, level, route, path, np, pp) {
 
-      var model;
-
-      model = {
-        level : level += 1,
+      var model = {
+        level : level + 1,
         name : sitemap.name,
-        subpages : [],
-        route : route ? route : ''
+        page : sitemap.page,
+        route : route,
+        path : path,
+        nextPage : np ? np.name : null,
+        prevPage : pp ? pp.name : null,
+        nav : sitemap.nav
       };
 
+      model.path += sitemap.name + '/';
       model.route += sitemap.name;
       model.route += sitemap.subpages ? '/' : '(/)';
 
       if(sitemap.subpages) {
         for(var i = 0; i < sitemap.subpages.length; i++) {
-          model.subpages.push(this.createModel(sitemap.subpages[i], model.level, model.route));
+          var nextPage = sitemap.subpages[i+1], prevPage = sitemap.subpages[i-1];
+          this.pageModels.push(this.createModel(sitemap.subpages[i], model.level, model.route, model.path, nextPage, prevPage));
         }
       }
 
