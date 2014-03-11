@@ -9,8 +9,9 @@ $globalParagraphText : "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L",
 $desktop : 1024px;
 $handheld : 324px;
 
-/* Colours Flements */
+/* Colour Elements */
 
+$veryLightBlue : rgb(226,246,255); // #E2F6FF
 $lightBlue : rgb(192,228,237); //#C0E4ED
 $blue : rgb(94,117,186); // #5E75BA
 $darkBlue : rgb(68,79,100); // #444F64
@@ -24,6 +25,13 @@ $racingGreen : rgb(55,96,24); // #376018
 $vomit : rgb(178,210,51); // #B2D233
 $grey : rgb(238,238,238); // #EEEEEE
 
+// Section colours
+$skyBlue : rgb(226,246,255); // #E2F6FF
+$pearlyWhite : rgb(255,255,255); // #FFFFFF
+$englishSkies : rgb(245,245,245); // #F5F5F5
+$racingGrey : rgb(225,222,214); // #E1DED6
+
 /* z-index */
 
-$primaryNav : 10;
+$primaryNavZindex : 10;
+$siteContentHeaderZindex : 20;

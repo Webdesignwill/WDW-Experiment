@@ -35,6 +35,20 @@ define('PageControlsView', [
       });
     },
 
+    next : function (e) {
+      e.stopPropagation();
+      e.preventDefault();
+      var path = appModel.get('currentPageModel').getNextPage() ? appModel.get('currentPageModel').getNextPage().get('path') : appModel.get('currentPageModel').get('path');
+      appModel.router.navigate(path, {trigger:true});
+    },
+
+    prev : function (e) {
+      e.stopPropagation();
+      e.preventDefault();
+      var path = appModel.get('currentPageModel').getPrevPage() ? appModel.get('currentPageModel').getPrevPage().get('path') : appModel.get('currentPageModel').get('path');
+      appModel.router.navigate(path, {trigger:true});
+    },
+
     toggleControls : function () {
 
       var getNextPage = appModel.get('currentPageModel').getNextPage(),
@@ -52,20 +66,6 @@ define('PageControlsView', [
         this.$prevPage.removeClass('hide');
         this.$prevPageName.html(getPrevPage.get('name'));
       }
-    },
-
-    next : function (e) {
-      e.stopPropagation();
-      e.preventDefault();
-      var path = appModel.get('currentPageModel').getNextPage() ? appModel.get('currentPageModel').getNextPage().get('path') : appModel.get('currentPageModel').get('path');
-      appModel.router.navigate(path, {trigger:true});
-    },
-
-    prev : function (e) {
-      e.stopPropagation();
-      e.preventDefault();
-      var path = appModel.get('currentPageModel').getPrevPage() ? appModel.get('currentPageModel').getPrevPage().get('path') : appModel.get('currentPageModel').get('path');
-      appModel.router.navigate(path, {trigger:true});
     },
 
     render : function () {

@@ -36,11 +36,11 @@ body.this-page {
     }
   }
 }
-
 #site-content-header {
   position:absolute;
   width:100%;
   top:-27px;
+  z-index:$siteContentHeaderZindex;
   .site-content-header-inner {
     text-align:center;
     margin:0 auto;
@@ -52,7 +52,16 @@ body.this-page {
   }
 }
 
-@keyframes nodeInserted {
-  from { opacity: 0.99; }
-  to { opacity: 1; }
+// Section colours
+section.sky-blue {
+  background:$skyBlue url('../img/body-bg.png') repeat top left;
+}
+section.pearly-white {
+  background:$pearlyWhite url('../img/body-bg.png') repeat top left;
+}
+section.english-skies {
+  background:$englishSkies url('../img/body-bg.png') repeat top left;
+}
+section.racing-grey {
+  background:$racingGrey url('../img/body-bg.png') repeat top left;
 }

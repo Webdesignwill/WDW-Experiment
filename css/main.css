@@ -66,7 +66,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 /* Dimensions */
-/* Colours Flements */
+/* Colour Elements */
 /* z-index */
 /* line 1, sass/_globals.scss */
 html, body {
@@ -128,11 +128,12 @@ body.this-page {
   position: relative;
 }
 
-/* line 40, sass/_globals.scss */
+/* line 39, sass/_globals.scss */
 #site-content-header {
   position: absolute;
   width: 100%;
   top: -27px;
+  z-index: 20;
 }
 /* line 44, sass/_globals.scss */
 #site-content-header .site-content-header-inner {
@@ -146,16 +147,24 @@ body.this-page {
   padding: 20px 40px;
 }
 
-@keyframes nodeInserted {
-  /* line 56, sass/_globals.scss */
-  from {
-    opacity: 0.99;
-  }
+/* line 56, sass/_globals.scss */
+section.sky-blue {
+  background: #e2f6ff url("../img/body-bg.png") repeat top left;
+}
 
-  /* line 57, sass/_globals.scss */
-  to {
-    opacity: 1;
-  }
+/* line 59, sass/_globals.scss */
+section.pearly-white {
+  background: white url("../img/body-bg.png") repeat top left;
+}
+
+/* line 62, sass/_globals.scss */
+section.english-skies {
+  background: whitesmoke url("../img/body-bg.png") repeat top left;
+}
+
+/* line 65, sass/_globals.scss */
+section.racing-grey {
+  background: #e1ded6 url("../img/body-bg.png") repeat top left;
 }
 
 /* line 2, sass/_typography.scss */
@@ -310,11 +319,31 @@ body.contact-page .logo-small {
   background-position: 0 -50px;
 }
 
-/* line 2, sass/pages/_home.scss */
-#home-page h1 {
-  padding: 200px 0;
+/* line 3, sass/pages/_home.scss */
+#home-page section h1 {
+  padding: 100px 0;
   width: 100%;
   text-align: center;
+}
+/* line 9, sass/pages/_home.scss */
+#home-page section:last-child {
+  padding-bottom: 100px;
+}
+/* line 12, sass/pages/_home.scss */
+#home-page .sky-blue {
+  min-height: 570px;
+}
+/* line 15, sass/pages/_home.scss */
+#home-page .pearly-white {
+  min-height: 350px;
+}
+/* line 18, sass/pages/_home.scss */
+#home-page .english-skies {
+  min-height: 150px;
+}
+/* line 21, sass/pages/_home.scss */
+#home-page .racing-grey {
+  min-height: 75px;
 }
 
 /* line 2, sass/pages/_contact.scss */
@@ -535,7 +564,7 @@ body.this-page #primary-nav ul li.active {
 }
 /* line 15, sass/views/_page-controls.scss */
 #page-controls .next-page a, #page-controls .prev-page a {
-  color: #eeeeee;
+  color: #fdedcd;
 }
 /* line 19, sass/views/_page-controls.scss */
 #page-controls .next-page {

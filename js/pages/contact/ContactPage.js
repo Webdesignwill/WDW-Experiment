@@ -13,7 +13,7 @@ function (Backbone, handlebars, template, content) {
   var ContactPage = Backbone.Page.extend({
 
     id : 'contact-page',
-    className : 'width-auto contact-page page',
+    className : 'contact-page page',
 
     render : function () {
 

@@ -1,2 +1,5 @@
-
-<h1>CONTACT PAGE</h1>
+<section class="">
+  <div class="width-auto">
+    <h1>CONTACT PAGE</h1>
+  </div>
+</section>

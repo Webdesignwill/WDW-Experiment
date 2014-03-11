@@ -14,7 +14,7 @@ function (Backbone, handlebars, appModel, template, content) {
   var HomePage = Backbone.Page.extend({
 
     id : 'home-page',
-    className : 'width-auto home-page page',
+    className : 'home-page page',
 
     render : function () {
 
