@@ -11,12 +11,16 @@ define('pagesCollection', [
     url : '/js/site.json',
     model : PageModel,
     pageModels : [],
+    defaultRoutes : [{
+      // TODO write the default routes 404, home etc
+    }],
 
     parse : function (response, options) {
       for(var i = 0; i < response.sitemap.length; i++) {
         var nextPage = response.sitemap[i+1], prevPage = response.sitemap[i-1];
         this.pageModels.push(this.createModel(response.sitemap[i], 0, '', '', nextPage, prevPage));
       }
+
       return this.pageModels;
     },
 
