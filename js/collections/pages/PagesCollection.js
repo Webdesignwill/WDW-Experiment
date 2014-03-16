@@ -39,19 +39,26 @@ define('pagesCollection', [
 
       model.path += sitemap.name + '/';
       model.route += sitemap.name;
-      model.route += sitemap.subpages ? '/' : '(/)';
 
       if(sitemap.subpages) {
+        model.route += '/';
         for(i = 0; i < sitemap.subpages.length; i++) {
           var nextPage = sitemap.subpages[i+1], prevPage = sitemap.subpages[i-1];
           this.pageModels.push(this.createModel(sitemap.subpages[i], model.level, model.route, model.path, nextPage, prevPage));
         }
+      } else if(!sitemap.subpages && sitemap.option) {
+        model.route += '/';
+      } else {
+        model.route += '(/)';
       }
 
       if(sitemap.option) {
-        if(sitemap.subpages && sitemap.subpages.length === i || !sitemap.subpages && model.nextPage)
-        model.route += '(:option)';
+        if(sitemap.subpages && sitemap.subpages.length === i || !sitemap.subpages) {
+          model.route += '(:option)';
+        }
       }
+
+      console.log('Route : ', model.route);
 
       return model;
 

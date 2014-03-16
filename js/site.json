@@ -28,7 +28,8 @@
         "page" : "HtmlPage"
       },{
         "name" : "css",
-        "page" : "CssPage"
+        "page" : "CssPage",
+        "option" : true
       }]
     }]
   },{
