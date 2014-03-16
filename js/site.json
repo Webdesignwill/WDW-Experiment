@@ -2,11 +2,13 @@
   "sitemap" : [{
     "name" : "home",
     "page" : "HomePage",
-    "nav" : true
+    "nav" : true,
+    "option" : true
   },{
     "name" : "this",
     "page" : "ThisPage",
     "nav" : true,
+    "option" : true,
     "subpages" : [{
       "name" : "description",
       "page" : "DescriptionPage"
@@ -16,9 +18,11 @@
     },{
       "name" : "example",
       "page" : "ExamplePage",
+      "option" : true,
       "subpages" : [{
         "name" : "javascript",
-        "page" : "JavascriptPage"
+        "page" : "JavascriptPage",
+        "option" : true
       },{
         "name" : "html",
         "page" : "HtmlPage"
