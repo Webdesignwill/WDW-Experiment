@@ -1,6 +1,7 @@
 
 #page-controls {
   position: fixed;
+  z-index:$pageControlsZindex;
   top: 50%;
   right: 0;
   left: 0;

@@ -46,8 +46,6 @@ define('pagesCollection', [
           var nextPage = sitemap.subpages[i+1], prevPage = sitemap.subpages[i-1];
           this.pageModels.push(this.createModel(sitemap.subpages[i], model.level, model.route, model.path, nextPage, prevPage));
         }
-      } else if(!sitemap.subpages && sitemap.option) {
-        model.route += '/';
       } else {
         model.route += '(/)';
       }
@@ -57,8 +55,6 @@ define('pagesCollection', [
           model.route += '(:option)';
         }
       }
-
-      console.log('Route : ', model.route);
 
       return model;
 
