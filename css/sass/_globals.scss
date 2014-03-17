@@ -5,7 +5,7 @@ html, body {
 body {
   @include transition(background-color, 0.5s);
   @include box-shadow(inset rgba(0,0,0,0.5) 0 0 100px);
-  background: $darkBlue url('../img/body-bg.png') top left;
+  background: $darkBlue url('/img/body-bg.png') top left;
   height:100%;
   overflow-x:hidden;
   margin: 0;
@@ -26,11 +26,11 @@ body.this-page {
   clear:both;
 }
 #page-container {
-  background:url('../../img/borders/trim-top-site-content.png') repeat-x top left;
+  background:url('/img/borders/trim-top-site-content.png') repeat-x top left;
   padding-top:7px;
   position:relative;
   .page-container-inner {
-    background:$grey url('../img/body-bg.png') repeat top left;
+    background:$grey url('/img/body-bg.png') repeat top left;
     div.page {
       position:relative;
     }
@@ -54,14 +54,14 @@ body.this-page {
 
 // Section colours
 section.sky-blue {
-  background:$skyBlue url('../img/body-bg.png') repeat top left;
+  background:$skyBlue url('/img/body-bg.png') repeat top left;
 }
 section.pearly-white {
-  background:$pearlyWhite url('../img/body-bg.png') repeat top left;
+  background:$pearlyWhite url('/img/body-bg.png') repeat top left;
 }
 section.english-skies {
-  background:$englishSkies url('../img/body-bg.png') repeat top left;
+  background:$englishSkies url('/img/body-bg.png') repeat top left;
 }
 section.racing-grey {
-  background:$racingGrey url('../img/body-bg.png') repeat top left;
+  background:$racingGrey url('/img/body-bg.png') repeat top left;
 }

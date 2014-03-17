@@ -39,6 +39,7 @@ require.config({
     NavSubView                          : 'views/nav/NavSubView',
     StrapView                             : 'views/strap/StrapView',
     PageControlsView                 : 'views/pageControls/PageControlsView',
+    SiteLoaderView                     : 'views/siteLoader/SiteLoaderView',
 
     // Pages
     PageController                      : 'pages/PageController',

@@ -7,8 +7,9 @@ define('PageController', [
     'StrapView',
     'PageControlsView',
     'FooterView',
-    'SiteContentHeaderView'
-  ], function (Backbone, appModel, NavView, HeaderView, StrapView, PageControlsView, FooterView, SiteContentHeaderView) {
+    'SiteContentHeaderView',
+    'SiteLoaderView'
+  ], function (Backbone, appModel, NavView, HeaderView, StrapView, PageControlsView, FooterView, SiteContentHeaderView, SiteLoaderView) {
 
     "use strict";
 
@@ -27,9 +28,15 @@ define('PageController', [
         this.$primaryNav = $('#primary-nav');
         this.$pageControls = $('#page-controls');
         this.$siteContentHeader = $('#site-content-header');
+        this.$siteLoader = $('#site-loader');
       },
 
       renderPageComponents : function () {
+
+        new SiteLoaderView({
+          el : this.$siteLoader
+        });
+
         this.$primaryNav.html(new NavView().render().el);
 
         new HeaderView({
@@ -75,11 +82,11 @@ define('PageController', [
       },
 
       setBodyClass : function (name) {
-        this.removeExistingPageClasses();
+        this.removeExistingBodyClasses();
         this.$body.addClass(name + '-page');
       },
 
-      removeExistingPageClasses : function () {
+      removeExistingBodyClasses : function () {
         if(this.$body.attr('class') !== undefined) {
           var classArray = this.$body.attr('class').split(' ');
           for(var i = 0; i < classArray.length; i++) {

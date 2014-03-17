@@ -13,7 +13,7 @@ function (Backbone, handlebars, NavSubView, pagesCollection) {
   var NavView = Backbone.View.extend({
 
     tagName : 'ul',
-    className : 'width-auto',
+    className : 'top-trim width-auto',
 
     initialize : function () {
       this.render();
