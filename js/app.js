@@ -2,21 +2,21 @@
 define('app', [
   'Backbone',
   'appModel',
-  'pagesCollection',
   'utils',
   'router'
-], function (Backbone, appModel, pagesCollection, utils, Router) {
+], function (Backbone, appModel, utils, Router) {
 
   var App = function () {
     this.init = function () {
 
       var self = this;
-      pagesCollection.fetch({
+      appModel.sitemap.fetch({
         success : function (model, response, options) {
           appModel.router = new Router();
           self.start();
         }, reset : true
       });
+
       return this;
     };
 

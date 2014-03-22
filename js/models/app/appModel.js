@@ -10,21 +10,19 @@ function (Backbone) {
   var AppModel = Backbone.Model.extend({
 
     initialize : function () {
-      this.setBroker();
+      this.setHelpers();
       this.setEvents();
     },
 
-    setBroker : function () {
+    setHelpers : function () {
       this.broker = _.clone(Backbone.Events);
+      this.set('currentPage', {});
     },
 
     setEvents : function () {
       var self = this;
-      this.broker.on('page:change', function (object) {
-        self.set({
-          currentPageView : object.newPageView,
-          currentPageModel : object.newPageModel
-        });
+      this.on('change:currentPage', function (appModel) {
+        // Not sure what to do here yet
       });
     }
 

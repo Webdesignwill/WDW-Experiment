@@ -19,7 +19,7 @@ function (Backbone, appModel, handlebars, template, content) {
     },
 
     setEvents : function () {
-      appModel.broker.on('page:change', function () {
+      appModel.on('change:currentPage', function (appModel) {
         console.log('Remember the site content header');
       });
     },

@@ -19,13 +19,13 @@ require.config({
     page                                      : 'helpers/page',
 
     // Collections
-    pagesCollection                  : 'collections/pages/PagesCollection',
     NewsCollection                    : 'collections/news/NewsCollection',
 
     // Models
     appModel                             : 'models/app/appModel',
+    sitemapModel                       : 'models/app/sitemapModel',
+    PageModel                            : 'models/app/PageModel',
     NewsModel                           : 'models/news/NewsModel',
-    PageModel                            : 'models/page/PageModel',
 
     // Views
     FooterView                            : 'views/footer/FooterView',
@@ -61,7 +61,7 @@ require.config({
       deps : ['page']
     },
     'app' : {
-      deps : ['appModel']
+      deps : ['sitemapModel']
     }
   }
 

@@ -3,38 +3,20 @@
     "name" : "home",
     "page" : "HomePage",
     "nav" : true,
-    "option" : true
+    "color" : "#444F64",
+    "override" : {
+      "route" : "(/)",
+      "path" : "/"
+    }
   },{
     "name" : "this",
     "page" : "ThisPage",
     "nav" : true,
-    "option" : true,
-    "subpages" : [{
-      "name" : "description",
-      "page" : "DescriptionPage"
-    },{
-      "name" : "code",
-      "page" : "CodePage"
-    },{
-      "name" : "example",
-      "page" : "ExamplePage",
-      "option" : true,
-      "subpages" : [{
-        "name" : "javascript",
-        "page" : "JavascriptPage",
-        "option" : true
-      },{
-        "name" : "html",
-        "page" : "HtmlPage"
-      },{
-        "name" : "css",
-        "page" : "CssPage",
-        "option" : true
-      }]
-    }]
+    "color" : "#76312D"
   },{
     "name" : "contact",
     "page" : "ContactPage",
-    "nav" : true
+    "nav" : true,
+    "color" : "#376018"
   }]
 }

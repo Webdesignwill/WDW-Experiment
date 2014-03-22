@@ -23,13 +23,13 @@ function (Backbone, handlebars, appModel, template) {
 
     setEvents : function () {
       var self = this;
-      appModel.broker.on('page:change', function (opts) {
-        self.highlightActive(opts);
+      appModel.on('change:currentPage', function (appModel) {
+        self.highlightActive(appModel.get('currentPage'));
       });
     },
 
-    highlightActive : function (opts) {
-      if(opts.newPageModel.get('name') === this.model.get('name')) {
+    highlightActive : function (currentPage) {
+      if(currentPage.model.get('name') === this.model.get('name')) {
         this.$el.addClass('active');
         return;
       }

@@ -1,12 +1,12 @@
 
 define('NavView', [
   'Backbone',
+  'appModel',
   'handlebars',
-  'NavSubView',
-  'pagesCollection'
+  'NavSubView'
 ],
 
-function (Backbone, handlebars, NavSubView, pagesCollection) {
+function (Backbone, appModel, handlebars, NavSubView) {
 
   "use strict";
 
@@ -21,14 +21,15 @@ function (Backbone, handlebars, NavSubView, pagesCollection) {
 
     render : function () {
 
-      var fragment = document.createDocumentFragment();
+      var fragment = document.createDocumentFragment(),
+            sitemap = appModel.sitemap.attributes;
 
-      pagesCollection.each(function (pageModel, index, array) {
-        if(pageModel.get('nav')) {
-          var navSubView = new NavSubView({model : pageModel});
+      for(var key in sitemap){
+        if(sitemap[key].get('nav')) {
+          var navSubView = new NavSubView({model : sitemap[key]});
           fragment.appendChild(navSubView.render().el);
         }
-      });
+      }
 
       this.$el.html(fragment);
 

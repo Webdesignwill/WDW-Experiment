@@ -30,29 +30,27 @@ define('PageControlsView', [
 
     setEvents : function () {
       var self = this;
-      appModel.broker.on('page:change', function (props) {
-        self.toggleControls(props.newPageModel);
-      });
+      appModel.on('change:currentPage', this.toggleControls, this);
     },
 
     next : function (e) {
       e.stopPropagation();
       e.preventDefault();
-      var path = appModel.get('currentPageModel').getNextPage() ? appModel.get('currentPageModel').getNextPage().get('path') : appModel.get('currentPageModel').get('path');
+      var path = appModel.get('currentPage').model.getNextPage('path');
       appModel.router.navigate(path, {trigger:true});
     },
 
     prev : function (e) {
       e.stopPropagation();
       e.preventDefault();
-      var path = appModel.get('currentPageModel').getPrevPage() ? appModel.get('currentPageModel').getPrevPage().get('path') : appModel.get('currentPageModel').get('path');
+      var path = appModel.get('currentPage').model.getPrevPage('path');
       appModel.router.navigate(path, {trigger:true});
     },
 
-    toggleControls : function (newPageModel) {
+    toggleControls : function (appModel) {
 
-      var getNextPage = newPageModel.getNextPage(),
-            getPrevPage = newPageModel.getPrevPage();
+      var getNextPage = appModel.get('currentPage').model.getNextPage(),
+            getPrevPage = appModel.get('currentPage').model.getPrevPage();
 
       if(!getNextPage) {
         this.$nextPage.addClass('hide');

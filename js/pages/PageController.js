@@ -15,6 +15,8 @@ define('PageController', [
 
     var PageController = Backbone.Page.extend({
 
+      garbage : [],
+
       initialize : function () {
         this.setElements();
         this.renderPageComponents();
@@ -61,29 +63,54 @@ define('PageController', [
 
       },
 
-      goto : function (newPageModel, Page, options) {
+      goto : function (pageModel, Page, identifier) {
 
-        var opts = options || null;
+        this.tearDown();
+        pageModel.set('currentPage', true);
 
-        var newPageView = new Page({
-          model : newPageModel,
-          options : opts
+        var page = new Page({
+          model : pageModel,
+          identifier : identifier || null
         });
 
-        this.$el.html(newPageView.render().el);
+        var newPageProps = {
+          page : page,
+          model : pageModel
+        };
 
-        appModel.broker.trigger('page:change', {
-          newPageView : newPageView,
-          newPageModel : newPageModel
-        });
+        appModel.set('currentPage', newPageProps);
+        this.garbage.push(newPageProps);
 
-        this.setBodyClass(newPageModel.get('name'));
+        this.$el.html(page.render().el);
+        this.setBodyClass(pageModel.get('map'));
 
       },
 
-      setBodyClass : function (name) {
+      setBodyClass : function (map) {
         this.removeExistingBodyClasses();
-        this.$body.addClass(name + '-page');
+        this.$body.addClass(map);
+      },
+
+      tearDown : function () {
+
+        function emptyGarbage (trash) {
+          trash.page.close();
+          delete trash.page;
+        }
+
+        function changeCurrentPageStatus (pageModel) {
+          if(pageModel.get('currentPage')) {
+            pageModel.set('currentPage', false);
+          }
+        }
+
+        var i;
+        for(i = 0;i<this.garbage.length; i++) {
+          emptyGarbage(this.garbage[i]);
+          changeCurrentPageStatus(this.garbage[i].model);
+          this.garbage.splice(i, 1);
+        }
+
       },
 
       removeExistingBodyClasses : function () {
