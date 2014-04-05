@@ -1,41 +1,41 @@
 
 define('router', [
   'Backbone',
-  'appModel',
+  'webdesignwill',
   'PageController'
 ],
 
-function (Backbone, appModel, PageController) {
+function (Backbone, webdesignwill, PageController) {
 
   "use strict";
 
   var Router = Backbone.Router.extend({
 
-    initialize : function () {
-      this.loopSitemap();
-      this.pageController = new PageController({
-        el: $('#page-container-inner')
-      });
-    },
-
-    loopSitemap : function () {
-      var sitemap = appModel.sitemap.attributes;
+    initRouter : function () {
+      var sitemap = webdesignwill.sitemap.attributes;
       for(var key in sitemap){
         this.setRoutes(sitemap[key]);
       }
+
+      webdesignwill.pageController = new PageController({
+        el: $('#page-container-inner')
+      });
+
+      Backbone.history.start();
+
     },
 
     setRoutes : function (pageModel) {
       var self = this;
       this.route(pageModel.get('route'), pageModel.get('name'), function (option) {
         require([pageModel.get('page')], function (Page) {
-          self.pageController.goto(pageModel, Page, option);
+          webdesignwill.pageController.goto(pageModel, Page, option);
         });
       });
     }
 
   });
 
-  return Router;
+  webdesignwill.router = new Router();
 
 });

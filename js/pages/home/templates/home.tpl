@@ -1,4 +1,4 @@
-<section class="sky-blue">
+<section class="pearly-white tech-awesomeness">
   <div class="width-auto clear">
     <div class="css3 tech-holder">
       <span class="css3-icon"></span>
@@ -17,17 +17,7 @@
     </div>
   </div>
 </section>
-<section class="pearly-white">
-  <div class="width-auto">
-    <h1>ABOUT ME</h1>
-  </div>
-</section>
-<section class="english-skies">
-  <div class="width-auto">
-    <h1>TESTIMONIALS</h1>
-  </div>
-</section>
-<section class="racing-grey">
+<section class="english-skies logo-reel">
   <div class="width-auto">
     <ul class="company-reel clear">
       <li><img src="/img/logos/lukkien.png" width="270" height="60" title="Lukkien" /></li>

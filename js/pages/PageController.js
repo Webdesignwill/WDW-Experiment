@@ -1,7 +1,7 @@
 
 define('PageController', [
     'Backbone',
-    'appModel',
+    'webdesignwill',
     'NavView',
     'HeaderView',
     'StrapView',
@@ -9,7 +9,7 @@ define('PageController', [
     'FooterView',
     'SiteContentHeaderView',
     'SiteLoaderView'
-  ], function (Backbone, appModel, NavView, HeaderView, StrapView, PageControlsView, FooterView, SiteContentHeaderView, SiteLoaderView) {
+  ], function (Backbone, webdesignwill, NavView, HeaderView, StrapView, PageControlsView, FooterView, SiteContentHeaderView, SiteLoaderView) {
 
     "use strict";
 
@@ -78,7 +78,7 @@ define('PageController', [
           model : pageModel
         };
 
-        appModel.set('currentPage', newPageProps);
+        webdesignwill.set('currentPage', newPageProps);
         this.garbage.push(newPageProps);
 
         this.$el.html(page.render().el);

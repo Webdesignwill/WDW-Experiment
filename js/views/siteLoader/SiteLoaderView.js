@@ -1,11 +1,11 @@
 
 define('SiteLoaderView', [
   'Backbone',
-  'appModel',
+  'webdesignwill',
   'text!views/siteLoader/templates/site-loader.tpl'
 ],
 
-function (Backbone, appModel, template) {
+function (Backbone, webdesignwill, template) {
 
   "use strict";
 

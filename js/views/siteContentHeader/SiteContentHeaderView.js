@@ -1,13 +1,13 @@
 
 define('SiteContentHeaderView', [
   'Backbone',
-  'appModel',
+  'webdesignwill',
   'handlebars',
   'text!views/siteContentHeader/templates/site-content-header.tpl',
   'i18n!nls/home'
 ],
 
-function (Backbone, appModel, handlebars, template, content) {
+function (Backbone, webdesignwill, handlebars, template, content) {
 
   "use strict";
 
@@ -19,7 +19,7 @@ function (Backbone, appModel, handlebars, template, content) {
     },
 
     setEvents : function () {
-      appModel.on('change:currentPage', function (appModel) {
+      webdesignwill.on('change:currentPage', function (webdesignwill) {
         console.log('Remember the site content header');
       });
     },

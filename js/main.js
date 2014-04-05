@@ -1,10 +1,14 @@
 
 require.config({
 
-  paths : {
+  baseUrl : '/js/',
 
-    pages: '../js/pages',
-    views: '../js/views',
+  packages: [{
+    name : 'github',
+    location : 'packages/github'
+  }],
+
+  paths : {
 
     jquery                                  : 'libs/jquery/jquery-min',
     Backbone                             : 'libs/backbone/backbone-min',
@@ -13,19 +17,19 @@ require.config({
     text                                      : 'libs/require/text-min',
     domReady                            : 'libs/require/domReady',
 
-    utils                                     : 'utils',
+    utils                                      : 'utils',
 
-    // Helpers
-    page                                      : 'helpers/page',
+    // Extensions
+    page                                      : 'extensions/page',
 
-    // Collections
-    NewsCollection                    : 'collections/news/NewsCollection',
+    // Controllers n Managers
+    PackageManager                    : 'packages/PackageManager',
+    PageController                       : 'pages/PageController',
 
-    // Models
-    appModel                             : 'models/app/appModel',
-    sitemapModel                       : 'models/app/sitemapModel',
-    PageModel                            : 'models/app/PageModel',
-    NewsModel                           : 'models/news/NewsModel',
+    // Application Models
+    webdesignwill                       : 'webdesignwill',
+    Sitemap                                 : 'models/app/Sitemap',
+    PageModel                            : 'models/page/PageModel',
 
     // Views
     FooterView                            : 'views/footer/FooterView',
@@ -42,13 +46,10 @@ require.config({
     SiteLoaderView                     : 'views/siteLoader/SiteLoaderView',
 
     // Pages
-    PageController                      : 'pages/PageController',
     HomePage                             : 'pages/home/HomePage',
     ContactPage                          : 'pages/contact/ContactPage',
     ThisPage                                : 'pages/this/ThisPage'
-
   },
-
   shim : {
     'Backbone' : {
       deps : ['jquery', 'underscore', 'handlebars'],
@@ -56,22 +57,12 @@ require.config({
     },
     'handlebars': {
       exports: 'Handlebars'
-    },
-    'PageController' : {
-      deps : ['page']
-    },
-    'app' : {
-      deps : ['sitemapModel']
     }
+  },
+  deps : ['webdesignwill', 'domReady', 'Sitemap', 'PackageManager', 'page', 'router'],
+  callback : function (webdesignwill, domReady) {
+    domReady(function() {
+      webdesignwill.initWebdesignwill();
+    });
   }
-
-});
-
-require([
-  'app',
-  'domReady'
-], function (app, domReady) {
-  domReady(function() {
-    app.init();
-  });
 });

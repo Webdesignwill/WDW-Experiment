@@ -5,11 +5,20 @@
       width:100%;
       text-align: center;
     }
+    h2 {
+      font-size:28px;
+      line-height:34px;
+      margin-top:38px;
+    }
     .tech-holder {
       width:320px;
       text-align:center;
       float:left;
       margin-right:20px;
+      p {
+        margin-top:33px;
+        line-height:24px;
+      }
     }
     .tech-holder.last {
       margin-right:0;
@@ -38,31 +47,10 @@
       height:284px;
     }
   }
-  .sky-blue {
+  .tech-awesomeness {
     padding:80px 0;
-    h2 {
-      text-transform: uppercase;
-      font-size:28px;
-      line-height:34px;
-      margin-top:38px;
-      font-weight:300;
-    }
-    p, h2 {
-      color:$shade;
-    }
-    p {
-      font-size:16px;
-      margin-top:33px;
-      line-height:24px;
-    }
   }
-  .pearly-white {
-    min-height:350px;
-  }
-  .english-skies {
-    min-height:150px;
-  }
-  .racing-grey {
+  .logo-reel {
     height:350px;
     text-align:center;
     .company-reel {

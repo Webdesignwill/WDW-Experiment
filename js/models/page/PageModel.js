@@ -1,11 +1,11 @@
 
 define('PageModel', [
   'Backbone',
-  'appModel',
+  'webdesignwill',
   'i18n!nls/nav'
 ],
 
-function (Backbone, appModel, content) {
+function (Backbone, webdesignwill, content) {
 
   "use strict";
 
@@ -25,17 +25,11 @@ function (Backbone, appModel, content) {
     },
 
     getNextPage : function (prop) {
-      if(prop) {
-        return appModel.sitemap.get(this.get('nextPage') + '-page').get(prop);
-      }
-      return appModel.sitemap.get(this.get('nextPage') + '-page');
+      return prop ? webdesignwill.sitemap.get(this.get('nextPage') + '-page').get(prop) : webdesignwill.sitemap.get(this.get('nextPage') + '-page');
     },
 
     getPrevPage : function (prop) {
-      if(prop) {
-        return appModel.sitemap.get(this.get('prevPage') + '-page').get(prop);
-      }
-      return appModel.sitemap.get(this.get('prevPage') + '-page');
+      return prop ? webdesignwill.sitemap.get(this.get('prevPage') + '-page').get(prop) : webdesignwill.sitemap.get(this.get('prevPage') + '-page');
     }
 
   });

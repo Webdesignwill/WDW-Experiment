@@ -3,13 +3,12 @@ define('FooterView', [
   'Backbone',
   'handlebars',
   'FooterSocialView',
-  'FooterNewsView',
   'FooterContactView',
   'text!views/footer/templates/footer.tpl',
   'i18n!nls/footer'
 ],
 
-function (Backbone, handlebars, FooterSocialView, FooterNewsView, FooterContactView, template, content) {
+function (Backbone, handlebars, FooterSocialView, FooterContactView, template, content) {
 
   "use strict";
 
@@ -18,7 +17,7 @@ function (Backbone, handlebars, FooterSocialView, FooterNewsView, FooterContactV
     initialize : function () {
       this.render();
       this.setElements();
-      this.renderSubViews();
+      this.instantiateViews();
     },
 
     setElements : function () {
@@ -37,15 +36,11 @@ function (Backbone, handlebars, FooterSocialView, FooterNewsView, FooterContactV
       return this;
     },
 
-    renderSubViews : function () {
+    instantiateViews : function () {
 
       new FooterSocialView({
         el : this.$social
       });
-
-      // new FooterNewView({
-      //   el : this.$news
-      // });
 
       new FooterContactView({
         el : this.$contact

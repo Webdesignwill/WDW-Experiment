@@ -1,10 +1,10 @@
 
 define('PageControlsView', [
   'Backbone',
-  'appModel',
+  'webdesignwill',
   'handlebars',
   'text!views/pageControls/templates/page-controls.tpl'
-], function (Backbone, appModel, handlebars, template) {
+], function (Backbone, webdesignwill, handlebars, template) {
 
   "use strict";
 
@@ -30,27 +30,27 @@ define('PageControlsView', [
 
     setEvents : function () {
       var self = this;
-      appModel.on('change:currentPage', this.toggleControls, this);
+      webdesignwill.on('change:currentPage', this.toggleControls, this);
     },
 
     next : function (e) {
       e.stopPropagation();
       e.preventDefault();
-      var path = appModel.get('currentPage').model.getNextPage('path');
-      appModel.router.navigate(path, {trigger:true});
+      var path = webdesignwill.get('currentPage').model.getNextPage('path');
+      webdesignwill.router.navigate(path, {trigger:true});
     },
 
     prev : function (e) {
       e.stopPropagation();
       e.preventDefault();
-      var path = appModel.get('currentPage').model.getPrevPage('path');
-      appModel.router.navigate(path, {trigger:true});
+      var path = webdesignwill.get('currentPage').model.getPrevPage('path');
+      webdesignwill.router.navigate(path, {trigger:true});
     },
 
-    toggleControls : function (appModel) {
+    toggleControls : function (webdesignwill) {
 
-      var getNextPage = appModel.get('currentPage').model.getNextPage(),
-            getPrevPage = appModel.get('currentPage').model.getPrevPage();
+      var getNextPage = webdesignwill.get('currentPage').model.getNextPage(),
+            getPrevPage = webdesignwill.get('currentPage').model.getPrevPage();
 
       if(!getNextPage) {
         this.$nextPage.addClass('hide');

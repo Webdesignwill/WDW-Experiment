@@ -11,10 +11,10 @@
 @import "globals";
 @import "typography";
 
-@import "components/abstracts";
 @import "components/logos";
 @import "components/icons";
 @import "components/site-loader";
+@import "components/tables";
 
 @import "pages/home";
 @import "pages/contact";
@@ -25,6 +25,8 @@
 @import "views/strap";
 @import "views/footer";
 @import "views/page-controls";
+
+@imports "modules/main";
 
 @media only screen and (max-width : 420px) {
   @import "handheld/main";

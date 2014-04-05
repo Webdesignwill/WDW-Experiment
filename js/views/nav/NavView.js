@@ -1,12 +1,11 @@
 
 define('NavView', [
   'Backbone',
-  'appModel',
-  'handlebars',
+  'webdesignwill',
   'NavSubView'
 ],
 
-function (Backbone, appModel, handlebars, NavSubView) {
+function (Backbone, webdesignwill, NavSubView) {
 
   "use strict";
 
@@ -22,7 +21,7 @@ function (Backbone, appModel, handlebars, NavSubView) {
     render : function () {
 
       var fragment = document.createDocumentFragment(),
-            sitemap = appModel.sitemap.attributes;
+            sitemap = webdesignwill.sitemap.attributes;
 
       for(var key in sitemap){
         if(sitemap[key].get('nav')) {

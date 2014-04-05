@@ -1,0 +1,103 @@
+.wdw-tables {
+  display: inline-table;
+  width:100%;
+  .table-row {
+    display:table-row;
+    height:42px;
+    width:100%;
+    cursor:pointer;
+    .col {
+      display:table-cell;
+      vertical-align: middle;
+      p {
+        line-height:inherit;
+        color:$shade;
+        font-size:16px;
+        text-indent:13px;
+      }
+    }
+  }
+  .table-row:after {
+    content:"";
+    display:table;
+    clear:both;
+  }
+  .table-row:nth-child(odd) {
+    background:$white;
+  }
+}
+body.home-page {
+  #page-container {
+    .wdw-tables {
+      .table-row {
+        @include transition(background-color, 0.2s);
+      }
+      .col {
+        @include transition(border-color, 0.2s);
+      }
+      .table-row:nth-child(even) {
+        .col:first-child {
+          border-left:5px solid $veryLightBlue;
+        }
+      }
+      .table-row:nth-child(odd) {
+        .col:first-child {
+          border-left:5px solid $lightBlue;
+        }
+      }
+      .table-row:hover {
+        background-color:$veryLightBlue;
+      }
+    }
+  }
+}
+body.contact-page {
+  #page-container {
+    .wdw-tables {
+      .table-row {
+        @include transition(background-color, 0.2s);
+      }
+      .col {
+        @include transition(border-color, 0.2s);
+      }
+      .table-row:nth-child(even) {
+        .col:first-child {
+          border-left:5px solid $lightBlood;
+        }
+      }
+      .table-row:nth-child(odd) {
+        .col:first-child {
+          border-left:5px solid $blood;
+        }
+      }
+      .table-row:hover {
+        background-color:$lightBlood;
+      }
+    }
+  }
+}
+body.this-page {
+  #page-container {
+    .wdw-tables {
+      .table-row {
+        @include transition(background-color, 0.2s);
+      }
+      .col {
+        @include transition(border-color, 0.2s);
+      }
+      .table-row:nth-child(even) {
+        .col:first-child {
+          border-left:5px solid $vomit;
+        }
+      }
+      .table-row:nth-child(odd) {
+        .col:first-child {
+          border-left:5px solid $racingGreen;
+        }
+      }
+      .table-row:hover {
+        background-color:$vomit;
+      }
+    }
+  }
+}

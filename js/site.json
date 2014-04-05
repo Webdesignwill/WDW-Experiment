@@ -12,6 +12,7 @@
     "name" : "this",
     "page" : "ThisPage",
     "nav" : true,
+    "packages" : ["github"],
     "color" : "#76312D"
   },{
     "name" : "contact",

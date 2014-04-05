@@ -1,19 +1,21 @@
 
-define('sitemapModel', [
+define('Sitemap', [
   'Backbone',
-  'PageModel',
-  'appModel'
+  'webdesignwill',
+  'PageModel'
 ],
 
-function (Backbone, PageModel, appModel) {
+function (Backbone, webdesignwill, PageModel) {
 
   "use strict";
 
-  var SitemapModel = Backbone.Model.extend({
+  var Sitemap = Backbone.Model.extend({
 
     url : '/js/site.json',
     affix : '-page',
     sitemap : {},
+
+    initialize : function () {},
 
     parse : function (response, options) {
        for(var i = 0; i < response.sitemap.length; i++) {
@@ -35,7 +37,8 @@ function (Backbone, PageModel, appModel) {
         path : path,
         nextPage : np ? np.name : null,
         prevPage : pp ? pp.name : null,
-        nav : sitemap.nav || null
+        nav : sitemap.nav || null,
+        packages : sitemap.packages || null
       };
 
       model.path += sitemap.name + '/';
@@ -72,6 +75,6 @@ function (Backbone, PageModel, appModel) {
 
   });
 
-  appModel.sitemap =  new SitemapModel();
+  webdesignwill.sitemap = new Sitemap();
 
 });

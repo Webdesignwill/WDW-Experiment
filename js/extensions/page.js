@@ -1,7 +1,8 @@
 
 define('page', [
-    'Backbone'
-], function (Backbone) {
+    'Backbone',
+    'webdesignwill'
+], function (Backbone, webdesignwill) {
 
   "use strict";
 
@@ -9,6 +10,10 @@ define('page', [
 
     constructor : function () {
       Backbone.View.prototype.constructor.apply(this, arguments);
+    },
+
+    loadPackages : function () {
+      webdesignwill.packageManager.initPackages(this.model.get('packages'));
     },
 
     close : function () {

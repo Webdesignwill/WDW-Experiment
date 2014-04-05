@@ -2,11 +2,11 @@
 define('NavSubView', [
   'Backbone',
   'handlebars',
-  'appModel',
+  'webdesignwill',
   'text!views/nav/templates/subNav.tpl'
 ],
 
-function (Backbone, handlebars, appModel, template) {
+function (Backbone, handlebars, webdesignwill, template) {
 
   "use strict";
 
@@ -23,8 +23,8 @@ function (Backbone, handlebars, appModel, template) {
 
     setEvents : function () {
       var self = this;
-      appModel.on('change:currentPage', function (appModel) {
-        self.highlightActive(appModel.get('currentPage'));
+      webdesignwill.on('change:currentPage', function (webdesignwill) {
+        self.highlightActive(webdesignwill.get('currentPage'));
       });
     },
 
@@ -37,7 +37,7 @@ function (Backbone, handlebars, appModel, template) {
     },
 
     navigate : function () {
-      appModel.router.navigate(this.model.get('path'), {trigger: true});
+      webdesignwill.router.navigate(this.model.get('path'), {trigger: true});
     },
 
     render : function () {

@@ -2,12 +2,12 @@
 define('HomePage', [
   'Backbone',
   'handlebars',
-  'appModel',
+  'webdesignwill',
   'text!pages/home/templates/home.tpl',
   "i18n!nls/home"
 ],
 
-function (Backbone, handlebars, appModel, template, content) {
+function (Backbone, handlebars, webdesignwill, template, content) {
 
   "use strict";
 
