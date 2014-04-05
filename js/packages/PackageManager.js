@@ -18,7 +18,7 @@ define('PackageManager', [
 
     this.load = function (pack) {
       if(webdesignwill.packages[pack]) {
-        console.log('%c Github package already loaded ', 'background: #FF0000; color: #FFFFFF');
+        console.log('%c ' + pack + ' already loaded ', 'background: #FF0000; color: #FFFFFF');
         return;
       }
       this.$bus.on(pack + ':loaded', function () {
