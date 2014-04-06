@@ -7,20 +7,31 @@ define('Github', [
 
   var Github = Backbone.Model.extend({
 
+    defaults : {
+      name : 'github'
+    },
+
+    initialize : function () {
+      this.setPackageListeners();
+      this.$bus = webdesignwill.packageManager.$bus;
+    },
+
     init : function () {
-      console.log('%c Github package initialising ', 'background: #0033FF; color: #FFF');
-      var self = this;
-      setTimeout(function () {
-        self.start();
-      }, 1200);
+      this.$bus.trigger(this.get('name') + ':initialised');
     },
 
     start : function () {
-      console.log('%c Github package has started ', 'background: #7AFF4D; color: #000');
+      this.$bus.trigger(this.get('name') + ':started');
     },
 
     stop : function () {
-      console.log('%c Github package has stopped ', 'background: #000000; color: #FFFFFF');
+      this.$bus.trigger(this.get('name') + ':stopped');
+    },
+
+    setPackageListeners : function () {
+      this.on('change:status', function () {
+        console.log('%c ' + this.get('name') + ' package has ' + this.get('status') + ' ', 'background: #7AFF4D; color: #000');
+      }, this);
     }
 
   });

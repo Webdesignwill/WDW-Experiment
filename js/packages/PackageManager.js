@@ -17,14 +17,41 @@ define('PackageManager', [
     };
 
     this.load = function (pack) {
-      if(webdesignwill.packages[pack]) {
-        console.log('%c ' + pack + ' already loaded ', 'background: #FF0000; color: #FFFFFF');
-        return;
+      var pge = webdesignwill.packages[pack];
+
+      if(!pge) {
+        this.setPackageListeners(pack);
+        require([pack]);
+      } else if (this.checkPackageActive(pack)) {
+        console.log('%c ' + pack + ' already ' + webdesignwill.packages[pack].get('status') + ' ', 'background: #FF9900; color: #FFFFFF');
       }
+    };
+
+    this.setPackageListeners = function (pack) {
       this.$bus.on(pack + ':loaded', function () {
+        this.setPackageStatus(pack, 'loaded');
         webdesignwill.packages[pack].init();
       }, this);
-      require([pack]);
+      this.$bus.on(pack + ':initialised', function () {
+        this.setPackageStatus(pack, 'initialised');
+        webdesignwill.packages[pack].start();
+      }, this);
+      this.$bus.on(pack + ':started', function () {
+        this.setPackageStatus(pack, 'started');
+      }, this);
+      this.$bus.on(pack + ':stopped', function () {
+        this.setPackageStatus(pack, 'stopped');
+        webdesignwill.packages[pack].stop();
+      }, this);
+    };
+
+    this.setPackageStatus = function (pack, status) {
+      webdesignwill.packages[pack].set('status', status);
+    };
+
+    this.checkPackageActive = function (pack) {
+      var pge = webdesignwill.packages[pack];
+      return pge.get('status') === 'loaded' || 'started' ? true : false;
     };
 
     return this;

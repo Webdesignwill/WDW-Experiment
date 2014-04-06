@@ -20,7 +20,7 @@ function (Backbone, webdesignwill, handlebars, template, content) {
 
     setEvents : function () {
       webdesignwill.on('change:currentPage', function (webdesignwill) {
-        console.log('Remember the site content header');
+
       });
     },
 
