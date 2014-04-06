@@ -43,7 +43,7 @@ function (Backbone) {
 
     start : function () {
       this.router.initRouter();
-      console.log('%c The app is started ', 'background: #7AFF4D; color: #000');
+      console.log('%c Webdesignwill has started ', 'background: #444f64; color: #FFFFFF');
     }
 
   });
