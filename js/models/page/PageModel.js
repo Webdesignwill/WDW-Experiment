@@ -34,6 +34,8 @@ function (Backbone, webdesignwill, content) {
 
   });
 
+  webdesignwill.page = new PageModel();
+
   return PageModel;
 
 });

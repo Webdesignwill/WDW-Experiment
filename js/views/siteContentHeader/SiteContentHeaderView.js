@@ -19,8 +19,8 @@ function (Backbone, webdesignwill, handlebars, template, content) {
     },
 
     setEvents : function () {
-      webdesignwill.on('change:currentPage', function (webdesignwill) {
-
+      webdesignwill.page.on('change', function (page) {
+        // change header things?!
       });
     },
 

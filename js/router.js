@@ -2,10 +2,10 @@
 define('router', [
   'Backbone',
   'webdesignwill',
-  'PageController'
+  'PageManager'
 ],
 
-function (Backbone, webdesignwill, PageController) {
+function (Backbone, webdesignwill, PageManager) {
 
   "use strict";
 
@@ -17,7 +17,7 @@ function (Backbone, webdesignwill, PageController) {
         this.setRoutes(sitemap[key]);
       }
 
-      webdesignwill.pageController = new PageController({
+      webdesignwill.pageManager = new PageManager({
         el: $('#page-container-inner')
       });
 
@@ -29,7 +29,7 @@ function (Backbone, webdesignwill, PageController) {
       var self = this;
       this.route(pageModel.get('route'), pageModel.get('name'), function (option) {
         require([pageModel.get('page')], function (Page) {
-          webdesignwill.pageController.goto(pageModel, Page, option);
+          webdesignwill.pageManager.goto(pageModel, Page, option);
         });
       });
     }

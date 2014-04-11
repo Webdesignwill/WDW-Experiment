@@ -14,10 +14,6 @@ function (Backbone, webdesignwill, NavSubView) {
     tagName : 'ul',
     className : 'top-trim width-auto',
 
-    initialize : function () {
-      this.render();
-    },
-
     render : function () {
 
       var fragment = document.createDocumentFragment(),

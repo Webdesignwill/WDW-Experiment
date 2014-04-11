@@ -22,9 +22,9 @@ require.config({
     // Extensions
     page                                      : 'extensions/page',
 
-    // Controllers n Managers
+    // Managers
     PackageManager                    : 'packages/PackageManager',
-    PageController                       : 'pages/PageController',
+    PageManager                          : 'pages/PageManager',
 
     // Application Models
     webdesignwill                       : 'webdesignwill',

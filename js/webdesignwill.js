@@ -12,24 +12,11 @@ function (Backbone) {
     packages : {},
 
     initialize : function () {
-      this.setDefaults();
       this.setBroker();
-      this.setEvents();
-    },
-
-    setDefaults : function () {
-      this.set('currentPage', {});
     },
 
     setBroker : function () {
       this.broker = _.clone(Backbone.Events);
-    },
-
-    setEvents : function () {
-      var self = this;
-      this.on('change:currentPage', function (webdesignwill) {
-        // Not sure what to do here yet
-      });
     },
 
     initWebdesignwill : function () {

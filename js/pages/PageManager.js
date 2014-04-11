@@ -1,5 +1,5 @@
 
-define('PageController', [
+define('PageManager', [
     'Backbone',
     'webdesignwill',
     'NavView',
@@ -13,7 +13,7 @@ define('PageController', [
 
     "use strict";
 
-    var PageController = Backbone.Page.extend({
+    var PageManager = Backbone.Page.extend({
 
       garbage : [],
 
@@ -66,24 +66,22 @@ define('PageController', [
       goto : function (pageModel, Page, identifier) {
 
         this.tearDown();
-        pageModel.set('currentPage', true);
+        pageModel.set('active:page', true);
 
-        var page = new Page({
+        var newPage = new Page({
           model : pageModel,
           identifier : identifier || null
         });
 
-        var newPageProps = {
-          page : page,
-          model : pageModel
+        var page = {
+          page : newPage
         };
 
-        webdesignwill.set('currentPage', newPageProps);
-        this.garbage.push(newPageProps);
+        webdesignwill.page.set(page);
+        this.garbage.push(page);
 
-        this.$el.html(page.render().el);
+        this.$el.html(newPage.render().el);
         this.setBodyClass(pageModel.get('map'));
-
       },
 
       setBodyClass : function (map) {
@@ -98,16 +96,9 @@ define('PageController', [
           delete trash.page;
         }
 
-        function changeCurrentPageStatus (pageModel) {
-          if(pageModel.get('currentPage')) {
-            pageModel.set('currentPage', false);
-          }
-        }
-
         var i;
         for(i = 0;i<this.garbage.length; i++) {
           emptyGarbage(this.garbage[i]);
-          changeCurrentPageStatus(this.garbage[i].model);
           this.garbage.splice(i, 1);
         }
 
@@ -126,6 +117,6 @@ define('PageController', [
 
     });
 
-    return PageController;
+    return PageManager;
 
 });
