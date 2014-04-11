@@ -576,13 +576,10 @@ body.this-page #page-container .wdw-tables .table-row:hover {
   top: 0;
   right: 0;
   left: 0;
-}
-/* line 9, sass/views/_nav.scss */
-#primary-nav ul {
   text-align: right;
 }
-/* line 11, sass/views/_nav.scss */
-#primary-nav ul li {
+/* line 10, sass/views/_nav.scss */
+#primary-nav li {
   color: #fdedcd;
   -webkit-transition: color 250ms linear;
   -moz-transition: color 250ms linear;
@@ -594,29 +591,29 @@ body.this-page #page-container .wdw-tables .table-row:hover {
   cursor: pointer;
   border-right: 1px dotted #fdedcd;
 }
-/* line 19, sass/views/_nav.scss */
-#primary-nav ul li:hover {
+/* line 18, sass/views/_nav.scss */
+#primary-nav li:hover {
   color: white;
 }
-/* line 22, sass/views/_nav.scss */
-#primary-nav ul li:last-child {
+/* line 21, sass/views/_nav.scss */
+#primary-nav li:last-child {
   margin-right: 0;
   padding-right: 0;
   border: none;
 }
 
-/* line 32, sass/views/_nav.scss */
-body.home-page #primary-nav ul li.active {
+/* line 29, sass/views/_nav.scss */
+body.home-page #primary-nav li.active {
   color: #c0e4ed;
 }
 
-/* line 41, sass/views/_nav.scss */
-body.contact-page #primary-nav ul li.active {
+/* line 36, sass/views/_nav.scss */
+body.contact-page #primary-nav li.active {
   color: #e86158;
 }
 
-/* line 50, sass/views/_nav.scss */
-body.this-page #primary-nav ul li.active {
+/* line 43, sass/views/_nav.scss */
+body.this-page #primary-nav li.active {
   color: #b2d233;
 }
 

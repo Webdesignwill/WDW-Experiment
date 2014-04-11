@@ -35,11 +35,11 @@ define('PageManager', [
 
       renderPageComponents : function () {
 
+        this.$primaryNav.html(new NavView().render().el);
+
         new SiteLoaderView({
           el : this.$siteLoader
         });
-
-        this.$primaryNav.html(new NavView().render().el);
 
         new HeaderView({
           el : this.$siteHeader

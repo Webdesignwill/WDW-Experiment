@@ -15,7 +15,10 @@ require.config({
   deps : ['webdesignwill', 'Github'],
 
   callback : function (webdesignwill) {
-    webdesignwill.packageManager.$bus.trigger('github:loaded');
+    webdesignwill.packageManager.$bus.trigger('github:loaded', {
+      type : 'loaded',
+      pack : 'github'
+    });
   }
 
 });

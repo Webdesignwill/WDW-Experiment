@@ -8,6 +8,21 @@ define('PackageManager', [
 
   var PackageManager = function() {
 
+    this.interests = {
+      loaded : function (data) {
+        webdesignwill.packages[data.pack].init();
+      },
+      initialised : function (data) {
+        webdesignwill.packages[data.pack].start();
+      },
+      started : function (data) {
+        // No calllback for started yet
+      },
+      stopped : function (data) {
+        webdesignwill.packages[data.pack].stop();
+      }
+    };
+
     this.$bus = _.clone(Backbone.Events);
 
     this.initPackages = function (packages) {
@@ -28,21 +43,17 @@ define('PackageManager', [
     };
 
     this.setPackageListeners = function (pack) {
-      this.$bus.on(pack + ':loaded', function () {
-        this.setPackageStatus(pack, 'loaded');
-        webdesignwill.packages[pack].init();
-      }, this);
-      this.$bus.on(pack + ':initialised', function () {
-        this.setPackageStatus(pack, 'initialised');
-        webdesignwill.packages[pack].start();
-      }, this);
-      this.$bus.on(pack + ':started', function () {
-        this.setPackageStatus(pack, 'started');
-      }, this);
-      this.$bus.on(pack + ':stopped', function () {
-        this.setPackageStatus(pack, 'stopped');
-        webdesignwill.packages[pack].stop();
-      }, this);
+
+      var self = this;
+
+      function handle (data) {
+        self.setPackageStatus(data.pack, data.type);
+        self.interests[data.type](data);
+      }
+
+      for(var key in this.interests) {
+        this.$bus.on(pack + ':' + key, handle, this);
+      }
     };
 
     this.setPackageStatus = function (pack, status) {

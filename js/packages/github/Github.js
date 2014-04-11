@@ -17,15 +17,24 @@ define('Github', [
     },
 
     init : function () {
-      this.$bus.trigger(this.get('name') + ':initialised');
+      this.$bus.trigger(this.get('name') + ':initialised', {
+        type : 'initialised',
+        pack : this.get('name')
+      });
     },
 
     start : function () {
-      this.$bus.trigger(this.get('name') + ':started');
+      this.$bus.trigger(this.get('name') + ':started', {
+        type : 'started',
+        pack : this.get('name')
+      });
     },
 
     stop : function () {
-      this.$bus.trigger(this.get('name') + ':stopped');
+      this.$bus.trigger(this.get('name') + ':stopped', {
+        type : 'stopped',
+        pack : this.get('name')
+      });
     },
 
     setPackageListeners : function () {
