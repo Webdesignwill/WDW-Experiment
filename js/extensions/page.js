@@ -12,10 +12,6 @@ define('page', [
       Backbone.View.prototype.constructor.apply(this, arguments);
     },
 
-    loadPackages : function () {
-      webdesignwill.packageManager.initPackages(this.model.get('packages'));
-    },
-
     close : function () {
       this.$el.off().remove();
     }

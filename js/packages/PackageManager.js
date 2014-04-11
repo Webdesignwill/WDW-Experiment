@@ -8,37 +8,48 @@ define('PackageManager', [
 
   var PackageManager = function() {
 
+    this.packages = {};
+    this.$events = _.clone(Backbone.Events);
+
+    webdesignwill.page.on('change', function (page) {
+      var p = page.get('page'),
+            pgs = p.model.get('packages');
+
+      if(pgs) {
+        this.loadPackages(pgs, p.$el);
+      }
+    }, this);
+
     this.interests = {
       loaded : function (data) {
-        webdesignwill.packages[data.pack].init();
+        this.packages[data.pack].init();
       },
       initialised : function (data) {
-        webdesignwill.packages[data.pack].start();
+        this.packages[data.pack].start();
       },
       started : function (data) {
         // No calllback for started yet
       },
       stopped : function (data) {
-        webdesignwill.packages[data.pack].stop();
+        this.packages[data.pack].stop();
       }
     };
 
-    this.$bus = _.clone(Backbone.Events);
-
-    this.initPackages = function (packages) {
+    this.loadPackages = function (packages, $el) {
+      this.$el = $el;
       for(var i = 0;i<packages.length;i++) {
         this.load(packages[i]);
       }
     };
 
     this.load = function (pack) {
-      var pge = webdesignwill.packages[pack];
+      var pge = this.packages[pack];
 
       if(!pge) {
         this.setPackageListeners(pack);
         require([pack]);
-      } else if (this.checkPackageActive(pack)) {
-        console.log('%c ' + pack + ' already ' + webdesignwill.packages[pack].get('status') + ' ', 'background: #FF9900; color: #FFFFFF');
+      } else if (this.isPackageLoaded(pack)) {
+        console.log('%c ' + pack + ' already ' + this.packages[pack].get('status') + ' ', 'background: #FF9900; color: #FFFFFF');
       }
     };
 
@@ -47,21 +58,25 @@ define('PackageManager', [
       var self = this;
 
       function handle (data) {
-        self.setPackageStatus(data.pack, data.type);
-        self.interests[data.type](data);
+        self.setPackageProps(data.pack, data.type);
+        self.interests[data.type].call(self, data);
       }
 
       for(var key in this.interests) {
-        this.$bus.on(pack + ':' + key, handle, this);
+        this.$events.on(pack + ':' + key, handle, this);
       }
     };
 
-    this.setPackageStatus = function (pack, status) {
-      webdesignwill.packages[pack].set('status', status);
+    this.setPackageProps = function (pack, status) {
+      this.packages[pack].set({
+        name : pack,
+        status : status,
+        $el : this.$el
+      });
     };
 
-    this.checkPackageActive = function (pack) {
-      var pge = webdesignwill.packages[pack];
+    this.isPackageLoaded = function (pack) {
+      var pge = this.packages[pack];
       return pge.get('status') === 'loaded' || 'started' ? true : false;
     };
 

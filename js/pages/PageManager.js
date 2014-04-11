@@ -66,7 +66,6 @@ define('PageManager', [
       goto : function (pageModel, Page, identifier) {
 
         this.tearDown();
-        pageModel.set('active:page', true);
 
         var newPage = new Page({
           model : pageModel,
@@ -82,6 +81,7 @@ define('PageManager', [
 
         this.$el.html(newPage.render().el);
         this.setBodyClass(pageModel.get('map'));
+
       },
 
       setBodyClass : function (map) {

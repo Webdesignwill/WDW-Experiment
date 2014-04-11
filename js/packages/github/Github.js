@@ -1,37 +1,32 @@
 
 define('Github', [
   'Backbone',
-  'webdesignwill',
-  'gh_SigninPage'
-], function (Backbone, webdesignwill, SigninPage) {
+  'webdesignwill'
+], function (Backbone, webdesignwill) {
 
   var Github = Backbone.Model.extend({
 
-    defaults : {
-      name : 'github'
-    },
-
     initialize : function () {
       this.setPackageListeners();
-      this.$bus = webdesignwill.packageManager.$bus;
+      this.$events = webdesignwill.packageManager.$events;
     },
 
     init : function () {
-      this.$bus.trigger(this.get('name') + ':initialised', {
+      this.$events.trigger(this.get('name') + ':initialised', {
         type : 'initialised',
         pack : this.get('name')
       });
     },
 
     start : function () {
-      this.$bus.trigger(this.get('name') + ':started', {
+      this.$events.trigger(this.get('name') + ':started', {
         type : 'started',
         pack : this.get('name')
       });
     },
 
     stop : function () {
-      this.$bus.trigger(this.get('name') + ':stopped', {
+      this.$events.trigger(this.get('name') + ':stopped', {
         type : 'stopped',
         pack : this.get('name')
       });
@@ -45,6 +40,6 @@ define('Github', [
 
   });
 
-  webdesignwill.packages.github = new Github();
+  webdesignwill.packageManager.packages.github = new Github();
 
 });

@@ -14,12 +14,6 @@ define('ThisPage', [
     id : 'this-page',
     className : 'this-page page',
 
-    initialize : function () {
-      if(this.model.get('packages').length > 0) {
-        this.loadPackages();
-      }
-    },
-
     render : function () {
 
       var tpl = handlebars.compile(template);
