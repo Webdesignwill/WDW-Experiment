@@ -1,8 +1,10 @@
 
-define('Github', [
+define('git', [
   'Backbone',
   'webdesignwill'
 ], function (Backbone, webdesignwill) {
+
+  "use strict";
 
   var Github = Backbone.Model.extend({
 

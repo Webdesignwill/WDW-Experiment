@@ -11,15 +11,6 @@ define('PackageManager', [
     this.packages = {};
     this.$events = _.clone(Backbone.Events);
 
-    webdesignwill.page.on('change', function (page) {
-      var p = page.get('page'),
-            pgs = p.model.get('packages');
-
-      if(pgs) {
-        this.loadPackages(pgs, p.$el);
-      }
-    }, this);
-
     this.interests = {
       loaded : function (data) {
         this.packages[data.pack].init();
@@ -35,6 +26,15 @@ define('PackageManager', [
       }
     };
 
+    webdesignwill.page.on('change', function (page) {
+      var p = page.get('page'),
+            pgs = p.model.get('packages');
+
+      if(pgs) {
+        this.loadPackages(pgs, p.$el);
+      }
+    }, this);
+
     this.loadPackages = function (packages, $el) {
       this.$el = $el;
       for(var i = 0;i<packages.length;i++) {
@@ -43,11 +43,13 @@ define('PackageManager', [
     };
 
     this.load = function (pack) {
-      var pge = this.packages[pack];
+      var pge = this.packages[pack],
+            self = this;
 
       if(!pge) {
-        this.setPackageListeners(pack);
-        require([pack]);
+        require([pack], function () {
+          self.setPackageListeners(pack);
+        });
       } else if (this.isPackageLoaded(pack)) {
         console.log('%c ' + pack + ' already ' + this.packages[pack].get('status') + ' ', 'background: #FF9900; color: #FFFFFF');
       }

@@ -3,16 +3,16 @@ require.config({
 
   paths : {
 
-    gh_path                                           : 'packages/github/',
+    gh_path                                            : 'packages/github/',
 
-    Github                                              : 'packages/github/Github',
+    git                                                    : 'packages/github/git',
 
     // pages
     gh_SigninPage                                  : 'packages/github/pages/signIn/SigninPage'
 
   },
 
-  deps : ['webdesignwill', 'Github'],
+  deps : ['webdesignwill', 'git'],
 
   callback : function (webdesignwill) {
     webdesignwill.packageManager.$events.trigger('github:loaded', {
