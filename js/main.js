@@ -17,8 +17,6 @@ require.config({
     text                                      : 'libs/require/text-min',
     domReady                            : 'libs/require/domReady',
 
-    utils                                      : 'utils',
-
     // Extensions
     page                                      : 'extensions/page',
 

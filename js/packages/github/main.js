@@ -8,7 +8,7 @@ require.config({
     git                                                    : 'packages/github/git',
 
     // pages
-    gh_SigninPage                                  : 'packages/github/pages/signIn/SigninPage'
+    gh_SigninPage                                  : 'packages/github/pages/signin/SigninPage'
 
   },
 

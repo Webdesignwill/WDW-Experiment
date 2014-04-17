@@ -12,14 +12,14 @@ define('PackageManager', [
     this.$events = _.clone(Backbone.Events);
 
     this.interests = {
-      loaded : function (data) {
-        this.packages[data.pack].init();
+      loaded : function (data, $el) {
+        this.packages[data.pack].init($el);
       },
       initialised : function (data) {
         this.packages[data.pack].start();
       },
       started : function (data) {
-        // No calllback for started yet
+        this.packages[data.pack].goto();
       },
       stopped : function (data) {
         this.packages[data.pack].stop();
@@ -36,32 +36,31 @@ define('PackageManager', [
     }, this);
 
     this.loadPackages = function (packages, $el) {
-      this.$el = $el;
       for(var i = 0;i<packages.length;i++) {
-        this.load(packages[i]);
+        this.load(packages[i], $el);
       }
     };
 
-    this.load = function (pack) {
+    this.load = function (pack, $el) {
       var pge = this.packages[pack],
             self = this;
 
       if(!pge) {
         require([pack], function () {
-          self.setPackageListeners(pack);
+          self.setPackageListeners(pack, $el);
         });
       } else if (this.isPackageLoaded(pack)) {
         console.log('%c ' + pack + ' already ' + this.packages[pack].get('status') + ' ', 'background: #FF9900; color: #FFFFFF');
       }
     };
 
-    this.setPackageListeners = function (pack) {
+    this.setPackageListeners = function (pack, $el) {
 
       var self = this;
 
       function handle (data) {
         self.setPackageProps(data.pack, data.type);
-        self.interests[data.type].call(self, data);
+        self.interests[data.type].apply(self, [data, $el]);
       }
 
       for(var key in this.interests) {
@@ -72,8 +71,7 @@ define('PackageManager', [
     this.setPackageProps = function (pack, status) {
       this.packages[pack].set({
         name : pack,
-        status : status,
-        $el : this.$el
+        status : status
       });
     };
 

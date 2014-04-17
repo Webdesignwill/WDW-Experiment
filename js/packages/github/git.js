@@ -11,9 +11,11 @@ define('git', [
     initialize : function () {
       this.setPackageListeners();
       this.$events = webdesignwill.packageManager.$events;
+      this.$events.on(this.get('name') + ':goto', this.goto);
     },
 
-    init : function () {
+    init : function ($el) {
+      this.setElement($el);
       this.$events.trigger(this.get('name') + ':initialised', {
         type : 'initialised',
         pack : this.get('name')
@@ -34,10 +36,23 @@ define('git', [
       });
     },
 
+    goto : function (data) {
+      // how will each package trigger a goto between itself?
+    },
+
     setPackageListeners : function () {
       this.on('change:status', function () {
         console.log('%c ' + this.get('name') + ' package has ' + this.get('status') + ' ', 'background: #7AFF4D; color: #000');
       }, this);
+    },
+
+    setElement : function ($el) {
+      var $element = $el.find(this.get('name'));
+      if($element.length < 1) {
+        this.$el = $el;
+        return;
+      }
+      this.$el = $element;
     }
 
   });
