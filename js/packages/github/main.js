@@ -3,12 +3,12 @@ require.config({
 
   paths : {
 
-    gh_path                                            : 'packages/github/',
+    GH_path                                            : 'packages/github/',
 
-    git                                                    : 'packages/github/git',
+    git                                                     : 'packages/github/git',
 
     // pages
-    gh_SigninPage                                  : 'packages/github/pages/signin/SigninPage'
+    GH_SigninPage                                  : 'packages/github/pages/signin/SigninPage'
 
   },
 

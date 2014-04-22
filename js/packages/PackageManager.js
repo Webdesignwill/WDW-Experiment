@@ -19,7 +19,7 @@ define('PackageManager', [
         this.packages[data.pack].start();
       },
       started : function (data) {
-        this.packages[data.pack].goto();
+        // Started, nothing to do here yet
       },
       stopped : function (data) {
         this.packages[data.pack].stop();
@@ -49,8 +49,9 @@ define('PackageManager', [
         require([pack], function () {
           self.setPackageListeners(pack, $el);
         });
-      } else if (this.isPackageLoaded(pack)) {
-        console.log('%c ' + pack + ' already ' + this.packages[pack].get('status') + ' ', 'background: #FF9900; color: #FFFFFF');
+      } else if (pge.get('status') === 'started') {
+        console.log('%c ' + pack + ' already ' + pge.get('status') + ' ', 'background: #FF9900; color: #FFFFFF');
+        pge.continue($el);
       }
     };
 

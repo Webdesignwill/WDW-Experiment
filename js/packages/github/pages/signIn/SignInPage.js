@@ -1,9 +1,9 @@
 
-define('SigninPage', [
+define('GH_SigninPage', [
   'Backbone',
   'handlebars',
   'webdesignwill',
-  'text!githubPath/pages/signIn/templates/sign-in.tpl'
+  'text!GH_path/pages/signIn/templates/sign-in.tpl'
 ], function (Backbone, handlebars, webdesignwill, template) {
 
   "use strict";
@@ -13,11 +13,10 @@ define('SigninPage', [
     id : 'signin-page',
     className : 'signin-page page',
 
-    initialize : function () {
-
-    },
+    initialize : function () {},
 
     render : function () {
+      this.$el.html(template);
       return this;
     }
 

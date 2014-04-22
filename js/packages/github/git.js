@@ -8,10 +8,13 @@ define('git', [
 
   var Github = Backbone.Model.extend({
 
+    page : new Backbone.Model(),
+    garbage : [],
+    $broker : _.clone(Backbone.Events),
+
     initialize : function () {
       this.setPackageListeners();
       this.$events = webdesignwill.packageManager.$events;
-      this.$events.on(this.get('name') + ':goto', this.goto);
     },
 
     init : function ($el) {
@@ -23,6 +26,7 @@ define('git', [
     },
 
     start : function () {
+      this.navigate();
       this.$events.trigger(this.get('name') + ':started', {
         type : 'started',
         pack : this.get('name')
@@ -36,8 +40,47 @@ define('git', [
       });
     },
 
-    goto : function (data) {
-      // how will each package trigger a goto between itself?
+    continue : function ($el) {
+      this.setElement($el);
+      this.navigate(); // TODO Continue where we left off
+    },
+
+    navigate : function (page, data) {
+      var self = this,
+            pageName = page !== undefined ? page : 'GH_SigninPage'; // TODO config.startpage
+
+      require([pageName], function (Page) {
+        self.goto(Page, pageName);
+      });
+    },
+
+    goto : function (Page, pageName) {
+      this.tearDown();
+      var newPage = new Page();
+
+      var page = {
+        page : newPage
+      };
+
+      this.page.set(page);
+      this.garbage.push(page);
+
+      this.$el.html(newPage.render().el);
+
+    },
+
+    tearDown : function () {
+
+      function emptyGarbage (trash) {
+        trash.page.close();
+      }
+
+      var i;
+      for(i = 0;i<this.garbage.length; i++) {
+        emptyGarbage(this.garbage[i]);
+        this.garbage.splice(i, 1);
+      }
+
     },
 
     setPackageListeners : function () {

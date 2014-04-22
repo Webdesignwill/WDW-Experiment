@@ -10,14 +10,7 @@ function (Backbone) {
   var Webdesignwill = Backbone.Model.extend({
 
     page : new Backbone.Model(),
-
-    initialize : function () {
-      this.setBroker();
-    },
-
-    setBroker : function () {
-      this.$broker = _.clone(Backbone.Events);
-    },
+    $broker : _.clone(Backbone.Events),
 
     initWebdesignwill : function () {
       var self = this;
