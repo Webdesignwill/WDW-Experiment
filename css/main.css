@@ -828,7 +828,6 @@ body.this-page #primary-nav ul li.active {
   display: none;
 }
 
-@imports "modules/main";
 @media only screen and (max-width: 420px) {
   /* line 1, sass/handheld/_dimensions.scss */
   .width-auto {

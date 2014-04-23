@@ -1,1 +1,6 @@
-// Package specific configuration
+{
+  "sitemap" : [{
+    "name" : "signin",
+    "page" : "SigninPage"
+  }]
+}

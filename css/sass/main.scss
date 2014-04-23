@@ -26,8 +26,6 @@
 @import "views/footer";
 @import "views/page-controls";
 
-@imports "modules/main";
-
 @media only screen and (max-width : 420px) {
   @import "handheld/main";
 }

@@ -20,8 +20,10 @@ function (Backbone, webdesignwill, content) {
     },
 
     setNavSubText : function () {
-      var navSubText = content[this.get('name')] && content[this.get('name')].subText || '';
-      this.set('navSubText', navSubText);
+      var navSubText = content[this.get('name')] && content[this.get('name')].subText;
+      if(navSubText) {
+        this.set('navSubText', navSubText);
+      }
     },
 
     getNextPage : function (prop) {

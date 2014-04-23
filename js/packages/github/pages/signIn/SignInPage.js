@@ -1,10 +1,9 @@
 
-define('GH_SigninPage', [
+define('github:SigninPage', [
   'Backbone',
   'handlebars',
-  'webdesignwill',
-  'text!GH_path/pages/signIn/templates/sign-in.tpl'
-], function (Backbone, handlebars, webdesignwill, template) {
+  'text!github-path/pages/signIn/templates/sign-in.tpl'
+], function (Backbone, handlebars, template) {
 
   "use strict";
 

@@ -1,1 +1,1 @@
-<github></github>
+<github class="english-skies"></github>

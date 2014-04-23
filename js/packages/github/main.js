@@ -3,12 +3,15 @@ require.config({
 
   paths : {
 
-    GH_path                                            : 'packages/github/',
+    'github-path'                                      : 'packages/github/',
 
-    git                                                     : 'packages/github/git',
+    git                                                       : 'packages/github/git',
+
+    // Models
+    'github-Sitemap'                                 : 'packages/github/models/app/Sitemap',
 
     // pages
-    GH_SigninPage                                  : 'packages/github/pages/signin/SigninPage'
+    'github-SigninPage'                            : 'packages/github/pages/signin/SigninPage'
 
   },
 
