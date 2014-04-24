@@ -10,7 +10,6 @@ define('git', [
   var Github = Backbone.Model.extend({
 
     sitemap : new Sitemap(),
-    page : new Backbone.Model(),
     $broker : _.clone(Backbone.Events),
 
     initialize : function () {
@@ -42,6 +41,10 @@ define('git', [
         type : 'stopped',
         pack : this.get('name')
       });
+    },
+
+    ready : function () {
+      // Do all rendering related stuff
     },
 
     setPackageListeners : function () {

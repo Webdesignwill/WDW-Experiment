@@ -76,10 +76,11 @@ define('PageManager', [
           page : newPage
         };
 
-        webdesignwill.page.set(page);
         this.garbage.push(page);
 
         this.$el.html(newPage.render().el);
+        webdesignwill.page.set(page);
+
         this.setBodyClass(pageModel.get('map'));
 
       },

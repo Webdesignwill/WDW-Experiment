@@ -18,7 +18,9 @@ define('PackageManager', [
       initialised : function (data) {
         this.packages[data.pack].start();
       },
-      started : function (data) {},
+      started : function (data) {
+        this.packages[data.pack].ready();
+      },
       stopped : function (data) {}
     };
 
@@ -71,21 +73,21 @@ define('PackageManager', [
     };
 
     this.setPackageProps = function (pack, status) {
-      this.packages[pack].set({
-        name : pack,
-        status : status,
-        $el : this.setPackageElement(pack)
-      });
-    };
-
-    this.setPackageElement = function (pack) {
-      var $container = $('#page-container-inner'),
-            $el = $container.find(pack);
-
-      if($el.length > 0) {
-        return $el;
+      switch (status) {
+        case 'loaded' :
+          this.packages[pack].set({
+            name : pack
+          });
+          break;
+        case 'started' :
+          this.packages[pack].set({
+            $el : webdesignwill.page.get('page').$el.find(pack)
+          });
+        break;
       }
-      return $container;
+      this.packages[pack].set({
+        status : status
+      });
     };
 
     return this;
