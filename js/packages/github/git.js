@@ -11,10 +11,10 @@ define('git', [
 
     sitemap : new Sitemap(),
 
-    loaded : function (data) {},
-    initialised : function (data) {},
-    started : function (data) {},
-    stopped : function (data) {},
+    loaded : function () {},
+    initialised : function () {},
+    started : function () {},
+    stopped : function () {},
 
     ready : function () {
       // Do all rendering related stuff
