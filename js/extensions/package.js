@@ -42,7 +42,9 @@ define('package', [
 
     setPackageListeners : function () {
       this.on('change:status', function (model) {
-        this[model.get('status')]();
+        if(typeof this[model.get('status')] !== "undefined") {
+          this[model.get('status')]();
+        }
         console.log('%c ' + this.get('name') + ' package has ' + this.get('status') + ' ', 'background: #7AFF4D; color: #000');
       }, this);
     }
