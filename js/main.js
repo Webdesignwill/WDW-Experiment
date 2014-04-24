@@ -19,6 +19,7 @@ require.config({
 
     // Extensions
     page                                      : 'extensions/page',
+    package                                 : 'extensions/package',
 
     // Managers
     PackageManager                    : 'packages/PackageManager',
@@ -39,7 +40,7 @@ require.config({
     SiteContentHeaderView         : 'views/siteContentHeader/SiteContentHeaderView',
     NavView                                : 'views/nav/NavView',
     NavSubView                          : 'views/nav/NavSubView',
-    StrapView                             : 'views/strap/StrapView',
+    StrapView                              : 'views/strap/StrapView',
     PageControlsView                 : 'views/pageControls/PageControlsView',
     SiteLoaderView                     : 'views/siteLoader/SiteLoaderView',
 
@@ -47,6 +48,7 @@ require.config({
     HomePage                             : 'pages/home/HomePage',
     ContactPage                          : 'pages/contact/ContactPage',
     ThisPage                                : 'pages/this/ThisPage'
+
   },
   shim : {
     'Backbone' : {
@@ -57,7 +59,7 @@ require.config({
       exports: 'Handlebars'
     }
   },
-  deps : ['webdesignwill', 'domReady', 'Sitemap', 'PackageManager', 'page', 'router'],
+  deps : ['webdesignwill', 'domReady', 'Sitemap', 'PackageManager', 'page', 'package', 'router'],
   callback : function (webdesignwill, domReady) {
     domReady(function() {
       webdesignwill.initWebdesignwill();
