@@ -1,29 +1,13 @@
 Webdesignwill.co.uk
 ======
-My very own CMS site which i'm creating as a learning initiative. The site will be constructed from the site.json while developing. Once I start writing the server in Node.js, then I will be able to start implementing the API to create pages and save data.
+Webdesignwill is being designed and built with full scalability in mind. The idea of the project is to build a site on a platform which I can use over and over again to build optimised and scalable front end applications. Webdesignwill is being built with all platforms in mind and in such a way that it is easy to decouple packages and modules for ease of team development.
 
-Architecture
+The Dream
 ------
-The router will be dynamically generated from the pages in the site.json. The nav and other components will inherit the same properties from the site.json which will eventually be served from an api.
+The end goal is to have a scalable website and light weight simple CMS that is served from a Node server communicating with a Mongo DB. The entire front end is built as an application that can be used across all platforms easily and support all major modern browsers.
 
-The idea is that each page has it's own model which knows the next and previous siblings, the parent and subpages for each page so that the user will be able to click next, previous, top or bottom to go to navigate as oppose to a traditional navigation.
+Although Webdesignwill is a small application, some of the working ideas here are being developed on larger applications currently in the marketplace and are working very successfully.
 
-Collection
+Stay Tuned
 ------
-The collection sorts the data as it still has the relationship between the models and the model then has the methods to navigate through the site.
-
-Model
-------
-Each model has it's own reference to it's respective view and can listen to page:change events which in turn will then clear it's view instance. Also, each views model will have a getter to find the repective top, next, prev and child sibling so for example :
-
-The view would call : this.model.getNextPage(options);
-
-// TODO write a callback for when the view has been instantiated.
-
-Page Controller
-------
-The page controller has the animation between the views like a before and after, passes the view the model (for now), then cleans up the DOM by triggering a page:change event. Each model will listen to the event and see if it needs to be cleaned up or not.
-
-Tools
-------
-I'm going to use Backbone, require, SASS, Node and other such nice tools.
+Stay in touch as development is racing ahead and new ideas are always coming forward. Feel free to offer suggestions and or check the wiki for code explanation.
