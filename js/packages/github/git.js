@@ -10,6 +10,7 @@ define('git', [
   var Github = Backbone.Package.extend({
 
     sitemap : new Sitemap(),
+    prefix : 'github-',
 
     loaded : function () {},
     initialised : function () {},
@@ -17,7 +18,7 @@ define('git', [
     stopped : function () {},
 
     ready : function () {
-      // Do all rendering related stuff
+      this.navigate(this.sitemap.get('signin-page'));
     }
 
   });

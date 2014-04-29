@@ -1,5 +1,5 @@
 
-define('github:SigninPage', [
+define('github-SigninPage', [
   'Backbone',
   'handlebars',
   'text!github-path/pages/signIn/templates/sign-in.tpl'
@@ -9,8 +9,8 @@ define('github:SigninPage', [
 
   var SigninPage = Backbone.Page.extend({
 
-    id : 'signin-page',
-    className : 'signin-page page',
+    id : 'github-signin-page',
+    className : 'github-signin-page page',
 
     initialize : function () {},
 

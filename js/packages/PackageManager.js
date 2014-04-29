@@ -10,6 +10,18 @@ define('PackageManager', [
 
     this.packages = {};
     this.$events = _.clone(Backbone.Events);
+    this.interests = {
+      loaded : function (data) {
+        this.packages[data.pack].init();
+      },
+      initialised : function (data) {
+        this.packages[data.pack].start();
+      },
+      started : function (data) {
+        this.packages[data.pack].ready();
+      },
+      stopped : function (data) {}
+    };
 
     webdesignwill.page.on('change', function (page) {
       var p = page.get('page'),
@@ -23,19 +35,6 @@ define('PackageManager', [
       }
 
     }, this);
-
-    this.interests = {
-      loaded : function (data) {
-        this.packages[data.pack].init();
-      },
-      initialised : function (data) {
-        this.packages[data.pack].start();
-      },
-      started : function (data) {
-        this.packages[data.pack].ready();
-      },
-      stopped : function (data) {}
-    };
 
     this.loadPackages = function (packages) {
       for(var i = 0;i<packages.length;i++) {
@@ -79,7 +78,7 @@ define('PackageManager', [
           break;
         case 'started' :
           this.packages[pack].set({
-            $el : webdesignwill.page.get('page').$el.find(pack)
+            $el : webdesignwill.page.get('page').$el.find("[data-package='" + pack + "']")
           });
         break;
       }

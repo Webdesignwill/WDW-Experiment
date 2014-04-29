@@ -8,7 +8,9 @@ define('package', [
 
   Backbone.Package = Backbone.Model.extend({
 
+    page : new Backbone.Model(),
     $broker : _.clone(Backbone.Events),
+    garbage : [],
 
     initialize : function () {
       this.setPackageListeners();
@@ -47,6 +49,42 @@ define('package', [
         }
         console.log('%c ' + this.get('name') + ' package has ' + this.get('status') + ' ', 'background: #7AFF4D; color: #000');
       }, this);
+    },
+
+    navigate : function (pageModel) {
+      var self = this;
+      require([this.prefix + pageModel.get('page')], function (Page) {
+        self.goto(pageModel, Page);
+      });
+    },
+
+    goto : function (pageModel, Page) {
+      this.tearDown();
+      var newPage = new Page({
+        model : pageModel
+      });
+
+      var page = {
+        page : newPage
+      };
+
+      this.garbage.push(page);
+      this.get('$el').html(newPage.render().el);
+      this.page.set(page);
+    },
+
+    tearDown : function () {
+
+      function emptyGarbage (trash) {
+        trash.page.close();
+        delete trash.page;
+      }
+
+      var i;
+      for(i = 0;i<this.garbage.length; i++) {
+        emptyGarbage(this.garbage[i]);
+        this.garbage.splice(i, 1);
+      }
     }
 
   });
