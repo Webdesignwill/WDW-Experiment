@@ -97,8 +97,18 @@ define('PageManager', [
           delete trash.page;
         }
 
+        function stopPackages (trash) {
+          var packages = trash.page.model.get('packages');
+          if(packages) {
+            for(var i = 0; i<packages.length; i++) {
+              webdesignwill.packageManager.packages[packages[i]].stop();
+            }
+          }
+        }
+
         var i;
         for(i = 0;i<this.garbage.length; i++) {
+          stopPackages(this.garbage[i]);
           emptyGarbage(this.garbage[i]);
           this.garbage.splice(i, 1);
         }

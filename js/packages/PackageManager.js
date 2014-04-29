@@ -27,9 +27,6 @@ define('PackageManager', [
       var p = page.get('page'),
             pgs = p.model.get('packages');
 
-      for(var key in this.packages) {
-        this.packages[key].stop();
-      }
       if(pgs) {
         this.loadPackages(pgs);
       }

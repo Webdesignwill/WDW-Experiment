@@ -36,6 +36,7 @@ define('package', [
     },
 
     stop : function () {
+      this.tearDown();
       webdesignwill.packageManager.$events.trigger(this.get('name') + ':stopped', {
         type : 'stopped',
         pack : this.get('name')
