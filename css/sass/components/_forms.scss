@@ -1,7 +1,8 @@
-button {
-  cursor:pointer;
+form.input-button-combo {
+  display:inline-flex;
 }
-button, input {
+input {
+  @include transition(all, 0.2s);
   border:none;
 }
 input {
@@ -12,12 +13,4 @@ input {
   text-indent:20px;
   height:40px;
   min-width:280px;
-}
-form.input-button-combo {
-  display:inline-flex;
-  button.input-button {
-    background:$grey url('/img/icons/mini-arrow-right.png') no-repeat center center;
-    height:40px;
-    width:40px;
-  }
 }

@@ -1,10 +1,10 @@
 
 define('github-SigninPage', [
   'Backbone',
+  'git',
   'handlebars',
-  'github-Repositories',
   'text!github-path/pages/signIn/templates/sign-in.tpl'
-], function (Backbone, handlebars, Repositories, template) {
+], function (Backbone, git, handlebars, template) {
 
   "use strict";
 
@@ -25,16 +25,18 @@ define('github-SigninPage', [
 
     formHandler : function (e) {
       e.preventDefault();
-      var repos = new Repositories();
-      repos.url = 'https://api.github.com/users/' + e.target[0].value + '/repos';
-      repos.fetch({
-        success : function (response) {
-          console.log('Success : ', response);
-        },
-        error : function (response) {
-          console.log('Error : ', response);
-        }
-      });
+      var self = this;
+      git.user = new Backbone.Model();
+      git.user.url = 'https://api.github.com/users/' + e.target[0].value;
+      git.user.fetch({success : self.success, error : self.error});
+    },
+
+    success : function (response) {
+      git.navigate('repositories-page');
+    },
+
+    error : function () {
+      alert('Are you sure that user exists?');
     }
 
   });

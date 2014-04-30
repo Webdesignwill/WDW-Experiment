@@ -52,8 +52,10 @@ define('package', [
       }, this);
     },
 
-    navigate : function (pageModel) {
-      var self = this;
+    navigate : function (pageName) {
+      var self = this,
+            pageModel = this.sitemap.get(pageName);
+
       require([this.prefix + pageModel.get('page')], function (Page) {
         self.goto(pageModel, Page);
       });

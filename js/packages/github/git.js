@@ -18,11 +18,14 @@ define('git', [
     stopped : function () {},
 
     ready : function () {
-      this.navigate(this.sitemap.get('signin-page'));
+      this.navigate('signin-page');
     }
 
   });
 
-  webdesignwill.packageManager.packages.github = new Github();
+  var git = new Github();
+  webdesignwill.packageManager.packages.github = git;
+
+  return git;
 
 });

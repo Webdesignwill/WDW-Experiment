@@ -1,3 +1,4 @@
+
 body.home-page {
   background-color: $darkBlue;
   .logo-small {
@@ -13,13 +14,14 @@ body.home-page {
     input:focus {
       border-left: 3px solid $lightBlue;
     }
-    .input-button-combo {
-      button.input-button {
-        background-color:$lightBlue;
-      }
-      button.input-button:hover {
-        background-color:$veryLightBlue;
-      }
+    button.input-combo-button,
+    button.small-generic {
+      background-color:$lightBlue;
+    }
+    button:focus,
+    button.input-combo-button:hover,
+    button.small-generic:hover {
+      background-color:$veryLightBlue;
     }
     .wdw-tables {
       .table-row {
@@ -59,13 +61,14 @@ body.contact-page {
     input:focus {
       border-left: 3px solid $lightBlood;
     }
-    .input-button-combo {
-      button.input-button {
-        background-color:$blood;
-      }
-      button.input-button:hover {
-        background-color:$lightBlood;
-      }
+    button:focus,
+    button.input-combo-button,
+    button.small-generic {
+      background-color:$blood;
+    }
+    button.input-combo-button:hover,
+    button.small-generic:hover {
+      background-color:$lightBlood;
     }
     .wdw-tables {
       .table-row {
@@ -105,13 +108,13 @@ body.this-page {
     input:focus {
       border-left: 3px solid $vomit;
     }
-    .input-button-combo {
-      button.input-button {
-        background-color:$racingGreen;
-      }
-      button.input-button:hover {
-        background-color:$vomit;
-      }
+    button.input-combo-button,
+    button.small-generic {
+      background-color:$racingGreen;
+    }
+    button.input-combo-button:hover,
+    button.small-generic:hover {
+      background-color:$vomit;
     }
     .wdw-tables {
       .table-row {
