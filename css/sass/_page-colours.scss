@@ -1,0 +1,138 @@
+body.home-page {
+  background-color: $darkBlue;
+  .logo-small {
+    background-position:0 0;
+  }
+  #page-container, #site-footer {
+    a:hover {
+      color:$lightBlue;
+    }
+    input {
+      border-left:3px solid $veryLightBlue;
+    }
+    input:focus {
+      border-left: 3px solid $lightBlue;
+    }
+    .input-button-combo {
+      button.input-button {
+        background-color:$lightBlue;
+      }
+      button.input-button:hover {
+        background-color:$veryLightBlue;
+      }
+    }
+    .wdw-tables {
+      .table-row {
+        @include transition(background-color, 0.2s);
+      }
+      .col {
+        @include transition(border-color, 0.2s);
+      }
+      .table-row:nth-child(even) {
+        .col:first-child {
+          border-left:5px solid $veryLightBlue;
+        }
+      }
+      .table-row:nth-child(odd) {
+        .col:first-child {
+          border-left:5px solid $lightBlue;
+        }
+      }
+      .table-row:hover {
+        background-color:$veryLightBlue;
+      }
+    }
+  }
+}
+body.contact-page {
+  background-color: $blood;
+  .logo-small {
+    background-position:0 -302px;
+  }
+  #page-container, #site-footer {
+    a:hover {
+      color:$lightBlood;
+    }
+    input {
+      border-left:3px solid $blood;
+    }
+    input:focus {
+      border-left: 3px solid $lightBlood;
+    }
+    .input-button-combo {
+      button.input-button {
+        background-color:$blood;
+      }
+      button.input-button:hover {
+        background-color:$lightBlood;
+      }
+    }
+    .wdw-tables {
+      .table-row {
+        @include transition(background-color, 0.2s);
+      }
+      .col {
+        @include transition(border-color, 0.2s);
+      }
+      .table-row:nth-child(even) {
+        .col:first-child {
+          border-left:5px solid $lightBlood;
+        }
+      }
+      .table-row:nth-child(odd) {
+        .col:first-child {
+          border-left:5px solid $blood;
+        }
+      }
+      .table-row:hover {
+        background-color:$lightBlood;
+      }
+    }
+  }
+}
+body.this-page {
+  background-color: $racingGreen;
+  .logo-small {
+    background-position:0 -151px;
+  }
+  #page-container, #site-footer {
+    a:hover {
+      color:$vomit;
+    }
+    input {
+      border-left:3px solid $racingGreen;
+    }
+    input:focus {
+      border-left: 3px solid $vomit;
+    }
+    .input-button-combo {
+      button.input-button {
+        background-color:$racingGreen;
+      }
+      button.input-button:hover {
+        background-color:$vomit;
+      }
+    }
+    .wdw-tables {
+      .table-row {
+        @include transition(background-color, 0.2s);
+      }
+      .col {
+        @include transition(border-color, 0.2s);
+      }
+      .table-row:nth-child(even) {
+        .col:first-child {
+          border-left:5px solid $vomit;
+        }
+      }
+      .table-row:nth-child(odd) {
+        .col:first-child {
+          border-left:5px solid $racingGreen;
+        }
+      }
+      .table-row:hover {
+        background-color:$vomit;
+      }
+    }
+  }
+}

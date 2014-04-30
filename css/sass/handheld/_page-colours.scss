@@ -1,0 +1,21 @@
+body.home-page {
+  #site-header  {
+    h1 {
+      background-position: center 0;
+    }
+  }
+}
+body.this-page {
+  #site-header  {
+    h1 {
+      background-position: center -283px
+    }
+  }
+}
+body.contact-page {
+  #site-header  {
+    h1 {
+      background-position: center -556px;
+    }
+  }
+}

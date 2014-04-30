@@ -21,6 +21,7 @@
     color:$grey;
     display:inline-block;
     h3 {
+      color:$white;
       font-size:22px;
       font-weight:300;
       margin-bottom:25px;
@@ -74,6 +75,7 @@
       .text {
         width:62%;
         p {
+          color:$white;
           line-height:34px;
         }
       }

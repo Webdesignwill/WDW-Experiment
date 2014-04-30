@@ -30,24 +30,3 @@ a {
   @include transition(color, 0.2s);
   text-decoration:none;
 }
-body.home-page {
-  #page-container, #site-footer {
-    a:hover {
-      color:$lightBlue;
-    }
-  }
-}
-body.contact-page {
-  #page-container, #site-footer {
-    a:hover {
-      color:$lightBlood;
-    }
-  }
-}
-body.this-page {
-  #page-container, #site-footer {
-    a:hover {
-      color:$vomit;
-    }
-  }
-}
