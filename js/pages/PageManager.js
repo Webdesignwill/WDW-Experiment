@@ -14,7 +14,7 @@ define('PageManager', [
     "use strict";
 
     var PageManager = Backbone.Page.extend({
-// hello
+
       garbage : [],
 
       initialize : function () {
