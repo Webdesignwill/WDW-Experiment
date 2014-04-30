@@ -9,15 +9,19 @@
   ul {
     text-align:right;
     li {
-      color:$beige;
       @include transition(color, 250ms);
       display:inline-block;
       text-align:left;
       cursor:pointer;
       border-right:1px dotted $beige;
+      h3, cite {
+        color:$beige;
+      }
     }
     li:hover {
-      color:$white;
+      h3, cite {
+        color:$white;
+      }
     }
     li:last-child {
       margin-right:0;
@@ -30,7 +34,9 @@ body.home-page {
   #primary-nav {
     ul {
       li.active {
-        color:$lightBlue;
+        h3, cite {
+          color:$lightBlue;
+        }
       }
     }
   }
@@ -39,7 +45,9 @@ body.contact-page {
   #primary-nav {
     ul {
       li.active {
-        color:$lightBlood;
+        h3, cite {
+          color:$lightBlood;
+        }
       }
     }
   }
@@ -48,7 +56,9 @@ body.this-page {
   #primary-nav {
     ul {
       li.active {
-        color:$vomit;
+        h3, cite {
+          color:$vomit;
+        }
       }
     }
   }

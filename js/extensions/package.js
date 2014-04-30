@@ -81,8 +81,7 @@ define('package', [
         delete trash.page;
       }
 
-      var i;
-      for(i = 0;i<this.garbage.length; i++) {
+      for(var i = 0;i<this.garbage.length; i++) {
         emptyGarbage(this.garbage[i]);
         this.garbage.splice(i, 1);
       }

@@ -1,0 +1,38 @@
+input {
+  background:$white;
+  font-size: 14px;
+  text-indent:20px;
+  height:40px;
+  min-width:280px;
+  border:none;
+}
+body.home-page {
+  #page-container {
+    input {
+      border-left:3px solid $veryLightBlue;
+    }
+    input:focus {
+      border-left: 3px solid $lightBlue;
+    }
+  }
+}
+body.contact-page {
+  #page-container {
+    input {
+      border-left:3px solid $blood;
+    }
+    input:focus {
+      border-left: 3px solid $lightBlood;
+    }
+  }
+}
+body.this-page {
+  #page-container {
+    input {
+      border-left:3px solid $vomit;
+    }
+    input:focus {
+      border-left: 3px solid $lightVomit;
+    }
+  }
+}

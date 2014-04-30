@@ -20,6 +20,9 @@ body.contact-page {
 body.this-page {
   background-color: $racingGreen;
 }
+:focus {
+  outline: 0;
+}
 .clear:after {
   content:"";
   display:table;

@@ -15,6 +15,7 @@
 @import "components/icons";
 @import "components/site-loader";
 @import "components/tables";
+@import "components/forms";
 
 @import "pages/home";
 @import "pages/contact";
@@ -25,6 +26,8 @@
 @import "views/strap";
 @import "views/footer";
 @import "views/page-controls";
+
+@import "packages/main";
 
 @media only screen and (max-width : 420px) {
   @import "handheld/main";

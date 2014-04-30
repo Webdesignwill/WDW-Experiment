@@ -106,8 +106,7 @@ define('PageManager', [
           }
         }
 
-        var i;
-        for(i = 0;i<this.garbage.length; i++) {
+        for(var i = 0;i<this.garbage.length; i++) {
           stopPackages(this.garbage[i]);
           emptyGarbage(this.garbage[i]);
           this.garbage.splice(i, 1);
