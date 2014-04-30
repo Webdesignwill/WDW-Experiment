@@ -10,6 +10,9 @@ require.config({
     // Models
     'github-Sitemap'                                 : 'packages/github/models/app/Sitemap',
 
+    // Collections
+    'github-Repositories'                          : 'packages/github/collections/Repositories',
+
     // pages
     'github-SigninPage'                            : 'packages/github/pages/signin/SigninPage'
 
