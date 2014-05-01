@@ -2,8 +2,9 @@
 define('git', [
   'Backbone',
   'webdesignwill',
-  'github-Sitemap'
-], function (Backbone, webdesignwill, Sitemap) {
+  'github-Sitemap',
+  'github-UserModel'
+], function (Backbone, webdesignwill, Sitemap, UserModel) {
 
   "use strict";
 
@@ -13,7 +14,9 @@ define('git', [
     prefix : 'github-',
 
     loaded : function () {},
-    initialised : function () {},
+    initialised : function () {
+      this.user = new UserModel();
+    },
     started : function () {},
     stopped : function () {},
 

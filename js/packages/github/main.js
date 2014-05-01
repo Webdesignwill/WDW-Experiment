@@ -7,12 +7,16 @@ require.config({
 
     git                                                       : 'packages/github/git',
 
-    // Models
+    // models
     'github-Sitemap'                                 : 'packages/github/models/app/Sitemap',
+    'github-UserModel'                             : 'packages/github/models/user/UserModel',
 
     // pages
     'github-SigninPage'                            : 'packages/github/pages/signin/SigninPage',
-    'github-RepositoriesPage'                   : 'packages/github/pages/repositories/RepositoriesPage'
+    'github-RepositoriesPage'                   : 'packages/github/pages/repositories/RepositoriesPage',
+
+    // views
+    'github-RepositoryItemView'              : 'packages/github/views/repositories/RepositoryItemView'
 
   },
 

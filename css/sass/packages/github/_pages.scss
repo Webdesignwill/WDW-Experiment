@@ -34,3 +34,75 @@ header {
 }
 
 /* Pages */
+
+// Repositories //
+
+#github-repositories-page {
+  #github-repositories-list {
+    margin-top:20px;
+    li {
+      @include transition(border-color, 0.1s);
+      position:relative;
+      margin:0 10px 10px 0;
+      float:left;
+      cursor:pointer;
+      background:$white;
+      width:330px;
+      height:128px;
+      h4 {
+        margin-top:20px;
+      }
+      h4, .stargazers {
+        font-family:$Myriad;
+        color:$shade;
+        font-size:20px;
+      }
+      p {
+        margin-top:10px;
+        font-size:14px;
+      }
+      h4, p {
+        margin-left: 20px;
+        margin-right: 20px;
+      }
+      .description {
+        overflow: hidden;
+        height: 32px;
+      }
+      .last-updated {
+        color:$saabGrey;
+        font-size:12px;
+      }
+      .stargazers {
+        position: absolute;
+        display: inline-flex;
+        top:17px;
+        right:20px;
+        .stargazer-count {
+          margin-top:4px;
+        }
+        .stargazer-icon {
+          background:url('/img/icons/stargazer-icon.png') no-repeat 0 0;
+          display: inline-block;
+          width:23px;
+          height:22px;
+          margin-left:8px;
+        }
+        .stargazer-icon.starred {
+          background-position: 0 -22px;
+        }
+      }
+    }
+    li:nth-child(3) {
+      margin-right:0;
+    }
+    li:hover {
+      .stargazer-icon {
+        background-position: -23px 0;
+      }
+      .stargazer-icon.starred {
+        background-position: -23px -22px;
+      }
+    }
+  }
+}
