@@ -162,6 +162,21 @@ section:last-child {
   padding-bottom: 175px;
 }
 
+/* line 66, sass/_globals.scss */
+body.home-page {
+  background-color: #444f64;
+}
+
+/* line 69, sass/_globals.scss */
+body.this-page {
+  background-color: #376018;
+}
+
+/* line 72, sass/_globals.scss */
+body.contact-page {
+  background-color: #76312d;
+}
+
 /* line 2, sass/_typography.scss */
 h1, h2, h3, h4 {
   font-family: "Oswald", sans-serif;
@@ -188,7 +203,7 @@ h3 {
 }
 
 /* line 19, sass/_typography.scss */
-p {
+p, li {
   color: #444444;
   font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height: 120%;
@@ -211,191 +226,19 @@ a {
   text-decoration: none;
 }
 
-/* line 2, sass/_page-colours.scss */
-body.home-page {
-  background-color: #444f64;
-}
-/* line 4, sass/_page-colours.scss */
-body.home-page .logo-small {
-  background-position: 0 0;
-}
-/* line 8, sass/_page-colours.scss */
+/* line 35, sass/_typography.scss */
 body.home-page #page-container a:hover, body.home-page #site-footer a:hover {
   color: #c0e4ed;
 }
-/* line 11, sass/_page-colours.scss */
-body.home-page #page-container input, body.home-page #site-footer input {
-  border-left: 3px solid #e2f6ff;
-}
-/* line 14, sass/_page-colours.scss */
-body.home-page #page-container input:focus, body.home-page #site-footer input:focus {
-  border-left: 3px solid #c0e4ed;
-}
-/* line 18, sass/_page-colours.scss */
-body.home-page #page-container button.input-combo-button,
-body.home-page #page-container button.small-generic, body.home-page #site-footer button.input-combo-button,
-body.home-page #site-footer button.small-generic {
-  background-color: #c0e4ed;
-}
-/* line 23, sass/_page-colours.scss */
-body.home-page #page-container button:focus,
-body.home-page #page-container button.input-combo-button:hover,
-body.home-page #page-container button.small-generic:hover, body.home-page #site-footer button:focus,
-body.home-page #site-footer button.input-combo-button:hover,
-body.home-page #site-footer button.small-generic:hover {
-  background-color: #e2f6ff;
-}
-/* line 27, sass/_page-colours.scss */
-body.home-page #page-container .wdw-tables .table-row, body.home-page #site-footer .wdw-tables .table-row {
-  -webkit-transition: background-color 0.2s linear;
-  -moz-transition: background-color 0.2s linear;
-  -o-transition: background-color 0.2s linear;
-  -ms-transition: background-color 0.2s linear;
-  transition: background-color 0.2s linear;
-}
-/* line 30, sass/_page-colours.scss */
-body.home-page #page-container .wdw-tables .col, body.home-page #site-footer .wdw-tables .col {
-  -webkit-transition: border-color 0.2s linear;
-  -moz-transition: border-color 0.2s linear;
-  -o-transition: border-color 0.2s linear;
-  -ms-transition: border-color 0.2s linear;
-  transition: border-color 0.2s linear;
-}
-/* line 34, sass/_page-colours.scss */
-body.home-page #page-container .wdw-tables .table-row:nth-child(even) .col:first-child, body.home-page #site-footer .wdw-tables .table-row:nth-child(even) .col:first-child {
-  border-left: 5px solid #e2f6ff;
-}
-/* line 39, sass/_page-colours.scss */
-body.home-page #page-container .wdw-tables .table-row:nth-child(odd) .col:first-child, body.home-page #site-footer .wdw-tables .table-row:nth-child(odd) .col:first-child {
-  border-left: 5px solid #c0e4ed;
-}
-/* line 43, sass/_page-colours.scss */
-body.home-page #page-container .wdw-tables .table-row:hover, body.home-page #site-footer .wdw-tables .table-row:hover {
-  background-color: #e2f6ff;
-}
 
-/* line 49, sass/_page-colours.scss */
-body.this-page {
-  background-color: #376018;
-}
-/* line 51, sass/_page-colours.scss */
-body.this-page .logo-small {
-  background-position: 0 -151px;
-}
-/* line 55, sass/_page-colours.scss */
+/* line 42, sass/_typography.scss */
 body.this-page #page-container a:hover, body.this-page #site-footer a:hover {
   color: #b2d233;
 }
-/* line 58, sass/_page-colours.scss */
-body.this-page #page-container input, body.this-page #site-footer input {
-  border-left: 3px solid #376018;
-}
-/* line 61, sass/_page-colours.scss */
-body.this-page #page-container input:focus, body.this-page #site-footer input:focus {
-  border-left: 3px solid #b2d233;
-}
-/* line 65, sass/_page-colours.scss */
-body.this-page #page-container button.input-combo-button,
-body.this-page #page-container button.small-generic, body.this-page #site-footer button.input-combo-button,
-body.this-page #site-footer button.small-generic {
-  background-color: #376018;
-}
-/* line 69, sass/_page-colours.scss */
-body.this-page #page-container button.input-combo-button:hover,
-body.this-page #page-container button.small-generic:hover, body.this-page #site-footer button.input-combo-button:hover,
-body.this-page #site-footer button.small-generic:hover {
-  background-color: #b2d233;
-}
-/* line 73, sass/_page-colours.scss */
-body.this-page #page-container .wdw-tables .table-row, body.this-page #site-footer .wdw-tables .table-row {
-  -webkit-transition: background-color 0.2s linear;
-  -moz-transition: background-color 0.2s linear;
-  -o-transition: background-color 0.2s linear;
-  -ms-transition: background-color 0.2s linear;
-  transition: background-color 0.2s linear;
-}
-/* line 76, sass/_page-colours.scss */
-body.this-page #page-container .wdw-tables .col, body.this-page #site-footer .wdw-tables .col {
-  -webkit-transition: border-color 0.2s linear;
-  -moz-transition: border-color 0.2s linear;
-  -o-transition: border-color 0.2s linear;
-  -ms-transition: border-color 0.2s linear;
-  transition: border-color 0.2s linear;
-}
-/* line 80, sass/_page-colours.scss */
-body.this-page #page-container .wdw-tables .table-row:nth-child(even) .col:first-child, body.this-page #site-footer .wdw-tables .table-row:nth-child(even) .col:first-child {
-  border-left: 5px solid #b2d233;
-}
-/* line 85, sass/_page-colours.scss */
-body.this-page #page-container .wdw-tables .table-row:nth-child(odd) .col:first-child, body.this-page #site-footer .wdw-tables .table-row:nth-child(odd) .col:first-child {
-  border-left: 5px solid #376018;
-}
-/* line 89, sass/_page-colours.scss */
-body.this-page #page-container .wdw-tables .table-row:hover, body.this-page #site-footer .wdw-tables .table-row:hover {
-  background-color: #b2d233;
-}
 
-/* line 95, sass/_page-colours.scss */
-body.contact-page {
-  background-color: #76312d;
-}
-/* line 97, sass/_page-colours.scss */
-body.contact-page .logo-small {
-  background-position: 0 -302px;
-}
-/* line 101, sass/_page-colours.scss */
+/* line 49, sass/_typography.scss */
 body.contact-page #page-container a:hover, body.contact-page #site-footer a:hover {
   color: #e86158;
-}
-/* line 104, sass/_page-colours.scss */
-body.contact-page #page-container input, body.contact-page #site-footer input {
-  border-left: 3px solid #76312d;
-}
-/* line 107, sass/_page-colours.scss */
-body.contact-page #page-container input:focus, body.contact-page #site-footer input:focus {
-  border-left: 3px solid #e86158;
-}
-/* line 112, sass/_page-colours.scss */
-body.contact-page #page-container button:focus,
-body.contact-page #page-container button.input-combo-button,
-body.contact-page #page-container button.small-generic, body.contact-page #site-footer button:focus,
-body.contact-page #site-footer button.input-combo-button,
-body.contact-page #site-footer button.small-generic {
-  background-color: #76312d;
-}
-/* line 116, sass/_page-colours.scss */
-body.contact-page #page-container button.input-combo-button:hover,
-body.contact-page #page-container button.small-generic:hover, body.contact-page #site-footer button.input-combo-button:hover,
-body.contact-page #site-footer button.small-generic:hover {
-  background-color: #e86158;
-}
-/* line 120, sass/_page-colours.scss */
-body.contact-page #page-container .wdw-tables .table-row, body.contact-page #site-footer .wdw-tables .table-row {
-  -webkit-transition: background-color 0.2s linear;
-  -moz-transition: background-color 0.2s linear;
-  -o-transition: background-color 0.2s linear;
-  -ms-transition: background-color 0.2s linear;
-  transition: background-color 0.2s linear;
-}
-/* line 123, sass/_page-colours.scss */
-body.contact-page #page-container .wdw-tables .col, body.contact-page #site-footer .wdw-tables .col {
-  -webkit-transition: border-color 0.2s linear;
-  -moz-transition: border-color 0.2s linear;
-  -o-transition: border-color 0.2s linear;
-  -ms-transition: border-color 0.2s linear;
-  transition: border-color 0.2s linear;
-}
-/* line 127, sass/_page-colours.scss */
-body.contact-page #page-container .wdw-tables .table-row:nth-child(even) .col:first-child, body.contact-page #site-footer .wdw-tables .table-row:nth-child(even) .col:first-child {
-  border-left: 5px solid #e86158;
-}
-/* line 132, sass/_page-colours.scss */
-body.contact-page #page-container .wdw-tables .table-row:nth-child(odd) .col:first-child, body.contact-page #site-footer .wdw-tables .table-row:nth-child(odd) .col:first-child {
-  border-left: 5px solid #76312d;
-}
-/* line 136, sass/_page-colours.scss */
-body.contact-page #page-container .wdw-tables .table-row:hover, body.contact-page #site-footer .wdw-tables .table-row:hover {
-  background-color: #e86158;
 }
 
 /* line 2, sass/components/_logos.scss */
@@ -543,6 +386,93 @@ body.active-loader #site-loader .top-door .wdw-vertical-blue {
   background: white;
 }
 
+/* line 33, sass/components/_tables.scss */
+body.home-page #page-container .wdw-tables .table-row {
+  -webkit-transition: background-color 0.2s linear;
+  -moz-transition: background-color 0.2s linear;
+  -o-transition: background-color 0.2s linear;
+  -ms-transition: background-color 0.2s linear;
+  transition: background-color 0.2s linear;
+}
+/* line 36, sass/components/_tables.scss */
+body.home-page #page-container .wdw-tables .col {
+  -webkit-transition: border-color 0.2s linear;
+  -moz-transition: border-color 0.2s linear;
+  -o-transition: border-color 0.2s linear;
+  -ms-transition: border-color 0.2s linear;
+  transition: border-color 0.2s linear;
+}
+/* line 40, sass/components/_tables.scss */
+body.home-page #page-container .wdw-tables .table-row:nth-child(even) .col:first-child {
+  border-left: 5px solid #e2f6ff;
+}
+/* line 45, sass/components/_tables.scss */
+body.home-page #page-container .wdw-tables .table-row:nth-child(odd) .col:first-child {
+  border-left: 5px solid #c0e4ed;
+}
+/* line 49, sass/components/_tables.scss */
+body.home-page #page-container .wdw-tables .table-row:hover {
+  background-color: #e2f6ff;
+}
+
+/* line 58, sass/components/_tables.scss */
+body.this-page #page-container .wdw-tables .table-row {
+  -webkit-transition: background-color 0.2s linear;
+  -moz-transition: background-color 0.2s linear;
+  -o-transition: background-color 0.2s linear;
+  -ms-transition: background-color 0.2s linear;
+  transition: background-color 0.2s linear;
+}
+/* line 61, sass/components/_tables.scss */
+body.this-page #page-container .wdw-tables .col {
+  -webkit-transition: border-color 0.2s linear;
+  -moz-transition: border-color 0.2s linear;
+  -o-transition: border-color 0.2s linear;
+  -ms-transition: border-color 0.2s linear;
+  transition: border-color 0.2s linear;
+}
+/* line 65, sass/components/_tables.scss */
+body.this-page #page-container .wdw-tables .table-row:nth-child(even) .col:first-child {
+  border-left: 5px solid #b2d233;
+}
+/* line 70, sass/components/_tables.scss */
+body.this-page #page-container .wdw-tables .table-row:nth-child(odd) .col:first-child {
+  border-left: 5px solid #376018;
+}
+/* line 74, sass/components/_tables.scss */
+body.this-page #page-container .wdw-tables .table-row:hover {
+  background-color: #b2d233;
+}
+
+/* line 83, sass/components/_tables.scss */
+body.contact-page #page-container .wdw-tables .table-row {
+  -webkit-transition: background-color 0.2s linear;
+  -moz-transition: background-color 0.2s linear;
+  -o-transition: background-color 0.2s linear;
+  -ms-transition: background-color 0.2s linear;
+  transition: background-color 0.2s linear;
+}
+/* line 86, sass/components/_tables.scss */
+body.contact-page #page-container .wdw-tables .col {
+  -webkit-transition: border-color 0.2s linear;
+  -moz-transition: border-color 0.2s linear;
+  -o-transition: border-color 0.2s linear;
+  -ms-transition: border-color 0.2s linear;
+  transition: border-color 0.2s linear;
+}
+/* line 90, sass/components/_tables.scss */
+body.contact-page #page-container .wdw-tables .table-row:nth-child(even) .col:first-child {
+  border-left: 5px solid #e86158;
+}
+/* line 95, sass/components/_tables.scss */
+body.contact-page #page-container .wdw-tables .table-row:nth-child(odd) .col:first-child {
+  border-left: 5px solid #76312d;
+}
+/* line 99, sass/components/_tables.scss */
+body.contact-page #page-container .wdw-tables .table-row:hover {
+  background-color: #e86158;
+}
+
 /* line 1, sass/components/_forms.scss */
 form.input-button-combo {
   display: inline-flex;
@@ -564,9 +494,68 @@ input {
   margin: 0;
   background: white;
   font-size: 14px;
-  text-indent: 20px;
+  text-indent: 10px;
   height: 40px;
   min-width: 280px;
+}
+
+/* line 20, sass/components/_forms.scss */
+body.home-page #page-container input {
+  border-left: 3px solid #e2f6ff;
+}
+/* line 23, sass/components/_forms.scss */
+body.home-page #page-container input:focus {
+  border-left: 3px solid #c0e4ed;
+}
+/* line 27, sass/components/_forms.scss */
+body.home-page #page-container button.input-combo-button,
+body.home-page #page-container button.small-generic {
+  background-color: #c0e4ed;
+}
+/* line 32, sass/components/_forms.scss */
+body.home-page #page-container button:focus,
+body.home-page #page-container button.input-combo-button:hover,
+body.home-page #page-container button.small-generic:hover {
+  background-color: #e2f6ff;
+}
+
+/* line 39, sass/components/_forms.scss */
+body.this-page #page-container input {
+  border-left: 3px solid #376018;
+}
+/* line 42, sass/components/_forms.scss */
+body.this-page #page-container input:focus {
+  border-left: 3px solid #b2d233;
+}
+/* line 46, sass/components/_forms.scss */
+body.this-page #page-container button.input-combo-button,
+body.this-page #page-container button.small-generic {
+  background-color: #376018;
+}
+/* line 50, sass/components/_forms.scss */
+body.this-page #page-container button.input-combo-button:hover,
+body.this-page #page-container button.small-generic:hover {
+  background-color: #b2d233;
+}
+
+/* line 57, sass/components/_forms.scss */
+body.contact-page #page-container input {
+  border-left: 3px solid #76312d;
+}
+/* line 60, sass/components/_forms.scss */
+body.contact-page #page-container input:focus {
+  border-left: 3px solid #e86158;
+}
+/* line 65, sass/components/_forms.scss */
+body.contact-page #page-container button:focus,
+body.contact-page #page-container button.input-combo-button,
+body.contact-page #page-container button.small-generic {
+  background-color: #76312d;
+}
+/* line 69, sass/components/_forms.scss */
+body.contact-page #page-container button.input-combo-button:hover,
+body.contact-page #page-container button.small-generic:hover {
+  background-color: #e86158;
 }
 
 /* line 1, sass/components/_buttons.scss */
@@ -593,6 +582,41 @@ button.input-combo-button {
   background: #eeeeee url("/img/icons/mini-arrow-right.png") no-repeat center center;
   height: 40px;
   width: 40px;
+}
+
+/* line 2, sass/components/_lists.scss */
+.dropdown-list li {
+  background: #FFF;
+  padding: 10px 0;
+  text-indent: 10px;
+  cursor: pointer;
+}
+
+/* line 11, sass/components/_lists.scss */
+body.home-page .dropdown-list li {
+  border-left: 3px solid #e2f6ff;
+}
+/* line 14, sass/components/_lists.scss */
+body.home-page .dropdown-list li:hover, body.home-page .dropdown-list li:focus {
+  border-left: 3px solid #c0e4ed;
+}
+
+/* line 21, sass/components/_lists.scss */
+body.this-page .dropdown-list li {
+  border-left: 3px solid #376018;
+}
+/* line 24, sass/components/_lists.scss */
+body.this-page .dropdown-list li:hover, body.this-page .dropdown-list li:focus {
+  border-left: 3px solid #b2d233;
+}
+
+/* line 31, sass/components/_lists.scss */
+body.contact-page .dropdown-list li {
+  border-left: 3px solid #76312d;
+}
+/* line 34, sass/components/_lists.scss */
+body.contact-page .dropdown-list li:hover, body.contact-page .dropdown-list li:focus {
+  border-left: 3px solid #e86158;
 }
 
 /* line 3, sass/pages/_home.scss */
@@ -957,34 +981,7 @@ body.this-page #primary-nav ul li.active h3, body.this-page #primary-nav ul li.a
   display: none;
 }
 
-/* line 4, sass/packages/github/_page-colours.scss */
-body.home-page #github-repositories-list li {
-  border-top: 5px solid #c0e4ed;
-}
-/* line 7, sass/packages/github/_page-colours.scss */
-body.home-page #github-repositories-list li:hover {
-  border-top: 5px solid #e2f6ff;
-}
-
-/* line 14, sass/packages/github/_page-colours.scss */
-body.this-page #github-repositories-list li {
-  border-top: 5px solid #376018;
-}
-/* line 17, sass/packages/github/_page-colours.scss */
-body.this-page #github-repositories-list li:hover {
-  border-top: 5px solid #b2d233;
-}
-
-/* line 24, sass/packages/github/_page-colours.scss */
-body.contact-page #github-repositories-list li {
-  border-top: 5px solid #76312d;
-}
-/* line 27, sass/packages/github/_page-colours.scss */
-body.contact-page #github-repositories-list li {
-  border-top: 5px solid #e86158;
-}
-
-/* line 3, sass/packages/github/_main.scss */
+/* line 1, sass/packages/github/_main.scss */
 #github-package {
   /* Generic */
   /* Pages */
@@ -1028,11 +1025,22 @@ body.contact-page #github-repositories-list li {
   display: inline;
   vertical-align: middle;
 }
+/* line 39, sass/packages/github/_pages.scss */
+#github-package #github-signin-page #github-select-user {
+  position: relative;
+}
 /* line 41, sass/packages/github/_pages.scss */
+#github-package #github-signin-page #github-select-user .dropdown-list {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right: 0;
+}
+/* line 53, sass/packages/github/_pages.scss */
 #github-package #github-repositories-page #github-repositories-list {
   margin-top: 20px;
 }
-/* line 43, sass/packages/github/_pages.scss */
+/* line 55, sass/packages/github/_pages.scss */
 #github-package #github-repositories-page #github-repositories-list li {
   -webkit-transition: border-color 0.1s linear;
   -moz-transition: border-color 0.1s linear;
@@ -1047,48 +1055,48 @@ body.contact-page #github-repositories-list li {
   width: 330px;
   height: 128px;
 }
-/* line 52, sass/packages/github/_pages.scss */
+/* line 64, sass/packages/github/_pages.scss */
 #github-package #github-repositories-page #github-repositories-list li h4 {
   margin-top: 20px;
 }
-/* line 55, sass/packages/github/_pages.scss */
+/* line 67, sass/packages/github/_pages.scss */
 #github-package #github-repositories-page #github-repositories-list li h4, #github-package #github-repositories-page #github-repositories-list li .stargazers {
   font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #444444;
   font-size: 20px;
 }
-/* line 60, sass/packages/github/_pages.scss */
+/* line 72, sass/packages/github/_pages.scss */
 #github-package #github-repositories-page #github-repositories-list li p {
   margin-top: 10px;
   font-size: 14px;
 }
-/* line 64, sass/packages/github/_pages.scss */
+/* line 76, sass/packages/github/_pages.scss */
 #github-package #github-repositories-page #github-repositories-list li h4, #github-package #github-repositories-page #github-repositories-list li p {
   margin-left: 20px;
   margin-right: 20px;
 }
-/* line 68, sass/packages/github/_pages.scss */
+/* line 80, sass/packages/github/_pages.scss */
 #github-package #github-repositories-page #github-repositories-list li .description {
   overflow: hidden;
   height: 32px;
 }
-/* line 72, sass/packages/github/_pages.scss */
+/* line 84, sass/packages/github/_pages.scss */
 #github-package #github-repositories-page #github-repositories-list li .last-updated {
   color: #d6d6d6;
   font-size: 12px;
 }
-/* line 76, sass/packages/github/_pages.scss */
+/* line 88, sass/packages/github/_pages.scss */
 #github-package #github-repositories-page #github-repositories-list li .stargazers {
   position: absolute;
   display: inline-flex;
   top: 17px;
   right: 20px;
 }
-/* line 81, sass/packages/github/_pages.scss */
+/* line 93, sass/packages/github/_pages.scss */
 #github-package #github-repositories-page #github-repositories-list li .stargazers .stargazer-count {
   margin-top: 4px;
 }
-/* line 84, sass/packages/github/_pages.scss */
+/* line 96, sass/packages/github/_pages.scss */
 #github-package #github-repositories-page #github-repositories-list li .stargazers .stargazer-icon {
   background: url("/img/icons/stargazer-icon.png") no-repeat 0 0;
   display: inline-block;
@@ -1096,21 +1104,45 @@ body.contact-page #github-repositories-list li {
   height: 22px;
   margin-left: 8px;
 }
-/* line 91, sass/packages/github/_pages.scss */
+/* line 103, sass/packages/github/_pages.scss */
 #github-package #github-repositories-page #github-repositories-list li .stargazers .stargazer-icon.starred {
   background-position: 0 -22px;
 }
-/* line 96, sass/packages/github/_pages.scss */
+/* line 108, sass/packages/github/_pages.scss */
 #github-package #github-repositories-page #github-repositories-list li:nth-child(3) {
   margin-right: 0;
 }
-/* line 100, sass/packages/github/_pages.scss */
+/* line 112, sass/packages/github/_pages.scss */
 #github-package #github-repositories-page #github-repositories-list li:hover .stargazer-icon {
   background-position: -23px 0;
 }
-/* line 103, sass/packages/github/_pages.scss */
+/* line 115, sass/packages/github/_pages.scss */
 #github-package #github-repositories-page #github-repositories-list li:hover .stargazer-icon.starred {
   background-position: -23px -22px;
+}
+/* line 124, sass/packages/github/_pages.scss */
+#github-package body.home-page #github-repositories-list li {
+  border-top: 5px solid #c0e4ed;
+}
+/* line 127, sass/packages/github/_pages.scss */
+#github-package body.home-page #github-repositories-list li:hover {
+  border-top: 5px solid #e2f6ff;
+}
+/* line 134, sass/packages/github/_pages.scss */
+#github-package body.this-page #github-repositories-list li {
+  border-top: 5px solid #376018;
+}
+/* line 137, sass/packages/github/_pages.scss */
+#github-package body.this-page #github-repositories-list li:hover {
+  border-top: 5px solid #b2d233;
+}
+/* line 144, sass/packages/github/_pages.scss */
+#github-package body.contact-page #github-repositories-list li {
+  border-top: 5px solid #76312d;
+}
+/* line 147, sass/packages/github/_pages.scss */
+#github-package body.contact-page #github-repositories-list li {
+  border-top: 5px solid #e86158;
 }
 
 /* line 3, sass/packages/_main.scss */

@@ -1,4 +1,5 @@
 {
+  "sidebar" : true,
   "sitemap" : [{
     "name" : "signin",
     "page" : "SigninPage"

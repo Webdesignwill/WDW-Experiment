@@ -16,7 +16,7 @@ h3 {
   font-size:24px;
   font-weight:300;
 }
-p {
+p, li {
   color:$shade;
   font-family:$Myriad;
   line-height:120%;
@@ -29,4 +29,25 @@ cite {
 a {
   @include transition(color, 0.2s);
   text-decoration:none;
+}
+body.home-page {
+  #page-container, #site-footer {
+    a:hover {
+      color:$lightBlue;
+    }
+  }
+}
+body.this-page {
+  #page-container, #site-footer {
+    a:hover {
+      color:$vomit;
+    }
+  }
+}
+body.contact-page {
+  #page-container, #site-footer {
+    a:hover {
+      color:$lightBlood;
+    }
+  }
 }

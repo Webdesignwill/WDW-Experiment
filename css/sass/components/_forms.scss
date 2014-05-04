@@ -10,7 +10,64 @@ input {
   margin:0;
   background:$white;
   font-size: 14px;
-  text-indent:20px;
+  text-indent:10px;
   height:40px;
   min-width:280px;
+}
+
+body.home-page {
+  #page-container {
+    input {
+      border-left:3px solid $veryLightBlue;
+    }
+    input:focus {
+      border-left: 3px solid $lightBlue;
+    }
+    button.input-combo-button,
+    button.small-generic {
+      background-color:$lightBlue;
+    }
+    button:focus,
+    button.input-combo-button:hover,
+    button.small-generic:hover {
+      background-color:$veryLightBlue;
+    }
+  }
+}
+body.this-page {
+  #page-container {
+    input {
+      border-left:3px solid $racingGreen;
+    }
+    input:focus {
+      border-left: 3px solid $vomit;
+    }
+    button.input-combo-button,
+    button.small-generic {
+      background-color:$racingGreen;
+    }
+    button.input-combo-button:hover,
+    button.small-generic:hover {
+      background-color:$vomit;
+    }
+  }
+}
+body.contact-page {
+  #page-container {
+    input {
+      border-left:3px solid $blood;
+    }
+    input:focus {
+      border-left: 3px solid $lightBlood;
+    }
+    button:focus,
+    button.input-combo-button,
+    button.small-generic {
+      background-color:$blood;
+    }
+    button.input-combo-button:hover,
+    button.small-generic:hover {
+      background-color:$lightBlood;
+    }
+  }
 }

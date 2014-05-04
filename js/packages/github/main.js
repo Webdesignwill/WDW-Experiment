@@ -16,7 +16,10 @@ require.config({
     'github-RepositoriesPage'                   : 'packages/github/pages/repositories/RepositoriesPage',
 
     // views
-    'github-RepositoryItemView'              : 'packages/github/views/repositories/RepositoryItemView'
+    'github-RepositoryItemView'              : 'packages/github/views/repositories/RepositoryItemView',
+    'github-SelectUserFormView'              : 'packages/github/views/selectUser/SelectUserFormView',
+    'github-SelectUserListView'                : 'packages/github/views/selectUser/SelectUserListView',
+    'github-SelectUserListItemView'         : 'packages/github/views/selectUser/SelectUserListItemView'
 
   },
 

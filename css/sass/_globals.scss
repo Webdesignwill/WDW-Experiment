@@ -62,3 +62,13 @@ section.racing-grey {
 section:last-child {
   padding-bottom:175px;
 }
+
+body.home-page {
+  background-color: $darkBlue;
+}
+body.this-page {
+  background-color: $racingGreen;
+}
+body.contact-page {
+  background-color: $blood;
+}

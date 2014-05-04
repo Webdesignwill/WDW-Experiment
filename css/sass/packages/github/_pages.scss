@@ -35,6 +35,18 @@ header {
 
 /* Pages */
 
+#github-signin-page {
+  #github-select-user {
+    position:relative;
+    .dropdown-list {
+      position: absolute;
+      top: 40px;
+      left: 0;
+      right: 0;
+    }
+  }
+}
+
 // Repositories //
 
 #github-repositories-page {
@@ -103,6 +115,37 @@ header {
       .stargazer-icon.starred {
         background-position: -23px -22px;
       }
+    }
+  }
+}
+
+body.home-page {
+  #github-repositories-list {
+    li {
+      border-top:5px solid $lightBlue;
+    }
+    li:hover {
+      border-top:5px solid $veryLightBlue;
+    }
+  }
+}
+body.this-page {
+  #github-repositories-list {
+    li {
+      border-top:5px solid $racingGreen;
+    }
+    li:hover {
+      border-top:5px solid $vomit;
+    }
+  }
+}
+body.contact-page {
+  #github-repositories-list {
+    li {
+      border-top:5px solid $blood;
+    }
+    li {
+      border-top:5px solid $lightBlood;
     }
   }
 }
