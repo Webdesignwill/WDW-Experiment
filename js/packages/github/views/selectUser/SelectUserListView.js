@@ -44,11 +44,12 @@ define('github-SelectUserListView', [
             selectUserListItemView;
 
       for(var i = 0; i<matches.length; i++) {
-        selectUserListItemView = new SelectUserListItemView({
-          match : matches[i],
-          $input : this.options.$input
-        });
-        docFrag.appendChild(selectUserListItemView.render().el);
+        if(i < 4) {
+          selectUserListItemView = new SelectUserListItemView({
+            match : matches[i]
+          });
+          docFrag.appendChild(selectUserListItemView.render().el);
+        }
       }
       this.$el.html(docFrag);
     },

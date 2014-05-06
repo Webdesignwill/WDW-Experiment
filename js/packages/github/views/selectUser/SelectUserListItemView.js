@@ -1,7 +1,8 @@
 
 define('github-SelectUserListItemView', [
-  'Backbone'
-], function (Backbone) {
+  'Backbone',
+  'git'
+], function (Backbone, git) {
 
   "use strict";
 
@@ -9,16 +10,27 @@ define('github-SelectUserListItemView', [
 
     tagName : 'li',
     events : {
-      'click' : 'handler',
-      'focus' : 'handler'
+      'click' : 'handler'
     },
 
     initialize : function () {},
 
     handler : function (e) {
       e.stopPropagation();
-      this.options.$input.val(this.options.match).focus();
+      git.user.url = 'https://api.github.com/users/' + this.options.match;
+      git.user.fetch({
+        search : this.options.match,
+        success : this.success,
+        error : this.error
+      });
     },
+
+    success : function (collection, response, options) {
+      git.user.saveSearchHistory(options.search);
+      git.navigate('repositories-page');
+    },
+
+    error : function () {},
 
     render : function () {
       this.$el.html(this.options.match);
