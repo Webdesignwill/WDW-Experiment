@@ -9,8 +9,8 @@
       "path" : "/"
     }
   },{
-    "name" : "this",
-    "page" : "ThisPage",
+    "name" : "packs",
+    "page" : "PacksPage",
     "nav" : true,
     "packages" : ["github"],
     "color" : "#76312D"

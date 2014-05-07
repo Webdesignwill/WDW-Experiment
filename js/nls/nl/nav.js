@@ -2,8 +2,8 @@ define({
   "home" : {
     "subText" : "Where the heart is"
   },
-  "this" : {
-    "subText" : "What I can do"
+  "packs" : {
+    "subText" : "How this works"
   },
   "contact" : {
     "subText" : "Switch the kettle on"

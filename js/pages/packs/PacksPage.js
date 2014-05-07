@@ -1,18 +1,18 @@
 
-define('ThisPage', [
+define('PacksPage', [
   'Backbone',
   'handlebars',
   'webdesignwill',
-  'text!pages/this/templates/this.tpl',
-  "i18n!nls/this"
+  'text!pages/packs/templates/packs.tpl',
+  "i18n!nls/packs"
 ], function (Backbone, handlebars, webdesignwill, template, content) {
 
   "use strict";
 
-  var ThisPage = Backbone.Page.extend({
+  var PacksPage = Backbone.Page.extend({
 
-    id : 'this-page',
-    className : 'this-page page',
+    id : 'packs-page',
+    className : 'packs-page page',
 
     render : function () {
 
@@ -26,6 +26,6 @@ define('ThisPage', [
 
   });
 
-  return ThisPage;
+  return PacksPage;
 
 });

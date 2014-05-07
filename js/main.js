@@ -47,7 +47,7 @@ require.config({
     // Pages
     HomePage                             : 'pages/home/HomePage',
     ContactPage                          : 'pages/contact/ContactPage',
-    ThisPage                                : 'pages/this/ThisPage'
+    PacksPage                              : 'pages/packs/PacksPage'
 
   },
   shim : {
