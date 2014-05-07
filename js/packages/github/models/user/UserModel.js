@@ -14,6 +14,16 @@ function (Backbone) {
       this.getSearchHistory();
     },
 
+    parse : function (model) {
+      model = this.augmentModel(model);
+      return model;
+    },
+
+    augmentModel : function (model) {
+      model.name = model.name === undefined ? model.login : model.name;
+      return model;
+    },
+
     saveSearchHistory : function (search) {
       this.searchHistory[search] = search;
       window.localStorage.setItem('wdw-gh-searchHistory', JSON.stringify(this.searchHistory));

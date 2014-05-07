@@ -15,8 +15,7 @@ define('github-SelectUserListItemView', [
 
     initialize : function () {},
 
-    handler : function (e) {
-      e.stopPropagation();
+    handler : function () {
       git.user.url = 'https://api.github.com/users/' + this.options.match;
       git.user.fetch({
         search : this.options.match,

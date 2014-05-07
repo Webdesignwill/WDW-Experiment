@@ -1,9 +1,7 @@
 
 define('webdesignwill', [
   'Backbone'
-],
-
-function (Backbone) {
+], function (Backbone) {
 
   "use strict";
 

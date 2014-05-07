@@ -56,10 +56,9 @@ define('github-SelectUserFormView', [
       alert('Are you sure that user exists?');
     },
 
-    // Global event listener would be better
     keyupHandler : function (e) {
       e.stopPropagation();
-      this.selectUserListView.keyupHandler(e.target.value);
+      this.selectUserListView.matchFilter(e.target.value);
     }
 
   });

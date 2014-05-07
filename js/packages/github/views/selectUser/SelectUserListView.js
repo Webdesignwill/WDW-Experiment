@@ -9,9 +9,18 @@ define('github-SelectUserListView', [
 
   var SelectUserListView = Backbone.Page.extend({
 
+    events : {
+      'click' : 'handler'
+    },
+
     initialize : function () {},
 
-    keyupHandler : function (search) {
+    handler : function (e) {
+      e.stopPropagation();
+      this.clearMatches();
+    },
+
+    matchFilter : function (search) {
       var matches;
 
       if(search.length > 2) {
