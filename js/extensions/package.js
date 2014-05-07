@@ -56,9 +56,10 @@ define('package', [
       var self = this,
             pageModel = this.sitemap.get(pageName);
 
-      require([this.prefix + pageModel.get('page')], function (Page) {
+      require([this.get('prefix') + pageModel.get('page')], function (Page) {
         self.goto(pageModel, Page);
       });
+
     },
 
     goto : function (pageModel, Page) {
@@ -72,7 +73,7 @@ define('package', [
       };
 
       this.garbage.push(page);
-      this.get('$el').html(newPage.render().el);
+      this.$el.html(newPage.render().el);
       this.page.set(page);
     },
 

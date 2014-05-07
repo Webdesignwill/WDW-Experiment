@@ -70,13 +70,12 @@ define('PackageManager', [
       switch (status) {
         case 'loaded' :
           this.packages[pack].set({
-            name : pack
+            name : pack,
+            prefix : pack + '-',
           });
           break;
         case 'started' :
-          this.packages[pack].set({
-            $el : webdesignwill.page.get('page').$el.find("[data-package='" + pack + "']")
-          });
+          this.packages[pack].$el = webdesignwill.page.get('page').$el.find("[data-package='" + pack + "']");
         break;
       }
       this.packages[pack].set({
