@@ -11,13 +11,7 @@ define('git', [
   var Github = Backbone.Package.extend({
 
     sitemap : new Sitemap(),
-
-    loaded : function () {},
-    initialised : function () {
-      this.user = new UserModel();
-    },
-    started : function () {},
-    stopped : function () {},
+    user : new UserModel(),
 
     ready : function () {
       this.navigate('signin-page');
