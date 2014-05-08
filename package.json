@@ -1,0 +1,10 @@
+{
+  "name": "webdesignwill",
+  "description": "Webdesignwill server",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express" : "4.1.1",
+    "morgan" : "1.0.1"
+  }
+}
