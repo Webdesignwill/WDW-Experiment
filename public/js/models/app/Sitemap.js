@@ -11,16 +11,16 @@ function (Backbone, webdesignwill, PageModel) {
 
   var Sitemap = Backbone.Model.extend({
 
-    url : '/js/sitemap.json',
+    url : '/sitemap',
     affix : '-page',
     sitemap : {},
 
     initialize : function () {},
 
     parse : function (response, options) {
-       for(var i = 0; i < response.sitemap.length; i++) {
-        var nextPage = response.sitemap[i+1], prevPage = response.sitemap[i-1];
-        this.sitemap[response.sitemap[i].name + '-page'] = new PageModel(this.createModel(response.sitemap[i], 0, '', '', nextPage, prevPage));
+       for(var i = 0; i < response.length; i++) {
+        var nextPage = response[i+1], prevPage = response[i-1];
+        this.sitemap[response[i].name + '-page'] = new PageModel(this.createModel(response[i], 0, '', '', nextPage, prevPage));
       }
 
       return this.sitemap;
