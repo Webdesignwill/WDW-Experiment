@@ -35,11 +35,15 @@ db.once('open', function callback () {
 // Routes //
 ///////////
 
-app.get('/sitemap', function (req, res) {
-  mongoose.model('pages').find(function (err, pages) {
-    res.send(pages);
-  });
-});
+
+// Sitemap
+var sitemap = require('./routes/sitemap');
+app.get('/sitemap', sitemap);
+
+// Users
+var users = require('./routes/users');
+app.get('/users', users);
+app.post('/users', users);
 
 //////////////////
 // start listening //
@@ -48,3 +52,5 @@ app.get('/sitemap', function (req, res) {
 var server = app.listen(app.get('port'), function() {
   debug('Express server listening on port ' + server.address().port);
 });
+
+module.exports = app;
