@@ -2,8 +2,7 @@
 /* Desktop */
 
 #site-header {
-  background:url("/img/borders/opaqueHeader.png") no-repeat bottom center;
-  padding: 112px 0 40px 0;
+  padding:112px 0 20px 0;
   margin-bottom:40px;
   min-height:200px;
   h1 {
@@ -13,7 +12,16 @@
     margin-bottom:30px;
     font-size:145px;
   }
+  .opaque-decor {
+    display:block;
+    background:url("/img/borders/opaqueDecor.png") no-repeat center center;
+    margin:0 auto 30px auto;
+    width:345px;
+    height:40px;
+  }
   h2 {
-    font-size:24px;
+    font-size:20px;
+    line-height:30px;
+    text-align:center;
   }
 }

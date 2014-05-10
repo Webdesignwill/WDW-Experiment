@@ -3,7 +3,7 @@
 
 #site-header {
   background:url("../../img/borders/opaqueHeaderSmall.png") no-repeat bottom center;
-  padding: 75px 0 20px 0;
+  padding-top:75px;
   margin-bottom:20px;
   h1 {
     background:url('../../img/header/logo-badge-huge.png') no-repeat;
@@ -12,7 +12,15 @@
     margin-bottom:25px;
     font-size:50px;
   }
+  .opaque-decor {
+    background:url("/img/borders/opaqueDecorSmall.png") no-repeat center center;
+    margin:0 auto;
+    display:block;
+    width:173px;
+    height:15px;
+  }
   h2 {
-    font-size:14px;
+    font-size:16px;
+    line-height:24px;
   }
 }

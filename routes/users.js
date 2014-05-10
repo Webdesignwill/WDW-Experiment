@@ -4,7 +4,9 @@ var mongoose = require('mongoose');
 var router = express.Router();
 
 router.get('/users', function (req, res) {
-  console.log('Get the user : ', req, res);
+  mongoose.model('users').find(function (err, users) {
+    res.send(users);
+  });
 });
 
 router.post('/users', function (req, res) {

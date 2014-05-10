@@ -2,20 +2,41 @@
 define('NavView', [
   'Backbone',
   'webdesignwill',
-  'NavSubView'
+  'NavSubView',
+  'NavUserView',
+  'text!views/nav/templates/nav.tpl'
 ],
 
-function (Backbone, webdesignwill, NavSubView) {
+function (Backbone, webdesignwill, NavSubView, NavUserView, template) {
 
   "use strict";
 
   var NavView = Backbone.View.extend({
 
-    tagName : 'ul',
-    className : 'top-trim width-auto',
+    initialize : function () {
+      this.render();
+    },
+
+    setElements : function () {
+      this.$nav = this.$el.find('.nav');
+      this.$navUser = this.$el.find('.nav-user');
+    },
 
     render : function () {
 
+      this.$el.html(template);
+      this.setElements();
+
+      var navUserView = new NavUserView({
+        el : this.$navUser
+      });
+
+      this.renderNav();
+
+      return this;
+    },
+
+    renderNav : function () {
       var fragment = document.createDocumentFragment(),
             sitemap = webdesignwill.sitemap.attributes;
 
@@ -26,9 +47,7 @@ function (Backbone, webdesignwill, NavSubView) {
         }
       }
 
-      this.$el.html(fragment);
-
-      return this;
+      this.$nav.html(fragment);
     }
 
   });

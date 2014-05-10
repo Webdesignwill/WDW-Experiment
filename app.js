@@ -1,21 +1,18 @@
 
-var debug = require('debug')('webdesignwill');
-var express = require('express');
-var path = require('path');
-var mongoose = require('mongoose');
-var logger = require('morgan');
-var fs = require('fs');
+// TODO Automate removeal of temp files
+
+var debug = require('debug')('webdesignwill'),
+      express = require('express'),
+      path = require('path'),
+      mongoose = require('mongoose'),
+      logger = require('morgan'),
+      fs = require('fs');
 
 var app = express();
 
+app.set('port', 8000);
 app.use(logger('dev'));
 app.use(express.static(__dirname + '/public'));
-
-/////////////////////////////
-// Environment configuration //
-/////////////////////////////
-
-app.set('port', 8000);
 
 //////////////
 // Database //
@@ -52,5 +49,3 @@ app.post('/users', users);
 var server = app.listen(app.get('port'), function() {
   debug('Express server listening on port ' + server.address().port);
 });
-
-module.exports = app;

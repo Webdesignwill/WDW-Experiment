@@ -2,7 +2,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var pagesSchema = new Schema({
+var page = new Schema({
   name : String,
   page : String,
   nav : Boolean,
@@ -14,4 +14,4 @@ var pagesSchema = new Schema({
   }
 });
 
-mongoose.model('pages', pagesSchema);
+mongoose.model('pages', page);

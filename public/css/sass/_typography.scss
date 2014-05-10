@@ -29,25 +29,20 @@ cite {
 a {
   @include transition(color, 0.2s);
   text-decoration:none;
+  color:$white;
 }
 body.home-page {
-  #page-container, #site-footer {
-    a:hover {
-      color:$lightBlue;
-    }
+  a:hover {
+    color:$lightBlue;
   }
 }
 body.packs-page {
-  #page-container, #site-footer {
-    a:hover {
-      color:$vomit;
-    }
+  a:hover {
+    color:$vomit;
   }
 }
 body.contact-page {
-  #page-container, #site-footer {
-    a:hover {
-      color:$lightBlood;
-    }
+  a:hover {
+    color:$lightBlood;
   }
 }

@@ -13,3 +13,26 @@
 .social-icons.twitter {
   background-position: 0 -50px;
 }
+
+.menu-icon {
+  display:inline-flex;
+  background: url('../img/icons/menu-icons.png') no-repeat top left;
+  width:16px;
+  height:10px;
+}
+
+body.home-page {
+  .menu-icon {
+    background-position:0 0;
+  }
+}
+body.packs-page {
+  .menu-icon {
+    background-position:0 -11px;
+  }
+}
+body.contact-page {
+  .menu-icon {
+    background-position:0 -22px;
+  }
+}

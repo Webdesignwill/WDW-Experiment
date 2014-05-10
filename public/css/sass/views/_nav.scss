@@ -1,13 +1,23 @@
 #primary-nav {
   background: url('/img/borders/trim-top.png') repeat-x top left;
-  padding: 30px 0 0 0;
+  padding: 38px 0 0 0;
   position: absolute;
   z-index: $primaryNavZindex;
   top: 0;
   right: 0;
   left: 0;
-  ul {
-    text-align:right;
+  a {
+    font-family:$Oswald;
+    color:$beige;
+    font-size:18px;
+    font-weight: 300;
+    float:right;
+    .menu-icon {
+      margin-left:8px;
+    }
+  }
+  ul.nav {
+    float:left;
     li {
       @include transition(color, 250ms);
       display:inline-block;
@@ -32,6 +42,9 @@
 }
 body.home-page {
   #primary-nav {
+    a:hover {
+      color:$lightBlue;
+    }
     ul {
       li.active {
         h3, cite {
@@ -43,6 +56,9 @@ body.home-page {
 }
 body.contact-page {
   #primary-nav {
+    a:hover {
+      color:$lightBlood;
+    }
     ul {
       li.active {
         h3, cite {
@@ -54,6 +70,9 @@ body.contact-page {
 }
 body.packs-page {
   #primary-nav {
+    a:hover {
+      color:$vomit;
+    }
     ul {
       li.active {
         h3, cite {

@@ -4,12 +4,11 @@ define('PageManager', [
     'webdesignwill',
     'NavView',
     'HeaderView',
-    'StrapView',
     'PageControlsView',
     'FooterView',
     'SiteContentHeaderView',
     'SiteLoaderView'
-  ], function (Backbone, webdesignwill, NavView, HeaderView, StrapView, PageControlsView, FooterView, SiteContentHeaderView, SiteLoaderView) {
+  ], function (Backbone, webdesignwill, NavView, HeaderView, PageControlsView, FooterView, SiteContentHeaderView, SiteLoaderView) {
 
     "use strict";
 
@@ -25,7 +24,6 @@ define('PageManager', [
       setElements : function () {
         this.$body = $('body');
         this.$siteHeader = $('#site-header');
-        this.$siteStrap = $('#site-strap');
         this.$siteFooter = $('#site-footer-inner');
         this.$primaryNav = $('#primary-nav');
         this.$pageControls = $('#page-controls');
@@ -35,7 +33,9 @@ define('PageManager', [
 
       renderPageComponents : function () {
 
-        this.$primaryNav.html(new NavView().render().el);
+        new NavView({
+          el : this.$primaryNav
+        });
 
         new SiteLoaderView({
           el : this.$siteLoader
@@ -43,10 +43,6 @@ define('PageManager', [
 
         new HeaderView({
           el : this.$siteHeader
-        });
-
-        new StrapView({
-          el : this.$siteStrap
         });
 
         new SiteContentHeaderView({
