@@ -2,7 +2,7 @@
 define('ContactPage', [
   'Backbone',
   'handlebars',
-  'text!pages/contact/templates/contact.tpl',
+  'text!pages/theme/contact/templates/contact.tpl',
   'i18n!nls/contact'
 ],
 

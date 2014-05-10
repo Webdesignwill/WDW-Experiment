@@ -63,3 +63,14 @@
     display:none;
   }
 }
+
+body.admin-mode {
+  #page-controls {
+    .next-page {
+      right:-500px;
+    }
+    .prev-page {
+      left:-500px;
+    }
+  }
+}

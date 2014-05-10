@@ -18,7 +18,7 @@ function (Backbone, webdesignwill, PageManager) {
       }
 
       webdesignwill.pageManager = new PageManager({
-        el: $('#page-container-inner')
+        el: $('body')
       });
 
       Backbone.history.start();
@@ -32,6 +32,11 @@ function (Backbone, webdesignwill, PageManager) {
           webdesignwill.pageManager.goto(pageModel, Page, option);
         });
       });
+    },
+
+    navigateTo : function (pageName) {
+      var affix = webdesignwill.sitemap.affix;
+      webdesignwill.router.navigate(webdesignwill.sitemap.get(pageName + affix).get('path'), {trigger: true});
     }
 
   });

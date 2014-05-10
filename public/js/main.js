@@ -45,9 +45,12 @@ require.config({
     SiteLoaderView                     : 'views/siteLoader/SiteLoaderView',
 
     // Pages
-    HomePage                             : 'pages/home/HomePage',
-    ContactPage                          : 'pages/contact/ContactPage',
-    PacksPage                              : 'pages/packs/PacksPage'
+    AdminPage                            : 'pages/admin/admin/AdminPage',
+    ProfilePage                            : 'pages/admin/profile/ProfilePage',
+
+    HomePage                             : 'pages/theme/home/HomePage',
+    ContactPage                          : 'pages/theme/contact/ContactPage',
+    PacksPage                              : 'pages/theme/packs/PacksPage'
 
   },
   shim : {

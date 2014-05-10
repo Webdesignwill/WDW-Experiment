@@ -1,18 +1,27 @@
-@import "dimensions";
-@import "page-colours";
-@import "views/header";
-@import "views/nav";
-@import "views/footer";
-@import "pages/home";
 
 #site-content-header {
+  position:absolute;
+  width:100%;
+  top:-27px;
+  z-index:$siteContentHeaderZindex;
   .site-content-header-inner {
     background: url('../../img/backgrounds/site-content-header.png') no-repeat top right;
+    text-align:center;
+    margin:0 auto;
     width:450px;
     h4 {
       background: url('../../img/backgrounds/site-content-header-bit.png') no-repeat top left;
       font-weight:300;
       font-size:17px;
+      color:$beige;
+      margin-left:-17px;
+      padding:20px 40px;
     }
+  }
+}
+
+body.admin-mode {
+  #site-content-header {
+    @include opacity(0);
   }
 }

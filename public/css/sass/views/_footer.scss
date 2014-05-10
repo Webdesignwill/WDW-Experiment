@@ -33,6 +33,9 @@
       letter-spacing: 1px;
     }
     .footer-social {
+      float:left;
+      width:190px;
+      margin-right:20px;
       li {
         line-height:28px;
         width:100%;
@@ -42,6 +45,10 @@
       }
     }
     .footer-news {
+      float:left;
+      border-left: 1px dotted $grey;
+      padding-left:25px;
+      width:330px;
       .footer-news-items {
         display:inline-block;
         .footer-news-item {
@@ -68,16 +75,29 @@
       }
     }
     .footer-contact {
+      width:340px;
+      float:right;
       .text {
+        text-align:right;
         width:62%;
+        float:left;
         p {
           color:$white;
+          line-height:34px;
           line-height:34px;
         }
       }
       .logo-small {
         float:right;
       }
+    }
+  }
+}
+
+body.admin-mode {
+  #site-footer {
+    .thankyou {
+      display:none;
     }
   }
 }

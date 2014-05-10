@@ -19,20 +19,19 @@
 @import "components/buttons";
 @import "components/lists";
 
-@import "pages/home";
-@import "pages/contact";
-@import "pages/packs";
+@import "pages/admin/admin";
+@import "pages/admin/profile";
+@import "pages/theme/home";
+@import "pages/theme/contact";
+@import "pages/theme/packs";
 
 @import "views/header";
 @import "views/nav";
 @import "views/footer";
 @import "views/page-controls";
+@import "views/site-content-header";
 
 @import "packages/main";
 
-@media only screen and (max-width : 420px) {
-  @import "handheld/main";
-}
-@media only screen and (min-width : 420px) {
-  @import "desktop/main";
-}
+@media only screen and (max-width : 420px) {}
+@media only screen and (min-width : 420px) {}

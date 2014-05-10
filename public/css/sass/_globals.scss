@@ -14,6 +14,10 @@ body {
 :focus {
   outline: 0;
 }
+.width-auto {
+  width:$desktop;
+  margin:0 auto;
+}
 .clear:after {
   content:"";
   display:table;
@@ -23,25 +27,10 @@ body {
   background:url('/img/borders/trim-top-site-content.png') repeat-x top left;
   padding-top:7px;
   position:relative;
-  .page-container-inner {
+  .site-content-body {
     background:$grey url('/img/body-bg.png') repeat top left;
     div.page {
       position:relative;
-    }
-  }
-}
-#site-content-header {
-  position:absolute;
-  width:100%;
-  top:-27px;
-  z-index:$siteContentHeaderZindex;
-  .site-content-header-inner {
-    text-align:center;
-    margin:0 auto;
-    h4 {
-      color:$beige;
-      margin-left:-17px;
-      padding:20px 40px;
     }
   }
 }
@@ -59,6 +48,7 @@ section.english-skies {
 section.racing-grey {
   background:$racingGrey url('/img/body-bg.png') repeat top left;
 }
+
 #page-container {
   section:last-child {
     padding-bottom:175px;
@@ -73,4 +63,17 @@ body.packs-page {
 }
 body.contact-page {
   background-color: $blood;
+}
+
+#admin-content-body {
+  @include transition(all, 0.6s);
+  height:0;
+  overflow:hidden;
+}
+body.admin-mode {
+  background:$shade url('/img/body-bg.png') repeat top left;
+  overflow:hidden;
+  #admin-content-body {
+    min-height:100%;
+  }
 }

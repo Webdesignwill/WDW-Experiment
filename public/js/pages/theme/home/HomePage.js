@@ -3,7 +3,7 @@ define('HomePage', [
   'Backbone',
   'handlebars',
   'webdesignwill',
-  'text!pages/home/templates/home.tpl',
+  'text!pages/theme/home/templates/home.tpl',
   "i18n!nls/home"
 ],
 

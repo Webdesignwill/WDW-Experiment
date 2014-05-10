@@ -1,11 +1,6 @@
 #primary-nav {
-  background: url('/img/borders/trim-top.png') repeat-x top left;
   padding: 38px 0 0 0;
-  position: absolute;
-  z-index: $primaryNavZindex;
-  top: 0;
-  right: 0;
-  left: 0;
+  margin-bottom: 30px;
   a {
     font-family:$Oswald;
     color:$beige;
@@ -24,8 +19,17 @@
       text-align:left;
       cursor:pointer;
       border-right:1px dotted $beige;
+      margin-right:20px;
+      padding-right:20px;
       h3, cite {
         color:$beige;
+      }
+      h3 {
+        font-size:28px;
+        margin-bottom:10px;
+      }
+      cite {
+        font-size:18px;
       }
     }
     li:hover {

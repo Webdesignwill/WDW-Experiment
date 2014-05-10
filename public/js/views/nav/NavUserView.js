@@ -27,6 +27,7 @@ function (Backbone, handlebars, webdesignwill, template) {
 
     handler : function (e) {
       e.preventDefault();
+      webdesignwill.router.navigateTo('profile');
     }
 
   });

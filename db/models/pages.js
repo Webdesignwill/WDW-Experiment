@@ -8,6 +8,7 @@ var page = new Schema({
   nav : Boolean,
   color : String,
   packages : Array,
+  admin : Boolean,
   override : {
     route : String,
     path : String

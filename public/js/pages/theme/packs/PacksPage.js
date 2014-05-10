@@ -3,7 +3,7 @@ define('PacksPage', [
   'Backbone',
   'handlebars',
   'webdesignwill',
-  'text!pages/packs/templates/packs.tpl',
+  'text!pages/theme/packs/templates/packs.tpl',
   "i18n!nls/packs"
 ], function (Backbone, handlebars, webdesignwill, template, content) {
 

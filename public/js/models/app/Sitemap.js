@@ -28,6 +28,10 @@ function (Backbone, webdesignwill, PageModel) {
 
     createModel : function (sitemap, level, route, path, np, pp) {
 
+      function pageRelation (pr) {
+        return pr && !pr.admin ? pr.name : null;
+      }
+
       var i, model = {
         level : level + 1,
         name : sitemap.name,
@@ -35,8 +39,9 @@ function (Backbone, webdesignwill, PageModel) {
         page : sitemap.page,
         route : route,
         path : path,
-        nextPage : np ? np.name : null,
-        prevPage : pp ? pp.name : null,
+        nextPage : pageRelation(np),
+        prevPage : pageRelation(pp),
+        admin : sitemap.admin || null,
         nav : sitemap.nav || null,
         packages : sitemap.packages || null
       };
@@ -48,7 +53,7 @@ function (Backbone, webdesignwill, PageModel) {
         model.route += '/';
         for(i = 0; i < sitemap.subpages.length; i++) {
           var nextPage = sitemap.subpages[i+1], prevPage = sitemap.subpages[i-1];
-          this.sitemap[response.sitemap[i].name + '-page'] = new PageModel(this.createModel(response.sitemap[i], 0, '', '', nextPage, prevPage));
+          this.sitemap[sitemap.subpages[i].name + '-page'] = new PageModel(this.createModel(sitemap.subpages[i], model.level, model.route, model.path, nextPage, prevPage));
         }
         if(sitemap.subpages.length === i) {
           model.route = model.route.slice(0,-1);
