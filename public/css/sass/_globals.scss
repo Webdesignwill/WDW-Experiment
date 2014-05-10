@@ -59,8 +59,10 @@ section.english-skies {
 section.racing-grey {
   background:$racingGrey url('/img/body-bg.png') repeat top left;
 }
-section:last-child {
-  padding-bottom:175px;
+#page-container {
+  section:last-child {
+    padding-bottom:175px;
+  }
 }
 
 body.home-page {

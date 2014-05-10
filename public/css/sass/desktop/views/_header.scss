@@ -2,8 +2,7 @@
 /* Desktop */
 
 #site-header {
-  padding:112px 0 20px 0;
-  margin-bottom:40px;
+  padding:112px 0 0 0;
   min-height:200px;
   h1 {
     background:url('/img/header/logo-huge.png') no-repeat;
@@ -20,8 +19,21 @@
     height:40px;
   }
   h2 {
+    @include transition(all, 0.1s);
+    @include opacity(0);
+    height:20px;
     font-size:20px;
     line-height:30px;
     text-align:center;
+  }
+}
+
+.home-page {
+  #site-header {
+    h2 {
+      @include opacity(1);
+      margin-bottom:60px;
+      height:auto;
+    }
   }
 }

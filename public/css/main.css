@@ -157,22 +157,22 @@ section.racing-grey {
   background: #e1ded6 url("/img/body-bg.png") repeat top left;
 }
 
-/* line 62, sass/_globals.scss */
-section:last-child {
+/* line 63, sass/_globals.scss */
+#page-container section:last-child {
   padding-bottom: 175px;
 }
 
-/* line 66, sass/_globals.scss */
+/* line 68, sass/_globals.scss */
 body.home-page {
   background-color: #444f64;
 }
 
-/* line 69, sass/_globals.scss */
+/* line 71, sass/_globals.scss */
 body.packs-page {
   background-color: #376018;
 }
 
-/* line 72, sass/_globals.scss */
+/* line 74, sass/_globals.scss */
 body.contact-page {
   background-color: #76312d;
 }
@@ -1307,11 +1307,10 @@ body.packs-page #primary-nav ul li.active h3, body.packs-page #primary-nav ul li
   /* Desktop */
   /* line 4, sass/desktop/views/_header.scss */
   #site-header {
-    padding: 112px 0 20px 0;
-    margin-bottom: 40px;
+    padding: 112px 0 0 0;
     min-height: 200px;
   }
-  /* line 8, sass/desktop/views/_header.scss */
+  /* line 7, sass/desktop/views/_header.scss */
   #site-header h1 {
     background: url("/img/header/logo-huge.png") no-repeat;
     width: 1024px;
@@ -1319,7 +1318,7 @@ body.packs-page #primary-nav ul li.active h3, body.packs-page #primary-nav ul li
     margin-bottom: 30px;
     font-size: 145px;
   }
-  /* line 15, sass/desktop/views/_header.scss */
+  /* line 14, sass/desktop/views/_header.scss */
   #site-header .opaque-decor {
     display: block;
     background: url("/img/borders/opaqueDecor.png") no-repeat center center;
@@ -1327,11 +1326,27 @@ body.packs-page #primary-nav ul li.active h3, body.packs-page #primary-nav ul li
     width: 345px;
     height: 40px;
   }
-  /* line 22, sass/desktop/views/_header.scss */
+  /* line 21, sass/desktop/views/_header.scss */
   #site-header h2 {
+    -webkit-transition: all 0.1s linear;
+    -moz-transition: all 0.1s linear;
+    -o-transition: all 0.1s linear;
+    -ms-transition: all 0.1s linear;
+    transition: all 0.1s linear;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+    height: 20px;
     font-size: 20px;
     line-height: 30px;
     text-align: center;
+  }
+
+  /* line 33, sass/desktop/views/_header.scss */
+  .home-page #site-header h2 {
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+    opacity: 1;
+    margin-bottom: 60px;
+    height: auto;
   }
 
   /* Desktop */
