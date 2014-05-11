@@ -65,6 +65,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
 }
 
+/* transition speed from admin to theme pages */
 /* Dimensions */
 /* Colour Elements */
 /* z-index */
@@ -164,27 +165,6 @@ body.contact-page {
   background-color: #76312d;
 }
 
-/* line 68, sass/_globals.scss */
-#admin-content-body {
-  -webkit-transition: all 0.6s linear;
-  -moz-transition: all 0.6s linear;
-  -o-transition: all 0.6s linear;
-  -ms-transition: all 0.6s linear;
-  transition: all 0.6s linear;
-  height: 0;
-  overflow: hidden;
-}
-
-/* line 73, sass/_globals.scss */
-body.admin-mode {
-  background: #444444 url("/img/body-bg.png") repeat top left;
-  overflow: hidden;
-}
-/* line 76, sass/_globals.scss */
-body.admin-mode #admin-content-body {
-  min-height: 100%;
-}
-
 /* line 2, sass/_typography.scss */
 h1, h2, h3, h4 {
   font-family: "Oswald", sans-serif;
@@ -250,9 +230,87 @@ body.contact-page a:hover {
   color: #e86158;
 }
 
-/* line 51, sass/_typography.scss */
-body.admin-mode h1, body.admin-mode h2, body.admin-mode h3, body.admin-mode h4, body.admin-mode p, body.admin-mode li, body.admin-mode cite {
+/* line 1, sass/_gears.scss */
+#site-header {
+  -webkit-transition: all 0.7s linear;
+  -moz-transition: all 0.7s linear;
+  -o-transition: all 0.7s linear;
+  -ms-transition: all 0.7s linear;
+  transition: all 0.7s linear;
+  max-height: 500px;
+  top: 0;
+  position: relative;
+}
+
+/* line 8, sass/_gears.scss */
+#gears-content-body h1, #gears-content-body h2, #gears-content-body h3, #gears-content-body h4, #gears-content-body p, #gears-content-body li, #gears-content-body cite {
   color: white;
+}
+
+/* line 12, sass/_gears.scss */
+.under-the-hood {
+  -webkit-transition: all 0.7s linear;
+  -moz-transition: all 0.7s linear;
+  -o-transition: all 0.7s linear;
+  -ms-transition: all 0.7s linear;
+  transition: all 0.7s linear;
+  height: 0;
+  overflow: hidden;
+}
+/* line 16, sass/_gears.scss */
+.under-the-hood .gears-content-body {
+  -webkit-transition: opacity 0.7s linear;
+  -moz-transition: opacity 0.7s linear;
+  -o-transition: opacity 0.7s linear;
+  -ms-transition: opacity 0.7s linear;
+  transition: opacity 0.7s linear;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  border: 5px solid white;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -200;
+}
+
+/* line 29, sass/_gears.scss */
+body.gears-mode {
+  background: #444444 url("/img/body-bg.png") repeat top left;
+  overflow: hidden;
+}
+/* line 32, sass/_gears.scss */
+body.gears-mode #site-header {
+  max-height: 0;
+  top: -600px;
+}
+/* line 36, sass/_gears.scss */
+body.gears-mode .under-the-hood {
+  min-height: 100%;
+}
+/* line 38, sass/_gears.scss */
+body.gears-mode .under-the-hood .gears-content-body {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
+  z-index: 1000;
+}
+/* line 44, sass/_gears.scss */
+body.gears-mode #page-controls .next-page {
+  right: -500px;
+}
+/* line 47, sass/_gears.scss */
+body.gears-mode #page-controls .prev-page {
+  left: -500px;
+}
+/* line 52, sass/_gears.scss */
+body.gears-mode #site-footer .thankyou {
+  display: none;
+}
+/* line 56, sass/_gears.scss */
+body.gears-mode #site-content-header {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
 }
 
 /* line 2, sass/components/_logos.scss */
@@ -671,14 +729,14 @@ body.contact-page .dropdown-list li:hover, body.contact-page .dropdown-list li:f
   border-left: 3px solid #e86158;
 }
 
-/* line 2, sass/pages/admin/_admin.scss */
+/* line 2, sass/pages/gears/_admin.scss */
 #admin-page h1 {
   padding: 200px 0 200px 0;
   width: 100%;
   text-align: center;
 }
 
-/* line 2, sass/pages/admin/_profile.scss */
+/* line 2, sass/pages/gears/_profile.scss */
 #profile-page h1 {
   padding: 200px 0 200px 0;
   width: 100%;
@@ -773,16 +831,9 @@ body.contact-page .dropdown-list li:hover, body.contact-page .dropdown-list li:f
 
 /* line 1, sass/views/_header.scss */
 #site-header {
-  -webkit-transition: all 0.6s linear;
-  -moz-transition: all 0.6s linear;
-  -o-transition: all 0.6s linear;
-  -ms-transition: all 0.6s linear;
-  transition: all 0.6s linear;
   background: url("/img/borders/trim-top.png") repeat-x top left;
-  position: relative;
-  top: 0;
 }
-/* line 6, sass/views/_header.scss */
+/* line 3, sass/views/_header.scss */
 #site-header h1 {
   background: url("/img/header/logo-huge.png") no-repeat;
   width: 1024px;
@@ -791,7 +842,7 @@ body.contact-page .dropdown-list li:hover, body.contact-page .dropdown-list li:f
   font-size: 145px;
   text-indent: -100000px;
 }
-/* line 14, sass/views/_header.scss */
+/* line 11, sass/views/_header.scss */
 #site-header .opaque-decor {
   display: block;
   background: url("/img/borders/opaqueDecor.png") no-repeat center center;
@@ -799,7 +850,7 @@ body.contact-page .dropdown-list li:hover, body.contact-page .dropdown-list li:f
   width: 345px;
   height: 40px;
 }
-/* line 21, sass/views/_header.scss */
+/* line 18, sass/views/_header.scss */
 #site-header h2 {
   text-shadow: 0px 0px 2px #050505;
   -webkit-transition: all 0.1s linear;
@@ -817,11 +868,11 @@ body.contact-page .dropdown-list li:hover, body.contact-page .dropdown-list li:f
   color: #fdedcd;
 }
 
-/* line 35, sass/views/_header.scss */
+/* line 32, sass/views/_header.scss */
 body.home-page #site-header h1 {
   background-position: center 0;
 }
-/* line 38, sass/views/_header.scss */
+/* line 35, sass/views/_header.scss */
 body.home-page #site-header h2 {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
@@ -829,22 +880,14 @@ body.home-page #site-header h2 {
   height: auto;
 }
 
-/* line 47, sass/views/_header.scss */
+/* line 44, sass/views/_header.scss */
 body.packs-page #site-header h1 {
   background-position: center -180px;
 }
 
-/* line 54, sass/views/_header.scss */
+/* line 51, sass/views/_header.scss */
 body.contact-page #site-header h1 {
   background-position: center -360px;
-}
-
-/* line 61, sass/views/_header.scss */
-body.admin-mode #site-header {
-  top: -600px;
-  right: 0;
-  left: 0;
-  position: absolute;
 }
 
 /* line 1, sass/views/_nav.scss */
@@ -1045,11 +1088,6 @@ body.packs-page #primary-nav ul li.active h3, body.packs-page #primary-nav ul li
   float: right;
 }
 
-/* line 99, sass/views/_footer.scss */
-body.admin-mode #site-footer .thankyou {
-  display: none;
-}
-
 /* line 2, sass/views/_page-controls.scss */
 #page-controls {
   position: fixed;
@@ -1077,11 +1115,11 @@ body.admin-mode #site-footer .thankyou {
 }
 /* line 21, sass/views/_page-controls.scss */
 #page-controls .next-page {
-  -webkit-transition: right 0.1s linear;
-  -moz-transition: right 0.1s linear;
-  -o-transition: right 0.1s linear;
-  -ms-transition: right 0.1s linear;
-  transition: right 0.1s linear;
+  -webkit-transition: right 0.7s linear;
+  -moz-transition: right 0.7s linear;
+  -o-transition: right 0.7s linear;
+  -ms-transition: right 0.7s linear;
+  transition: right 0.7s linear;
   background: #444444;
   right: -10px;
   padding-right: 20px;
@@ -1105,11 +1143,11 @@ body.admin-mode #site-footer .thankyou {
 }
 /* line 41, sass/views/_page-controls.scss */
 #page-controls .prev-page {
-  -webkit-transition: left 0.1s linear;
-  -moz-transition: left 0.1s linear;
-  -o-transition: left 0.1s linear;
-  -ms-transition: left 0.1s linear;
-  transition: left 0.1s linear;
+  -webkit-transition: left 0.7s linear;
+  -moz-transition: left 0.7s linear;
+  -o-transition: left 0.7s linear;
+  -ms-transition: left 0.7s linear;
+  transition: left 0.7s linear;
   background: #444444;
   left: -10px;
   padding-left: 20px;
@@ -1137,15 +1175,6 @@ body.admin-mode #site-footer .thankyou {
   display: none;
 }
 
-/* line 69, sass/views/_page-controls.scss */
-body.admin-mode #page-controls .next-page {
-  right: -500px;
-}
-/* line 72, sass/views/_page-controls.scss */
-body.admin-mode #page-controls .prev-page {
-  left: -500px;
-}
-
 /* line 2, sass/views/_site-content-header.scss */
 #site-content-header {
   position: absolute;
@@ -1168,12 +1197,6 @@ body.admin-mode #page-controls .prev-page {
   color: #fdedcd;
   margin-left: -17px;
   padding: 20px 40px;
-}
-
-/* line 24, sass/views/_site-content-header.scss */
-body.admin-mode #site-content-header {
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-  opacity: 0;
 }
 
 /* line 1, sass/packages/github/_main.scss */

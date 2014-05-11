@@ -21,10 +21,10 @@
 },{
   "name" : "admin",
   "page" : "AdminPage",
-  "admin" : true,
+  "gears" : true,
   "subpages" : [{
     "name" : "profile",
     "page" : "ProfilePage",
-    "admin" : true
+    "gears" : true
   }]
 }]

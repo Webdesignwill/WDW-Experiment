@@ -19,9 +19,3 @@
     }
   }
 }
-
-body.admin-mode {
-  #site-content-header {
-    @include opacity(0);
-  }
-}

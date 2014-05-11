@@ -45,8 +45,8 @@ require.config({
     SiteLoaderView                     : 'views/siteLoader/SiteLoaderView',
 
     // Pages
-    AdminPage                            : 'pages/admin/admin/AdminPage',
-    ProfilePage                            : 'pages/admin/profile/ProfilePage',
+    AdminPage                            : 'pages/gears/admin/AdminPage',
+    ProfilePage                            : 'pages/gears/profile/ProfilePage',
 
     HomePage                             : 'pages/theme/home/HomePage',
     ContactPage                          : 'pages/theme/contact/ContactPage',

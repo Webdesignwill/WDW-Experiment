@@ -3,7 +3,7 @@ define('AdminPage', [
   'Backbone',
   'handlebars',
   'webdesignwill',
-  'text!pages/admin/admin/templates/admin.tpl'
+  'text!pages/gears/admin/templates/admin.tpl'
 ],
 
 function (Backbone, handlebars, webdesignwill, template) {

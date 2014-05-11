@@ -1,8 +1,5 @@
 #site-header {
-  @include transition(all, 0.6s);
   background: url('/img/borders/trim-top.png') repeat-x top left;
-  position:relative;
-  top:0;
   h1 {
     background:url('/img/header/logo-huge.png') no-repeat;
     width:$desktop;
@@ -54,14 +51,5 @@ body.contact-page {
     h1 {
       background-position: center -360px;
     }
-  }
-}
-
-body.admin-mode {
-  #site-header {
-    top:-600px;
-    right:0;
-    left:0;
-    position:absolute;
   }
 }

@@ -19,7 +19,7 @@
     }
   }
   .next-page {
-    @include transition(right, 0.1s);
+    @include transition(right, $siteTransitionSpeed);
     background:$shade;
     right:-10px;
     padding-right:20px;
@@ -39,7 +39,7 @@
     right:0;
   }
   .prev-page {
-    @include transition(left, 0.1s);
+    @include transition(left, $siteTransitionSpeed);
     background:$shade;
     left:-10px;
     padding-left:20px;
@@ -61,16 +61,5 @@
   }
   .next-page.hide, .prev-page.hide {
     display:none;
-  }
-}
-
-body.admin-mode {
-  #page-controls {
-    .next-page {
-      right:-500px;
-    }
-    .prev-page {
-      left:-500px;
-    }
   }
 }

@@ -10,6 +10,7 @@
 
 @import "globals";
 @import "typography";
+@import "gears";
 
 @import "components/logos";
 @import "components/icons";
@@ -19,8 +20,8 @@
 @import "components/buttons";
 @import "components/lists";
 
-@import "pages/admin/admin";
-@import "pages/admin/profile";
+@import "pages/gears/admin";
+@import "pages/gears/profile";
 @import "pages/theme/home";
 @import "pages/theme/contact";
 @import "pages/theme/packs";

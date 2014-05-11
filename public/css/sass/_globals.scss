@@ -64,16 +64,3 @@ body.packs-page {
 body.contact-page {
   background-color: $blood;
 }
-
-#admin-content-body {
-  @include transition(all, 0.6s);
-  height:0;
-  overflow:hidden;
-}
-body.admin-mode {
-  background:$shade url('/img/body-bg.png') repeat top left;
-  overflow:hidden;
-  #admin-content-body {
-    min-height:100%;
-  }
-}

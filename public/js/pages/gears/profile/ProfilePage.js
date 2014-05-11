@@ -3,7 +3,7 @@ define('ProfilePage', [
   'Backbone',
   'handlebars',
   'webdesignwill',
-  'text!pages/admin/profile/templates/profile.tpl'
+  'text!pages/gears/profile/templates/profile.tpl'
 ],
 
 function (Backbone, handlebars, webdesignwill, template) {

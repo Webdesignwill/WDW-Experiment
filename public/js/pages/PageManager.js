@@ -20,17 +20,25 @@ define('PageManager', [
       },
 
       setEvents : function () {
-        this.listenTo(webdesignwill.page, 'change:admin', function (model, view) {
-          this.$el.addClass('admin-mode');
+        this.listenTo(webdesignwill.page, 'change:pageType', function (model, pageType) {
+          this.setPageTypeProperties(pageType);
         });
-        this.listenTo(webdesignwill.page, 'change:theme', function (model, view) {
-          this.$el.removeClass('admin-mode');
-        });
+      },
+
+      setPageTypeProperties : function (pageType) {
+        switch (pageType) {
+          case 'gears' :
+            this.$el.addClass('gears-mode');
+          break;
+          case 'theme' :
+            this.$el.removeClass('gears-mode');
+          break;
+        }
       },
 
       setElements : function () {
         this.$siteContentBody = this.$el.find('#site-content-body');
-        this.$adminContentBody = this.$el.find('#admin-content-body');
+        this.$gearsContentBody = this.$el.find('#gears-content-body');
         this.$siteHeader = this.$el.find('#site-header');
         this.$siteFooter = this.$el.find('#site-footer-inner');
         this.$pageControls = this.$el.find('#page-controls');
@@ -71,11 +79,12 @@ define('PageManager', [
           identifier : identifier || null
         });
 
-        var $el = pageType === 'admin' ? this.$adminContentBody : this.$siteContentBody;
+        var $el = pageType === 'gears' ? this.$gearsContentBody : this.$siteContentBody;
         $el.html(newPage.render().el);
 
-        webdesignwill.page.set(pageType, newPage);
+        var props = {}; props.pageType = pageType; props[pageType] = newPage;
 
+        webdesignwill.page.set(props);
         this.toggleClasses(pageModel);
       },
 
@@ -93,15 +102,15 @@ define('PageManager', [
       },
 
       tearDown : function (pageType) {
-        var trash = webdesignwill.page.get(pageType);
+        var trash = webdesignwill.page.get(pageType),
+              packages = webdesignwill.packageManager.packages;
+
         if(trash) {
-          var packages = trash.model.get('packages');
-          if(packages) {
-            for(var i = 0; i<packages.length; i++) {
-              webdesignwill.packageManager.packages[packages[i]].stop();
-            }
-          }
           trash.close();
+        }
+
+        for(var key in packages) {
+          packages[key].stop();
         }
       }
 
