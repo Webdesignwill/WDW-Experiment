@@ -15,7 +15,17 @@ define('PageManager', [
 
       initialize : function () {
         this.setElements();
+        this.setEvents();
         this.renderPageComponents();
+      },
+
+      setEvents : function () {
+        this.listenTo(webdesignwill.page, 'change:admin', function (model, view) {
+          this.$el.addClass('admin-mode');
+        });
+        this.listenTo(webdesignwill.page, 'change:theme', function (model, view) {
+          this.$el.removeClass('admin-mode');
+        });
       },
 
       setElements : function () {
@@ -52,26 +62,21 @@ define('PageManager', [
 
       },
 
-      goto : function (pageModel, Page, identifier) {
+      goto : function (pageModel, Page, identifier, pageType) {
 
-        this.tearDown();
+        this.tearDown(pageType);
 
         var newPage = new Page({
           model : pageModel,
           identifier : identifier || null
         });
 
-        var page = {
-          page : newPage
-        };
+        var $el = pageType === 'admin' ? this.$adminContentBody : this.$siteContentBody;
+        $el.html(newPage.render().el);
 
-        var $renderEl = pageModel.get('admin') ? this.$adminContentBody : this.$siteContentBody;
+        webdesignwill.page.set(pageType, newPage);
 
-        $renderEl.html(newPage.render().el);
         this.toggleClasses(pageModel);
-
-        webdesignwill.page.set(page);
-
       },
 
       toggleClasses : function (pageModel) {
@@ -84,20 +89,11 @@ define('PageManager', [
             }
           }
         }
-
         this.$el.addClass(pageModel.get('map'));
-
-        var ad = pageModel.get('admin');
-        if(ad) {
-          this.$el.addClass('admin-mode');
-          return;
-        }
-        this.$el.removeClass('admin-mode');
-
       },
 
-      tearDown : function () {
-        var trash = webdesignwill.page.get('page');
+      tearDown : function (pageType) {
+        var trash = webdesignwill.page.get(pageType);
         if(trash) {
           var packages = trash.model.get('packages');
           if(packages) {

@@ -30,27 +30,27 @@ define('PageControlsView', [
 
     setEvents : function () {
       var self = this;
-      webdesignwill.page.on('change', this.toggleControls, this);
+      webdesignwill.page.on('change:theme', this.toggleControls, this);
     },
 
     next : function (e) {
       e.stopPropagation();
       e.preventDefault();
-      var path = webdesignwill.page.get('page').model.getNextPage('path');
+      var path = webdesignwill.page.get('theme').model.getNextPage('path');
       webdesignwill.router.navigate(path, {trigger:true});
     },
 
     prev : function (e) {
       e.stopPropagation();
       e.preventDefault();
-      var path = webdesignwill.page.get('page').model.getPrevPage('path');
+      var path = webdesignwill.page.get('theme').model.getPrevPage('path');
       webdesignwill.router.navigate(path, {trigger:true});
     },
 
-    toggleControls : function (page) {
+    toggleControls : function (model) {
 
-      var getNextPage = page.get('page').model.getNextPage(),
-            getPrevPage = page.get('page').model.getPrevPage();
+      var getNextPage = model.get('theme').model.getNextPage(),
+            getPrevPage = model.get('theme').model.getPrevPage();
 
       if(!getNextPage) {
         this.$nextPage.addClass('hide');

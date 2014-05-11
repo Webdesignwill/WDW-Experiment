@@ -19,7 +19,7 @@ function (Backbone, webdesignwill, handlebars, template, content) {
     },
 
     setEvents : function () {
-      webdesignwill.page.on('change', function (page) {
+      webdesignwill.page.on('change:theme', function (page) {
         // change header things?!
       });
     },

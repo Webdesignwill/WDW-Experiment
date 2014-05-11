@@ -23,9 +23,9 @@ define('PackageManager', [
       stopped : function (data) {}
     };
 
-    webdesignwill.page.on('change', function (page) {
-      var p = page.get('page'),
-            pgs = p.model.get('packages');
+    webdesignwill.page.on('change:theme', function (model) {
+      var pageModel = model.get('theme').model,
+            pgs = pageModel.get('packages');
 
       if(pgs) {
         this.loadPackages(pgs);
@@ -75,7 +75,7 @@ define('PackageManager', [
           });
           break;
         case 'started' :
-          this.packages[pack].$el = webdesignwill.page.get('page').$el.find("[data-package='" + pack + "']");
+          this.packages[pack].$el = webdesignwill.page.get('theme').$el.find("[data-package='" + pack + "']");
         break;
       }
       this.packages[pack].set({

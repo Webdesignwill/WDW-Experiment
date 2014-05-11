@@ -22,13 +22,13 @@ function (Backbone, handlebars, webdesignwill, template) {
     },
 
     setEvents : function () {
-      webdesignwill.page.on('change', function (page) {
-        this.highlightActive(page);
+      webdesignwill.page.on('change:theme', function (model) {
+        this.highlightActive(model.get('theme'));
       }, this);
     },
 
     highlightActive : function (page) {
-      if(page.get('page').model === this.model) {
+      if(page.model === this.model) {
         this.$el.addClass('active');
         return;
       }
