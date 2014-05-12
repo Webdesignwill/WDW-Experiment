@@ -10,21 +10,25 @@
     <script data-main="/js/main" src="/js/libs/require/require-min.js"></script>
   </head>
   <body class="active-loader">
-    <header id="site-header"></header>
+
+    <section class="above-the-hood">
+      <header id="site-header"></header>
+      <section id="page-container">
+        <header id="site-content-header"></header>
+        <section id="site-content-body" class="site-content-body"></section>
+        <div id="page-controls"></div>
+      </section>
+      <footer id="site-footer">
+        <span class="thankyou"></span>
+        <div id="site-footer-inner" class="site-footer-inner"></div>
+      </footer>
+    </section>
 
     <section class="under-the-hood">
       <section id="gears-content-body" class="gears-content-body"></section>
     </section>
 
-    <section id="page-container">
-      <header id="site-content-header"></header>
-      <section id="site-content-body" class="site-content-body"></section>
-      <div id="page-controls"></div>
-    </section>
-    <footer id="site-footer">
-      <span class="thankyou"></span>
-      <div id="site-footer-inner" class="site-footer-inner"></div>
-    </footer>
     <div id="site-loader"></div>
+
   </body>
 </html>

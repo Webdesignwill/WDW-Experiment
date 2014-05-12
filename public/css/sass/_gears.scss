@@ -1,59 +1,25 @@
-#site-header {
-  @include transition(all, $siteTransitionSpeed);
-  max-height:500px;
-  top:0;
-  position: relative;
-}
-#gears-content-body {
-  h1, h2, h3, h4, p, li, cite {
-    color:$white;
-  }
+.above-the-hood {
+  display:block;
+  z-index:$aboveTheHood;
+  position:relative;
 }
 .under-the-hood {
-  @include transition(all, $siteTransitionSpeed);
-  height:0;
-  overflow:hidden;
-  .gears-content-body {
-    @include transition(opacity, $siteTransitionSpeed);
-    @include opacity(0);
-    border:5px solid $white;
-    position:absolute;
-    top:0;
-    right:0;
-    bottom:0;
-    left:0;
-    z-index:$underTheHoodZindex;
-  }
+  @include transition(opacity, $siteTransitionSpeed);
+  @include opacity(0);
+  z-index:$underTheHood;
+  position: fixed;
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
 }
 
 body.gears-mode {
   background:$shade url('/img/body-bg.png') repeat top left;
-  overflow:hidden;
-  #site-header {
-    max-height:0;
-    top:-600px;
+  .above-the-hood {
+    display:none;
   }
   .under-the-hood {
-    min-height:100%;
-    .gears-content-body {
-      @include opacity(1);
-      z-index:$aboveTheHood;
-    }
-  }
-  #page-controls {
-    .next-page {
-      right:-500px;
-    }
-    .prev-page {
-      left:-500px;
-    }
-  }
-  #site-footer {
-    .thankyou {
-      display:none;
-    }
-  }
-  #site-content-header {
-    @include opacity(0);
+    @include opacity(1);
   }
 }

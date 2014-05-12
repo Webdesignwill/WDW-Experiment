@@ -231,86 +231,41 @@ body.contact-page a:hover {
 }
 
 /* line 1, sass/_gears.scss */
-#site-header {
-  -webkit-transition: all 0.7s linear;
-  -moz-transition: all 0.7s linear;
-  -o-transition: all 0.7s linear;
-  -ms-transition: all 0.7s linear;
-  transition: all 0.7s linear;
-  max-height: 500px;
-  top: 0;
+.above-the-hood {
+  display: block;
+  z-index: 2;
   position: relative;
 }
 
-/* line 8, sass/_gears.scss */
-#gears-content-body h1, #gears-content-body h2, #gears-content-body h3, #gears-content-body h4, #gears-content-body p, #gears-content-body li, #gears-content-body cite {
-  color: white;
-}
-
-/* line 12, sass/_gears.scss */
+/* line 6, sass/_gears.scss */
 .under-the-hood {
-  -webkit-transition: all 0.7s linear;
-  -moz-transition: all 0.7s linear;
-  -o-transition: all 0.7s linear;
-  -ms-transition: all 0.7s linear;
-  transition: all 0.7s linear;
-  height: 0;
-  overflow: hidden;
-}
-/* line 16, sass/_gears.scss */
-.under-the-hood .gears-content-body {
-  -webkit-transition: opacity 0.7s linear;
-  -moz-transition: opacity 0.7s linear;
-  -o-transition: opacity 0.7s linear;
-  -ms-transition: opacity 0.7s linear;
-  transition: opacity 0.7s linear;
+  -webkit-transition: opacity 0.5s linear;
+  -moz-transition: opacity 0.5s linear;
+  -o-transition: opacity 0.5s linear;
+  -ms-transition: opacity 0.5s linear;
+  transition: opacity 0.5s linear;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
-  border: 5px solid white;
-  position: absolute;
+  z-index: 1;
+  position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: -200;
 }
 
-/* line 29, sass/_gears.scss */
+/* line 17, sass/_gears.scss */
 body.gears-mode {
   background: #444444 url("/img/body-bg.png") repeat top left;
-  overflow: hidden;
 }
-/* line 32, sass/_gears.scss */
-body.gears-mode #site-header {
-  max-height: 0;
-  top: -600px;
-}
-/* line 36, sass/_gears.scss */
-body.gears-mode .under-the-hood {
-  min-height: 100%;
-}
-/* line 38, sass/_gears.scss */
-body.gears-mode .under-the-hood .gears-content-body {
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
-  opacity: 1;
-  z-index: 1000;
-}
-/* line 44, sass/_gears.scss */
-body.gears-mode #page-controls .next-page {
-  right: -500px;
-}
-/* line 47, sass/_gears.scss */
-body.gears-mode #page-controls .prev-page {
-  left: -500px;
-}
-/* line 52, sass/_gears.scss */
-body.gears-mode #site-footer .thankyou {
+/* line 19, sass/_gears.scss */
+body.gears-mode .above-the-hood {
   display: none;
 }
-/* line 56, sass/_gears.scss */
-body.gears-mode #site-content-header {
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-  opacity: 0;
+/* line 22, sass/_gears.scss */
+body.gears-mode .under-the-hood {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
 }
 
 /* line 2, sass/components/_logos.scss */
@@ -738,9 +693,13 @@ body.contact-page .dropdown-list li:hover, body.contact-page .dropdown-list li:f
 
 /* line 2, sass/pages/gears/_profile.scss */
 #profile-page h1 {
-  padding: 200px 0 200px 0;
+  padding: 200px 0 0 0;
   width: 100%;
   text-align: center;
+}
+/* line 7, sass/pages/gears/_profile.scss */
+#profile-page button:hover {
+  background: #FF0000;
 }
 
 /* line 3, sass/pages/theme/_home.scss */
@@ -1115,11 +1074,11 @@ body.packs-page #primary-nav ul li.active h3, body.packs-page #primary-nav ul li
 }
 /* line 21, sass/views/_page-controls.scss */
 #page-controls .next-page {
-  -webkit-transition: right 0.7s linear;
-  -moz-transition: right 0.7s linear;
-  -o-transition: right 0.7s linear;
-  -ms-transition: right 0.7s linear;
-  transition: right 0.7s linear;
+  -webkit-transition: right 0.5s linear;
+  -moz-transition: right 0.5s linear;
+  -o-transition: right 0.5s linear;
+  -ms-transition: right 0.5s linear;
+  transition: right 0.5s linear;
   background: #444444;
   right: -10px;
   padding-right: 20px;
@@ -1143,11 +1102,11 @@ body.packs-page #primary-nav ul li.active h3, body.packs-page #primary-nav ul li
 }
 /* line 41, sass/views/_page-controls.scss */
 #page-controls .prev-page {
-  -webkit-transition: left 0.7s linear;
-  -moz-transition: left 0.7s linear;
-  -o-transition: left 0.7s linear;
-  -ms-transition: left 0.7s linear;
-  transition: left 0.7s linear;
+  -webkit-transition: left 0.5s linear;
+  -moz-transition: left 0.5s linear;
+  -o-transition: left 0.5s linear;
+  -ms-transition: left 0.5s linear;
+  transition: left 0.5s linear;
   background: #444444;
   left: -10px;
   padding-left: 20px;
