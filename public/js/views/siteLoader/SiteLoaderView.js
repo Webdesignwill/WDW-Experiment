@@ -12,7 +12,7 @@ function (Backbone, webdesignwill, template) {
   var SiteLoaderView = Backbone.View.extend({
 
     events : {
-      'click .wdw-vertical-blue' : 'enter'
+      // 'click .wdw-vertical-blue' : 'enter'
     },
 
     initialize : function () {
