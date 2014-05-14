@@ -3,7 +3,7 @@ define('HeaderView', [
   'Backbone',
   'handlebars',
   'NavView',
-  'text!views/header/templates/header.tpl',
+  'text!views/theme/header/templates/header.tpl',
   "i18n!nls/header"
 ],
 

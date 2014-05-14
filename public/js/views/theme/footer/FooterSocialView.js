@@ -2,7 +2,7 @@
 define('FooterSocialView', [
   'Backbone',
   'handlebars',
-  'text!views/footer/templates/footerSocial.tpl',
+  'text!views/theme/footer/templates/footerSocial.tpl',
   'i18n!nls/footer'
 ],
 

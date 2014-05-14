@@ -2,7 +2,7 @@
 define('FooterContactView', [
   'Backbone',
   'handlebars',
-  'text!views/footer/templates/footerContact.tpl',
+  'text!views/theme/footer/templates/footerContact.tpl',
   'i18n!nls/footer',
   'i18n!nls/credentials'
 ],

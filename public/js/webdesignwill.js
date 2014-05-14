@@ -1,7 +1,8 @@
 
 define('webdesignwill', [
-  'Backbone'
-], function (Backbone) {
+  'Backbone',
+  'UserModel'
+], function (Backbone, UserModel) {
 
   "use strict";
 
@@ -9,8 +10,13 @@ define('webdesignwill', [
 
     page : new Backbone.Model(),
     $broker : _.clone(Backbone.Events),
+    user : new UserModel(),
 
     initWebdesignwill : function () {
+
+      // Stubbed for now
+      this.user.set('loggedin', true);
+
       var self = this;
       this.sitemap.fetch({
         success : function (model, response, options) {

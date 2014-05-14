@@ -29,26 +29,29 @@ require.config({
     webdesignwill                       : 'webdesignwill',
     Sitemap                                 : 'models/app/Sitemap',
     PageModel                            : 'models/page/PageModel',
+    UserModel                            : 'models/user/UserModel',
 
-    // Views
-    FooterView                            : 'views/footer/FooterView',
-    FooterSocialView                   : 'views/footer/FooterSocialView',
-    FooterNewsView                    : 'views/footer/FooterNewsView',
-    FooterNewsItemView             : 'views/footer/FooterNewsItemView',
-    FooterContactView                : 'views/footer/FooterContactView',
-    HeaderView                           : 'views/header/HeaderView',
-    SiteContentHeaderView         : 'views/siteContentHeader/SiteContentHeaderView',
-    NavView                                : 'views/nav/NavView',
-    NavUserView                         : 'views/nav/NavUserView',
-    NavSubView                          : 'views/nav/NavSubView',
-    PageControlsView                 : 'views/pageControls/PageControlsView',
-    SiteLoaderView                     : 'views/siteLoader/SiteLoaderView',
+    // Admin Views
+    AdminBarView                       : 'views/gears/adminBar/AdminBarView',
 
-    // Pages
+    // Theme Views
+    FooterView                            : 'views/theme/footer/FooterView',
+    FooterSocialView                   : 'views/theme/footer/FooterSocialView',
+    FooterNewsView                    : 'views/theme/footer/FooterNewsView',
+    FooterNewsItemView             : 'views/theme/footer/FooterNewsItemView',
+    FooterContactView                : 'views/theme/footer/FooterContactView',
+    HeaderView                           : 'views/theme/header/HeaderView',
+    SiteContentHeaderView         : 'views/theme/siteContentHeader/SiteContentHeaderView',
+    NavView                                : 'views/theme/nav/NavView',
+    NavUserView                         : 'views/theme/nav/NavUserView',
+    NavSubView                          : 'views/theme/nav/NavSubView',
+    PageControlsView                 : 'views/theme/pageControls/PageControlsView',
+    SiteLoaderView                     : 'views/theme/siteLoader/SiteLoaderView',
+
+    // Admin Pages
     AdminPage                            : 'pages/gears/admin/AdminPage',
-    ProfilePage                            : 'pages/gears/profile/ProfilePage',
-    CreatePage                            : 'pages/gears/page/CreatePage',
 
+    // Theme pages
     HomePage                             : 'pages/theme/home/HomePage',
     ContactPage                          : 'pages/theme/contact/ContactPage',
     PacksPage                              : 'pages/theme/packs/PacksPage'

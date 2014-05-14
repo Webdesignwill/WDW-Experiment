@@ -1,19 +1,20 @@
 
-define('ProfilePage', [
+define('AdminBarView', [
   'Backbone',
   'handlebars',
   'webdesignwill',
-  'text!pages/gears/profile/templates/profile.tpl'
+  'text!views/gears/adminBar/templates/adminBar.tpl'
 ],
 
 function (Backbone, handlebars, webdesignwill, template) {
 
   "use strict";
 
-  var ProfilePage = Backbone.Page.extend({
+  var AdminBarView = Backbone.View.extend({
 
-    id : 'profile-page',
-    className : 'profile-page page',
+    initialize : function () {
+      this.render();
+    },
 
     render : function () {
       this.$el.html(template);
@@ -22,6 +23,6 @@ function (Backbone, handlebars, webdesignwill, template) {
 
   });
 
-  return ProfilePage;
+  return AdminBarView;
 
 });

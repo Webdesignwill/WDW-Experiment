@@ -4,7 +4,7 @@ define('FooterView', [
   'handlebars',
   'FooterSocialView',
   'FooterContactView',
-  'text!views/footer/templates/footer.tpl',
+  'text!views/theme/footer/templates/footer.tpl',
   'i18n!nls/footer'
 ],
 

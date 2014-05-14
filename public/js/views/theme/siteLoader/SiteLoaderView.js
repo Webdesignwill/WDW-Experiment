@@ -2,7 +2,7 @@
 define('SiteLoaderView', [
   'Backbone',
   'webdesignwill',
-  'text!views/siteLoader/templates/site-loader.tpl'
+  'text!views/theme/siteLoader/templates/site-loader.tpl'
 ],
 
 function (Backbone, webdesignwill, template) {
@@ -12,7 +12,7 @@ function (Backbone, webdesignwill, template) {
   var SiteLoaderView = Backbone.View.extend({
 
     events : {
-      // 'click .wdw-vertical-blue' : 'enter'
+      'click .wdw-vertical-blue' : 'enter'
     },
 
     initialize : function () {

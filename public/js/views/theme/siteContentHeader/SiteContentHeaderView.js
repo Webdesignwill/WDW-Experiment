@@ -3,7 +3,7 @@ define('SiteContentHeaderView', [
   'Backbone',
   'webdesignwill',
   'handlebars',
-  'text!views/siteContentHeader/templates/site-content-header.tpl',
+  'text!views/theme/siteContentHeader/templates/site-content-header.tpl',
   'i18n!nls/home'
 ],
 

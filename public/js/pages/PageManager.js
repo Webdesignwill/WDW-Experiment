@@ -2,12 +2,13 @@
 define('PageManager', [
     'Backbone',
     'webdesignwill',
+    'AdminBarView',
     'HeaderView',
     'PageControlsView',
     'FooterView',
     'SiteContentHeaderView',
     'SiteLoaderView'
-  ], function (Backbone, webdesignwill, HeaderView, PageControlsView, FooterView, SiteContentHeaderView, SiteLoaderView) {
+  ], function (Backbone, webdesignwill, AdminBarView, HeaderView, PageControlsView, FooterView, SiteContentHeaderView, SiteLoaderView) {
 
     "use strict";
 
@@ -40,6 +41,7 @@ define('PageManager', [
         this.$siteContentBody = this.$el.find('#site-content-body');
         this.$gearsContentBody = this.$el.find('#gears-content-body');
         this.$siteHeader = this.$el.find('#site-header');
+        this.$adminBar = this.$el.find('#admin-bar');
         this.$siteFooter = this.$el.find('#site-footer-inner');
         this.$pageControls = this.$el.find('#page-controls');
         this.$siteContentHeader = this.$el.find('#site-content-header');
@@ -47,6 +49,10 @@ define('PageManager', [
       },
 
       renderPageComponents : function () {
+
+        new AdminBarView({
+          el : this.$adminBar
+        });
 
         new SiteLoaderView({
           el : this.$siteLoader

@@ -4,7 +4,7 @@ define('NavView', [
   'webdesignwill',
   'NavSubView',
   'NavUserView',
-  'text!views/nav/templates/nav.tpl'
+  'text!views/theme/nav/templates/nav.tpl'
 ],
 
 function (Backbone, webdesignwill, NavSubView, NavUserView, template) {

@@ -3,7 +3,7 @@ define('PageControlsView', [
   'Backbone',
   'webdesignwill',
   'handlebars',
-  'text!views/pageControls/templates/page-controls.tpl'
+  'text!views/theme/pageControls/templates/page-controls.tpl'
 ], function (Backbone, webdesignwill, handlebars, template) {
 
   "use strict";

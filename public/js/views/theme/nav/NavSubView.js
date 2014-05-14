@@ -3,7 +3,7 @@ define('NavSubView', [
   'Backbone',
   'handlebars',
   'webdesignwill',
-  'text!views/nav/templates/subNav.tpl'
+  'text!views/theme/nav/templates/subNav.tpl'
 ],
 
 function (Backbone, handlebars, webdesignwill, template) {
