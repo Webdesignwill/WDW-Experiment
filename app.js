@@ -11,8 +11,8 @@ var debug = require('debug')('webdesignwill'),
 
 var app = express();
 
-app.set('port', 8000);
-app.use(logger('dev'));
+app.set('port', Number(process.env.PORT));
+
 app.use(express.static(__dirname + '/public'));
 
 //////////////
@@ -22,12 +22,11 @@ app.use(express.static(__dirname + '/public'));
 var mongoConnect;
 
 if(process.env.NODE_ENV === 'development') {
-  console.log('DEVELOPMENT MODE');
+  app.use(logger('dev'));
   mongoConnect = 'mongodb://127.0.0.1:27017/webdesignwill';
 }
 
 if(process.env.NODE_ENV === 'production') {
-  console.log('PRODUCTION MODE');
   mongoConnect = process.env.MONGOLAB_URI;
 }
 
