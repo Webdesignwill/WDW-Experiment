@@ -19,7 +19,9 @@ app.use(express.static(__dirname + '/public'));
 // Database //
 /////////////
 
-mongoose.connect('mongodb://127.0.0.1:27017/webdesignwill');
+var mongoUrl = process.env.MONGOLAB_URI || '127.0.0.1:27017';
+mongoose.connect('mongodb://' + mongoUrl + '/webdesignwill');
+
 var db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'db connection error:'));
