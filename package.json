@@ -11,5 +11,14 @@
     "debug": "~0.7.4",
     "morgan" : "~1.0.1",
     "mongoose"  : "~3.8.9"
-  }
+  },
+  "engines": {
+    "node": "0.10.x"
+  },
+  "keywords": [
+    "webdesignwill",
+    "cms",
+    "stateful"
+  ],
+  "author": "Will-Falkowski"
 }

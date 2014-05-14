@@ -47,6 +47,7 @@ require.config({
     // Pages
     AdminPage                            : 'pages/gears/admin/AdminPage',
     ProfilePage                            : 'pages/gears/profile/ProfilePage',
+    CreatePage                            : 'pages/gears/page/CreatePage',
 
     HomePage                             : 'pages/theme/home/HomePage',
     ContactPage                          : 'pages/theme/contact/ContactPage',
