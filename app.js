@@ -19,9 +19,19 @@ app.use(express.static(__dirname + '/public'));
 // Database //
 /////////////
 
-var mongoConnectURL = process.env.NODE_ENV === 'development' ?  'mongodb://127.0.0.1:27017/webdesignwill' : process.env.MONGOLAB_URI;
-mongoose.connect(mongoConnectURL);
+var mongoConnect;
 
+if(process.env.NODE_ENV === 'development') {
+  console.log('DEVELOPMENT MODE');
+  mongoConnect = 'mongodb://127.0.0.1:27017/webdesignwill';
+}
+
+if(process.env.NODE_ENV === 'production') {
+  console.log('PRODUCTION MODE');
+  mongoConnect = process.env.MONGOLAB_URI;
+}
+
+mongoose.connect(mongoConnect);
 var db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'db connection error:'));
