@@ -1,20 +1,20 @@
 
-define('AdminBarView', [
+define('CreatePage', [
   'Backbone',
   'handlebars',
   'webdesignwill',
-  'text!views/gears/adminBar/templates/adminBar.tpl'
+  'text!pages/admin/page/templates/create.tpl'
 ],
 
 function (Backbone, handlebars, webdesignwill, template) {
 
   "use strict";
 
-  var AdminBarView = Backbone.View.extend({
+  var CreatePage = Backbone.Page.extend({
 
-    initialize : function () {
-      this.render();
-    },
+    tagName : 'form',
+    id : 'create-page',
+    className : 'create-page page',
 
     render : function () {
       this.$el.html(template);
@@ -23,6 +23,6 @@ function (Backbone, handlebars, webdesignwill, template) {
 
   });
 
-  return AdminBarView;
+  return CreatePage;
 
 });

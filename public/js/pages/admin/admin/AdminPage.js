@@ -1,20 +1,19 @@
 
-define('CreatePage', [
+define('AdminPage', [
   'Backbone',
   'handlebars',
   'webdesignwill',
-  'text!pages/gears/page/templates/create.tpl'
+  'text!pages/admin/admin/templates/admin.tpl'
 ],
 
 function (Backbone, handlebars, webdesignwill, template) {
 
   "use strict";
 
-  var CreatePage = Backbone.Page.extend({
+  var AdminPage = Backbone.Page.extend({
 
-    tagName : 'form',
-    id : 'create-page',
-    className : 'create-page page',
+    id : 'admin-page',
+    className : 'admin-page page',
 
     render : function () {
       this.$el.html(template);
@@ -23,6 +22,6 @@ function (Backbone, handlebars, webdesignwill, template) {
 
   });
 
-  return CreatePage;
+  return AdminPage;
 
 });

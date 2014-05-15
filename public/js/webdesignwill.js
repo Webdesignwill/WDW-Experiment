@@ -13,10 +13,6 @@ define('webdesignwill', [
     user : new UserModel(),
 
     initWebdesignwill : function () {
-
-      // Stubbed for now
-      this.user.set('loggedin', true);
-
       var self = this;
       this.sitemap.fetch({
         success : function (model, response, options) {

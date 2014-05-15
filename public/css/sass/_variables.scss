@@ -4,7 +4,7 @@ $ClickerScript : "Clicker Script", cursive;
 $Myriad : "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 /* transition speed from admin to theme pages */
-$siteTransitionSpeed  : 0.5s;
+$siteTransitionSpeed  : 0.2s;
 
 /* Dimensions */
 
@@ -29,6 +29,9 @@ $grey : rgb(238,238,238); // #EEEEEE
 $saabGrey : rgb(214,214,214); // #D6D6D6
 $black : rgb(5,5,5); // #000000
 
+// Admin colours
+$wireFrameBlue : rgb(0,254,255); //#00FEFF
+
 // Section colours
 $skyBlue : rgb(226,246,255); // #E2F6FF
 $pearlyWhite : rgb(255,255,255); // #FFFFFF
@@ -43,6 +46,10 @@ $aboveTheHood : 2;
 $siteContentHeaderZindex : 10;
 $pageControlsZindex : 20;
 
-$loaderZindex : 500;
-$loaderBottomZindex : 510;
-$loaderTopZindex : 520;
+// Admin bar
+$adminBarZindex : 1000;
+
+// Always on top
+$loaderZindex : 1500;
+$loaderBottomZindex : 1510;
+$loaderTopZindex : 1520;

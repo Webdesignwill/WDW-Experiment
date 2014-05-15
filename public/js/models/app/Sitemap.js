@@ -29,7 +29,7 @@ function (Backbone, webdesignwill, PageModel) {
     createModel : function (sitemap, level, route, path, np, pp) {
 
       function pageRelation (pr) {
-        return pr && !pr.gears ? pr.name : null;
+        return pr && !pr.admin ? pr.name : null;
       }
 
       var i, model = {
@@ -41,7 +41,7 @@ function (Backbone, webdesignwill, PageModel) {
         path : path,
         nextPage : pageRelation(np),
         prevPage : pageRelation(pp),
-        gears : sitemap.gears || null,
+        admin : sitemap.admin || false,
         nav : sitemap.nav || null,
         packages : sitemap.packages || null
       };
@@ -73,7 +73,7 @@ function (Backbone, webdesignwill, PageModel) {
         model.route = sitemap.override.route;
         model.path = sitemap.override.path;
       }
-
+console.log(model);
       return model;
 
     }

@@ -30,6 +30,7 @@ a {
   @include transition(color, 0.2s);
   text-decoration:none;
   color:$white;
+  cursor:pointer;
 }
 body.home-page {
   a:hover {

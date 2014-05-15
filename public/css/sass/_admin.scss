@@ -1,4 +1,5 @@
 .above-the-hood {
+  @include transition(all, $siteTransitionSpeed);
   display:block;
   z-index:$aboveTheHood;
   position:relative;
@@ -14,7 +15,7 @@
   left:0;
 }
 
-body.gears-mode {
+body.admin-mode {
   background:$shade url('/img/body-bg.png') repeat top left;
   .above-the-hood {
     display:none;

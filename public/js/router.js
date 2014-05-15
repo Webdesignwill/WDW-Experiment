@@ -29,7 +29,7 @@ function (Backbone, webdesignwill, PageManager) {
       var self = this;
 
       this.route(pageModel.get('route'), pageModel.get('name'), function (option) {
-        var pageType = pageModel.get('gears') ? 'gears' : 'theme';
+        var pageType = pageModel.get('admin') ? 'admin' : 'theme';
         require([pageModel.get('page')], function (Page) {
           webdesignwill.pageManager.goto(pageModel, Page, option, pageType);
         });

@@ -21,10 +21,5 @@
 },{
   "name" : "admin",
   "page" : "AdminPage",
-  "gears" : true,
-  "subpages" : [{
-    "name" : "profile",
-    "page" : "ProfilePage",
-    "gears" : true
-  }]
+  "admin" : true
 }]

@@ -28,18 +28,18 @@ define('PageManager', [
 
       setPageTypeProperties : function (pageType) {
         switch (pageType) {
-          case 'gears' :
-            this.$el.addClass('gears-mode');
+          case 'admin' :
+            this.$el.addClass('admin-mode');
           break;
           case 'theme' :
-            this.$el.removeClass('gears-mode');
+            this.$el.removeClass('admin-mode');
           break;
         }
       },
 
       setElements : function () {
         this.$siteContentBody = this.$el.find('#site-content-body');
-        this.$gearsContentBody = this.$el.find('#gears-content-body');
+        this.$adminContentBody = this.$el.find('#admin-content-body');
         this.$siteHeader = this.$el.find('#site-header');
         this.$adminBar = this.$el.find('#admin-bar');
         this.$siteFooter = this.$el.find('#site-footer-inner');
@@ -81,11 +81,12 @@ define('PageManager', [
         this.tearDown(pageType);
 
         var newPage = new Page({
+          pageType : pageType,
           model : pageModel,
           identifier : identifier || null
         });
 
-        var $el = pageType === 'gears' ? this.$gearsContentBody : this.$siteContentBody;
+        var $el = pageType === 'admin' ? this.$adminContentBody : this.$siteContentBody;
         $el.html(newPage.render().el);
 
         var props = {}; props.pageType = pageType; props[pageType] = newPage;

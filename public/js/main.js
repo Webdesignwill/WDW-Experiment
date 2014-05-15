@@ -32,7 +32,7 @@ require.config({
     UserModel                            : 'models/user/UserModel',
 
     // Admin Views
-    AdminBarView                       : 'views/gears/adminBar/AdminBarView',
+    AdminBarView                       : 'views/admin/adminBar/AdminBarView',
 
     // Theme Views
     FooterView                            : 'views/theme/footer/FooterView',
@@ -49,7 +49,7 @@ require.config({
     SiteLoaderView                     : 'views/theme/siteLoader/SiteLoaderView',
 
     // Admin Pages
-    AdminPage                            : 'pages/gears/admin/AdminPage',
+    AdminPage                            : 'pages/admin/admin/AdminPage',
 
     // Theme pages
     HomePage                             : 'pages/theme/home/HomePage',
