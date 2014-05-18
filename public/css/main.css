@@ -264,21 +264,24 @@ body.contact-page a:hover {
   opacity: 0;
   z-index: 1;
   position: fixed;
-  top: 0;
+  top: 80px;
   right: 0;
-  bottom: 0;
   left: 0;
 }
+/* line 15, sass/_admin.scss */
+.under-the-hood h2, .under-the-hood h3, .under-the-hood h4, .under-the-hood p {
+  color: white;
+}
 
-/* line 18, sass/_admin.scss */
+/* line 20, sass/_admin.scss */
 body.admin-mode {
   background: #444444 url("/img/body-bg.png") repeat top left;
 }
-/* line 20, sass/_admin.scss */
+/* line 22, sass/_admin.scss */
 body.admin-mode .above-the-hood {
   display: none;
 }
-/* line 23, sass/_admin.scss */
+/* line 25, sass/_admin.scss */
 body.admin-mode .under-the-hood {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
@@ -720,6 +723,23 @@ body.contact-page #page-container button.small-generic:hover {
   background-color: #e86158;
 }
 
+/* line 75, sass/components/_forms.scss */
+body.admin-mode input {
+  border: none;
+}
+/* line 79, sass/components/_forms.scss */
+body.admin-mode button.input-combo-button,
+body.admin-mode button.small-generic {
+  background-color: #00feff;
+  color: #050505;
+}
+/* line 85, sass/components/_forms.scss */
+body.admin-mode button:focus,
+body.admin-mode button.input-combo-button:hover,
+body.admin-mode button.small-generic:hover {
+  background-color: white;
+}
+
 /* line 1, sass/components/_buttons.scss */
 button {
   -webkit-transition: all 0.1s linear;
@@ -729,11 +749,11 @@ button {
   transition: all 0.1s linear;
   cursor: pointer;
   border: none;
+  margin: 0;
 }
 
-/* line 6, sass/components/_buttons.scss */
+/* line 7, sass/components/_buttons.scss */
 button.small-generic {
-  text-shadow: 0px 0px 2px #050505;
   color: white;
   padding: 0 10px 0 10px;
   height: 40px;
@@ -786,6 +806,39 @@ body.contact-page .dropdown-list li:hover, body.contact-page .dropdown-list li:f
   padding: 200px 0 200px 0;
   width: 100%;
   text-align: center;
+}
+
+/* line 1, sass/pages/admin/_edit-page.scss */
+#edit-page {
+  width: 40%;
+}
+/* line 3, sass/pages/admin/_edit-page.scss */
+#edit-page h2 {
+  margin-bottom: 20px;
+}
+/* line 6, sass/pages/admin/_edit-page.scss */
+#edit-page p {
+  height: 40px;
+  line-height: 44px;
+}
+/* line 10, sass/pages/admin/_edit-page.scss */
+#edit-page label {
+  margin-bottom: 8px;
+  display: block;
+}
+/* line 13, sass/pages/admin/_edit-page.scss */
+#edit-page label input {
+  float: right;
+}
+/* line 16, sass/pages/admin/_edit-page.scss */
+#edit-page label input:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 22, sass/pages/admin/_edit-page.scss */
+#edit-page button {
+  float: right;
 }
 
 /* line 3, sass/pages/theme/_home.scss */

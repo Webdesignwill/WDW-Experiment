@@ -11,8 +11,11 @@ function (Backbone, webdesignwill, content) {
 
   var PageModel = Backbone.Model.extend({
 
+    url : '/api/page/put/',
+
     initialize : function () {
       this.setNavSubText();
+      this.url += this.get('id');
     },
 
     parse : function (model, options) {

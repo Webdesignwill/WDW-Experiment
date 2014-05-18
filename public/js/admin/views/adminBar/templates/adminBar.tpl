@@ -6,8 +6,8 @@
         {{#if newPage.admin}}
           <a href="{{themePage.path}}">Return to {{themePage.name}} page</a>
         {{else}}
-          <a href="admin/">Manage site |</a>
-          <a href="admin/">Edit {{newPage.name}} page</a>
+          <a href="admin/">Admin |</a>
+          <a href="admin/edit/{{themePage.pageid}}">Edit {{newPage.name}} page</a>
         {{/if}}
       </p>
     </div>

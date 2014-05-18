@@ -49,7 +49,9 @@ require.config({
     SiteLoaderView                     : 'themes/views/siteLoader/SiteLoaderView',
 
     // Admin Pages
-    ManagePage                            : 'admin/pages/manage/ManagePage',
+    AdminHome                           : 'admin/pages/home/AdminHome',
+    EditPage                                  : 'admin/pages/edit/EditPage',
+    CreatePage                              : 'admin/pages/create/CreatePage',
 
     // Theme pages
     HomePage                             : 'themes/pages/home/HomePage',

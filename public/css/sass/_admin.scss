@@ -9,10 +9,12 @@
   @include opacity(0);
   z-index:$underTheHood;
   position: fixed;
-  top:0;
+  top:80px;
   right:0;
-  bottom:0;
   left:0;
+  h2, h3, h4, p {
+    color:$white;
+  }
 }
 
 body.admin-mode {
