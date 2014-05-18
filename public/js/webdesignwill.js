@@ -16,14 +16,14 @@ define('webdesignwill', [
       var self = this;
       this.sitemap.fetch({
         success : function (model, response, options) {
-          self.start();
+          self.start().router.initRouter();
         },
       });
     },
 
     start : function () {
-      this.router.initRouter();
       console.log('%c Webdesignwill has started ', 'background: #444f64; color: #FFFFFF');
+      return this;
     }
 
   });

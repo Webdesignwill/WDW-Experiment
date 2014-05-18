@@ -51,6 +51,10 @@ function (Backbone, webdesignwill, PageModel) {
       model.path += sitemap.name + '/';
       model.route += sitemap.name;
 
+      if(sitemap.order === 0) { // Is most likely homepage
+        model.root = true;
+      }
+
       if(sitemap.subpages) {
         model.route += '/';
         for(i = 0; i < sitemap.subpages.length; i++) {
@@ -75,7 +79,9 @@ function (Backbone, webdesignwill, PageModel) {
         model.route = sitemap.override.route;
         model.path = sitemap.override.path;
       }
-console.log(model);
+
+      console.log(model);
+
       return model;
 
     }

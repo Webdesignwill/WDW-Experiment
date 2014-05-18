@@ -11,6 +11,14 @@ function (Backbone, webdesignwill, PageManager) {
 
   var Router = Backbone.Router.extend({
 
+    routes : {
+      '' : 'root'
+    },
+
+    root : function () {
+      this.navigateTo(this.root);
+    },
+
     initRouter : function () {
       var sitemap = webdesignwill.sitemap.attributes;
       for(var key in sitemap){
@@ -34,11 +42,16 @@ function (Backbone, webdesignwill, PageManager) {
           webdesignwill.pageManager.goto(pageModel, Page, option, pageType);
         });
       });
+
+      if(pageModel.get('root')) {
+        this.root = pageModel.get('name');
+      }
+
     },
 
     navigateTo : function (pageName) {
       var affix = webdesignwill.sitemap.affix;
-      webdesignwill.router.navigate(webdesignwill.sitemap.get(pageName + affix).get('path'), {trigger: true});
+      this.navigate(webdesignwill.sitemap.get(pageName + affix).get('path'), {trigger: true});
     }
 
   });

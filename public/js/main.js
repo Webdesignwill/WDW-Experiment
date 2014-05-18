@@ -49,7 +49,7 @@ require.config({
     SiteLoaderView                     : 'themes/views/siteLoader/SiteLoaderView',
 
     // Admin Pages
-    AdminPage                            : 'admin/pages/admin/AdminPage',
+    ManagePage                            : 'admin/pages/manage/ManagePage',
 
     // Theme pages
     HomePage                             : 'themes/pages/home/HomePage',
