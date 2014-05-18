@@ -1,9 +1,18 @@
 
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+var mongoose = require('mongoose'),
+      Schema = mongoose.Schema;
+
+function toLower (str) {
+  return str.toLowerCase();
+}
+
+function doSomething (str) {
+  return str;
+}
 
 var page = new Schema({
-  name : String,
+  name : {type: String, set : toLower, get : doSomething},
+  order : Number,
   page : String,
   nav : Boolean,
   color : String,
@@ -13,6 +22,6 @@ var page = new Schema({
     route : String,
     path : String
   }
-});
+}, {strict : 'throw'});
 
-mongoose.model('pages', page);
+module.exports = mongoose.model('pages', page);

@@ -17,7 +17,7 @@ define('webdesignwill', [
       this.sitemap.fetch({
         success : function (model, response, options) {
           self.start();
-        }, reset : true
+        },
       });
     },
 

@@ -5,56 +5,56 @@ require.config({
 
   packages: [{
     name : 'github',
-    location : 'packages/github'
+    location : 'themes/packages/github'
   }],
 
   paths : {
 
-    jquery                                  : 'libs/jquery/jquery-min',
-    Backbone                             : 'libs/backbone/backbone-min',
-    underscore                           : 'libs/underscore/underscore-min',
-    handlebars                           : 'libs/handlebars/handlebars',
-    text                                      : 'libs/require/text-min',
-    domReady                            : 'libs/require/domReady',
+    jquery                                  : 'core/libs/jquery/jquery-min',
+    Backbone                             : 'core/libs/backbone/backbone-min',
+    underscore                           : 'core/libs/underscore/underscore-min',
+    handlebars                           : 'core/libs/handlebars/handlebars',
+    text                                      : 'core/libs/require/text-min',
+    domReady                            : 'core/libs/require/domReady',
 
     // Extensions
-    page                                      : 'extensions/page',
-    package                                 : 'extensions/package',
+    page                                      : 'core/extensions/page',
+    package                                 : 'core/extensions/package',
 
     // Managers
-    PackageManager                    : 'packages/PackageManager',
-    PageManager                          : 'pages/PageManager',
+    PackageManager                    : 'core/managers/PackageManager',
+    PageManager                          : 'core/managers/PageManager',
 
     // Application Models
     webdesignwill                       : 'webdesignwill',
-    Sitemap                                 : 'models/app/Sitemap',
-    PageModel                            : 'models/page/PageModel',
-    UserModel                            : 'models/user/UserModel',
+    Sitemap                                 : 'core/models/app/Sitemap',
+    PageModel                            : 'core/models/page/PageModel',
+    UserModel                            : 'core/models/user/UserModel',
 
     // Admin Views
-    AdminBarView                       : 'views/admin/adminBar/AdminBarView',
+    AdminBarView                       : 'admin/views/adminBar/AdminBarView',
 
     // Theme Views
-    FooterView                            : 'views/theme/footer/FooterView',
-    FooterSocialView                   : 'views/theme/footer/FooterSocialView',
-    FooterNewsView                    : 'views/theme/footer/FooterNewsView',
-    FooterNewsItemView             : 'views/theme/footer/FooterNewsItemView',
-    FooterContactView                : 'views/theme/footer/FooterContactView',
-    HeaderView                           : 'views/theme/header/HeaderView',
-    SiteContentHeaderView         : 'views/theme/siteContentHeader/SiteContentHeaderView',
-    NavView                                : 'views/theme/nav/NavView',
-    NavUserView                         : 'views/theme/nav/NavUserView',
-    NavSubView                          : 'views/theme/nav/NavSubView',
-    PageControlsView                 : 'views/theme/pageControls/PageControlsView',
-    SiteLoaderView                     : 'views/theme/siteLoader/SiteLoaderView',
+    FooterView                            : 'themes/views/footer/FooterView',
+    FooterSocialView                   : 'themes/views/footer/FooterSocialView',
+    FooterNewsView                    : 'themes/views/footer/FooterNewsView',
+    FooterNewsItemView             : 'themes/views/footer/FooterNewsItemView',
+    FooterContactView                : 'themes/views/footer/FooterContactView',
+    HeaderView                           : 'themes/views/header/HeaderView',
+    SiteContentHeaderView         : 'themes/views/siteContentHeader/SiteContentHeaderView',
+    NavView                                : 'themes/views/nav/NavView',
+    NavUserView                         : 'themes/views/nav/NavUserView',
+    NavSubView                          : 'themes/views/nav/NavSubView',
+    PageControlsView                 : 'themes/views/pageControls/PageControlsView',
+    SiteLoaderView                     : 'themes/views/siteLoader/SiteLoaderView',
 
     // Admin Pages
-    AdminPage                            : 'pages/admin/admin/AdminPage',
+    AdminPage                            : 'admin/pages/admin/AdminPage',
 
     // Theme pages
-    HomePage                             : 'pages/theme/home/HomePage',
-    ContactPage                          : 'pages/theme/contact/ContactPage',
-    PacksPage                              : 'pages/theme/packs/PacksPage'
+    HomePage                             : 'themes/pages/home/HomePage',
+    ContactPage                          : 'themes/pages/contact/ContactPage',
+    PacksPage                              : 'themes/pages/packs/PacksPage'
 
   },
   shim : {
