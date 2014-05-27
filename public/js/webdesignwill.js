@@ -12,12 +12,18 @@ define('webdesignwill', [
     $broker : _.clone(Backbone.Events),
     user : new UserModel(),
 
+    initialize : function () {
+      this.$broker.on('error', function (error) {
+        this.handleError(error);
+      }, this);
+    },
+
     initWebdesignwill : function () {
       var self = this;
       this.sitemap.fetch({
         success : function (model, response, options) {
           self.start().router.initRouter();
-        },
+        }
       });
     },
 

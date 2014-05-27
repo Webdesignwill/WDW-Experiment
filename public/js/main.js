@@ -52,6 +52,9 @@ require.config({
     AdminHome                           : 'admin/pages/home/AdminHome',
     EditPage                                  : 'admin/pages/edit/EditPage',
     CreatePage                              : 'admin/pages/create/CreatePage',
+    UserPage                                : 'admin/pages/user/UserPage',
+    LoginPage                              : 'admin/pages/user/LoginPage',
+    RegisterPage                           : 'admin/pages/user/RegisterPage',
 
     // Theme pages
     HomePage                             : 'themes/pages/home/HomePage',

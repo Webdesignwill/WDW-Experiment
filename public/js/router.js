@@ -11,12 +11,14 @@ function (Backbone, webdesignwill, PageManager) {
 
   var Router = Backbone.Router.extend({
 
-    routes : {
-      '' : 'root'
-    },
+    // routes : {
+    //   '' : 'gotoHome',
+    //   'admin/*path' : 'admin',
+    //   'user/*path' : 'user'
+    // },
 
-    root : function () {
-      this.navigateTo(this.root);
+    gotoHome : function () {
+      this.navigateTo(this.homePage);
     },
 
     initRouter : function () {
@@ -43,15 +45,25 @@ function (Backbone, webdesignwill, PageManager) {
         });
       });
 
-      if(pageModel.get('root')) {
-        this.root = pageModel.get('name');
+      if(pageModel.get('homePage')) {
+        this.homePage = pageModel.get('name');
       }
 
     },
 
     navigateTo : function (pageName) {
-      var affix = webdesignwill.sitemap.affix;
-      this.navigate(webdesignwill.sitemap.get(pageName + affix).get('path'), {trigger: true});
+      var affix = webdesignwill.sitemap.affix,
+            path = !pageName ? webdesignwill.sitemap.get('login' + affix).get('path') : webdesignwill.sitemap.get(pageName + affix).get('path');
+
+      this.navigate(path, {trigger: true});
+    },
+
+    admin : function (path) {
+      console.log('ADMIN PAGE : ', path);
+    },
+
+    user : function (path) {
+      console.log('USER PAGE : ', path);
     }
 
   });

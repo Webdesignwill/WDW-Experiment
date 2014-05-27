@@ -1,3 +1,24 @@
+/*
+
+  Need a different way to load pages to admin pages. How about in the route, you might have the page type like :
+
+  * AUTHENTICATED
+  /admin/page/create
+  /admin/page/edit
+
+  * BRIDGE TO AUTHENTICATE
+  /user/login
+  /user/create
+  /user/register
+
+  * THEME
+  /theme/page/home    the page type page?!
+  /theme/blog/     the page type blog
+
+  * STATICS perhaps?
+  /statics/picture.png
+
+*/
 
 define('Sitemap', [
   'Backbone',
@@ -15,27 +36,9 @@ function (Backbone, webdesignwill, PageModel) {
     affix : '-page',
     sitemap : {},
 
-    admin : {
-      name : 'admin',
-      admin : true,
-      page : 'AdminHome',
-      subpages : [{
-        name : 'create',
-        admin : true,
-        page : 'CreatePage'
-      },{
-        name : 'edit',
-        option : true,
-        admin : true,
-        page : 'EditPage'
-      }]
-    },
-
     initialize : function () {},
 
     parse : function (response, options) {
-
-      response.push(this.admin); // Add admin pages
 
        for(var i = 0; i < response.length; i++) {
         var nextPage = response[i+1], prevPage = response[i-1];
@@ -46,7 +49,7 @@ function (Backbone, webdesignwill, PageModel) {
     },
 
     setPropertyName : function (pageObject) {
-      return pageObject.admin === true ? pageObject.name + '-page' : pageObject._id;
+      return pageObject._id;
     },
 
     createModel : function (sitemap, level, route, path, np, pp) {
@@ -76,7 +79,7 @@ function (Backbone, webdesignwill, PageModel) {
       model.route += sitemap.name;
 
       if(sitemap.order === 0) { // Is most likely homepage
-        model.root = true;
+        model.homePage = true;
       }
 
       if(sitemap.subpages) {
@@ -99,11 +102,6 @@ function (Backbone, webdesignwill, PageModel) {
         }
       }
 
-      if(sitemap.override) {
-        model.route = sitemap.override.route;
-        model.path = sitemap.override.path;
-      }
-
       console.log(model);
 
       return model;
@@ -115,3 +113,35 @@ function (Backbone, webdesignwill, PageModel) {
   webdesignwill.sitemap = new Sitemap();
 
 });
+
+/*
+  defaultPages : [{
+    name : 'admin',
+    page : 'AdminHome',
+    admin : true,
+    subpages : [{
+      name : 'pages',
+      page : 'PagesPage'
+      subpages : [{
+        name : 'create',
+        page : 'CreatePage',
+        admin : true
+      },{
+        name : 'edit',
+        option : true,
+        page : 'EditPage',
+        admin : true
+      }]
+    }]
+  },{
+    name : 'user',
+    page : 'UserPage',
+    subpages : [{
+      name : 'login',
+      page : 'LoginPage'
+    },{
+      name : 'register',
+      page : 'RegisterPage'
+    }]
+  }],
+*/

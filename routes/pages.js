@@ -29,11 +29,6 @@ router.get('/api/page/list', function (req, res) {
   // TODO better do this on save as this makes request time longer for larger documents
   Pages.find(null, null, {sort : {'order' : 1}}, function(err, pages) {
     if (err) res.send(err);
-    if(pages.length < 1) {
-      res.json({error : {
-        message : 'There are no pages'
-      }});
-    }
     res.json(pages);
   });
 });
