@@ -3,11 +3,6 @@ var Pages = require('../app/models/page');
 
 module.exports = function (app, passport) {
 
-  app.all('*', function (req, res, err) {
-    res.writeHead(200, { "Content-Type": "text/plain" });
-    next(); // Defer to the next middleware
-  });
-
   app.post('/api/page/create', function (req, res) {
     var page = new Pages();
 

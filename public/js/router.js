@@ -11,11 +11,10 @@ function (Backbone, webdesignwill, PageManager) {
 
   var Router = Backbone.Router.extend({
 
-    // routes : {
-    //   '' : 'gotoHome',
-    //   'admin/*path' : 'admin',
-    //   'user/*path' : 'user'
-    // },
+    routes : {
+      '' : 'gotoHome',
+      'admin/(*path)' : 'admin'
+    },
 
     gotoHome : function () {
       this.navigateTo(this.homePage);
@@ -59,7 +58,9 @@ function (Backbone, webdesignwill, PageManager) {
     },
 
     admin : function (path) {
-      console.log('ADMIN PAGE : ', path);
+      require('AdminPage', function (Page) {
+        webdesignwill.pageManager.goto(Page);
+      });
     },
 
     user : function (path) {
