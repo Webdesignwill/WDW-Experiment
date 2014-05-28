@@ -71,18 +71,3 @@ body.contact-page {
     }
   }
 }
-body.admin-mode {
-  input {
-    border: none;
-  }
-  button.input-combo-button,
-  button.small-generic {
-    background-color:$wireFrameBlue;
-    color:$black;
-  }
-  button:focus,
-  button.input-combo-button:hover,
-  button.small-generic:hover {
-    background-color:$white;
-  }
-}

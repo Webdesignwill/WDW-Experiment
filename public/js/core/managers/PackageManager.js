@@ -23,8 +23,8 @@ define('PackageManager', [
       stopped : function (data) {}
     };
 
-    webdesignwill.page.on('change:theme', function (model) {
-      var pageModel = model.get('theme').model,
+    webdesignwill.page.on('change:page', function (model) {
+      var pageModel = model.get('page').model,
             pgs = pageModel.get('packages');
 
       if(pgs) {
@@ -75,7 +75,7 @@ define('PackageManager', [
           });
           break;
         case 'started' :
-          this.packages[pack].$el = webdesignwill.page.get('theme').$el.find("[data-package='" + pack + "']");
+          this.packages[pack].$el = webdesignwill.page.get('page').$el.find("[data-package='" + pack + "']");
         break;
       }
       this.packages[pack].set({

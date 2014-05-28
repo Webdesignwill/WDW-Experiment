@@ -2,13 +2,12 @@
 define('PageManager', [
     'Backbone',
     'webdesignwill',
-    'AdminBarView',
     'HeaderView',
     'PageControlsView',
     'FooterView',
     'SiteContentHeaderView',
     'SiteLoaderView'
-  ], function (Backbone, webdesignwill, AdminBarView, HeaderView, PageControlsView, FooterView, SiteContentHeaderView, SiteLoaderView) {
+  ], function (Backbone, webdesignwill, HeaderView, PageControlsView, FooterView, SiteContentHeaderView, SiteLoaderView) {
 
     "use strict";
 
@@ -16,32 +15,12 @@ define('PageManager', [
 
       initialize : function () {
         this.setElements();
-        this.setEvents();
         this.renderPageComponents();
-      },
-
-      setEvents : function () {
-        this.listenTo(webdesignwill.page, 'change:pageType', function (model, pageType) {
-          this.setPageTypeProperties(pageType);
-        });
-      },
-
-      setPageTypeProperties : function (pageType) {
-        switch (pageType) {
-          case 'admin' :
-            this.$el.addClass('admin-mode');
-          break;
-          case 'theme' :
-            this.$el.removeClass('admin-mode');
-          break;
-        }
       },
 
       setElements : function () {
         this.$siteContentBody = this.$el.find('#site-content-body');
-        this.$adminContentBody = this.$el.find('#admin-content-body');
         this.$siteHeader = this.$el.find('#site-header');
-        this.$adminBar = this.$el.find('#admin-bar');
         this.$siteFooter = this.$el.find('#site-footer-inner');
         this.$pageControls = this.$el.find('#page-controls');
         this.$siteContentHeader = this.$el.find('#site-content-header');
@@ -49,10 +28,6 @@ define('PageManager', [
       },
 
       renderPageComponents : function () {
-
-        new AdminBarView({
-          el : this.$adminBar
-        });
 
         new SiteLoaderView({
           el : this.$siteLoader
@@ -78,20 +53,15 @@ define('PageManager', [
 
       goto : function (pageModel, Page, identifier, pageType) {
 
-        this.tearDown(pageType);
+        this.tearDown();
 
         var newPage = new Page({
-          pageType : pageType,
           model : pageModel,
           identifier : identifier || null
         });
 
-        var $el = pageType === 'admin' ? this.$adminContentBody : this.$siteContentBody;
-        $el.html(newPage.render().el);
-
-        var props = {}; props.pageType = pageType; props[pageType] = newPage;
-
-        webdesignwill.page.set(props);
+        this.$siteContentBody.html(newPage.render().el);
+        webdesignwill.page.set({page : newPage});
         this.toggleClasses(pageModel);
       },
 
@@ -108,8 +78,8 @@ define('PageManager', [
         this.$el.addClass(pageModel.get('map'));
       },
 
-      tearDown : function (pageType) {
-        var trash = webdesignwill.page.get(pageType),
+      tearDown : function (pageModel) {
+        var trash = webdesignwill.get('page'),
               packages = webdesignwill.packageManager.packages;
 
         if(trash) {

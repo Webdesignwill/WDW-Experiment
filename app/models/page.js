@@ -1,6 +1,5 @@
 
-var mongoose = require('mongoose'),
-      bcrypt = require('bcrypt-nodejs');
+var mongoose = require('mongoose');
 
 function toLower (str) {
   return str.toLowerCase();
@@ -16,7 +15,6 @@ var page = new mongoose.Schema({
   nav : Boolean,
   color : String,
   packages : Array,
-  admin : Boolean,
   override : {
     route : String,
     path : String

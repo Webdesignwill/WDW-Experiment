@@ -18,8 +18,4 @@
   "page" : "ContactPage",
   "nav" : true,
   "color" : "#376018"
-},{
-  "name" : "admin",
-  "page" : "AdminPage",
-  "admin" : true
 }]

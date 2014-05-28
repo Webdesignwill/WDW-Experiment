@@ -12,8 +12,7 @@ function (Backbone, webdesignwill, PageManager) {
   var Router = Backbone.Router.extend({
 
     routes : {
-      '' : 'gotoHome',
-      'admin/(*path)' : 'admin'
+      '' : 'gotoHome'
     },
 
     gotoHome : function () {
@@ -38,9 +37,8 @@ function (Backbone, webdesignwill, PageManager) {
       var self = this;
 
       this.route(pageModel.get('route'), pageModel.get('name'), function (option) {
-        var pageType = pageModel.get('admin') ? 'admin' : 'theme';
         require([pageModel.get('page')], function (Page) {
-          webdesignwill.pageManager.goto(pageModel, Page, option, pageType);
+          webdesignwill.pageManager.goto(pageModel, Page, option);
         });
       });
 
@@ -55,16 +53,6 @@ function (Backbone, webdesignwill, PageManager) {
             path = !pageName ? webdesignwill.sitemap.get('login' + affix).get('path') : webdesignwill.sitemap.get(pageName + affix).get('path');
 
       this.navigate(path, {trigger: true});
-    },
-
-    admin : function (path) {
-      require('AdminPage', function (Page) {
-        webdesignwill.pageManager.goto(Page);
-      });
-    },
-
-    user : function (path) {
-      console.log('USER PAGE : ', path);
     }
 
   });

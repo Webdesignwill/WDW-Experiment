@@ -10,9 +10,7 @@
 
 @import "globals";
 @import "typography";
-@import "admin";
 
-@import "components/admin-bar";
 @import "components/logos";
 @import "components/icons";
 @import "components/site-loader";
@@ -20,9 +18,6 @@
 @import "components/forms";
 @import "components/buttons";
 @import "components/lists";
-
-@import "pages/admin/admin";
-@import "pages/admin/edit-page";
 
 @import "pages/theme/home";
 @import "pages/theme/contact";

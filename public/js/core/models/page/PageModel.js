@@ -15,7 +15,7 @@ function (Backbone, webdesignwill, content) {
 
     initialize : function () {
       this.setNavSubText();
-      this.url += this.get('id');
+      this.url += this.get('_id');
     },
 
     parse : function (model, options) {

@@ -14,7 +14,7 @@ var express = require('express'),
       morgan = require('morgan'),
       fs = require('fs');
 
-// App config ==================================================================
+// App config
 app.use(morgan('dev'))
       .use(bodyParser())
       .use(express.static(__dirname + '/public'))
@@ -29,14 +29,14 @@ app.use(expressSession({ secret: 'siteifyioisthebestcmseverintheworldyeah' }))
       .use(passport.session())
       .use(flash());
 
-// Database ==================================================================
+// Database
 var confDatabase = require('./config/database');
 mongoose.connect(confDatabase.local.url);
 
-// Routes ======================================================================
+// Routes
 require('./app/routes.js')(app, passport);
 
-// Start ========================================================================
+// Start
 var server = app.listen(app.get('port'), function() {
   debug('Express server listening on port ' + server.address().port);
 });

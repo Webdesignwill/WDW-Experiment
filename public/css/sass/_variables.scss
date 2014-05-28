@@ -3,9 +3,6 @@ $Oswald : "Oswald", sans-serif;
 $ClickerScript : "Clicker Script", cursive;
 $Myriad : "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
-/* transition speed from admin to theme pages */
-$siteTransitionSpeed  : 0.2s;
-
 /* Dimensions */
 
 $desktop : 1024px;
@@ -45,9 +42,6 @@ $aboveTheHood : 2;
 
 $siteContentHeaderZindex : 10;
 $pageControlsZindex : 20;
-
-// Admin bar
-$adminBarZindex : 1000;
 
 // Always on top
 $loaderZindex : 1500;

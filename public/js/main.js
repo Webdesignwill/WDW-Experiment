@@ -5,7 +5,7 @@ require.config({
 
   packages: [{
     name : 'github',
-    location : 'themes/packages/github'
+    location : 'packages/github'
   }],
 
   paths : {
@@ -35,18 +35,18 @@ require.config({
     AdminBarView                       : 'admin/views/adminBar/AdminBarView',
 
     // Theme Views
-    FooterView                            : 'themes/views/footer/FooterView',
-    FooterSocialView                   : 'themes/views/footer/FooterSocialView',
-    FooterNewsView                    : 'themes/views/footer/FooterNewsView',
-    FooterNewsItemView             : 'themes/views/footer/FooterNewsItemView',
-    FooterContactView                : 'themes/views/footer/FooterContactView',
-    HeaderView                           : 'themes/views/header/HeaderView',
-    SiteContentHeaderView         : 'themes/views/siteContentHeader/SiteContentHeaderView',
-    NavView                                : 'themes/views/nav/NavView',
-    NavUserView                         : 'themes/views/nav/NavUserView',
-    NavSubView                          : 'themes/views/nav/NavSubView',
-    PageControlsView                 : 'themes/views/pageControls/PageControlsView',
-    SiteLoaderView                     : 'themes/views/siteLoader/SiteLoaderView',
+    FooterView                            : 'views/footer/FooterView',
+    FooterSocialView                   : 'views/footer/FooterSocialView',
+    FooterNewsView                    : 'views/footer/FooterNewsView',
+    FooterNewsItemView             : 'views/footer/FooterNewsItemView',
+    FooterContactView                : 'views/footer/FooterContactView',
+    HeaderView                           : 'views/header/HeaderView',
+    SiteContentHeaderView         : 'views/siteContentHeader/SiteContentHeaderView',
+    NavView                                : 'views/nav/NavView',
+    NavUserView                         : 'views/nav/NavUserView',
+    NavSubView                          : 'views/nav/NavSubView',
+    PageControlsView                 : 'views/pageControls/PageControlsView',
+    SiteLoaderView                     : 'views/siteLoader/SiteLoaderView',
 
     // Admin Pages
     AdminHome                           : 'admin/pages/home/AdminHome',
@@ -57,9 +57,9 @@ require.config({
     RegisterPage                           : 'admin/pages/user/RegisterPage',
 
     // Theme pages
-    HomePage                             : 'themes/pages/home/HomePage',
-    ContactPage                          : 'themes/pages/contact/ContactPage',
-    PacksPage                              : 'themes/pages/packs/PacksPage'
+    HomePage                             : 'pages/home/HomePage',
+    ContactPage                          : 'pages/contact/ContactPage',
+    PacksPage                              : 'pages/packs/PacksPage'
 
   },
   shim : {

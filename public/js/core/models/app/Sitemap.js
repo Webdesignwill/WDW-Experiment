@@ -1,24 +1,3 @@
-/*
-
-  Need a different way to load pages to admin pages. How about in the route, you might have the page type like :
-
-  * AUTHENTICATED
-  /admin/page/create
-  /admin/page/edit
-
-  * BRIDGE TO AUTHENTICATE
-  /user/login
-  /user/create
-  /user/register
-
-  * THEME
-  /theme/page/home    the page type page?!
-  /theme/blog/     the page type blog
-
-  * STATICS perhaps?
-  /statics/picture.png
-
-*/
 
 define('Sitemap', [
   'Backbone',
@@ -55,7 +34,7 @@ function (Backbone, webdesignwill, PageModel) {
     createModel : function (sitemap, level, route, path, np, pp) {
 
       function pageRelation (pr) {
-        return pr && !pr.admin ? pr.name : null;
+        return pr ? pr.name : null;
       }
 
       var i, model = {
@@ -70,7 +49,6 @@ function (Backbone, webdesignwill, PageModel) {
         path : path,
         nextPage : pageRelation(np),
         prevPage : pageRelation(pp),
-        admin : sitemap.admin || false,
         nav : sitemap.nav || null,
         packages : sitemap.packages || null
       };
@@ -102,8 +80,6 @@ function (Backbone, webdesignwill, PageModel) {
         }
       }
 
-      console.log(model);
-
       return model;
 
     }
@@ -113,35 +89,3 @@ function (Backbone, webdesignwill, PageModel) {
   webdesignwill.sitemap = new Sitemap();
 
 });
-
-/*
-  defaultPages : [{
-    name : 'admin',
-    page : 'AdminHome',
-    admin : true,
-    subpages : [{
-      name : 'pages',
-      page : 'PagesPage'
-      subpages : [{
-        name : 'create',
-        page : 'CreatePage',
-        admin : true
-      },{
-        name : 'edit',
-        option : true,
-        page : 'EditPage',
-        admin : true
-      }]
-    }]
-  },{
-    name : 'user',
-    page : 'UserPage',
-    subpages : [{
-      name : 'login',
-      page : 'LoginPage'
-    },{
-      name : 'register',
-      page : 'RegisterPage'
-    }]
-  }],
-*/
