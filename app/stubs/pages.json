@@ -2,7 +2,6 @@
   "name" : "home",
   "page" : "HomePage",
   "nav" : true,
-  "color" : "#444F64",
   "override" : {
     "route" : "(/)",
     "path" : "/"
@@ -11,11 +10,9 @@
   "name" : "packs",
   "page" : "PacksPage",
   "nav" : true,
-  "packages" : ["github"],
-  "color" : "#76312D"
+  "packages" : ["github"]
 },{
   "name" : "contact",
   "page" : "ContactPage",
-  "nav" : true,
-  "color" : "#376018"
+  "nav" : true
 }]

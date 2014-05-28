@@ -33,10 +33,6 @@ function (Backbone, webdesignwill, PageModel) {
 
     createModel : function (sitemap, level, route, path, np, pp) {
 
-      function pageRelation (pr) {
-        return pr ? pr.name : null;
-      }
-
       var i, model = {
         id : sitemap._id,
         pageid : sitemap._id,
@@ -47,8 +43,8 @@ function (Backbone, webdesignwill, PageModel) {
         page : sitemap.page,
         route : route,
         path : path,
-        nextPage : pageRelation(np),
-        prevPage : pageRelation(pp),
+        nextPage : (np && np.name) || null,
+        prevPage : (pp && pp.name) || null,
         nav : sitemap.nav || null,
         packages : sitemap.packages || null
       };
@@ -79,6 +75,13 @@ function (Backbone, webdesignwill, PageModel) {
           model.route += '(:option)';
         }
       }
+
+      if(sitemap.override) {
+        model.route = sitemap.override.route;
+        model.path = sitemap.override.path;
+      }
+
+      console.log(sitemap);
 
       return model;
 

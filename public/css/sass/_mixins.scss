@@ -1,0 +1,7 @@
+@mixin transition ($prop, $speed) {
+   -webkit-transition: $prop $speed linear;
+   -moz-transition: $prop $speed linear;
+   -o-transition: $prop $speed linear;
+   -ms-transition: $prop $speed linear;
+   transition: $prop $speed linear;
+}

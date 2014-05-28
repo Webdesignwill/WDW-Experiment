@@ -13,7 +13,6 @@ var page = new mongoose.Schema({
   order : Number,
   page : String,
   nav : Boolean,
-  color : String,
   packages : Array,
   override : {
     route : String,

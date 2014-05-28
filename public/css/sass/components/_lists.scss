@@ -1,0 +1,38 @@
+.dropdown-list {
+  li {
+    background: #FFF;
+    padding: 10px 0;
+    text-indent: 10px;
+    cursor:pointer;
+  }
+}
+body.home-page {
+  .dropdown-list {
+    li {
+      border-left:3px solid $veryLightBlue;
+    }
+    li:hover, li:focus {
+      border-left: 3px solid $lightBlue;
+    }
+  }
+}
+body.packs-page {
+  .dropdown-list {
+    li {
+      border-left:3px solid $racingGreen;
+    }
+    li:hover, li:focus {
+      border-left: 3px solid $vomit;
+    }
+  }
+}
+body.contact-page {
+  .dropdown-list {
+    li {
+      border-left:3px solid $blood;
+    }
+    li:hover, li:focus {
+      border-left: 3px solid $lightBlood;
+    }
+  }
+}

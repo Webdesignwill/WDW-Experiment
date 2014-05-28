@@ -30,12 +30,13 @@ define('PageControlsView', [
 
     setEvents : function () {
       var self = this;
-      webdesignwill.page.on('change:theme', this.toggleControls, this);
+      webdesignwill.page.on('change:page', this.toggleControls, this);
     },
 
     next : function (e) {
       e.stopPropagation();
       e.preventDefault();
+      debugger;
       var path = webdesignwill.page.get('theme').model.getNextPage('path');
       webdesignwill.router.navigate(path, {trigger:true});
     },
@@ -48,9 +49,9 @@ define('PageControlsView', [
     },
 
     toggleControls : function (model) {
-
-      var getNextPage = model.get('theme').model.getNextPage(),
-            getPrevPage = model.get('theme').model.getPrevPage();
+debugger;
+      var getNextPage = model.get('page').model.getNextPage(),
+            getPrevPage = model.get('page').model.getPrevPage();
 
       if(!getNextPage) {
         this.$nextPage.addClass('hide');
