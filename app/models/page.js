@@ -1,17 +1,16 @@
 
 var mongoose = require('mongoose'),
-      Schema = mongoose.Schema;
+      bcrypt = require('bcrypt-nodejs');
 
 function toLower (str) {
   return str.toLowerCase();
 }
 
-function doSomething (str) {
-  return str;
-}
-
-var page = new Schema({
-  name : {type: String, set : toLower, get : doSomething},
+var page = new mongoose.Schema({
+  name : {
+    type: String,
+    set : toLower
+  },
   order : Number,
   page : String,
   nav : Boolean,
@@ -24,4 +23,4 @@ var page = new Schema({
   }
 }, {strict : 'throw'});
 
-module.exports = mongoose.model('pages', page);
+module.exports = mongoose.model('Page', page);
