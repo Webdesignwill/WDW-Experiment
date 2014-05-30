@@ -16,7 +16,7 @@ function (Backbone, webdesignwill, PageManager) {
     },
 
     gotoHome : function () {
-      this.navigateTo(this.homePage);
+      this.navigateTo('home');
     },
 
     initRouter : function () {
@@ -42,15 +42,12 @@ function (Backbone, webdesignwill, PageManager) {
         });
       });
 
-      if(pageModel.get('homePage')) {
-        this.homePage = pageModel.get('name');
-      }
-
     },
 
     navigateTo : function (pageName) {
+
       var affix = webdesignwill.sitemap.affix,
-            path = !pageName ? webdesignwill.sitemap.get('login' + affix).get('path') : webdesignwill.sitemap.get(pageName + affix).get('path');
+            path = !pageName ? webdesignwill.sitemap.get('home' + affix).get('path') : webdesignwill.sitemap.get(pageName + affix).get('path');
 
       this.navigate(path, {trigger: true});
     }

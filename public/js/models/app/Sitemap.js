@@ -11,7 +11,7 @@ function (Backbone, webdesignwill, PageModel) {
 
   var Sitemap = Backbone.Model.extend({
 
-    url : '/api/page/list',
+    url : '/js/sitemap.json',
     affix : '-page',
     sitemap : {},
 
@@ -28,7 +28,7 @@ function (Backbone, webdesignwill, PageModel) {
     },
 
     setPropertyName : function (pageObject) {
-      return pageObject._id;
+      return pageObject.name;
     },
 
     createModel : function (sitemap, level, route, path, np, pp) {
@@ -37,7 +37,6 @@ function (Backbone, webdesignwill, PageModel) {
         id : sitemap._id,
         pageid : sitemap._id,
         level : level + 1,
-        order : sitemap.order,
         name : sitemap.name,
         map : sitemap.name + this.affix,
         page : sitemap.page,
@@ -51,10 +50,6 @@ function (Backbone, webdesignwill, PageModel) {
 
       model.path += sitemap.name + '/';
       model.route += sitemap.name;
-
-      if(sitemap.order === 0) { // Is most likely homepage
-        model.homePage = true;
-      }
 
       if(sitemap.subpages) {
         model.route += '/';
@@ -80,8 +75,6 @@ function (Backbone, webdesignwill, PageModel) {
         model.route = sitemap.override.route;
         model.path = sitemap.override.path;
       }
-
-      console.log(sitemap);
 
       return model;
 

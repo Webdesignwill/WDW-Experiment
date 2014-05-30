@@ -10,26 +10,26 @@ require.config({
 
   paths : {
 
-    jquery                                  : 'core/libs/jquery/jquery-min',
-    Backbone                             : 'core/libs/backbone/backbone-min',
-    underscore                           : 'core/libs/underscore/underscore-min',
-    handlebars                           : 'core/libs/handlebars/handlebars',
-    text                                      : 'core/libs/require/text-min',
-    domReady                            : 'core/libs/require/domReady',
+    jquery                                  : 'libs/jquery/jquery-min',
+    Backbone                             : 'libs/backbone/backbone-min',
+    underscore                           : 'libs/underscore/underscore-min',
+    handlebars                           : 'libs/handlebars/handlebars',
+    text                                      : 'libs/require/text-min',
+    domReady                            : 'libs/require/domReady',
 
     // Extensions
-    page                                      : 'core/extensions/page',
-    package                                 : 'core/extensions/package',
+    page                                      : 'extensions/page',
+    package                                 : 'extensions/package',
 
     // Managers
-    PackageManager                    : 'core/managers/PackageManager',
-    PageManager                          : 'core/managers/PageManager',
+    PackageManager                    : 'packages/PackageManager',
+    PageManager                          : 'pages/PageManager',
 
     // Application Models
     webdesignwill                       : 'webdesignwill',
-    Sitemap                                 : 'core/models/app/Sitemap',
-    PageModel                            : 'core/models/page/PageModel',
-    UserModel                            : 'core/models/user/UserModel',
+    Sitemap                                 : 'models/app/Sitemap',
+    PageModel                            : 'models/page/PageModel',
+    UserModel                            : 'models/user/UserModel',
 
     // Admin Views
     AdminBarView                       : 'admin/views/adminBar/AdminBarView',
@@ -48,15 +48,7 @@ require.config({
     PageControlsView                 : 'views/pageControls/PageControlsView',
     SiteLoaderView                     : 'views/siteLoader/SiteLoaderView',
 
-    // Admin Pages
-    AdminHome                           : 'admin/pages/home/AdminHome',
-    EditPage                                  : 'admin/pages/edit/EditPage',
-    CreatePage                              : 'admin/pages/create/CreatePage',
-    UserPage                                : 'admin/pages/user/UserPage',
-    LoginPage                              : 'admin/pages/user/LoginPage',
-    RegisterPage                           : 'admin/pages/user/RegisterPage',
-
-    // Theme pages
+    // Pages
     HomePage                             : 'pages/home/HomePage',
     ContactPage                          : 'pages/contact/ContactPage',
     PacksPage                              : 'pages/packs/PacksPage'

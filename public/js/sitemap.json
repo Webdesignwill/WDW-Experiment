@@ -1,0 +1,18 @@
+[{
+  "name" : "home",
+  "page" : "HomePage",
+  "nav" : true,
+  "override" : {
+    "route" : "(/)",
+    "path" : "/"
+  }
+},{
+  "name" : "packs",
+  "page" : "PacksPage",
+  "nav" : true,
+  "packages" : ["github"]
+},{
+  "name" : "contact",
+  "page" : "ContactPage",
+  "nav" : true
+}]
