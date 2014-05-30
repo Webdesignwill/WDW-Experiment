@@ -36,20 +36,19 @@ define('PageControlsView', [
     next : function (e) {
       e.stopPropagation();
       e.preventDefault();
-      debugger;
-      var path = webdesignwill.page.get('theme').model.getNextPage('path');
+      var path = webdesignwill.page.get('page').model.getNextPage('path');
       webdesignwill.router.navigate(path, {trigger:true});
     },
 
     prev : function (e) {
       e.stopPropagation();
       e.preventDefault();
-      var path = webdesignwill.page.get('theme').model.getPrevPage('path');
+      var path = webdesignwill.page.get('page').model.getPrevPage('path');
       webdesignwill.router.navigate(path, {trigger:true});
     },
 
     toggleControls : function (model) {
-debugger;
+
       var getNextPage = model.get('page').model.getNextPage(),
             getPrevPage = model.get('page').model.getPrevPage();
 

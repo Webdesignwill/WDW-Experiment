@@ -28,7 +28,7 @@ function (Backbone, webdesignwill, PageModel) {
     },
 
     setPropertyName : function (pageObject) {
-      return pageObject.name;
+      return pageObject.name + '-page';
     },
 
     createModel : function (sitemap, level, route, path, np, pp) {
