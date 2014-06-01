@@ -57,4 +57,7 @@
   .prev-page:hover {
     left:0;
   }
+  .next-page.hide, .prev-page.hide {
+    display:none;
+  }
 }

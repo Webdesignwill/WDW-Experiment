@@ -7,8 +7,12 @@
     "path" : "/"
   }
 },{
-  "name" : "packs",
-  "page" : "PacksPage",
+  "name" : "blog",
+  "page" : "BlogPage",
+  "nav" : true
+},{
+  "name" : "github",
+  "page" : "GithubPage",
   "nav" : true,
   "packages" : ["github"]
 },{

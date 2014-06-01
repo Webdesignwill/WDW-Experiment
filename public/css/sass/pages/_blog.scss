@@ -1,15 +1,11 @@
-#contact-page {
-  h1 {
-    padding: 200px 0 200px 0;
-    width:100%;
-    text-align: center;
-  }
+#blog-page {
+
 }
 
-body.contact-page {
+body.blog-page {
   background-color: $blood;
   a:hover {
-    color:$lightBlood;
+    color:#FF0000;
   }
   .menu-icon {
     background-position:0 -22px;
@@ -27,12 +23,12 @@ body.contact-page {
   }
   #primary-nav {
     a:hover {
-      color:$lightBlood;
+      color:$vomit;
     }
     ul {
       li.active {
         h3, cite {
-          color:$lightBlood;
+          color:$vomit;
         }
       }
     }

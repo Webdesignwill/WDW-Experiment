@@ -1,18 +1,18 @@
 
-define('PacksPage', [
+define('GithubPage', [
   'Backbone',
   'handlebars',
   'webdesignwill',
-  'text!pages/packs/templates/packs.tpl',
-  "i18n!nls/packs"
+  'text!pages/github/templates/github.tpl',
+  "i18n!nls/github"
 ], function (Backbone, handlebars, webdesignwill, template, content) {
 
   "use strict";
 
-  var PacksPage = Backbone.Page.extend({
+  var GithubPage = Backbone.Page.extend({
 
-    id : 'packs-page',
-    className : 'packs-page page',
+    id : 'github-page',
+    className : 'github-page page',
 
     render : function () {
 
@@ -26,6 +26,6 @@ define('PacksPage', [
 
   });
 
-  return PacksPage;
+  return GithubPage;
 
 });

@@ -26,29 +26,3 @@
     color:$beige;
   }
 }
-body.home-page {
-  #site-header {
-    h1 {
-      background-position: center 0;
-    }
-    h2 {
-      @include opacity(1);
-      margin-bottom:60px;
-      height:auto;
-    }
-  }
-}
-body.packs-page {
-  #site-header  {
-    h1 {
-      background-position: center -180px
-    }
-  }
-}
-body.contact-page {
-  #site-header  {
-    h1 {
-      background-position: center -360px;
-    }
-  }
-}

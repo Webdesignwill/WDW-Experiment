@@ -2,10 +2,13 @@ define({
   "home" : {
     "subText" : "Where the heart is"
   },
-  "packs" : {
+  "github" : {
     "subText" : "How this works"
   },
   "contact" : {
     "subText" : "Switch the kettle on"
+  },
+  "blog" : {
+    "subText" : "A little piece of me"
   }
 });

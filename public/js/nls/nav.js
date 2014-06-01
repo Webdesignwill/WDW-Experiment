@@ -3,11 +3,14 @@ define({
     "home" : {
       "subText" : "Where the heart is"
     },
-    "packs" : {
-      "subText" : "How this works"
+    "github" : {
+      "subText" : "Repo browser"
     },
     "contact" : {
       "subText" : "Switch the kettle on"
+    },
+    "blog" : {
+      "subText" : "A little piece of me"
     }
   },
   "nl" : true

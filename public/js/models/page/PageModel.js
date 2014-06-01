@@ -26,12 +26,8 @@ function (Backbone, webdesignwill, content) {
       }
     },
 
-    getNextPage : function (prop) {
-      return prop ? webdesignwill.sitemap.get(this.get('nextPage') + '-page').get(prop) : webdesignwill.sitemap.get(this.get('nextPage') + '-page');
-    },
-
-    getPrevPage : function (prop) {
-      return prop ? webdesignwill.sitemap.get(this.get('prevPage') + '-page').get(prop) : webdesignwill.sitemap.get(this.get('prevPage') + '-page');
+    getPage : function (prop, direction) {
+      return prop ? webdesignwill.sitemap.get(this.get(direction + 'Page') + '-page').get(prop) : webdesignwill.sitemap.get(this.get(direction + 'Page') + '-page');
     }
 
   });

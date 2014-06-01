@@ -46,12 +46,13 @@ require.config({
     NavUserView                         : 'views/nav/NavUserView',
     NavSubView                          : 'views/nav/NavSubView',
     PageControlsView                 : 'views/pageControls/PageControlsView',
-    SiteLoaderView                     : 'views/siteLoader/SiteLoaderView',
+    SiteLoaderView                      : 'views/siteLoader/SiteLoaderView',
 
     // Pages
-    HomePage                             : 'pages/home/HomePage',
-    ContactPage                          : 'pages/contact/ContactPage',
-    PacksPage                              : 'pages/packs/PacksPage'
+    HomePage                              : 'pages/home/HomePage',
+    BlogPage                                : 'pages/blog/BlogPage',
+    ContactPage                           : 'pages/contact/ContactPage',
+    GithubPage                             : 'pages/github/GithubPage'
 
   },
   shim : {

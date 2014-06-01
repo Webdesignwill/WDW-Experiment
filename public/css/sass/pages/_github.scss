@@ -1,0 +1,57 @@
+#github-page {
+
+}
+
+body.github-page {
+  background-color: $racingGreen;
+  a:hover {
+    color:$vomit;
+  }
+  .menu-icon {
+    background-position:0 -11px;
+  }
+  .dropdown-list {
+    li {
+      border-left:3px solid $racingGreen;
+    }
+    li:hover, li:focus {
+      border-left: 3px solid $vomit;
+    }
+  }
+  .logo-small {
+    background-position:0 -151px  ;
+  }
+  #primary-nav {
+    a:hover {
+      color:$vomit;
+    }
+    ul {
+      li.active {
+        h3, cite {
+          color:$vomit;
+        }
+      }
+    }
+  }
+  #site-header  {
+    h1 {
+      background-position: center -180px
+    }
+  }
+  #page-container {
+    input {
+      border-left:3px solid $racingGreen;
+    }
+    input:focus {
+      border-left: 3px solid $vomit;
+    }
+    button.input-combo-button,
+    button.small-generic {
+      background-color:$racingGreen;
+    }
+    button.input-combo-button:hover,
+    button.small-generic:hover {
+      background-color:$vomit;
+    }
+  }
+}
