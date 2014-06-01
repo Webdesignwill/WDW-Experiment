@@ -6,6 +6,9 @@ require.config({
   packages: [{
     name : 'github',
     location : 'packages/github'
+  },{
+    name : 'talk',
+    location : 'packages/talk'
   }],
 
   paths : {

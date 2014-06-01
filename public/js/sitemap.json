@@ -9,7 +9,8 @@
 },{
   "name" : "blog",
   "page" : "BlogPage",
-  "nav" : true
+  "nav" : true,
+  "packages" : ["talk"]
 },{
   "name" : "github",
   "page" : "GithubPage",

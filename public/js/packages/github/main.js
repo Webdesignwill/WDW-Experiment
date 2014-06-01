@@ -5,7 +5,7 @@ require.config({
 
     'github-path'                                      : 'packages/github/',
 
-    git                                                       : 'packages/github/git',
+    'git'                                                      : 'packages/github/git',
 
     // models
     'github-Sitemap'                                 : 'packages/github/models/app/Sitemap',
@@ -25,7 +25,7 @@ require.config({
 
   deps : ['webdesignwill', 'git'],
 
-  callback : function (webdesignwill) {
+  callback : function (webdesignwill, git) {
     webdesignwill.packageManager.$events.trigger('github:loaded', {
       type : 'loaded',
       pack : 'github'
