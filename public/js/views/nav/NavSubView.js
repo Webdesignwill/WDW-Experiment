@@ -1,5 +1,5 @@
 
-define('NavSubView', [
+define([
   'Backbone',
   'handlebars',
   'webdesignwill',

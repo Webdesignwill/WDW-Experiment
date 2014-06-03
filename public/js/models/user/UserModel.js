@@ -1,5 +1,5 @@
 
-define('UserModel', [
+define([
   'Backbone',
   'webdesignwill'
 ],

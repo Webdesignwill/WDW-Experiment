@@ -1,5 +1,5 @@
 
-define('HomePage', [
+define([
   'Backbone',
   'handlebars',
   'webdesignwill',

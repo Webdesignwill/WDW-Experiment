@@ -1,5 +1,5 @@
 
-define('NavView', [
+define([
   'Backbone',
   'webdesignwill',
   'NavSubView',

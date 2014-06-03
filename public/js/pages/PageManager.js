@@ -1,5 +1,5 @@
 
-define('PageManager', [
+define([
     'Backbone',
     'webdesignwill',
     'HeaderView',

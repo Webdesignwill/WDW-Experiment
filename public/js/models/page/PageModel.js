@@ -1,5 +1,5 @@
 
-define('PageModel', [
+define([
   'Backbone',
   'webdesignwill',
   'i18n!nls/nav'

@@ -1,5 +1,5 @@
 
-define('Sitemap', [
+define([
   'Backbone',
   'webdesignwill',
   'PageModel'

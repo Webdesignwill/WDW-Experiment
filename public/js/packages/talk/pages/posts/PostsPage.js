@@ -1,5 +1,5 @@
 
-define('talk-PostsPage', [
+define([
   'Backbone',
   'talk',
   'text!talk-path/pages/posts/templates/posts.tpl'

@@ -1,5 +1,5 @@
 
-define('SiteContentHeaderView', [
+define([
   'Backbone',
   'webdesignwill',
   'handlebars',

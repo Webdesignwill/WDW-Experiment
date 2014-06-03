@@ -1,5 +1,5 @@
 
-define('github-SigninPage', [
+define([
   'Backbone',
   'git',
   'handlebars',

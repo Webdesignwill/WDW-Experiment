@@ -1,5 +1,5 @@
 
-define('ContactPage', [
+define([
   'Backbone',
   'handlebars',
   'text!pages/contact/templates/contact.tpl',

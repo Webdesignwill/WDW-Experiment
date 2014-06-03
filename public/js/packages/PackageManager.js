@@ -1,5 +1,5 @@
 
-define('PackageManager', [
+define([
   'Backbone',
   'webdesignwill'
 ], function (Backbone, webdesignwill) {

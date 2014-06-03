@@ -1,5 +1,5 @@
 
-define('FooterContactView', [
+define([
   'Backbone',
   'handlebars',
   'text!views/footer/templates/footerContact.tpl',

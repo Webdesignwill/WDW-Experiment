@@ -1,5 +1,5 @@
 
-define('NavUserView', [
+define([
   'Backbone',
   'handlebars',
   'webdesignwill',

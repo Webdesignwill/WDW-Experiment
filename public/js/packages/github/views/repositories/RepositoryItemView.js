@@ -1,5 +1,5 @@
 
-define('github-RepositoryItemView', [
+define([
   'Backbone',
   'git',
   'handlebars',

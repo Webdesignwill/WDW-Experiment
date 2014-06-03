@@ -1,5 +1,5 @@
 
-define('PageControlsView', [
+define([
   'Backbone',
   'webdesignwill',
   'handlebars',

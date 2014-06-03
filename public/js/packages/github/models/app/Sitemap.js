@@ -1,5 +1,5 @@
 
-define('github-Sitemap', [
+define([
   'Backbone',
   'PageModel'
 ],

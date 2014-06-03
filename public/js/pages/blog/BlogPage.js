@@ -1,5 +1,5 @@
 
-define('BlogPage', [
+define([
   'Backbone',
   'handlebars',
   'webdesignwill',

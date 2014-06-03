@@ -1,5 +1,5 @@
 
-define('FooterView', [
+define([
   'Backbone',
   'handlebars',
   'FooterSocialView',

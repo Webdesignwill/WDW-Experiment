@@ -1,5 +1,5 @@
 
-define('git', [
+define([
   'Backbone',
   'webdesignwill',
   'github-Sitemap',

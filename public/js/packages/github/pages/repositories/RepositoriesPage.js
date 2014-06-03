@@ -1,5 +1,5 @@
 
-define('github-RepositoriesPage', [
+define([
   'Backbone',
   'git',
   'handlebars',

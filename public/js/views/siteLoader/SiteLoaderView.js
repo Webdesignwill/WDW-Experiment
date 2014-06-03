@@ -1,5 +1,5 @@
 
-define('SiteLoaderView', [
+define([
   'Backbone',
   'webdesignwill',
   'text!views/siteLoader/templates/site-loader.tpl'

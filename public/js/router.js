@@ -1,5 +1,5 @@
 
-define('router', [
+define([
   'Backbone',
   'webdesignwill',
   'PageManager'

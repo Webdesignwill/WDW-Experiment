@@ -1,5 +1,5 @@
 
-define('FooterSocialView', [
+define([
   'Backbone',
   'handlebars',
   'text!views/footer/templates/footerSocial.tpl',

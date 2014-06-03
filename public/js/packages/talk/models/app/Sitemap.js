@@ -1,5 +1,5 @@
 
-define('talk-Sitemap', [
+define([
   'Backbone',
   'PageModel'
 ],

@@ -1,5 +1,5 @@
 
-define('GithubPage', [
+define([
   'Backbone',
   'handlebars',
   'webdesignwill',

@@ -1,5 +1,5 @@
 
-define('github-UserModel', [
+define([
   'Backbone'
 ],
 

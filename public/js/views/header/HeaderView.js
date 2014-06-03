@@ -1,5 +1,5 @@
 
-define('HeaderView', [
+define([
   'Backbone',
   'handlebars',
   'NavView',

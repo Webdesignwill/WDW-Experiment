@@ -1,5 +1,5 @@
 
-define('github-SelectUserListView', [
+define([
   'Backbone',
   'git',
   'github-SelectUserListItemView'

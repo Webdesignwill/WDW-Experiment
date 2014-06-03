@@ -1,5 +1,5 @@
 
-define('talk', [
+define([
   'Backbone',
   'webdesignwill',
   'talk-Sitemap'
