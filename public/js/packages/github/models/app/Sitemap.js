@@ -10,7 +10,7 @@ function (Backbone, PageModel) {
 
   var Sitemap = Backbone.Model.extend({
 
-    url : '/js/packages/github/config.json', // TODO set path root
+    url : '/js/packages/github/config.json', // TODO set path root or require this at the top
     affix : '-page',
     sitemap : {},
 

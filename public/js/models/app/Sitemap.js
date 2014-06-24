@@ -11,7 +11,7 @@ function (Backbone, webdesignwill, PageModel) {
 
   var Sitemap = Backbone.Model.extend({
 
-    url : '/js/sitemap.json',
+    url : '/api/page/list',
     affix : '-page',
     sitemap : {},
 

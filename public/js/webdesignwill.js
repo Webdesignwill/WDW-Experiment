@@ -1,5 +1,5 @@
 
-define('webdesignwill', [
+define([
   'Backbone',
   'UserModel'
 ], function (Backbone, UserModel) {
@@ -12,13 +12,7 @@ define('webdesignwill', [
     $broker : _.clone(Backbone.Events),
     user : new UserModel(),
 
-    initialize : function () {
-      this.$broker.on('error', function (error) {
-        this.handleError(error);
-      }, this);
-    },
-
-    initWebdesignwill : function () {
+    init : function () {
       var self = this;
       this.sitemap.fetch({
         success : function (model, response, options) {

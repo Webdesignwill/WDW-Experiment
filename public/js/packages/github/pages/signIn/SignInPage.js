@@ -3,7 +3,7 @@ define([
   'Backbone',
   'git',
   'handlebars',
-  'github-SelectUserFormView',
+  'SelectUserFormView',
   'text!github-path/pages/signIn/templates/sign-in.tpl'
 ], function (Backbone, git, handlebars, SelectUserFormView, template) {
 

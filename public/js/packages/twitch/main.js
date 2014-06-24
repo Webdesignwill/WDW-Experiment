@@ -4,7 +4,7 @@ define(function (require, exports, module) {
       baseUrl                                        : '/js/packages/' + name,
       context                                        : name,
       paths : {
-        app                                            : 'app',
+        app                                           : 'app',
         PostsPage                                  : 'pages/posts/PostsPage'
       }
     };

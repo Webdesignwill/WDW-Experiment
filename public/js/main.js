@@ -1,7 +1,8 @@
 
-require.config({
+var base_require = require.config({
 
   baseUrl : '/js/',
+  context : 'base_require',
 
   packages: [{
     name : 'github',
@@ -9,6 +10,9 @@ require.config({
   },{
     name : 'talk',
     location : 'packages/talk'
+  },{
+    name : 'twitch',
+    location : 'packages/twitch'
   }],
 
   paths : {
@@ -22,7 +26,6 @@ require.config({
 
     // Extensions
     page                                      : 'extensions/page',
-    package                                 : 'extensions/package',
 
     // Managers
     PackageManager                    : 'packages/PackageManager',
@@ -67,10 +70,10 @@ require.config({
       exports: 'Handlebars'
     }
   },
-  deps : ['webdesignwill', 'domReady', 'Sitemap', 'PackageManager', 'page', 'package', 'router'],
+  deps : ['webdesignwill', 'domReady', 'Sitemap', 'PackageManager', 'page', 'router'],
   callback : function (webdesignwill, domReady) {
     domReady(function() {
-      webdesignwill.initWebdesignwill();
+      webdesignwill.init();
     });
   }
 });

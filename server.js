@@ -1,7 +1,4 @@
 
-// TODO http://en.wikipedia.org/wiki/Cross-site_request_forgery
-// TODO Automate removeal of temp files
-
 var express = require('express'),
       app = express(),
       bodyParser = require('body-parser'),
@@ -21,10 +18,10 @@ app.use(morgan('dev'))
       .use(cookieParser());
 
 // Port vars
-app.set('port', Number(process.env.PORT));
+app.set('port', 5000);
 
 // Passport
-app.use(expressSession({ secret: 'siteifyioisthebestcmseverintheworldyeah' }))
+app.use(expressSession({ secret: 'webdesignwillisthebestsiteintheworldyeah' }))
       .use(passport.initialize())
       .use(passport.session())
       .use(flash());

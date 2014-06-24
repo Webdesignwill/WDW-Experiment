@@ -3,7 +3,7 @@ define([
   'Backbone',
   'git',
   'handlebars',
-  'github-RepositoryItemView',
+  'RepositoryItemView',
   'text!github-path/pages/repositories/templates/repositories.tpl'
 ], function (Backbone, git, handlebars, RepositoryItemView, template) {
 
@@ -45,7 +45,7 @@ define([
     },
 
     fetchRepositories : function () {
-      git.user.repos.url = 'https://api.github.com/users/' + git.user.get('login') + '/repos';
+      git.user.repos.url = 'https://api.github.com/users/' + git.user.get('login') + '/repos'; // Add this to config
       git.user.repos.fetch({
         context : this,
         success : this.success,
