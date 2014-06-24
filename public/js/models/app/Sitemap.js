@@ -18,7 +18,6 @@ function (Backbone, webdesignwill, PageModel) {
     initialize : function () {},
 
     parse : function (response, options) {
-
        for(var i = 0; i < response.length; i++) {
         var nextPage = response[i+1], prevPage = response[i-1];
         this.sitemap[this.setPropertyName(response[i])] = new PageModel(this.createModel(response[i], 0, '', '', nextPage, prevPage));
@@ -39,7 +38,8 @@ function (Backbone, webdesignwill, PageModel) {
         level : level + 1,
         name : sitemap.name,
         map : sitemap.name + this.affix,
-        page : sitemap.page,
+        view : sitemap.page.view,
+        template : sitemap.page.template,
         route : route,
         path : path,
         nextPage : (np && np.name) || null,

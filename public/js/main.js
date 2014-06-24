@@ -55,10 +55,7 @@ var base_require = require.config({
     SiteLoaderView                      : 'views/siteLoader/SiteLoaderView',
 
     // Pages
-    HomePage                              : 'pages/home/HomePage',
-    BlogPage                                : 'pages/blog/BlogPage',
-    ContactPage                           : 'pages/contact/ContactPage',
-    GithubPage                             : 'pages/github/GithubPage'
+    DefaultPage                            : 'pages/default/DefaultPage'
 
   },
   shim : {

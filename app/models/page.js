@@ -11,7 +11,10 @@ var page = new mongoose.Schema({
     set : toLower
   },
   order : Number,
-  page : String,
+  page : {
+    view : String,
+    template : String
+  },
   nav : Boolean,
   packages : Array,
   override : {

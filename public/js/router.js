@@ -37,8 +37,8 @@ function (Backbone, webdesignwill, PageManager) {
       var self = this;
 
       this.route(pageModel.get('route'), pageModel.get('name'), function (option) {
-        base_require([pageModel.get('page')], function (Page) {
-          webdesignwill.pageManager.goto(pageModel, Page, option);
+        base_require([pageModel.get('view')], function (View) {
+          webdesignwill.pageManager.goto(pageModel, View, option);
         });
       });
 

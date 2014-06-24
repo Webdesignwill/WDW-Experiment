@@ -51,18 +51,45 @@ define([
 
       },
 
-      goto : function (pageModel, Page, identifier, pageType) {
+      goto : function (pageModel, Page, identifier) {
 
-        this.tearDown();
+        var page,
+              self = this;
 
-        var newPage = new Page({
-          model : pageModel,
-          identifier : identifier || null
-        });
+        function createViewInstance (template) {
 
-        this.$siteContentBody.html(newPage.render().el);
-        webdesignwill.page.set({page : newPage});
-        this.toggleClasses(pageModel);
+          var pageIdClass = pageModel.get('name') + '-page';
+
+          tearDown();
+
+          page = new Page({
+            model : pageModel,
+            template : template,
+            id : pageIdClass,
+            className : pageIdClass,
+            $container : self.$siteContentBody,
+            identifier : identifier || null
+          });
+
+          webdesignwill.page.set({page : page});
+          self.toggleClasses(pageModel);
+        }
+
+        function tearDown () {
+          var trash = webdesignwill.page.get('page'),
+                packages = webdesignwill.packageManager.packages;
+
+          if(trash) {
+            trash.close();
+          }
+
+          for(var key in packages) {
+            packages[key].stop();
+          }
+        }
+
+        $.get('/js/templates/' + pageModel.get('name') + '/' + pageModel.get('name') + '.tpl', createViewInstance);
+
       },
 
       toggleClasses : function (pageModel) {
@@ -76,19 +103,6 @@ define([
           }
         }
         this.$el.addClass(pageModel.get('map'));
-      },
-
-      tearDown : function (pageModel) {
-        var trash = webdesignwill.get('page'),
-              packages = webdesignwill.packageManager.packages;
-
-        if(trash) {
-          trash.close();
-        }
-
-        for(var key in packages) {
-          packages[key].stop();
-        }
       }
 
     });
