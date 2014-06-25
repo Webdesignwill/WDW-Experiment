@@ -1,16 +1,21 @@
 form.input-button-combo {
   display:inline-flex;
 }
-input {
+input,
+textarea {
   @include transition(border-color, 0.1s);
   border:none;
 }
-input {
+input,
+textarea {
   padding:0;
   margin:0;
   background:$white;
   font-size: 14px;
-  text-indent:10px;
+  padding-left:10px;
   height:40px;
   min-width:280px;
+}
+textarea {
+  height:auto;
 }

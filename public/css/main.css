@@ -1,6 +1,6 @@
 @import url("http://fonts.googleapis.com/css?family=Oswald:300,400,700");
 @import url("http://fonts.googleapis.com/css?family=Clicker+Script");
-/* line 17, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 17, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -22,45 +22,45 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 22, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 22, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html {
   line-height: 1;
 }
 
-/* line 24, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 24, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 26, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 26, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 28, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 28, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 30, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 30, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 103, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 103, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 32, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 32, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 116, ../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 116, ../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
   display: block;
 }
@@ -210,6 +210,21 @@ a {
   cursor: pointer;
 }
 
+/* line 1, sass/_grid.scss */
+.grid-50 {
+  width: 50%;
+}
+
+/* line 4, sass/_grid.scss */
+.grid-60 {
+  width: 60%;
+}
+
+/* line 7, sass/_grid.scss */
+.grid-70 {
+  width: 70%;
+}
+
 /* line 2, sass/components/_logos.scss */
 .logo-small {
   background: url("../img/logos/small.png") top left;
@@ -341,8 +356,9 @@ form.input-button-combo {
   display: inline-flex;
 }
 
-/* line 4, sass/components/_forms.scss */
-input {
+/* line 5, sass/components/_forms.scss */
+input,
+textarea {
   -webkit-transition: border-color 0.1s linear;
   -moz-transition: border-color 0.1s linear;
   -o-transition: border-color 0.1s linear;
@@ -351,15 +367,21 @@ input {
   border: none;
 }
 
-/* line 8, sass/components/_forms.scss */
-input {
+/* line 10, sass/components/_forms.scss */
+input,
+textarea {
   padding: 0;
   margin: 0;
   background: white;
   font-size: 14px;
-  text-indent: 10px;
+  padding-left: 10px;
   height: 40px;
   min-width: 280px;
+}
+
+/* line 19, sass/components/_forms.scss */
+textarea {
+  height: auto;
 }
 
 /* line 1, sass/components/_buttons.scss */
@@ -538,64 +560,94 @@ body.home-page #page-container button.small-generic:hover {
   background-color: #e2f6ff;
 }
 
-/* line 2, sass/pages/_contact.scss */
-#contact-page h1 {
-  padding: 200px 0 200px 0;
-  width: 100%;
-  text-align: center;
+/* line 1, sass/pages/_contact.scss */
+#contact-page {
+  padding: 58px 0 150px 0;
+}
+/* line 3, sass/pages/_contact.scss */
+#contact-page h2 {
+  font-size: 28px;
+  line-height: 34px;
+}
+/* line 7, sass/pages/_contact.scss */
+#contact-page p {
+  margin-top: 33px;
+  line-height: 24px;
+}
+/* line 11, sass/pages/_contact.scss */
+#contact-page form {
+  margin-top: 30px;
+}
+/* line 13, sass/pages/_contact.scss */
+#contact-page form input {
+  margin-bottom: 10px;
+}
+/* line 16, sass/pages/_contact.scss */
+#contact-page form textarea {
+  width: 85%;
+  padding-top: 10px;
+}
+/* line 20, sass/pages/_contact.scss */
+#contact-page form button {
+  font-family: "Oswald", sans-serif;
+  font-size: 65px;
+  float: right;
+  width: 55px;
+  height: 181px;
+  font-size: 50px;
 }
 
-/* line 9, sass/pages/_contact.scss */
+/* line 31, sass/pages/_contact.scss */
 body.contact-page {
   background-color: #76312d;
 }
-/* line 11, sass/pages/_contact.scss */
+/* line 33, sass/pages/_contact.scss */
 body.contact-page a:hover {
   color: #e86158;
 }
-/* line 14, sass/pages/_contact.scss */
+/* line 36, sass/pages/_contact.scss */
 body.contact-page .menu-icon {
   background-position: 0 -22px;
 }
-/* line 18, sass/pages/_contact.scss */
+/* line 40, sass/pages/_contact.scss */
 body.contact-page .dropdown-list li {
   border-left: 3px solid #76312d;
 }
-/* line 21, sass/pages/_contact.scss */
+/* line 43, sass/pages/_contact.scss */
 body.contact-page .dropdown-list li:hover, body.contact-page .dropdown-list li:focus {
   border-left: 3px solid #e86158;
 }
-/* line 25, sass/pages/_contact.scss */
+/* line 47, sass/pages/_contact.scss */
 body.contact-page .logo-small {
   background-position: 0 -302px;
 }
-/* line 29, sass/pages/_contact.scss */
+/* line 51, sass/pages/_contact.scss */
 body.contact-page #primary-nav a:hover {
   color: #e86158;
 }
-/* line 34, sass/pages/_contact.scss */
+/* line 56, sass/pages/_contact.scss */
 body.contact-page #primary-nav ul li.active h3, body.contact-page #primary-nav ul li.active cite {
   color: #e86158;
 }
-/* line 41, sass/pages/_contact.scss */
+/* line 63, sass/pages/_contact.scss */
 body.contact-page #site-header h1 {
   background-position: center -360px;
 }
-/* line 46, sass/pages/_contact.scss */
-body.contact-page #page-container input {
+/* line 68, sass/pages/_contact.scss */
+body.contact-page #page-container input, body.contact-page #page-container textarea {
   border-left: 3px solid #76312d;
 }
-/* line 49, sass/pages/_contact.scss */
-body.contact-page #page-container input:focus {
+/* line 71, sass/pages/_contact.scss */
+body.contact-page #page-container input:focus, body.contact-page #page-container textarea:focus {
   border-left: 3px solid #e86158;
 }
-/* line 54, sass/pages/_contact.scss */
+/* line 76, sass/pages/_contact.scss */
 body.contact-page #page-container button:focus,
 body.contact-page #page-container button.input-combo-button,
 body.contact-page #page-container button.small-generic {
   background-color: #76312d;
 }
-/* line 58, sass/pages/_contact.scss */
+/* line 80, sass/pages/_contact.scss */
 body.contact-page #page-container button.input-combo-button:hover,
 body.contact-page #page-container button.small-generic:hover {
   background-color: #e86158;

@@ -5,13 +5,12 @@
 define([
   'Backbone',
   'webdesignwill',
-  'topics',
   'HeaderView',
   'PageControlsView',
   'FooterView',
   'SiteContentHeaderView',
   'SiteLoaderView'
-], function (Backbone, webdesignwill, topics, HeaderView, PageControlsView, FooterView, SiteContentHeaderView, SiteLoaderView) {
+], function (Backbone, webdesignwill, HeaderView, PageControlsView, FooterView, SiteContentHeaderView, SiteLoaderView) {
 
   "use strict";
 
@@ -32,23 +31,6 @@ define([
     },
 
     setSubscriptions : function () {
-
-      var self = this;
-
-      /* Listen for the webdesignwill ready call and call the render method
-      =========================================== */
-
-      var subscriptions = {
-        started : function () {
-          self.renderPageComponents();
-        }
-      };
-
-      topics.setSubscriptions({
-        channel : 'webdesignwill',
-        subscriptions : subscriptions
-      });
-
       webdesignwill.page.on('change:page', function (model) {
         this.toggleClasses(model.get('page').model);
       }, this);
@@ -80,7 +62,7 @@ define([
     },
 
     render : function () {
-      // Yeeeeeeeesss
+      // aaawwww yiiiiiiiiiiiiiisssssssss
       return this;
     },
 

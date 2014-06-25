@@ -1,8 +1,30 @@
 #contact-page {
-  h1 {
-    padding: 200px 0 200px 0;
-    width:100%;
-    text-align: center;
+  padding:58px 0 150px 0;
+  h2 {
+    font-size:28px;
+    line-height:34px;
+  }
+  p {
+    margin-top:33px;
+    line-height:24px;
+  }
+  form {
+    margin-top:30px;
+    input {
+      margin-bottom:10px;
+    }
+    textarea {
+      width:85%;
+      padding-top:10px;
+    }
+    button {
+      font-family:$Oswald;
+      font-size:65px;
+      float:right;
+      width: 55px;
+      height: 181px;
+      font-size:50px;
+    }
   }
 }
 
@@ -43,10 +65,10 @@ body.contact-page {
     }
   }
   #page-container {
-    input {
+    input, textarea {
       border-left:3px solid $blood;
     }
-    input:focus {
+    input:focus, textarea:focus {
       border-left: 3px solid $lightBlood;
     }
     button:focus,

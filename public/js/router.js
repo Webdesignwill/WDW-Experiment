@@ -20,11 +20,16 @@ function (Backbone, webdesignwill, BodyView) {
     },
 
     init : function () {
+
+      /* Run through the sitemap and set up a route for each page
+      ====================================== */
       var sitemap = webdesignwill.sitemap.attributes;
       for(var key in sitemap){
         this.setRoutes(sitemap[key]);
       }
 
+      /* Attach the wrapping body view
+      ===================== */
       new BodyView({
         el: $('body')
       });

@@ -5,9 +5,9 @@ define([
   "use strict";
 
   var App = function () {
-    this.init = function (callback) {
+    this.init = function (options) {
       console.log('%c Talk has started ', 'background: #444f64; color: #FFFFFF');
-      callback();
+      options.callback();
     };
   };
 

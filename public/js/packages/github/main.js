@@ -5,7 +5,7 @@ define(function (require, exports, module) {
       context                                        : name + '_require',
       paths : {
 
-        app                                            : 'app',
+        app                                           : 'app',
         PostsPage                                  : 'pages/posts/PostsPage',
 
         // models

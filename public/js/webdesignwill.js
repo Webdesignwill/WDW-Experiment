@@ -1,9 +1,8 @@
 
 define([
   'Backbone',
-  'UserModel',
-  'topics'
-], function (Backbone, UserModel, topics) {
+  'UserModel'
+], function (Backbone, UserModel) {
 
   "use strict";
 
@@ -23,7 +22,6 @@ define([
     },
 
     start : function () {
-      topics.publish('webdesignwill:started');
       console.log('%c Webdesignwill has started ', 'background: #444f64; color: #FFFFFF');
       return this;
     }

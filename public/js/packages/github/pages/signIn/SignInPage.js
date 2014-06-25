@@ -1,11 +1,10 @@
 
 define([
   'Backbone',
-  'git',
   'handlebars',
   'SelectUserFormView',
   'text!github-path/pages/signIn/templates/sign-in.tpl'
-], function (Backbone, git, handlebars, SelectUserFormView, template) {
+], function (Backbone, handlebars, SelectUserFormView, template) {
 
   "use strict";
 

@@ -34,12 +34,26 @@ define([
       var counter, packageName;
 
       function initPackage () {
+
+        /* Either grab the element where the package should be loaded in to
+            or pass the whole page container
+        ========================================== */
+        var $page = webdesignwill.page.get('page'),
+              $packageElement = $page.$el.find("[data-package='" + packageName + "']");
+
+        var options = {
+          $el : $packageElement.length > 0 ? $packageElement : $page.$el,
+          callback : next
+        };
+
         packages[packageName].req(['app'], function (app) {
-          app.init(next);
+          app.init(options, next);
         });
       }
 
-      // Create the require object
+      /* Store a reference to the package on the packages object
+          then create the require object
+      ======================================== */
       function loadPackage (config) {
         if(packages[packageName] === undefined) {
           packages[packageName] = {
@@ -75,7 +89,7 @@ define([
         if(packageName !== undefined) {
           requireConfig();
         } else {
-          alert('DONE');
+          console.log('All packages loaded');
         }
       }
 
