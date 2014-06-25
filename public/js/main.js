@@ -29,7 +29,8 @@ var base_require = require.config({
 
     // Managers
     PackageManager                    : 'packages/PackageManager',
-    PageManager                          : 'pages/PageManager',
+    PageFactory                           : 'pages/PageFactory',
+    router                                     : 'router',
 
     // Application Models
     webdesignwill                       : 'webdesignwill',
@@ -41,6 +42,7 @@ var base_require = require.config({
     AdminBarView                       : 'admin/views/adminBar/AdminBarView',
 
     // Theme Views
+    BodyView                               : 'views/BodyView',
     FooterView                            : 'views/footer/FooterView',
     FooterSocialView                   : 'views/footer/FooterSocialView',
     FooterNewsView                    : 'views/footer/FooterNewsView',
@@ -67,8 +69,8 @@ var base_require = require.config({
       exports: 'Handlebars'
     }
   },
-  deps : ['webdesignwill', 'domReady', 'Sitemap', 'PackageManager', 'page', 'router'],
-  callback : function (webdesignwill, domReady) {
+  deps : ['jquery', 'webdesignwill', 'domReady', 'Sitemap', 'PackageManager', 'PageFactory', 'page', 'router'],
+  callback : function ($, webdesignwill, domReady) {
     domReady(function() {
       webdesignwill.init();
     });

@@ -1,8 +1,9 @@
 
 define([
   'Backbone',
-  'UserModel'
-], function (Backbone, UserModel) {
+  'UserModel',
+  'topics'
+], function (Backbone, UserModel, topics) {
 
   "use strict";
 
@@ -16,12 +17,13 @@ define([
       var self = this;
       this.sitemap.fetch({
         success : function (model, response, options) {
-          self.start().router.initRouter();
+          self.start().router.init();
         }
       });
     },
 
     start : function () {
+      topics.publish('webdesignwill:started');
       console.log('%c Webdesignwill has started ', 'background: #444f64; color: #FFFFFF');
       return this;
     }

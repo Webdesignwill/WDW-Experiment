@@ -2,10 +2,10 @@
 define([
   'Backbone',
   'webdesignwill',
-  'PageManager'
+  'BodyView'
 ],
 
-function (Backbone, webdesignwill, PageManager) {
+function (Backbone, webdesignwill, BodyView) {
 
   "use strict";
 
@@ -19,18 +19,17 @@ function (Backbone, webdesignwill, PageManager) {
       this.navigateTo('home');
     },
 
-    initRouter : function () {
+    init : function () {
       var sitemap = webdesignwill.sitemap.attributes;
       for(var key in sitemap){
         this.setRoutes(sitemap[key]);
       }
 
-      webdesignwill.pageManager = new PageManager({
+      new BodyView({
         el: $('body')
       });
 
       Backbone.history.start();
-
     },
 
     setRoutes : function (pageModel) {
@@ -38,7 +37,7 @@ function (Backbone, webdesignwill, PageManager) {
 
       this.route(pageModel.get('route'), pageModel.get('name'), function (option) {
         base_require([pageModel.get('view')], function (View) {
-          webdesignwill.pageManager.goto(pageModel, View, option);
+          webdesignwill.pageFactory.make(pageModel, View, option);
         });
       });
 
