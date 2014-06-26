@@ -6,15 +6,18 @@ define([
 
   var App = function () {
     this.init = function (options) {
-      console.log('%c Github has started ', 'background: #444f64; color: #FFFFFF');
-      options.callback();
+      options.done();
+    };
+    this.continue = function (options) {
+      options.done();
     };
   };
 
   var app = new App();
 
   return {
-    init : app.init
+    init : app.init,
+    continue : app.continue
   };
 
 });

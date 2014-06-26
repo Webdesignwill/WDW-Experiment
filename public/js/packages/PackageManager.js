@@ -1,9 +1,11 @@
 
-/* Package manager is here to load packages associated with a page. The package names are in
-    an array stored on the page model. The Package manager loads the packages and attaches
-    them to the package object for use. Comms between packages is pubsub via the
-    packages.$events object.
-========================================================== */
+/* LoadCommonJsPackages requires each package associated with the current page.
+  * Get the common JS module for the package incrementing the counter each time.
+  * Require the package and attach the require object to the package object with its unique key
+  * Load package and proxy a done method to the init
+  * Wait for the package to be initialised or fail before moving to the next one.
+  * If the package is already attached to the package object, then continue package
+  ========================================================== */
 
 define([
   'Backbone',
@@ -14,21 +16,8 @@ define([
 
   var PackageManager = function() {
 
-    this.$events = _.clone(Backbone.Events);
-    var packages = {},
-          interests = {
-            loaded : function (data) {},
-            initialised : function (data) {},
-            started : function (data) {},
-            stopped : function (data) {}
-          };
+    var packages = {};
 
-    /* LoadCommonJsPackages requires each package associated with the current page.
-        * Get the common JS module for the package incrementing the counter each time.
-        * Require the package and attach the require object to the package object with its unique key
-        * Create a deferred and pass the package a callback that resolves the deferred.
-        * Wait for the package to be initialised or fail before moving to the next one.
-    ========================================================== */
     function loadCommonJsPackages (pgsArray) {
 
       var counter, packageName;
@@ -43,11 +32,18 @@ define([
 
         var options = {
           $el : $packageElement.length > 0 ? $packageElement : $page.$el,
-          callback : next
+          done : function () {
+            console.log('%c Package ' + packageName + ' has started ', 'background: #444f64; color: #FFFFFF');
+            next();
+          }
         };
 
+        /* Require the app mediator and attach it to the packages object
+            for future use. Invoke the mediator now.
+        ======================================== */
         packages[packageName].req(['app'], function (app) {
-          app.init(options, next);
+          packages[packageName].app = app;
+          packages[packageName].app.init(options);
         });
       }
 
@@ -55,6 +51,8 @@ define([
           then create the require object
       ======================================== */
       function loadPackage (config) {
+
+        /* If the package already exists, continue package operations */
         if(packages[packageName] === undefined) {
           packages[packageName] = {
             req : require(config, function () {
@@ -62,6 +60,11 @@ define([
             })
           };
         } else {
+          packages[packageName].app.continue({
+            done : function () {
+              console.log('%c Continuing ' + packageName + ' package ', 'background: #444f64; color: #00FFFF');
+            }
+          });
           next();
         }
       }
@@ -83,13 +86,18 @@ define([
         });
       }
 
+      /* Check for the next package. Counter resets every time loadcommonJS is invoked
+      =================================================== */
       function next () {
         counter = counter === undefined ? 0 : counter += 1;
+
+        /* Check to see if there is another package. If not, they are all loaded */
         packageName = pgsArray[counter];
         if(packageName !== undefined) {
           requireConfig();
         } else {
-          console.log('All packages loaded');
+          console.log('%c All packages are ready ', 'background: #00FF00; color: #444f64');
+          console.log(packages);
         }
       }
 

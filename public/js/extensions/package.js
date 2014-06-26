@@ -12,45 +12,45 @@ define('package', [
     $broker : _.clone(Backbone.Events),
     garbage : [],
 
-    initialize : function () {
-      this.setPackageListeners();
-    },
+    // initialize : function () {
+    //   this.setPackageListeners();
+    // },
 
-    init : function () {
-      var self = this;
-      this.sitemap.fetch({
-        success : function (model, response, options) {
-          webdesignwill.packageManager.$events.trigger(self.get('name') + ':initialised', {
-            type : 'initialised',
-            pack : self.get('name')
-          });
-        }, reset : true
-      });
-    },
+    // init : function () {
+    //   var self = this;
+    //   this.sitemap.fetch({
+    //     success : function (model, response, options) {
+    //       webdesignwill.packageManager.$events.trigger(self.get('name') + ':initialised', {
+    //         type : 'initialised',
+    //         pack : self.get('name')
+    //       });
+    //     }, reset : true
+    //   });
+    // },
 
-    start : function () {
-      webdesignwill.packageManager.$events.trigger(this.get('name') + ':started', {
-        type : 'started',
-        pack : this.get('name')
-      });
-    },
+    // start : function () {
+    //   webdesignwill.packageManager.$events.trigger(this.get('name') + ':started', {
+    //     type : 'started',
+    //     pack : this.get('name')
+    //   });
+    // },
 
-    stop : function () {
-      this.tearDown();
-      webdesignwill.packageManager.$events.trigger(this.get('name') + ':stopped', {
-        type : 'stopped',
-        pack : this.get('name')
-      });
-    },
+    // stop : function () {
+    //   this.tearDown();
+    //   webdesignwill.packageManager.$events.trigger(this.get('name') + ':stopped', {
+    //     type : 'stopped',
+    //     pack : this.get('name')
+    //   });
+    // },
 
-    setPackageListeners : function () {
-      this.on('change:status', function (model) {
-        if(typeof this[model.get('status')] !== "undefined") {
-          this[model.get('status')]();
-        }
-        console.log('%c ' + this.get('name') + ' package has ' + this.get('status') + ' ', 'background: #7AFF4D; color: #000');
-      }, this);
-    },
+    // setPackageListeners : function () {
+    //   this.on('change:status', function (model) {
+    //     if(typeof this[model.get('status')] !== "undefined") {
+    //       this[model.get('status')]();
+    //     }
+    //     console.log('%c ' + this.get('name') + ' package has ' + this.get('status') + ' ', 'background: #7AFF4D; color: #000');
+    //   }, this);
+    // },
 
     navigate : function (pageName) {
       var self = this,
