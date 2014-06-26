@@ -1,9 +1,8 @@
 
 define([
-  'Backbone',
   'userModel',
   'SelectUserListItemView'
-], function (Backbone, userModel, SelectUserListItemView) {
+], function (userModel, SelectUserListItemView) {
 
   "use strict";
 

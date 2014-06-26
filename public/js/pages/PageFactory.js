@@ -3,24 +3,22 @@
     It also triggers the global page change event
     ======================================== */
 
-define([
-  'webdesignwill'
-], function (webdesignwill) {
+define([], function () {
 
     "use strict";
 
-    var PageFactory = function () {
+    var PageFactory = function (module) {
 
       /* Close down the previous view
       ==================== */
       function tearDown () {
-        var trash = webdesignwill.page.get('page');
+        var trash = module.page.get('page');
         if(trash) {
           trash.close();
         }
       }
 
-      this.make = function (pageModel, Page, identifier) {
+      this.make = function (templatePath, $container, pageModel, Page, identifier) {
 
         /* Create the page instance. Could be DefaultPage, BlogPage etc
         ======================================== */
@@ -31,22 +29,23 @@ define([
             template : template,
             id : pageIdClass,
             className : pageIdClass,
-            $container : $('#site-content-body'),
             identifier : identifier || null
           });
 
-          webdesignwill.page.set({
+          $container.html(page.render().el);
+
+          module.page.set({
             page : page,
             model : pageModel
           });
         }
 
         tearDown();
-        $.get('/js/templates/' + pageModel.get('name') + '/' + pageModel.get('name') + '.tpl', produce);
+        $.get(templatePath + pageModel.get('name') + '/' + pageModel.get('name') + '.tpl', produce);
       };
 
     };
 
-    webdesignwill.pageFactory = new PageFactory();
+    return PageFactory;
 
 });

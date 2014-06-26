@@ -1,7 +1,8 @@
 
 define([
+  'app',
   'userModel'
-], function (userModel) {
+], function (app, userModel) {
 
   "use strict";
 
@@ -25,7 +26,7 @@ define([
 
     success : function (collection, response, options) {
       userModel.saveSearchHistory(options.search);
-      git.navigate('repositories-page');
+      app.navigate('repositories-page');
     },
 
     error : function () {},

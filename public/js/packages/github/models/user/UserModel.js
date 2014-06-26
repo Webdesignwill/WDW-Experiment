@@ -32,6 +32,6 @@ define([], function () {
 
   });
 
-  return UserModel;
+  return new UserModel();
 
 });

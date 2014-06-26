@@ -69,7 +69,7 @@ var base_require = require.config({
       exports: 'Handlebars'
     }
   },
-  deps : ['jquery', 'webdesignwill', 'domReady', 'Sitemap', 'PackageManager', 'PageFactory', 'page', 'router'],
+  deps : ['jquery', 'webdesignwill', 'domReady', 'Sitemap', 'PackageManager', 'page', 'router'],
   callback : function ($, webdesignwill, domReady) {
     domReady(function() {
       webdesignwill.init();

@@ -1116,27 +1116,28 @@ body.blog-page #page-container button.small-generic:hover {
   vertical-align: middle;
 }
 /* line 39, sass/packages/github/_pages.scss */
-#github-package #github-signin-page #github-select-user {
+#github-package #signin-page #github-select-user {
   position: relative;
 }
 /* line 41, sass/packages/github/_pages.scss */
-#github-package #github-signin-page #github-select-user .dropdown-list {
+#github-package #signin-page #github-select-user .dropdown-list {
   position: absolute;
   top: 40px;
   left: 0;
   right: 0;
 }
 /* line 53, sass/packages/github/_pages.scss */
-#github-package #github-repositories-page #github-repositories-list {
+#github-package #repositories-page #github-repositories-list {
   margin-top: 20px;
 }
 /* line 55, sass/packages/github/_pages.scss */
-#github-package #github-repositories-page #github-repositories-list li {
+#github-package #repositories-page #github-repositories-list li {
   -webkit-transition: border-color 0.1s linear;
   -moz-transition: border-color 0.1s linear;
   -o-transition: border-color 0.1s linear;
   -ms-transition: border-color 0.1s linear;
   transition: border-color 0.1s linear;
+  border-top: 5px solid #376018;
   position: relative;
   margin: 0 10px 10px 0;
   float: left;
@@ -1145,94 +1146,74 @@ body.blog-page #page-container button.small-generic:hover {
   width: 330px;
   height: 128px;
 }
-/* line 64, sass/packages/github/_pages.scss */
-#github-package #github-repositories-page #github-repositories-list li h4 {
+/* line 65, sass/packages/github/_pages.scss */
+#github-package #repositories-page #github-repositories-list li h4 {
   margin-top: 20px;
 }
-/* line 67, sass/packages/github/_pages.scss */
-#github-package #github-repositories-page #github-repositories-list li h4, #github-package #github-repositories-page #github-repositories-list li .stargazers {
+/* line 68, sass/packages/github/_pages.scss */
+#github-package #repositories-page #github-repositories-list li h4, #github-package #repositories-page #github-repositories-list li .stargazers {
   font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #444444;
   font-size: 20px;
 }
-/* line 72, sass/packages/github/_pages.scss */
-#github-package #github-repositories-page #github-repositories-list li p {
+/* line 73, sass/packages/github/_pages.scss */
+#github-package #repositories-page #github-repositories-list li p {
   margin-top: 10px;
   font-size: 14px;
 }
-/* line 76, sass/packages/github/_pages.scss */
-#github-package #github-repositories-page #github-repositories-list li h4, #github-package #github-repositories-page #github-repositories-list li p {
+/* line 77, sass/packages/github/_pages.scss */
+#github-package #repositories-page #github-repositories-list li h4, #github-package #repositories-page #github-repositories-list li p {
   margin-left: 20px;
   margin-right: 20px;
 }
-/* line 80, sass/packages/github/_pages.scss */
-#github-package #github-repositories-page #github-repositories-list li .description {
+/* line 81, sass/packages/github/_pages.scss */
+#github-package #repositories-page #github-repositories-list li .description {
   overflow: hidden;
   height: 32px;
 }
-/* line 84, sass/packages/github/_pages.scss */
-#github-package #github-repositories-page #github-repositories-list li .last-updated {
+/* line 85, sass/packages/github/_pages.scss */
+#github-package #repositories-page #github-repositories-list li .last-updated {
   color: #d6d6d6;
   font-size: 12px;
 }
-/* line 88, sass/packages/github/_pages.scss */
-#github-package #github-repositories-page #github-repositories-list li .stargazers {
+/* line 89, sass/packages/github/_pages.scss */
+#github-package #repositories-page #github-repositories-list li .stargazers {
   position: absolute;
   display: inline-flex;
   top: 17px;
   right: 20px;
 }
-/* line 93, sass/packages/github/_pages.scss */
-#github-package #github-repositories-page #github-repositories-list li .stargazers .stargazer-count {
+/* line 94, sass/packages/github/_pages.scss */
+#github-package #repositories-page #github-repositories-list li .stargazers .stargazer-count {
   margin-top: 4px;
 }
-/* line 96, sass/packages/github/_pages.scss */
-#github-package #github-repositories-page #github-repositories-list li .stargazers .stargazer-icon {
+/* line 97, sass/packages/github/_pages.scss */
+#github-package #repositories-page #github-repositories-list li .stargazers .stargazer-icon {
   background: url("/img/icons/stargazer-icon.png") no-repeat 0 0;
   display: inline-block;
   width: 23px;
   height: 22px;
   margin-left: 8px;
 }
-/* line 103, sass/packages/github/_pages.scss */
-#github-package #github-repositories-page #github-repositories-list li .stargazers .stargazer-icon.starred {
+/* line 104, sass/packages/github/_pages.scss */
+#github-package #repositories-page #github-repositories-list li .stargazers .stargazer-icon.starred {
   background-position: 0 -22px;
 }
-/* line 108, sass/packages/github/_pages.scss */
-#github-package #github-repositories-page #github-repositories-list li:nth-child(3) {
+/* line 109, sass/packages/github/_pages.scss */
+#github-package #repositories-page #github-repositories-list li:nth-child(3) {
   margin-right: 0;
 }
 /* line 112, sass/packages/github/_pages.scss */
-#github-package #github-repositories-page #github-repositories-list li:hover .stargazer-icon {
-  background-position: -23px 0;
-}
-/* line 115, sass/packages/github/_pages.scss */
-#github-package #github-repositories-page #github-repositories-list li:hover .stargazer-icon.starred {
-  background-position: -23px -22px;
-}
-/* line 124, sass/packages/github/_pages.scss */
-#github-package body.home-page #github-repositories-list li {
-  border-top: 5px solid #c0e4ed;
-}
-/* line 127, sass/packages/github/_pages.scss */
-#github-package body.home-page #github-repositories-list li:hover {
-  border-top: 5px solid #e2f6ff;
-}
-/* line 134, sass/packages/github/_pages.scss */
-#github-package body.github-page #github-repositories-list li {
-  border-top: 5px solid #376018;
-}
-/* line 137, sass/packages/github/_pages.scss */
-#github-package body.github-page #github-repositories-list li:hover {
+#github-package #repositories-page #github-repositories-list li:hover {
   border-top: 5px solid #b2d233;
 }
-/* line 144, sass/packages/github/_pages.scss */
-#github-package body.contact-page #github-repositories-list li {
-  border-top: 5px solid #76312d;
+/* line 114, sass/packages/github/_pages.scss */
+#github-package #repositories-page #github-repositories-list li:hover .stargazer-icon {
+  background-position: -23px 0;
 }
-/* line 147, sass/packages/github/_pages.scss */
-#github-package body.contact-page #github-repositories-list li {
-  border-top: 5px solid #e86158;
+/* line 117, sass/packages/github/_pages.scss */
+#github-package #repositories-page #github-repositories-list li:hover .stargazer-icon.starred {
+  background-position: -23px -22px;
 }
 
 /* line 4, sass/packages/_main.scss */

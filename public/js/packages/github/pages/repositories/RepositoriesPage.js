@@ -1,17 +1,13 @@
 
 define([
-  'userModel',
   'handlebars',
-  'RepositoryItemView',
-  'text!pages/repositories/templates/repositories.tpl'
-], function (userModel, handlebars, RepositoryItemView, template) {
+  'userModel',
+  'RepositoryItemView'
+], function (handlebars, userModel, RepositoryItemView) {
 
   "use strict";
 
   var RepositoriesPage = Backbone.Page.extend({
-
-    id : 'github-repositories-page',
-    className : 'github-repositories-page page',
 
     initialize : function () {},
 
@@ -20,7 +16,7 @@ define([
     },
 
     render : function () {
-      var tpl = handlebars.compile(template);
+      var tpl = handlebars.compile(this.options.template);
       var compiled = tpl(userModel.attributes);
 
       this.$el.html(compiled);

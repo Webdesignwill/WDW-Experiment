@@ -1,10 +1,10 @@
 
 define([
-  'Backbone',
+  'app',
   'userModel',
   'SelectUserListView',
   'text!views/selectUser/templates/select-user.tpl'
-], function (Backbone, userModel, SelectUserListView, template) {
+], function (app, userModel, SelectUserListView, template) {
 
   "use strict";
 
@@ -49,7 +49,7 @@ define([
 
     success : function (collection, response, options) {
       userModel.saveSearchHistory(options.search);
-      git.navigate('repositories-page');
+      app.navigate('repositories-page');
     },
 
     error : function () {

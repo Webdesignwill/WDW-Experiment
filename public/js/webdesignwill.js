@@ -1,8 +1,9 @@
 
 define([
   'Backbone',
-  'UserModel'
-], function (Backbone, UserModel) {
+  'UserModel',
+  'PageFactory'
+], function (Backbone, UserModel, PageFactory) {
 
   "use strict";
 
@@ -19,6 +20,9 @@ define([
           self.start().router.init();
         }
       });
+
+      this.pageFactory = new PageFactory(this);
+
     },
 
     start : function () {

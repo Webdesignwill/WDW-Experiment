@@ -1,26 +1,22 @@
 
 define([
-  'Backbone',
-  'handlebars',
-  'SelectUserFormView',
-  'text!pages/signIn/templates/sign-in.tpl'
-], function (Backbone, handlebars, SelectUserFormView, template) {
+  'SelectUserFormView'
+], function (SelectUserFormView) {
 
   "use strict";
 
   var SigninPage = Backbone.Page.extend({
 
-    id : 'github-signin-page',
-    className : 'github-signin-page page',
-
-    initialize : function () {},
+    initialize : function () {
+      this.render();
+    },
 
     setElements : function () {
       this.$selectUser = this.$el.find('#github-select-user');
     },
 
     render : function () {
-      this.$el.html(template);
+      this.$el.html(this.options.template);
       this.setElements();
       new SelectUserFormView({el : this.$selectUser});
       return this;

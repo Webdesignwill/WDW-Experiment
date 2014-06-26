@@ -5,6 +5,9 @@ define(function (require, exports, module) {
       context                                        : name + '_require',
       paths : {
 
+        text                                           : '../../libs/require/text-min',
+        handlebars                                : '../../libs/handlebars/handlebars',
+
         app                                           : 'app',
         PostsPage                                  : 'pages/posts/PostsPage',
 
@@ -15,12 +18,18 @@ define(function (require, exports, module) {
         // pages
         SigninPage                                 : 'pages/signin/SigninPage',
         RepositoriesPage                       : 'pages/repositories/RepositoriesPage',
+        TestPage : 'pages/Testpage',
 
         // views
         RepositoryItemView                   : 'views/repositories/RepositoryItemView',
         SelectUserFormView                  : 'views/selectUser/SelectUserFormView',
         SelectUserListView                      : 'views/selectUser/SelectUserListView',
         SelectUserListItemView              : 'views/selectUser/SelectUserListItemView'
+      },
+      shim : {
+        'handlebars': {
+          exports: 'Handlebars'
+        }
       }
     };
   };

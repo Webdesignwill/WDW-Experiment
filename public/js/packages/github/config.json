@@ -6,5 +6,8 @@
   },{
     "name" : "repositories",
     "page" : "RepositoriesPage"
+  },{
+    "name" : "test",
+    "page" : "TestPage"
   }]
 }

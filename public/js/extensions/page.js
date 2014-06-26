@@ -1,8 +1,7 @@
 
-define('page', [
-    'Backbone',
-    'webdesignwill'
-], function (Backbone, webdesignwill) {
+define([
+  'Backbone'
+], function (Backbone) {
 
   "use strict";
 

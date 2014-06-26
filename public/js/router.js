@@ -1,11 +1,10 @@
 
 define([
-  'Backbone',
   'webdesignwill',
   'BodyView'
 ],
 
-function (Backbone, webdesignwill, BodyView) {
+function (webdesignwill, BodyView) {
 
   "use strict";
 
@@ -38,11 +37,12 @@ function (Backbone, webdesignwill, BodyView) {
     },
 
     setRoutes : function (pageModel) {
-      var self = this;
+      var self = this,
+            templatePath = '/js/templates/';
 
       this.route(pageModel.get('route'), pageModel.get('name'), function (option) {
         base_require([pageModel.get('view')], function (View) {
-          webdesignwill.pageFactory.make(pageModel, View, option);
+          webdesignwill.pageFactory.make(templatePath, $('#site-content-body'), pageModel, View, option);
         });
       });
 

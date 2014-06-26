@@ -1,9 +1,8 @@
 
 define([
-  'Backbone',
   'handlebars',
   'text!views/repositories/templates/repository.tpl'
-], function (Backbone, handlebars, template) {
+], function (handlebars, template) {
 
   "use strict";
 

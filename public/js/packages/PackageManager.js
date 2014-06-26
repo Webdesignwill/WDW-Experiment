@@ -8,8 +8,9 @@
   ========================================================== */
 
 define([
-  'webdesignwill'
-], function (webdesignwill) {
+  'webdesignwill',
+  'PageFactory'
+], function (webdesignwill, PageFactory) {
 
   "use strict";
 
@@ -45,9 +46,13 @@ define([
             for future use. Invoke the mediator now.
         ======================================== */
         packages[packageName].req(['app'], function (app) {
-          packages[packageName].app = app;
-          packages[packageName].app.$el = attachPackageElement();
-          packages[packageName].app.init(done);
+          var p = packages[packageName];
+          p.app = app;
+          p.app.require = p.req;
+          p.app.pageFactory = new PageFactory(p.app);
+          p.app.$el = attachPackageElement();
+          p.app.page = new Backbone.Model();
+          p.app.init(done);
         });
       }
 
