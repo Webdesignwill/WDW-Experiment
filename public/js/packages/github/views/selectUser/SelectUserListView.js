@@ -1,9 +1,9 @@
 
 define([
   'Backbone',
-  'git',
-  'github-SelectUserListItemView'
-], function (Backbone, git, SelectUserListItemView) {
+  'userModel',
+  'SelectUserListItemView'
+], function (Backbone, userModel, SelectUserListItemView) {
 
   "use strict";
 
@@ -37,7 +37,7 @@ define([
     },
 
     findMatches : function (search) {
-      var sh = git.user.searchHistory,
+      var sh = userModel.searchHistory,
             matches = [];
 
       for(var key in sh) {

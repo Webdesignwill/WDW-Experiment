@@ -1,23 +1,24 @@
 
 define([
-], function () {
+  'Sitemap'
+], function (Sitemap) {
 
   "use strict";
 
   var App = function () {
-    this.init = function (options) {
-      options.done();
+
+    this.init = function (done) {
+      new Sitemap().fetch({
+        success : function (model, response, options) {
+          done();
+        }
+      });
     };
-    this.continue = function (options) {
-      options.done();
+    this.continue = function (done) {
+      done();
     };
   };
 
-  var app = new App();
-
-  return {
-    init : app.init,
-    continue : app.continue
-  };
+  return new App();
 
 });

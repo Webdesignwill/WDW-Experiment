@@ -3,7 +3,7 @@ define([
   'Backbone',
   'handlebars',
   'SelectUserFormView',
-  'text!github-path/pages/signIn/templates/sign-in.tpl'
+  'text!pages/signIn/templates/sign-in.tpl'
 ], function (Backbone, handlebars, SelectUserFormView, template) {
 
   "use strict";

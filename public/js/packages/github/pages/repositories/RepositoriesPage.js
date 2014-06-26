@@ -1,11 +1,10 @@
 
 define([
-  'Backbone',
-  'git',
+  'userModel',
   'handlebars',
   'RepositoryItemView',
-  'text!github-path/pages/repositories/templates/repositories.tpl'
-], function (Backbone, git, handlebars, RepositoryItemView, template) {
+  'text!pages/repositories/templates/repositories.tpl'
+], function (userModel, handlebars, RepositoryItemView, template) {
 
   "use strict";
 
@@ -22,7 +21,7 @@ define([
 
     render : function () {
       var tpl = handlebars.compile(template);
-      var compiled = tpl(git.user.attributes);
+      var compiled = tpl(userModel.attributes);
 
       this.$el.html(compiled);
 
@@ -36,7 +35,7 @@ define([
       var docFrag = document.createDocumentFragment(),
             repositoryItemView;
 
-      git.user.repos.each(function (model, index, collection) {
+      userModel.repos.each(function (model, index, collection) {
         repositoryItemView = new RepositoryItemView({model : model});
         docFrag.appendChild(repositoryItemView.render().el);
       });
@@ -45,8 +44,8 @@ define([
     },
 
     fetchRepositories : function () {
-      git.user.repos.url = 'https://api.github.com/users/' + git.user.get('login') + '/repos'; // Add this to config
-      git.user.repos.fetch({
+      userModel.repos.url = 'https://api.github.com/users/' + userModel.get('login') + '/repos'; // Add this to config
+      userModel.repos.fetch({
         context : this,
         success : this.success,
         reset : true

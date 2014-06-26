@@ -1,8 +1,7 @@
 
 define([
-  'Backbone',
-  'git'
-], function (Backbone, git) {
+  'userModel'
+], function (userModel) {
 
   "use strict";
 
@@ -16,8 +15,8 @@ define([
     initialize : function () {},
 
     handler : function () {
-      git.user.url = 'https://api.github.com/users/' + this.options.match;
-      git.user.fetch({
+      userModel.url = 'https://api.github.com/users/' + this.options.match;
+      userModel.fetch({
         search : this.options.match,
         success : this.success,
         error : this.error
@@ -25,7 +24,7 @@ define([
     },
 
     success : function (collection, response, options) {
-      git.user.saveSearchHistory(options.search);
+      userModel.saveSearchHistory(options.search);
       git.navigate('repositories-page');
     },
 

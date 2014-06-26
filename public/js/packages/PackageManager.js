@@ -8,42 +8,46 @@
   ========================================================== */
 
 define([
-  'Backbone',
   'webdesignwill'
-], function (Backbone, webdesignwill) {
+], function (webdesignwill) {
 
   "use strict";
 
   var PackageManager = function() {
 
+    /* Packages is where each package reference will be stored and deps
+        are the require dependencies that are shared with each package
+    ========================================== */
     var packages = {};
 
     function loadCommonJsPackages (pgsArray) {
 
       var counter, packageName;
 
-      function initPackage () {
-
+      function attachPackageElement () {
         /* Either grab the element where the package should be loaded in to
             or pass the whole page container
         ========================================== */
         var $page = webdesignwill.page.get('page'),
               $packageElement = $page.$el.find("[data-package='" + packageName + "']");
 
-        var options = {
-          $el : $packageElement.length > 0 ? $packageElement : $page.$el,
-          done : function () {
-            console.log('%c Package ' + packageName + ' has started ', 'background: #444f64; color: #FFFFFF');
-            next();
-          }
-        };
+        return $packageElement.length > 0 ? $packageElement : $page.$el;
+      }
+
+      function initPackage () {
+
+        function done () {
+          console.log('%c Package ' + packageName + ' has started ', 'background: #444f64; color: #FFFFFF');
+          next();
+        }
 
         /* Require the app mediator and attach it to the packages object
             for future use. Invoke the mediator now.
         ======================================== */
         packages[packageName].req(['app'], function (app) {
           packages[packageName].app = app;
-          packages[packageName].app.init(options);
+          packages[packageName].app.$el = attachPackageElement();
+          packages[packageName].app.init(done);
         });
       }
 
@@ -60,29 +64,18 @@ define([
             })
           };
         } else {
-          packages[packageName].app.continue({
-            done : function () {
-              console.log('%c Continuing ' + packageName + ' package ', 'background: #444f64; color: #00FFFF');
-            }
+          packages[packageName].app.$el = attachPackageElement();
+          packages[packageName].app.continue(function () {
+            console.log('%c Continuing ' + packageName + ' package ', 'background: #444f64; color: #00FFFF');
+            next();
           });
-          next();
         }
       }
 
       // Get the commonjs module
       function requireConfig () {
-
-        /* Dependency Injection
-            Here you can modify or inject properties to the new packages require config
-        ================================================= */
-        function injectDependencies (config) {
-          config = config(packageName);
-          config.paths.Backbone = '../../libs/backbone/backbone-min';
-          return config;
-        }
-
         base_require([packageName], function (config) {
-          loadPackage(injectDependencies(config));
+          loadPackage(config(packageName));
         });
       }
 

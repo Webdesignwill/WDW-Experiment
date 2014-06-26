@@ -1,10 +1,9 @@
 
 define([
   'Backbone',
-  'git',
   'handlebars',
-  'text!github-path/views/repositories/templates/repository.tpl'
-], function (Backbone, git, handlebars, template) {
+  'text!views/repositories/templates/repository.tpl'
+], function (Backbone, handlebars, template) {
 
   "use strict";
 

@@ -1,10 +1,5 @@
 
-define([
-  'Backbone',
-  'PageModel'
-],
-
-function (Backbone, PageModel) {
+define([], function () {
 
   "use strict";
 
@@ -17,8 +12,8 @@ function (Backbone, PageModel) {
     initialize : function () {},
 
     parse : function (response, options) {
-       for(var i = 0; i < response.sitemap.length; i++) {
-        this.sitemap[response.sitemap[i].name + '-page'] = new PageModel(this.createModel(response.sitemap[i]));
+      for(var i = 0; i < response.sitemap.length; i++) {
+        this.sitemap[response.sitemap[i].name + '-page'] = new Backbone.Model(this.createModel(response.sitemap[i]));
       }
 
       return this.sitemap;

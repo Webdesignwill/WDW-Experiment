@@ -10,7 +10,7 @@ define(function (require, exports, module) {
 
         // models
         Sitemap                                     : 'models/app/Sitemap',
-        UserModel                                 : 'models/user/UserModel',
+        userModel                                 : 'models/user/userModel',
 
         // pages
         SigninPage                                 : 'pages/signin/SigninPage',

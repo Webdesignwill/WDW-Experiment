@@ -1,10 +1,10 @@
 
 define([
   'Backbone',
-  'git',
-  'github-SelectUserListView',
-  'text!github-path/views/selectUser/templates/select-user.tpl'
-], function (Backbone, git, SelectUserListView, template) {
+  'userModel',
+  'SelectUserListView',
+  'text!views/selectUser/templates/select-user.tpl'
+], function (Backbone, userModel, SelectUserListView, template) {
 
   "use strict";
 
@@ -39,8 +39,8 @@ define([
     handler : function (e) {
       e.preventDefault();
       var search = e.target[0].value;
-      git.user.url = 'https://api.github.com/users/' + search;
-      git.user.fetch({
+      userModel.url = 'https://api.github.com/users/' + search;
+      userModel.fetch({
         search : search,
         success : this.success,
         error : this.error
@@ -48,7 +48,7 @@ define([
     },
 
     success : function (collection, response, options) {
-      git.user.saveSearchHistory(options.search);
+      userModel.saveSearchHistory(options.search);
       git.navigate('repositories-page');
     },
 
