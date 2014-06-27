@@ -1,12 +1,11 @@
 
 define([
-  'Backbone',
   'handlebars',
   'webdesignwill',
   'text!views/nav/templates/navUser.tpl'
 ],
 
-function (Backbone, handlebars, webdesignwill, template) {
+function (handlebars, webdesignwill, template) {
 
   "use strict";
 

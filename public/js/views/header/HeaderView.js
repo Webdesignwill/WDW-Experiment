@@ -1,13 +1,12 @@
 
 define([
-  'Backbone',
   'handlebars',
   'NavView',
   'text!views/header/templates/header.tpl',
   "i18n!nls/header"
 ],
 
-function (Backbone, handlebars, NavView, template, header) {
+function (handlebars, NavView, template, header) {
 
   "use strict";
 

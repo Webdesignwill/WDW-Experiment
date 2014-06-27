@@ -1,9 +1,8 @@
 
 define([
-  'Backbone',
   'UserModel',
   'PageFactory'
-], function (Backbone, UserModel, PageFactory) {
+], function (UserModel, PageFactory) {
 
   "use strict";
 
@@ -13,21 +12,20 @@ define([
     $broker : _.clone(Backbone.Events),
     user : new UserModel(),
 
-    init : function () {
+    init : function (callback) {
       var self = this;
       this.sitemap.fetch({
         success : function (model, response, options) {
-          self.start().router.init();
+          self.router.init();
+          callback();
         }
       });
-
-      this.pageFactory = new PageFactory(this);
-
     },
 
     start : function () {
+      this.pageFactory = new PageFactory(this);
+      this.$broker.trigger('site:started');
       console.log('%c Webdesignwill has started ', 'background: #444f64; color: #FFFFFF');
-      return this;
     }
 
   });

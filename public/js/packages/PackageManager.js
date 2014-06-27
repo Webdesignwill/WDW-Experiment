@@ -37,6 +37,8 @@ define([
 
       function initPackage () {
 
+        /* Callback, proxy function for when package is initialised
+        ==================================== */
         function done () {
           console.log('%c Package ' + packageName + ' has started ', 'background: #444f64; color: #FFFFFF');
           next();
@@ -95,7 +97,6 @@ define([
           requireConfig();
         } else {
           console.log('%c All packages are ready ', 'background: #00FF00; color: #444f64');
-          console.log(packages);
         }
       }
 

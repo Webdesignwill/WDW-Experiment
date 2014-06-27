@@ -5,8 +5,9 @@ define([], function () {
 
   var UserModel = Backbone.Model.extend({
 
+    repos : new Backbone.Collection(),
+
     initialize : function () {
-      this.repos = new Backbone.Collection();
       this.getSearchHistory();
     },
 

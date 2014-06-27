@@ -18,9 +18,10 @@ define(function (require, exports, module) {
         // pages
         SigninPage                                 : 'pages/signin/SigninPage',
         RepositoriesPage                       : 'pages/repositories/RepositoriesPage',
-        TestPage : 'pages/Testpage',
+        RepositoryPage                          : 'pages/repositories/RepositoryPage',
 
         // views
+        BodyView                                   : 'views/BodyView',
         RepositoryItemView                   : 'views/repositories/RepositoryItemView',
         SelectUserFormView                  : 'views/selectUser/SelectUserFormView',
         SelectUserListView                      : 'views/selectUser/SelectUserListView',

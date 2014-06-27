@@ -41,7 +41,7 @@ define([], function () {
         }
 
         tearDown();
-        $.get(templatePath + pageModel.get('name') + '/' + pageModel.get('name') + '.tpl', produce);
+        $.get(templatePath + '/' + pageModel.get('name') + '.tpl', produce);
       };
 
     };

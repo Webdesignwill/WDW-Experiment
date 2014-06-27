@@ -7,7 +7,7 @@
     "name" : "repositories",
     "page" : "RepositoriesPage"
   },{
-    "name" : "test",
-    "page" : "TestPage"
+    "name" : "repository",
+    "page" : "RepositoryPage"
   }]
 }

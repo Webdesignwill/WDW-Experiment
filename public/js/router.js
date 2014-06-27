@@ -27,12 +27,6 @@ function (webdesignwill, BodyView) {
         this.setRoutes(sitemap[key]);
       }
 
-      /* Attach the wrapping body view
-      ===================== */
-      new BodyView({
-        el: $('body')
-      });
-
       Backbone.history.start();
     },
 

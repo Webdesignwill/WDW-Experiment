@@ -3,14 +3,13 @@
 ========================================= */
 
 define([
-  'Backbone',
+  '$topics',
   'webdesignwill',
   'HeaderView',
   'PageControlsView',
   'FooterView',
-  'SiteContentHeaderView',
-  'SiteLoaderView'
-], function (Backbone, webdesignwill, HeaderView, PageControlsView, FooterView, SiteContentHeaderView, SiteLoaderView) {
+  'SiteContentHeaderView'
+], function ($topics, webdesignwill, HeaderView, PageControlsView, FooterView, SiteContentHeaderView) {
 
   "use strict";
 
@@ -27,20 +26,20 @@ define([
       this.$siteFooter = this.$el.find('#site-footer-inner');
       this.$pageControls = this.$el.find('#page-controls');
       this.$siteContentHeader = this.$el.find('#site-content-header');
-      this.$siteLoader = this.$el.find('#site-loader');
     },
 
     setSubscriptions : function () {
+
+      webdesignwill.$broker.on('site:started', function () {
+        this.$el.removeClass('active-loader');
+      }, this);
+
       webdesignwill.page.on('change:page', function (model) {
         this.toggleClasses(model.get('page').model);
       }, this);
     },
 
     renderPageComponents : function () {
-
-      new SiteLoaderView({
-        el : this.$siteLoader
-      });
 
       new HeaderView({
         el : this.$siteHeader

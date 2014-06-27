@@ -24,6 +24,9 @@ var base_require = require.config({
     text                                      : 'libs/require/text-min',
     domReady                            : 'libs/require/domReady',
 
+    // Utilities
+    $topics                                  : 'utilities/topics',
+
     // Extensions
     page                                      : 'extensions/page',
 
@@ -54,7 +57,6 @@ var base_require = require.config({
     NavUserView                         : 'views/nav/NavUserView',
     NavSubView                          : 'views/nav/NavSubView',
     PageControlsView                 : 'views/pageControls/PageControlsView',
-    SiteLoaderView                      : 'views/siteLoader/SiteLoaderView',
 
     // Pages
     DefaultPage                            : 'pages/default/DefaultPage'
@@ -69,10 +71,15 @@ var base_require = require.config({
       exports: 'Handlebars'
     }
   },
-  deps : ['jquery', 'webdesignwill', 'domReady', 'Sitemap', 'PackageManager', 'page', 'router'],
-  callback : function ($, webdesignwill, domReady) {
+  deps : ['jquery', 'webdesignwill', 'domReady', 'BodyView', 'Sitemap', 'PackageManager', 'page', 'router'],
+  callback : function ($, webdesignwill, domReady, BodyView) {
     domReady(function() {
-      webdesignwill.init();
+
+      /* This is async as it's waiting for the sitemap to be fetched */
+      webdesignwill.init(function () {
+        new BodyView({el : $('body')});
+        webdesignwill.start();
+      });
     });
   }
 });

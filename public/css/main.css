@@ -158,6 +158,10 @@ section.racing-grey {
 #page-container section:last-child {
   padding-bottom: 175px;
 }
+/* line 62, sass/_globals.scss */
+#page-container .wdw-package section {
+  padding-bottom: 0;
+}
 
 /* line 2, sass/_typography.scss */
 h1, h2, h3, h4 {
