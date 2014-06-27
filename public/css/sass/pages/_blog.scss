@@ -22,7 +22,7 @@ body.blog-page {
     background-position:0 -302px;
   }
   #primary-nav {
-    a:hover {
+    a:hover, #page-container a:hover {
       color:$vomit;
     }
     ul {

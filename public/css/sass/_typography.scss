@@ -32,3 +32,8 @@ a {
   color:$white;
   cursor:pointer;
 }
+#page-container {
+  a {
+    color:$shade;
+  }
+}

@@ -1,6 +1,9 @@
 
 /* The Factory is called when a page instance needs to be made up
-    It also triggers the global page change event
+    It also triggers the global page change event.
+
+    It requires the module for instance webdesignwill, github, package etc
+    This is because the package saves the state on it's page property.
     ======================================== */
 
 define([], function () {

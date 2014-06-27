@@ -120,6 +120,6 @@ define([
 
   };
 
-  webdesignwill.packageManager = new PackageManager();
+  new PackageManager();
 
 });

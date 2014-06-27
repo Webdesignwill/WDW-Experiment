@@ -68,7 +68,7 @@
 
 body.home-page {
   background-color: $darkBlue;
-  a:hover {
+  a:hover, #page-container a:hover {
     color:$lightBlue;
   }
   .menu-icon {

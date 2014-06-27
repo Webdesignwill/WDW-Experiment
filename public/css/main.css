@@ -214,6 +214,11 @@ a {
   cursor: pointer;
 }
 
+/* line 36, sass/_typography.scss */
+#page-container a {
+  color: #444444;
+}
+
 /* line 1, sass/_grid.scss */
 .grid-50 {
   width: 50%;
@@ -506,7 +511,7 @@ body.home-page {
   background-color: #444f64;
 }
 /* line 71, sass/pages/_home.scss */
-body.home-page a:hover {
+body.home-page a:hover, body.home-page #page-container a:hover {
   color: #c0e4ed;
 }
 /* line 74, sass/pages/_home.scss */
@@ -606,7 +611,7 @@ body.contact-page {
   background-color: #76312d;
 }
 /* line 33, sass/pages/_contact.scss */
-body.contact-page a:hover {
+body.contact-page a:hover, body.contact-page #page-container a:hover {
   color: #e86158;
 }
 /* line 36, sass/pages/_contact.scss */
@@ -657,56 +662,56 @@ body.contact-page #page-container button.small-generic:hover {
   background-color: #e86158;
 }
 
-/* line 5, sass/pages/_github.scss */
+/* line 2, sass/pages/_github.scss */
 body.github-page {
   background-color: #376018;
 }
-/* line 7, sass/pages/_github.scss */
-body.github-page a:hover {
+/* line 4, sass/pages/_github.scss */
+body.github-page a:hover, body.github-page #page-container a:hover {
   color: #b2d233;
 }
-/* line 10, sass/pages/_github.scss */
+/* line 7, sass/pages/_github.scss */
 body.github-page .menu-icon {
   background-position: 0 -11px;
 }
-/* line 14, sass/pages/_github.scss */
+/* line 11, sass/pages/_github.scss */
 body.github-page .dropdown-list li {
   border-left: 3px solid #376018;
 }
-/* line 17, sass/pages/_github.scss */
+/* line 14, sass/pages/_github.scss */
 body.github-page .dropdown-list li:hover, body.github-page .dropdown-list li:focus {
   border-left: 3px solid #b2d233;
 }
-/* line 21, sass/pages/_github.scss */
+/* line 18, sass/pages/_github.scss */
 body.github-page .logo-small {
   background-position: 0 -151px;
 }
-/* line 25, sass/pages/_github.scss */
+/* line 22, sass/pages/_github.scss */
 body.github-page #primary-nav a:hover {
   color: #b2d233;
 }
-/* line 30, sass/pages/_github.scss */
+/* line 27, sass/pages/_github.scss */
 body.github-page #primary-nav ul li.active h3, body.github-page #primary-nav ul li.active cite {
   color: #b2d233;
 }
-/* line 37, sass/pages/_github.scss */
+/* line 34, sass/pages/_github.scss */
 body.github-page #site-header h1 {
   background-position: center -180px;
 }
-/* line 42, sass/pages/_github.scss */
+/* line 39, sass/pages/_github.scss */
 body.github-page #page-container input {
   border-left: 3px solid #376018;
 }
-/* line 45, sass/pages/_github.scss */
+/* line 42, sass/pages/_github.scss */
 body.github-page #page-container input:focus {
   border-left: 3px solid #b2d233;
 }
-/* line 49, sass/pages/_github.scss */
+/* line 46, sass/pages/_github.scss */
 body.github-page #page-container button.input-combo-button,
 body.github-page #page-container button.small-generic {
   background-color: #376018;
 }
-/* line 53, sass/pages/_github.scss */
+/* line 50, sass/pages/_github.scss */
 body.github-page #page-container button.input-combo-button:hover,
 body.github-page #page-container button.small-generic:hover {
   background-color: #b2d233;
@@ -737,7 +742,7 @@ body.blog-page .logo-small {
   background-position: 0 -302px;
 }
 /* line 25, sass/pages/_blog.scss */
-body.blog-page #primary-nav a:hover {
+body.blog-page #primary-nav a:hover, body.blog-page #primary-nav #page-container a:hover {
   color: #b2d233;
 }
 /* line 30, sass/pages/_blog.scss */
@@ -996,16 +1001,17 @@ body.blog-page #page-container button.small-generic:hover {
 }
 /* line 16, sass/views/_page-controls.scss */
 #page-controls .next-page a, #page-controls .prev-page a {
+  color: white;
   font-weight: 300;
   font-family: "Oswald", sans-serif;
 }
-/* line 21, sass/views/_page-controls.scss */
+/* line 22, sass/views/_page-controls.scss */
 #page-controls .next-page {
   background: #444444;
   right: -10px;
   padding-right: 20px;
 }
-/* line 25, sass/views/_page-controls.scss */
+/* line 26, sass/views/_page-controls.scss */
 #page-controls .next-page p {
   background: url("../img/backgrounds/site-content-header-bit.png") no-repeat left center;
   height: 100%;
@@ -1013,22 +1019,22 @@ body.blog-page #page-container button.small-generic:hover {
   line-height: 50px;
   margin-left: -17px;
 }
-/* line 31, sass/views/_page-controls.scss */
+/* line 32, sass/views/_page-controls.scss */
 #page-controls .next-page p cite {
   font-size: 18px;
   margin-left: 12px;
 }
-/* line 37, sass/views/_page-controls.scss */
+/* line 38, sass/views/_page-controls.scss */
 #page-controls .next-page:hover {
   right: 0;
 }
-/* line 40, sass/views/_page-controls.scss */
+/* line 41, sass/views/_page-controls.scss */
 #page-controls .prev-page {
   background: #444444;
   left: -10px;
   padding-left: 20px;
 }
-/* line 44, sass/views/_page-controls.scss */
+/* line 45, sass/views/_page-controls.scss */
 #page-controls .prev-page p {
   background: url("../img/backgrounds/site-content-header-bit-right.png") no-repeat right center;
   height: 100%;
@@ -1037,16 +1043,16 @@ body.blog-page #page-container button.small-generic:hover {
   line-height: 54px;
   margin-right: -17px;
 }
-/* line 51, sass/views/_page-controls.scss */
+/* line 52, sass/views/_page-controls.scss */
 #page-controls .prev-page p cite {
   font-size: 18px;
   margin-right: 12px;
 }
-/* line 57, sass/views/_page-controls.scss */
+/* line 58, sass/views/_page-controls.scss */
 #page-controls .prev-page:hover {
   left: 0;
 }
-/* line 60, sass/views/_page-controls.scss */
+/* line 61, sass/views/_page-controls.scss */
 #page-controls .next-page.hide, #page-controls .prev-page.hide {
   display: none;
 }
@@ -1085,15 +1091,6 @@ body.blog-page #page-container button.small-generic:hover {
   margin-bottom: 40px;
 }
 /* line 8, sass/packages/github/_pages.scss */
-#github-package header h3 {
-  margin-bottom: 20px;
-}
-/* line 11, sass/packages/github/_pages.scss */
-#github-package header p.intro {
-  margin-bottom: 20px;
-  width: 660px;
-}
-/* line 15, sass/packages/github/_pages.scss */
 #github-package header .user-search {
   float: right;
   display: inline-table;
@@ -1101,11 +1098,11 @@ body.blog-page #page-container button.small-generic:hover {
   font-weight: 300;
   font-size: 20px;
 }
-/* line 21, sass/packages/github/_pages.scss */
+/* line 14, sass/packages/github/_pages.scss */
 #github-package header .user-search .user {
   vertical-align: middle;
 }
-/* line 24, sass/packages/github/_pages.scss */
+/* line 17, sass/packages/github/_pages.scss */
 #github-package header .user-search .github-avatar {
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
@@ -1119,22 +1116,31 @@ body.blog-page #page-container button.small-generic:hover {
   display: inline;
   vertical-align: middle;
 }
-/* line 39, sass/packages/github/_pages.scss */
+/* line 30, sass/packages/github/_pages.scss */
+#github-package #github-section-content h3 {
+  margin-bottom: 20px;
+}
+/* line 33, sass/packages/github/_pages.scss */
+#github-package #github-section-content p.intro {
+  margin-bottom: 20px;
+  width: 660px;
+}
+/* line 42, sass/packages/github/_pages.scss */
 #github-package #signin-page #github-select-user {
   position: relative;
 }
-/* line 41, sass/packages/github/_pages.scss */
+/* line 44, sass/packages/github/_pages.scss */
 #github-package #signin-page #github-select-user .dropdown-list {
   position: absolute;
   top: 40px;
   left: 0;
   right: 0;
 }
-/* line 53, sass/packages/github/_pages.scss */
+/* line 56, sass/packages/github/_pages.scss */
 #github-package #repositories-page #github-repositories-list {
   margin-top: 20px;
 }
-/* line 55, sass/packages/github/_pages.scss */
+/* line 58, sass/packages/github/_pages.scss */
 #github-package #repositories-page #github-repositories-list li {
   -webkit-transition: border-color 0.1s linear;
   -moz-transition: border-color 0.1s linear;
@@ -1150,48 +1156,48 @@ body.blog-page #page-container button.small-generic:hover {
   width: 330px;
   height: 128px;
 }
-/* line 65, sass/packages/github/_pages.scss */
+/* line 68, sass/packages/github/_pages.scss */
 #github-package #repositories-page #github-repositories-list li h4 {
   margin-top: 20px;
 }
-/* line 68, sass/packages/github/_pages.scss */
+/* line 71, sass/packages/github/_pages.scss */
 #github-package #repositories-page #github-repositories-list li h4, #github-package #repositories-page #github-repositories-list li .stargazers {
   font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #444444;
   font-size: 20px;
 }
-/* line 73, sass/packages/github/_pages.scss */
+/* line 76, sass/packages/github/_pages.scss */
 #github-package #repositories-page #github-repositories-list li p {
   margin-top: 10px;
   font-size: 14px;
 }
-/* line 77, sass/packages/github/_pages.scss */
+/* line 80, sass/packages/github/_pages.scss */
 #github-package #repositories-page #github-repositories-list li h4, #github-package #repositories-page #github-repositories-list li p {
   margin-left: 20px;
   margin-right: 20px;
 }
-/* line 81, sass/packages/github/_pages.scss */
+/* line 84, sass/packages/github/_pages.scss */
 #github-package #repositories-page #github-repositories-list li .description {
   overflow: hidden;
   height: 32px;
 }
-/* line 85, sass/packages/github/_pages.scss */
+/* line 88, sass/packages/github/_pages.scss */
 #github-package #repositories-page #github-repositories-list li .last-updated {
   color: #d6d6d6;
   font-size: 12px;
 }
-/* line 89, sass/packages/github/_pages.scss */
+/* line 92, sass/packages/github/_pages.scss */
 #github-package #repositories-page #github-repositories-list li .stargazers {
   position: absolute;
   display: inline-flex;
   top: 17px;
   right: 20px;
 }
-/* line 94, sass/packages/github/_pages.scss */
+/* line 97, sass/packages/github/_pages.scss */
 #github-package #repositories-page #github-repositories-list li .stargazers .stargazer-count {
   margin-top: 4px;
 }
-/* line 97, sass/packages/github/_pages.scss */
+/* line 100, sass/packages/github/_pages.scss */
 #github-package #repositories-page #github-repositories-list li .stargazers .stargazer-icon {
   background: url("/img/icons/stargazer-icon.png") no-repeat 0 0;
   display: inline-block;
@@ -1199,23 +1205,23 @@ body.blog-page #page-container button.small-generic:hover {
   height: 22px;
   margin-left: 8px;
 }
-/* line 104, sass/packages/github/_pages.scss */
+/* line 107, sass/packages/github/_pages.scss */
 #github-package #repositories-page #github-repositories-list li .stargazers .stargazer-icon.starred {
   background-position: 0 -22px;
 }
-/* line 109, sass/packages/github/_pages.scss */
+/* line 112, sass/packages/github/_pages.scss */
 #github-package #repositories-page #github-repositories-list li:nth-child(3) {
   margin-right: 0;
 }
-/* line 112, sass/packages/github/_pages.scss */
+/* line 115, sass/packages/github/_pages.scss */
 #github-package #repositories-page #github-repositories-list li:hover {
   border-top: 5px solid #b2d233;
 }
-/* line 114, sass/packages/github/_pages.scss */
+/* line 117, sass/packages/github/_pages.scss */
 #github-package #repositories-page #github-repositories-list li:hover .stargazer-icon {
   background-position: -23px 0;
 }
-/* line 117, sass/packages/github/_pages.scss */
+/* line 120, sass/packages/github/_pages.scss */
 #github-package #repositories-page #github-repositories-list li:hover .stargazer-icon.starred {
   background-position: -23px -22px;
 }

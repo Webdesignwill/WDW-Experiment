@@ -1,11 +1,10 @@
 
 define([
-  'Backbone',
   'webdesignwill',
   'PageModel'
 ],
 
-function (Backbone, webdesignwill, PageModel) {
+function (webdesignwill, PageModel) {
 
   "use strict";
 

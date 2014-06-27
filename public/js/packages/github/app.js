@@ -19,26 +19,14 @@ define([
       self.$sectionContent = self.$el.find('#github-section-content');
     }
 
-    this.navigate = function (pageName) {
-      var pageModel = this.sitemap.get(pageName),
-            templatePath = '/js/packages/github/templates/';
-
-      this.require([pageModel.get('page')], function (Page) {
-        self.pageFactory.make(templatePath, self.$sectionContent, pageModel, Page, null);
-      });
-
-    };
-
     this.init = function (done) {
-
-      renderBody();
-
       /* Create the sitemap and page models and start the package
       ===================================== */
       this.sitemap = new Sitemap();
       this.sitemap.fetch({
         success : function (model, response, options) {
-          self.navigate('signin-page');
+          renderBody();
+          self.router.navigate('signin-page');
           done();
         }
       });
@@ -47,7 +35,7 @@ define([
     this.continue = function (done) {
       renderBody();
       /* on continue, go to the last page the user was on */
-      self.navigate(this.page.get('model').get('map'));
+      self.router.navigate(this.page.get('model').get('map'));
       done();
     };
   };

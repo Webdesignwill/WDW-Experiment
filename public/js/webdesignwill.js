@@ -1,8 +1,7 @@
 
 define([
-  'UserModel',
-  'PageFactory'
-], function (UserModel, PageFactory) {
+  'UserModel'
+], function (UserModel) {
 
   "use strict";
 
@@ -16,14 +15,13 @@ define([
       var self = this;
       this.sitemap.fetch({
         success : function (model, response, options) {
-          self.router.init();
+          self.router.init(self);
           callback();
         }
       });
     },
 
     start : function () {
-      this.pageFactory = new PageFactory(this);
       this.$broker.trigger('site:started');
       console.log('%c Webdesignwill has started ', 'background: #444f64; color: #FFFFFF');
     }

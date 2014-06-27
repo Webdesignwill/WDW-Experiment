@@ -9,6 +9,7 @@ define(function (require, exports, module) {
         handlebars                                : '../../libs/handlebars/handlebars',
 
         app                                           : 'app',
+        router                                        : 'router',
         PostsPage                                  : 'pages/posts/PostsPage',
 
         // models
@@ -22,6 +23,7 @@ define(function (require, exports, module) {
 
         // views
         BodyView                                   : 'views/BodyView',
+        HeaderView                               : 'views/header/HeaderView',
         RepositoryItemView                   : 'views/repositories/RepositoryItemView',
         SelectUserFormView                  : 'views/selectUser/SelectUserFormView',
         SelectUserListView                      : 'views/selectUser/SelectUserListView',
@@ -31,6 +33,10 @@ define(function (require, exports, module) {
         'handlebars': {
           exports: 'Handlebars'
         }
+      },
+      deps : ['app', 'router'],
+      callback : function (app, router) {
+
       }
     };
   };

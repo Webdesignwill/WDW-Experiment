@@ -1,10 +1,7 @@
-#github-page {
-
-}
 
 body.github-page {
   background-color: $racingGreen;
-  a:hover {
+  a:hover, #page-container a:hover {
     color:$vomit;
   }
   .menu-icon {

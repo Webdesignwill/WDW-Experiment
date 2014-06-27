@@ -26,7 +26,7 @@ define([
 
     success : function (collection, response, options) {
       userModel.saveSearchHistory(options.search);
-      app.navigate('repositories-page');
+      app.router.navigate('repositories-page');
     },
 
     error : function () {},

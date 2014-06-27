@@ -3,22 +3,28 @@
 ========================================= */
 
 define([
-  '$topics',
   'webdesignwill',
   'HeaderView',
   'PageControlsView',
   'FooterView',
-  'SiteContentHeaderView'
-], function ($topics, webdesignwill, HeaderView, PageControlsView, FooterView, SiteContentHeaderView) {
+  'SiteContentHeaderView',
+  'text!templates/body.tpl'
+], function (webdesignwill, HeaderView, PageControlsView, FooterView, SiteContentHeaderView, template) {
 
   "use strict";
 
   var BodyView = Backbone.View.extend({
 
     initialize : function () {
+      this.render();
       this.setElements();
       this.setSubscriptions();
       this.renderPageComponents();
+    },
+
+    render : function () {
+      this.$el.prepend(template);
+      return this;
     },
 
     setElements : function () {
@@ -57,11 +63,6 @@ define([
         el : this.$siteFooter
       });
 
-      return this;
-    },
-
-    render : function () {
-      // aaawwww yiiiiiiiiiiiiiisssssssss
       return this;
     },
 

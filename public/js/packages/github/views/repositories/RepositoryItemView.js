@@ -30,7 +30,7 @@ define([
     },
 
     success : function (collection, response, options) {
-      app.navigate('repository-page');
+      app.router.navigate('repository-page');
     },
 
     error : function () {
