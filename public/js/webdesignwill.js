@@ -1,7 +1,8 @@
 
 define([
+  'require',
   'UserModel'
-], function (UserModel) {
+], function (require, UserModel) {
 
   "use strict";
 
@@ -13,15 +14,24 @@ define([
 
     init : function (callback) {
       var self = this;
-      this.sitemap.fetch({
-        success : function (model, response, options) {
-          self.router.init(self);
-          callback();
-        }
+
+      function fetchSitemap () {
+        self.sitemap.fetch({
+          success : function (model, response, options) {
+            callback();
+          }
+        });
+      }
+
+      require(['Sitemap'], function (Sitemap) {
+        self.sitemap = new Sitemap();
+        fetchSitemap();
       });
+
     },
 
     start : function () {
+      this.router.init(this);
       this.$broker.trigger('site:started');
       console.log('%c Webdesignwill has started ', 'background: #444f64; color: #FFFFFF');
     }

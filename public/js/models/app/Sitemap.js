@@ -1,10 +1,9 @@
 
 define([
-  'webdesignwill',
   'PageModel'
 ],
 
-function (webdesignwill, PageModel) {
+function (PageModel) {
 
   "use strict";
 
@@ -81,6 +80,6 @@ function (webdesignwill, PageModel) {
 
   });
 
-  webdesignwill.sitemap = new Sitemap();
+  return Sitemap;
 
 });

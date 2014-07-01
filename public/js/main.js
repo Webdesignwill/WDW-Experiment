@@ -71,7 +71,7 @@ var base_require = require.config({
       exports: 'Handlebars'
     }
   },
-  deps : ['jquery', 'webdesignwill', 'domReady', 'BodyView', 'Sitemap', 'router', 'page', 'PackageManager'],
+  deps : ['jquery', 'webdesignwill', 'domReady', 'BodyView', 'router', 'page', 'PackageManager'],
   callback : function ($, webdesignwill, domReady, BodyView) {
     domReady(function() {
       /* This is async as it's waiting for the sitemap to be fetched */
