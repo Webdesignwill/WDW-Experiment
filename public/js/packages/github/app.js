@@ -1,8 +1,7 @@
 
 define([
-  'Sitemap',
-  'BodyView'
-], function (Sitemap, BodyView) {
+  'require'
+], function (require) {
 
   "use strict";
 
@@ -10,31 +9,41 @@ define([
 
     var self = this;
 
-    /* Create the wrapper body view and save where we want to append the content
-    ================================================= */
-    function renderBody () {
-      new BodyView({
-        el : self.$el
+    this.dependencies = [{
+      method : function ($dfd, context) {
+        require(['Sitemap'], function (Sitemap) {
+          context.sitemap = new Sitemap();
+          context.sitemap.fetch({
+            success : function (model, response, options) {
+              $dfd.resolve();
+            }
+          });
+        });
+      }
+    },{
+      method : loadBody
+    },{
+      method : function ($dfd, context) {
+        /* First time initialize, navigate to first page
+        ================== */
+        context.router.navigate('signin-page');
+      }
+    }];
+
+    function loadBody ($dfd, context) {
+      require(['BodyView'], function (BodyView) {
+
+        /* Load and set the body wrapper view
+        ======================= */
+        new BodyView({el : context.$el});
+        context.$sectionContent = context.$el.find('#github-section-content');
+        if($dfd) $dfd.resolve();
       });
-      self.$sectionContent = self.$el.find('#github-section-content');
     }
 
-    this.init = function (done) {
-      /* Create the sitemap and page models and start the package
-      ===================================== */
-      this.sitemap = new Sitemap();
-      this.sitemap.fetch({
-        success : function (model, response, options) {
-          renderBody();
-          self.router.navigate('signin-page');
-          done();
-        }
-      });
-    };
-
     this.continue = function (done) {
-      renderBody();
       /* on continue, go to the last page the user was on */
+      loadBody(null, this);
       self.router.navigate(this.page.get('model').get('map'));
       done();
     };

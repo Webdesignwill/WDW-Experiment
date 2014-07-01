@@ -5,7 +5,13 @@ define([], function () {
 
   var App = function () {
 
-    this.init = function (done) {
+    this.dependencies = [{
+      method : function ($dfd) {
+        $dfd.resolve();
+      }
+    }];
+
+    this.launch = function (done) {
       done();
     };
     this.continue = function (done) {

@@ -1,8 +1,9 @@
 
 define([
+  'Backbone',
   'require',
-  'UserModel'
-], function (require, UserModel) {
+  'launchControl'
+], function (Backbone, require, launchControl) {
 
   "use strict";
 
@@ -10,30 +11,47 @@ define([
 
     page : new Backbone.Model(),
     $broker : _.clone(Backbone.Events),
-    user : new UserModel(),
 
-    init : function (callback) {
-      var self = this;
-
-      function fetchSitemap () {
-        self.sitemap.fetch({
-          success : function (model, response, options) {
-            callback();
-          }
+    dependencies : [{
+      method : function ($dfd, context) {
+        require(['UserModel'], function (UserModel) {
+          context.user = new UserModel();
+          $dfd.resolve();
         });
       }
+    },{
+      method : function ($dfd, context) {
+        require(['Sitemap'], function (Sitemap) {
+          context.sitemap = new Sitemap();
+          context.sitemap.fetch({
+            success : function (model, response, options) {
+              $dfd.resolve();
+            }
+          });
+        });
+      }
+    },{
+      method : function ($dfd, context) {
+        require(['BodyView'], function (BodyView) {
+          new BodyView({el : $('body')});
+          $dfd.resolve();
+        });
+      }
+    }],
 
-      require(['Sitemap'], function (Sitemap) {
-        self.sitemap = new Sitemap();
-        fetchSitemap();
+    init : function () {
+
+      var self = this;
+
+      launchControl.call(this, {
+        context : this,
+        initMethods : this.dependencies,
+        launch : function () {
+          self.router.init(self);
+          self.$broker.trigger('site:started');
+          console.log('%c Webdesignwill has started ', 'background: #444f64; color: #FFFFFF');
+        }
       });
-
-    },
-
-    start : function () {
-      this.router.init(this);
-      this.$broker.trigger('site:started');
-      console.log('%c Webdesignwill has started ', 'background: #444f64; color: #FFFFFF');
     }
 
   });

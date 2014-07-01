@@ -9,8 +9,9 @@
 
 define([
   'webdesignwill',
-  'PageFactory'
-], function (webdesignwill, PageFactory) {
+  'PageFactory',
+  'launchControl'
+], function (webdesignwill, PageFactory, launchControl) {
 
   "use strict";
 
@@ -37,24 +38,25 @@ define([
 
       function initPackage () {
 
-        /* Callback, proxy function for when package is initialised
-        ==================================== */
-        function done () {
-          console.log('%c Package ' + packageName + ' has started ', 'background: #444f64; color: #FFFFFF');
-          next();
-        }
-
         /* Require the app mediator and attach it to the packages object
-            for future use. Invoke the mediator now.
+            for future use. Invoke the mediator after by calling each init method in turn
+            with the launchControl.
         ======================================== */
         packages[packageName].req(['app'], function (app) {
-          var p = packages[packageName];
-          p.app = app;
-          p.app.require = p.req;
-          p.app.pageFactory = new PageFactory(p.app);
-          p.app.$el = attachPackageElement();
-          p.app.page = new Backbone.Model();
-          p.app.init(done);
+          app.pageFactory = new PageFactory(app);
+          app.$el = attachPackageElement();
+          app.page = new Backbone.Model();
+
+          packages[packageName].app = app;
+
+          launchControl.call(app, {
+            context : app,
+            initMethods : app.dependencies,
+            launch : function () {
+              console.log('%c Package ' + packageName + ' has started ', 'background: #444f64; color: #FFFFFF');
+              next();
+            }
+          });
         });
       }
 

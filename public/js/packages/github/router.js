@@ -1,9 +1,10 @@
 
 define([
+  'require',
   'app'
 ],
 
-function (app) {
+function (require, app) {
 
   "use strict";
 
@@ -12,7 +13,7 @@ function (app) {
       var pageModel = app.sitemap.get(pageName),
             templatePath = '/js/packages/github/templates/';
 
-      app.require([pageModel.get('page')], function (Page) {
+      require([pageModel.get('page')], function (Page) {
         app.pageFactory.make(templatePath, app.$sectionContent, pageModel, Page, null);
       });
     };

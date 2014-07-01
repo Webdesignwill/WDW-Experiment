@@ -26,6 +26,7 @@ var base_require = require.config({
 
     // Utilities
     $topics                                  : 'utilities/topics',
+    launchControl                       : 'utilities/launchControl',
 
     // Extensions
     page                                      : 'extensions/page',
@@ -71,14 +72,10 @@ var base_require = require.config({
       exports: 'Handlebars'
     }
   },
-  deps : ['jquery', 'webdesignwill', 'domReady', 'BodyView', 'router', 'page', 'PackageManager'],
-  callback : function ($, webdesignwill, domReady, BodyView) {
+  deps : ['jquery', 'webdesignwill', 'domReady', 'router', 'page', 'PackageManager'],
+  callback : function ($, webdesignwill, domReady) {
     domReady(function() {
-      /* This is async as it's waiting for the sitemap to be fetched */
-      webdesignwill.init(function () {
-        new BodyView({el : $('body')});
-        webdesignwill.start();
-      });
+      webdesignwill.init();
     });
   }
 });
