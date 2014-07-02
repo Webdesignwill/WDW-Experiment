@@ -31,7 +31,7 @@ define([], function () {
         var $dfd = new $.Deferred();
 
         if(typeof page.before === 'function') {
-          $.when($dfd.promise(page.before($dfd))).then(function () {
+          $.when($dfd.promise(page.before($container, $dfd))).then(function () {
             done();
           });
         } else {
@@ -62,8 +62,9 @@ define([], function () {
             identifier : identifier || null
           });
 
+          $container.html(page.render().el);
+
           openNextPage($container, page, function () {
-            $container.html(page.render().el);
             module.page.set({
               page : page,
               model : pageModel

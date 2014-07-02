@@ -18,6 +18,7 @@ var base_require = require.config({
   paths : {
 
     jquery                                  : 'libs/jquery/jquery-min',
+    velocity                                : 'libs/jquery/velocity-min',
     Backbone                             : 'libs/backbone/backbone-min',
     underscore                           : 'libs/underscore/underscore-min',
     handlebars                           : 'libs/handlebars/handlebars',
@@ -68,12 +69,15 @@ var base_require = require.config({
       deps : ['jquery', 'underscore', 'handlebars'],
       exports : "Backbone"
     },
-    'handlebars': {
+    'handlebars' : {
       exports: 'Handlebars'
+    },
+    'velocity' : {
+      deps : ['jquery']
     }
   },
-  deps : ['jquery', 'webdesignwill', 'domReady', 'router', 'page', 'PackageManager'],
-  callback : function ($, webdesignwill, domReady) {
+  deps : ['jquery', 'velocity', 'webdesignwill', 'domReady', 'router', 'page', 'PackageManager'],
+  callback : function ($, velocity, webdesignwill, domReady) {
     domReady(function() {
       webdesignwill.init();
     });
