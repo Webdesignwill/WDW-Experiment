@@ -12,8 +12,35 @@ define([], function () {
 
     var PageFactory = function (module) {
 
-      /* Close down the previous view
-      ==================== */
+      function closeCurrentPage (done) {
+        var $dfd = new $.Deferred(),
+              page = module.page.get('page');
+
+        if(page && typeof page.after === 'function') {
+          $.when($dfd.promise(page.after($dfd))).then(function () {
+            tearDown();
+            done();
+          });
+        } else {
+          done();
+        }
+      }
+
+      function openNextPage ($container, page, done) {
+
+        var $dfd = new $.Deferred();
+
+        if(typeof page.before === 'function') {
+          $.when($dfd.promise(page.before($dfd))).then(function () {
+            done();
+          });
+        } else {
+          done();
+        }
+      }
+
+      /* Close down the previous view associated with the module that contains it ie Github etc
+      ======================================================= */
       function tearDown () {
         var trash = module.page.get('page');
         if(trash) {
@@ -35,16 +62,19 @@ define([], function () {
             identifier : identifier || null
           });
 
-          $container.html(page.render().el);
-
-          module.page.set({
-            page : page,
-            model : pageModel
+          openNextPage($container, page, function () {
+            $container.html(page.render().el);
+            module.page.set({
+              page : page,
+              model : pageModel
+            });
           });
         }
 
-        tearDown();
-        $.get(templatePath + '/' + pageModel.get('name') + '.tpl', produce);
+        closeCurrentPage(function () {
+          $.get(templatePath + '/' + pageModel.get('name') + '.tpl', produce);
+        });
+
       };
 
     };

@@ -27,6 +27,7 @@ define([
         /* First time initialize, navigate to first page
         ================== */
         context.router.navigate('signin-page');
+        $dfd.resolve();
       }
     }];
 
