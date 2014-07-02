@@ -32,6 +32,7 @@ define([
       this.$siteFooter = this.$el.find('#site-footer-inner');
       this.$pageControls = this.$el.find('#page-controls');
       this.$siteContentHeader = this.$el.find('#site-content-header');
+      this.$siteContentBody = this.$el.find('#site-content-body');
     },
 
     setSubscriptions : function () {

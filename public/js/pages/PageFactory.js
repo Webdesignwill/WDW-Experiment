@@ -16,9 +16,8 @@ define([], function () {
         var $dfd = new $.Deferred(),
               page = module.page.get('page');
 
-        if(page && typeof page.after === 'function') {
-          $.when($dfd.promise(page.after($dfd))).then(function () {
-            tearDown();
+        if(page && typeof page.close === 'function') {
+          $.when($dfd.promise(page.close($dfd))).then(function () {
             done();
           });
         } else {
@@ -36,15 +35,6 @@ define([], function () {
           });
         } else {
           done();
-        }
-      }
-
-      /* Close down the previous view associated with the module that contains it ie Github etc
-      ======================================================= */
-      function tearDown () {
-        var trash = module.page.get('page');
-        if(trash) {
-          trash.close();
         }
       }
 

@@ -13,7 +13,8 @@ define([
 
     opacity : function (opacity, callback) {
       this.$el.velocity({
-        opacity : opacity
+        opacity : opacity,
+        mobileHA: true
       }, 420, callback);
     },
 
@@ -24,14 +25,12 @@ define([
       });
     },
 
-    after : function ($dfd) {
+    close : function ($dfd) {
+      var self = this;
       this.opacity(0, function () {
+        self.$el.off().remove();
         $dfd.resolve();
       });
-    },
-
-    close : function () {
-      this.$el.off().remove();
     }
 
   });
