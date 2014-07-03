@@ -2,7 +2,7 @@
 /* This is the messenger system that the app uses to communicate between modules
   =================================================== */
 
-define([], function () {
+define(function () {
 
   "use strict";
 
@@ -11,7 +11,13 @@ define([], function () {
     return {
       publish : $callbacks.fire,
       unsubscribe : $callbacks.remove,
-      setSubscriptions : function (options) {
+      setSubscriptions : function (options, context) {
+
+        if(!context) {
+          console.log('%c You need to pass a context for ' + options.channel + ' ', 'background: #FF0000; color: #FFFFFF');
+          return;
+        }
+
         $callbacks.add(function (event, props, callback) {
 
           var components = event.split(':'),
@@ -21,11 +27,11 @@ define([], function () {
           props = props === undefined ? {} : props;
           callback = callback === undefined ? function () {} : callback;
 
-          if(moduleName === options.name) {
+          if(moduleName === options.channel) {
             if (typeof options.events[eventName] === 'function') {
-              options.events[eventName](props);
+              options.events[eventName].call(context, props);
             } else {
-              console.log('%c There is no ' + options.name + ' event ' + eventName + ' ', 'background: #FF0000; color: #FFFFFF');
+              console.log('%c There is no ' + options.channel + ' event ' + eventName + ' ', 'background: #FF0000; color: #FFFFFF');
             }
           }
           callback();

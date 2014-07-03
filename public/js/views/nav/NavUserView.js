@@ -11,10 +11,6 @@ function (handlebars, webdesignwill, template) {
 
   var NavUserView = Backbone.View.extend({
 
-    events : {
-      'click' : 'handler'
-    },
-
     initialize : function () {
       this.render();
       this.setEvents();
@@ -24,12 +20,6 @@ function (handlebars, webdesignwill, template) {
       this.listenTo(webdesignwill.user, 'change', function () {
         this.render();
       });
-    },
-
-    handler : function (e) {
-      e.stopPropagation();
-      e.preventDefault();
-      webdesignwill.user.set('loggedin', true);
     },
 
     render : function () {

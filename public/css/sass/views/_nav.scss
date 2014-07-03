@@ -11,6 +11,16 @@
       margin-left:8px;
     }
   }
+  .nav-user {
+    float:right;
+    font-family:$Oswald;
+    color:$beige;
+    font-size:18px;
+    font-weight: 300;
+    a {
+      float:none;
+    }
+  }
   ul.nav {
     float:left;
     li {

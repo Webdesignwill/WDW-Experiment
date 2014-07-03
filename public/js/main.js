@@ -17,51 +17,56 @@ var base_require = require.config({
 
   paths : {
 
-    jquery                                  : 'libs/jquery/jquery-min',
-    velocity                                : 'libs/jquery/velocity-min',
-    Backbone                             : 'libs/backbone/backbone-min',
-    underscore                           : 'libs/underscore/underscore-min',
-    handlebars                           : 'libs/handlebars/handlebars',
-    text                                      : 'libs/require/text-min',
-    domReady                            : 'libs/require/domReady',
+    jquery                                       : 'libs/jquery/jquery-min',
+    velocity                                     : 'libs/jquery/velocity-min',
+    Backbone                                  : 'libs/backbone/backbone-min',
+    underscore                                : 'libs/underscore/underscore-min',
+    handlebars                                : 'libs/handlebars/handlebars',
+    text                                           : 'libs/require/text-min',
+    domReady                                 : 'libs/require/domReady',
 
     // Utilities
-    $topics                                  : 'utilities/topics',
-    launchControl                       : 'utilities/launchControl',
+    $topics                                       : 'utilities/topics',
+    launchControl                            : 'utilities/launchControl',
 
     // Extensions
-    page                                      : 'extensions/page',
+    page                                           : 'extensions/page',
 
     // Managers
-    PackageManager                    : 'packages/PackageManager',
-    PageFactory                           : 'pages/PageFactory',
-    router                                     : 'router',
+    PackageManager                         : 'packages/PackageManager',
+    PageFactory                                : 'pages/PageFactory',
+    router                                          : 'router',
 
     // Application Models
-    webdesignwill                       : 'webdesignwill',
-    Sitemap                                 : 'models/app/Sitemap',
-    PageModel                            : 'models/page/PageModel',
-    UserModel                            : 'models/user/UserModel',
+    webdesignwill                            : 'webdesignwill',
+    Sitemap                                      : 'models/app/Sitemap',
+    PageModel                                 : 'models/page/PageModel',
+    UserModel                                 : 'models/user/UserModel',
 
     // Admin Views
-    AdminBarView                       : 'admin/views/adminBar/AdminBarView',
+    AdminBarView                            : 'admin/views/adminBar/AdminBarView',
 
     // Theme Views
-    BodyView                               : 'views/BodyView',
-    FooterView                            : 'views/footer/FooterView',
-    FooterSocialView                   : 'views/footer/FooterSocialView',
-    FooterNewsView                    : 'views/footer/FooterNewsView',
-    FooterNewsItemView             : 'views/footer/FooterNewsItemView',
-    FooterContactView                : 'views/footer/FooterContactView',
-    HeaderView                           : 'views/header/HeaderView',
-    SiteContentHeaderView         : 'views/siteContentHeader/SiteContentHeaderView',
-    NavView                                : 'views/nav/NavView',
-    NavUserView                         : 'views/nav/NavUserView',
-    NavSubView                          : 'views/nav/NavSubView',
-    PageControlsView                 : 'views/pageControls/PageControlsView',
+    BodyView                                    : 'views/BodyView',
+    ModalView                                  : 'views/modal/ModalView',
+    FooterView                                 : 'views/footer/FooterView',
+    FooterSocialView                        : 'views/footer/FooterSocialView',
+    FooterNewsView                         : 'views/footer/FooterNewsView',
+    FooterNewsItemView                  : 'views/footer/FooterNewsItemView',
+    FooterContactView                     : 'views/footer/FooterContactView',
+    HeaderView                                : 'views/header/HeaderView',
+    SiteContentHeaderView              : 'views/siteContentHeader/SiteContentHeaderView',
+    NavView                                     : 'views/nav/NavView',
+    NavUserView                              : 'views/nav/NavUserView',
+    NavSubView                               : 'views/nav/NavSubView',
+    PageControlsView                      : 'views/pageControls/PageControlsView',
 
     // Pages
-    DefaultPage                            : 'pages/default/DefaultPage'
+    DefaultPage                               : 'pages/default/DefaultPage',
+
+    // Auth views
+    login                                          : 'views/auth/LoginView',
+    register                                      : 'views/auth/RegisterView'
 
   },
   shim : {

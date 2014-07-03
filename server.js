@@ -3,7 +3,7 @@ var express = require('express'),
       app = express(),
       bodyParser = require('body-parser'),
       cookieParser = require('cookie-parser'),
-      expressSession = require('express-session'),
+      session = require('express-session'),
       debug = require('debug')('webdesignwill'),
       mongoose = require('mongoose'),
       passport = require('passport'),
@@ -13,15 +13,19 @@ var express = require('express'),
 
 // App config
 app.use(morgan('dev'))
+      .use(cookieParser())
       .use(bodyParser())
       .use(express.static(__dirname + '/public'))
       .use(cookieParser());
 
 // Port vars
-app.set('port', 5000);
+app.set('port', 5000)
+      .set('view engine', 'ejs'); // set up ejs for templating
+
+// require('./config/passport')(passport); // pass passport for configuration
 
 // Passport
-app.use(expressSession({ secret: 'webdesignwillisthebestsiteintheworldyeah' }))
+app.use(session({ secret: 'webdesignwillisthebestsiteintheworldyeah' }))
       .use(passport.initialize())
       .use(passport.session())
       .use(flash());

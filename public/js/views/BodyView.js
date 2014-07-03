@@ -8,18 +8,56 @@ define([
   'PageControlsView',
   'FooterView',
   'SiteContentHeaderView',
+  'ModalView',
+  '$topics',
   'text!templates/body.tpl'
-], function (webdesignwill, HeaderView, PageControlsView, FooterView, SiteContentHeaderView, template) {
+], function (webdesignwill, HeaderView, PageControlsView, FooterView, SiteContentHeaderView, ModalView, $topics, template) {
 
   "use strict";
 
   var BodyView = Backbone.View.extend({
+
+    modal : {
+      open : function () {
+        this.$el.addClass('modal-open');
+      },
+      close : function () {
+        this.$el.removeClass('modal-open');
+      }
+    },
 
     initialize : function () {
       this.render();
       this.setElements();
       this.setSubscriptions();
       this.renderPageComponents();
+      this.delegateAnchorClickEvent();
+    },
+
+    delegateAnchorClickEvent : function () {
+      var self = this;
+      if (Backbone.history) { // Could also work with pushstates (&& Backbone.history._hasPushState)
+        $(document).delegate("a:not(.anchor)", "click", function (evt) {
+          var href = $(this).attr("href");
+          var protocol = this.protocol + "//";
+          if (href.slice(0, protocol.length) !== protocol) {
+            evt.preventDefault();
+            self.hrefController(href);
+          }
+        });
+      }
+    },
+
+    hrefController : function (href) {
+      var argsArray = href.split(':'),
+            module = argsArray[0],
+            event = argsArray[1],
+            argument = argsArray[2] || null;
+
+      /* Pass the module and event name straight to topics */
+      if(module && event) {
+        $topics.publish(module + ':' + event, argument);
+      }
     },
 
     render : function () {
@@ -33,9 +71,15 @@ define([
       this.$pageControls = this.$el.find('#page-controls');
       this.$siteContentHeader = this.$el.find('#site-content-header');
       this.$siteContentBody = this.$el.find('#site-content-body');
+      this.$siteModalWindow = this.$el.find('#site-modal-window');
     },
 
     setSubscriptions : function () {
+
+      $topics.setSubscriptions({
+        channel : 'modal',
+        events : this.modal
+      }, this);
 
       webdesignwill.$broker.on('site:started', function () {
         this.$el.removeClass('active-loader');
@@ -47,6 +91,10 @@ define([
     },
 
     renderPageComponents : function () {
+
+      new ModalView({
+        el : this.$siteModalWindow
+      });
 
       new HeaderView({
         el : this.$siteHeader

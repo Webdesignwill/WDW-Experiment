@@ -8,3 +8,5 @@
   <span class="thankyou"></span>
   <div id="site-footer-inner" class="site-footer-inner"></div>
 </footer>
+<div id="site-modal-window" class="site-modal-window"></div>
+<div class="modal-overlay"></div>

@@ -1,8 +1,47 @@
 
 var Pages = require('../app/models/page');
 
+/* Check if the user is logged in. If they are, then hit next otherwise send error
+================================================== */
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated()) return next();
+  res.json({error : "You don't have permission to view this page"});
+}
+
 module.exports = function (app, passport) {
 
+  /* Authentication routes
+  ================================================= */
+
+  /* Login */
+  app.get('/auth/login', function(req, res) {
+    res.render('login.ejs', { message: req.flash('loginMessage') });
+  });
+
+  /* Signup */
+  app.get('/auth/signup', function(req, res) {
+    res.render('signup.ejs', { message: req.flash('signupMessage') });
+  });
+
+  /* Logout */
+  app.get('/auth/logout', function(req, res) {
+    req.logout();
+    res.json({success : "User logged out"});
+  });
+
+  /* User profile pages and settings
+  ================================================= */
+
+  app.get('/user/profile', isLoggedIn, function(req, res) {
+    res.render('profile.ejs', {
+      user : req.user // get the user out of session and pass to template
+    });
+  });
+
+  /* Page CRUD actions
+  ================================================= */
+
+  /* Create a new page */
   app.post('/api/page/create', function (req, res) {
     var page = new Pages();
 
@@ -16,6 +55,7 @@ module.exports = function (app, passport) {
     });
   });
 
+  /* List all pages */
   app.get('/api/page/list', function (req, res) {
     Pages.find(null, null, {sort : {'order' : 1}}, function(err, pages) {
       if (err) res.send(err);
@@ -23,6 +63,7 @@ module.exports = function (app, passport) {
     });
   });
 
+  /* Get specific page by ID */
   app.get('/api/page/get/:page_id', function (req, res) {
     Pages.findById(req.params.page_id, function (err, page) {
       if (err) res.send(err);
@@ -30,6 +71,7 @@ module.exports = function (app, passport) {
     });
   });
 
+  /* Update a page by ID */
   app.put('/api/page/put/:page_id', function (req, res) {
     Pages.findById(req.params.page_id, function (err, page) {
       if (err) res.send(err);
@@ -45,6 +87,7 @@ module.exports = function (app, passport) {
     });
   });
 
+  /* Delete a page by ID */
   app.delete('/api/page/delete/:page_id', function (req, res) {
     Pages.findByIdAndRemove(req.params.page_id, function (err) {
       if (err) res.send(err);
