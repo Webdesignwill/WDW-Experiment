@@ -37,6 +37,6 @@ function (webdesignwill, PageFactory) {
 
   });
 
-  webdesignwill.router = new Router();
+  return Router;
 
 });

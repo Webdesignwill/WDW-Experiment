@@ -35,13 +35,13 @@ var base_require = require.config({
     // Managers
     PackageManager                         : 'packages/PackageManager',
     PageFactory                                : 'pages/PageFactory',
-    router                                          : 'router',
+    Router                                          : 'Router',
 
     // Application Models
     webdesignwill                            : 'webdesignwill',
     Sitemap                                      : 'models/app/Sitemap',
-    PageModel                                 : 'models/page/PageModel',
-    UserModel                                 : 'models/user/UserModel',
+    PageModel                                  : 'models/page/PageModel',
+    UserModel                                  : 'models/user/UserModel',
 
     // Admin Views
     AdminBarView                            : 'admin/views/adminBar/AdminBarView',
@@ -81,7 +81,7 @@ var base_require = require.config({
       deps : ['jquery']
     }
   },
-  deps : ['jquery', 'velocity', 'webdesignwill', 'domReady', 'router', 'page', 'PackageManager'],
+  deps : ['jquery', 'velocity', 'webdesignwill', 'domReady', 'page', 'PackageManager'],
   callback : function ($, velocity, webdesignwill, domReady) {
     domReady(function() {
       webdesignwill.init();

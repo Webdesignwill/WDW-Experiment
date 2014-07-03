@@ -37,6 +37,14 @@ define([
           $dfd.resolve();
         });
       }
+    },{
+      method : function ($dfd, context) {
+        require(['Router'], function (Router) {
+          context.router = new Router();
+          context.router.init(context);
+          $dfd.resolve();
+        });
+      }
     }],
 
     init : function () {
@@ -47,7 +55,6 @@ define([
         context : this,
         initMethods : this.dependencies,
         launch : function () {
-          self.router.init(self);
           self.$broker.trigger('site:started');
           console.log('%c Webdesignwill has started ', 'background: #444f64; color: #FFFFFF');
         }
