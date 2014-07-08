@@ -42,6 +42,8 @@ var base_require = require.config({
     Sitemap                                      : 'models/app/Sitemap',
     PageModel                                  : 'models/page/PageModel',
     UserModel                                  : 'models/user/UserModel',
+    LoginModel                                : 'models/auth/LoginModel',
+    RegisterModel                            : 'models/auth/RegisterModel',
 
     // Admin Views
     AdminBarView                            : 'admin/views/adminBar/AdminBarView',

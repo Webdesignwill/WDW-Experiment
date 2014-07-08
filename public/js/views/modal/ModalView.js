@@ -11,10 +11,8 @@ define([
       open : function (pageName) {
         var self = this;
         require([pageName], function (Page) {
-          var page = new Page({
-            el : self.$modalContent
-          });
-          page.render();
+          var page = new Page();
+          self.$modalContent.html(page.render().el);
         });
       },
       close : function () {

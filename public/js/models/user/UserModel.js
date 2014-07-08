@@ -9,9 +9,9 @@ function (webdesignwill) {
 
   var UserModel = Backbone.Model.extend({
 
-    defaults : {
-      loggedin : false,
-      name : 'William'
+    urls : {
+      register : '/auth/register',
+      login : '/auth/login'
     }
 
   });

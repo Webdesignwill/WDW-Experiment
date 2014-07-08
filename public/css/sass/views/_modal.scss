@@ -14,11 +14,9 @@ body {
     margin-left:-245px;
     width:490px;
     height:$modalHeight;
-
-    text-align: center;
-
     .modal-content {
-      padding-top: 25px;
+      display: inline-block;
+      padding: 25px;
     }
   }
   .modal-overlay {
@@ -28,12 +26,12 @@ body {
     max-height:0;
     background:$black;
     z-index:$modalOverlayZindex;
+    cursor:pointer;
   }
   .close-btn {
     color:$black;
-    opacity: 1;
-    height:27px;
-    width:27px;
+    font-family:$Oswald;
+    font-weight:300;
     display:block;
     cursor:pointer;
     position:absolute;

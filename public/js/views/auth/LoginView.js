@@ -1,11 +1,15 @@
 
 define([
+  'LoginModel',
   'text!views/auth/templates/login.tpl'
-], function (template) {
+], function (LoginModel, template) {
 
   "use strict";
 
   var LoginView = Backbone.View.extend({
+
+    tagName : 'form',
+    className : 'login-form',
 
     initialize : function () {},
 

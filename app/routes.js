@@ -14,17 +14,17 @@ module.exports = function (app, passport) {
   ================================================= */
 
   /* Login */
-  app.get('/auth/login', function(req, res) {
+  app.get('/auth/login', function (req, res) {
     res.render('login.ejs', { message: req.flash('loginMessage') });
   });
 
-  /* Signup */
-  app.get('/auth/signup', function(req, res) {
-    res.render('signup.ejs', { message: req.flash('signupMessage') });
+  /* Register */
+  app.post('/auth/register', passport.authenticate('local-register'), function (req, res) {
+    res.json({success : 'Welcome'});
   });
 
   /* Logout */
-  app.get('/auth/logout', function(req, res) {
+  app.get('/auth/logout', function (req, res) {
     req.logout();
     res.json({success : "User logged out"});
   });
@@ -32,7 +32,7 @@ module.exports = function (app, passport) {
   /* User profile pages and settings
   ================================================= */
 
-  app.get('/user/profile', isLoggedIn, function(req, res) {
+  app.get('/user/profile', isLoggedIn, function (req, res) {
     res.render('profile.ejs', {
       user : req.user // get the user out of session and pass to template
     });

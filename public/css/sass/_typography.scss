@@ -1,6 +1,6 @@
 
 h1, h2, h3, h4 {
-  font-family:$Oswald;
+  font-family:$Oswald, $Myriad;
 }
 h1, h2, h3 {
   text-transform:uppercase;
@@ -19,9 +19,11 @@ h3 {
 p, li {
   color:$shade;
   font-family:$Myriad;
-  line-height:120%;
-  font-size:16px;
+  font-size:15px;
   font-weight:normal;
+}
+p, li {
+  line-height:120%;
 }
 cite {
   font-family:$ClickerScript;
@@ -32,8 +34,13 @@ a {
   color:$white;
   cursor:pointer;
 }
-#page-container {
+#page-container, #site-modal-window {
   a {
     color:$shade;
+  }
+}
+form {
+  h2 {
+    margin-bottom:22px;
   }
 }

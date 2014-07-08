@@ -166,7 +166,7 @@ section.racing-grey {
 
 /* line 2, sass/_typography.scss */
 h1, h2, h3, h4 {
-  font-family: "Oswald", sans-serif;
+  font-family: "Oswald", sans-serif, "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 /* line 5, sass/_typography.scss */
@@ -193,17 +193,21 @@ h3 {
 p, li {
   color: #444444;
   font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  line-height: 120%;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: normal;
 }
 
-/* line 26, sass/_typography.scss */
+/* line 25, sass/_typography.scss */
+p, li {
+  line-height: 120%;
+}
+
+/* line 28, sass/_typography.scss */
 cite {
   font-family: "Clicker Script", cursive;
 }
 
-/* line 29, sass/_typography.scss */
+/* line 31, sass/_typography.scss */
 a {
   -webkit-transition: color 0.2s linear;
   -moz-transition: color 0.2s linear;
@@ -215,24 +219,64 @@ a {
   cursor: pointer;
 }
 
-/* line 36, sass/_typography.scss */
-#page-container a {
+/* line 38, sass/_typography.scss */
+#page-container a, #site-modal-window a {
   color: #444444;
 }
 
+/* line 43, sass/_typography.scss */
+form h2 {
+  margin-bottom: 22px;
+}
+
 /* line 1, sass/_grid.scss */
+.grid-10 {
+  width: 10%;
+}
+
+/* line 4, sass/_grid.scss */
+.grid-20 {
+  width: 20%;
+}
+
+/* line 7, sass/_grid.scss */
+.grid-30 {
+  width: 30%;
+}
+
+/* line 10, sass/_grid.scss */
+.grid-40 {
+  width: 40%;
+}
+
+/* line 13, sass/_grid.scss */
 .grid-50 {
   width: 50%;
 }
 
-/* line 4, sass/_grid.scss */
+/* line 16, sass/_grid.scss */
 .grid-60 {
   width: 60%;
 }
 
-/* line 7, sass/_grid.scss */
+/* line 19, sass/_grid.scss */
 .grid-70 {
   width: 70%;
+}
+
+/* line 22, sass/_grid.scss */
+.grid-80 {
+  width: 80%;
+}
+
+/* line 25, sass/_grid.scss */
+.grid-90 {
+  width: 90%;
+}
+
+/* line 28, sass/_grid.scss */
+.grid-100 {
+  width: 100%;
 }
 
 /* line 2, sass/components/_logos.scss */
@@ -361,14 +405,13 @@ body.active-loader #site-loader .top-door .wdw-vertical-blue {
   bottom: -136px;
 }
 
-/* line 1, sass/components/_forms.scss */
+/* line 2, sass/components/_forms.scss */
 form.input-button-combo {
   display: inline-flex;
 }
-
 /* line 5, sass/components/_forms.scss */
-input,
-textarea {
+form.input-button-combo input,
+form.input-button-combo textarea {
   -webkit-transition: border-color 0.1s linear;
   -moz-transition: border-color 0.1s linear;
   -o-transition: border-color 0.1s linear;
@@ -377,21 +420,65 @@ textarea {
   border: none;
 }
 
-/* line 10, sass/components/_forms.scss */
+/* line 11, sass/components/_forms.scss */
 input,
 textarea {
+  -webkit-box-shadow: inset #999999 0px 0px 3px -1px;
+  -moz-box-shadow: inset #999999 0px 0px 3px -1px;
+  box-shadow: inset #999999 0px 0px 3px -1px;
+  border: none;
   padding: 0;
-  margin: 0;
+  margin: 0 0 10px 0;
   background: white;
   font-size: 14px;
-  padding-left: 10px;
+  text-indent: 10px;
   height: 40px;
   min-width: 280px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-/* line 19, sass/components/_forms.scss */
+/* line 24, sass/components/_forms.scss */
 textarea {
   height: auto;
+}
+
+/* line 28, sass/components/_forms.scss */
+form .additional-form-text {
+  margin-top: 10px;
+  border-top: 1px solid #eeeeee;
+  padding-top: 15px;
+}
+/* line 32, sass/components/_forms.scss */
+form .additional-form-text p {
+  margin-bottom: 6px;
+}
+
+/* line 38, sass/components/_forms.scss */
+body.contact-page input, body.contact-page textarea {
+  border-left: 3px solid #76312d;
+}
+/* line 41, sass/components/_forms.scss */
+body.contact-page input:focus, body.contact-page textarea:focus {
+  border-left: 3px solid #e86158;
+}
+
+/* line 46, sass/components/_forms.scss */
+body.home-page input, body.home-page textarea {
+  border-left: 3px solid #c0e4ed;
+}
+/* line 49, sass/components/_forms.scss */
+body.home-page input:focus, body.home-page textarea:focus {
+  border-left: 3px solid #e2f6ff;
+}
+
+/* line 54, sass/components/_forms.scss */
+body.github-page input, body.github-page textarea {
+  border-left: 3px solid #376018;
+}
+/* line 57, sass/components/_forms.scss */
+body.github-page input:focus, body.github-page textarea:focus {
+  border-left: 3px solid #b2d233;
 }
 
 /* line 1, sass/components/_buttons.scss */
@@ -401,23 +488,71 @@ button {
   -o-transition: all 0.1s linear;
   -ms-transition: all 0.1s linear;
   transition: all 0.1s linear;
+  -webkit-box-shadow: inset black 0px 0px 7px -4px;
+  -moz-box-shadow: inset black 0px 0px 7px -4px;
+  box-shadow: inset black 0px 0px 7px -4px;
   cursor: pointer;
   border: none;
+  padding: 12px;
   margin: 0;
+  height: 40px;
+  line-height: 0;
+  font-size: 17px;
+  border-radius: 5px;
 }
 
-/* line 7, sass/components/_buttons.scss */
+/* line 13, sass/components/_buttons.scss */
 button.small-generic {
   color: white;
   padding: 0 10px 0 10px;
-  height: 40px;
 }
 
-/* line 12, sass/components/_buttons.scss */
+/* line 17, sass/components/_buttons.scss */
 button.input-combo-button {
   background: #eeeeee url("/img/icons/mini-arrow-right.png") no-repeat center center;
   height: 40px;
   width: 40px;
+  border-radius: 0;
+}
+
+/* line 23, sass/components/_buttons.scss */
+button:focus {
+  -webkit-box-shadow: inset black 0px 0px 10px -4px;
+  -moz-box-shadow: inset black 0px 0px 10px -4px;
+  box-shadow: inset black 0px 0px 10px -4px;
+}
+
+/* line 29, sass/components/_buttons.scss */
+body.contact-page button {
+  background-color: #e86158;
+  color: white;
+}
+/* line 34, sass/components/_buttons.scss */
+body.contact-page button:focus,
+body.contact-page button:hover {
+  background-color: #ff6a61;
+}
+
+/* line 41, sass/components/_buttons.scss */
+body.github-page button {
+  background-color: #b2d233;
+  color: white;
+}
+/* line 46, sass/components/_buttons.scss */
+body.github-page button:focus,
+body.github-page button:hover {
+  background-color: #cdf339;
+}
+
+/* line 53, sass/components/_buttons.scss */
+body.home-page button {
+  background-color: #c0e4ed;
+  color: white;
+}
+/* line 58, sass/components/_buttons.scss */
+body.home-page button:focus,
+body.home-page button:hover {
+  background-color: #caf0f9;
 }
 
 /* line 2, sass/components/_lists.scss */
@@ -512,7 +647,7 @@ body.home-page {
   background-color: #444f64;
 }
 /* line 71, sass/pages/_home.scss */
-body.home-page a:hover, body.home-page #page-container a:hover {
+body.home-page a:hover, body.home-page #page-container a:hover, body.home-page #site-modal-window a:hover {
   color: #c0e4ed;
 }
 /* line 74, sass/pages/_home.scss */
@@ -584,83 +719,42 @@ body.home-page #page-container button.small-generic:hover {
   margin-top: 33px;
   line-height: 24px;
 }
-/* line 11, sass/pages/_contact.scss */
-#contact-page form {
-  margin-top: 30px;
-}
-/* line 13, sass/pages/_contact.scss */
-#contact-page form input {
-  margin-bottom: 10px;
-}
-/* line 16, sass/pages/_contact.scss */
-#contact-page form textarea {
-  width: 85%;
-  padding-top: 10px;
-}
-/* line 20, sass/pages/_contact.scss */
-#contact-page form button {
-  font-family: "Oswald", sans-serif;
-  font-size: 65px;
-  float: right;
-  width: 55px;
-  height: 181px;
-  font-size: 50px;
-}
 
-/* line 31, sass/pages/_contact.scss */
+/* line 13, sass/pages/_contact.scss */
 body.contact-page {
   background-color: #76312d;
 }
-/* line 33, sass/pages/_contact.scss */
-body.contact-page a:hover, body.contact-page #page-container a:hover {
+/* line 15, sass/pages/_contact.scss */
+body.contact-page a:hover, body.contact-page #page-container a:hover, body.contact-page #site-modal-window a:hover {
   color: #e86158;
 }
-/* line 36, sass/pages/_contact.scss */
+/* line 18, sass/pages/_contact.scss */
 body.contact-page .menu-icon {
   background-position: 0 -22px;
 }
-/* line 40, sass/pages/_contact.scss */
+/* line 22, sass/pages/_contact.scss */
 body.contact-page .dropdown-list li {
   border-left: 3px solid #76312d;
 }
-/* line 43, sass/pages/_contact.scss */
+/* line 25, sass/pages/_contact.scss */
 body.contact-page .dropdown-list li:hover, body.contact-page .dropdown-list li:focus {
   border-left: 3px solid #e86158;
 }
-/* line 47, sass/pages/_contact.scss */
+/* line 29, sass/pages/_contact.scss */
 body.contact-page .logo-small {
   background-position: 0 -302px;
 }
-/* line 51, sass/pages/_contact.scss */
+/* line 33, sass/pages/_contact.scss */
 body.contact-page #primary-nav a:hover {
   color: #e86158;
 }
-/* line 56, sass/pages/_contact.scss */
+/* line 38, sass/pages/_contact.scss */
 body.contact-page #primary-nav ul li.active h3, body.contact-page #primary-nav ul li.active cite {
   color: #e86158;
 }
-/* line 63, sass/pages/_contact.scss */
+/* line 45, sass/pages/_contact.scss */
 body.contact-page #site-header h1 {
   background-position: center -360px;
-}
-/* line 68, sass/pages/_contact.scss */
-body.contact-page #page-container input, body.contact-page #page-container textarea {
-  border-left: 3px solid #76312d;
-}
-/* line 71, sass/pages/_contact.scss */
-body.contact-page #page-container input:focus, body.contact-page #page-container textarea:focus {
-  border-left: 3px solid #e86158;
-}
-/* line 76, sass/pages/_contact.scss */
-body.contact-page #page-container button:focus,
-body.contact-page #page-container button.input-combo-button,
-body.contact-page #page-container button.small-generic {
-  background-color: #76312d;
-}
-/* line 80, sass/pages/_contact.scss */
-body.contact-page #page-container button.input-combo-button:hover,
-body.contact-page #page-container button.small-generic:hover {
-  background-color: #e86158;
 }
 
 /* line 2, sass/pages/_github.scss */
@@ -668,7 +762,7 @@ body.github-page {
   background-color: #376018;
 }
 /* line 4, sass/pages/_github.scss */
-body.github-page a:hover, body.github-page #page-container a:hover {
+body.github-page a:hover, body.github-page #page-container a:hover, body.github-page #site-modal-window a:hover {
   color: #b2d233;
 }
 /* line 7, sass/pages/_github.scss */
@@ -716,62 +810,6 @@ body.github-page #page-container button.small-generic {
 body.github-page #page-container button.input-combo-button:hover,
 body.github-page #page-container button.small-generic:hover {
   background-color: #b2d233;
-}
-
-/* line 5, sass/pages/_blog.scss */
-body.blog-page {
-  background-color: #76312d;
-}
-/* line 7, sass/pages/_blog.scss */
-body.blog-page a:hover {
-  color: #FF0000;
-}
-/* line 10, sass/pages/_blog.scss */
-body.blog-page .menu-icon {
-  background-position: 0 -22px;
-}
-/* line 14, sass/pages/_blog.scss */
-body.blog-page .dropdown-list li {
-  border-left: 3px solid #76312d;
-}
-/* line 17, sass/pages/_blog.scss */
-body.blog-page .dropdown-list li:hover, body.blog-page .dropdown-list li:focus {
-  border-left: 3px solid #e86158;
-}
-/* line 21, sass/pages/_blog.scss */
-body.blog-page .logo-small {
-  background-position: 0 -302px;
-}
-/* line 25, sass/pages/_blog.scss */
-body.blog-page #primary-nav a:hover, body.blog-page #primary-nav #page-container a:hover {
-  color: #b2d233;
-}
-/* line 30, sass/pages/_blog.scss */
-body.blog-page #primary-nav ul li.active h3, body.blog-page #primary-nav ul li.active cite {
-  color: #b2d233;
-}
-/* line 37, sass/pages/_blog.scss */
-body.blog-page #site-header h1 {
-  background-position: center -360px;
-}
-/* line 42, sass/pages/_blog.scss */
-body.blog-page #page-container input {
-  border-left: 3px solid #76312d;
-}
-/* line 45, sass/pages/_blog.scss */
-body.blog-page #page-container input:focus {
-  border-left: 3px solid #e86158;
-}
-/* line 50, sass/pages/_blog.scss */
-body.blog-page #page-container button:focus,
-body.blog-page #page-container button.input-combo-button,
-body.blog-page #page-container button.small-generic {
-  background-color: #76312d;
-}
-/* line 54, sass/pages/_blog.scss */
-body.blog-page #page-container button.input-combo-button:hover,
-body.blog-page #page-container button.small-generic:hover {
-  background-color: #e86158;
 }
 
 /* line 2, sass/views/_header.scss */
@@ -898,13 +936,13 @@ body #site-modal-window {
   margin-left: -245px;
   width: 490px;
   height: 400px;
-  text-align: center;
 }
-/* line 20, sass/views/_modal.scss */
+/* line 17, sass/views/_modal.scss */
 body #site-modal-window .modal-content {
-  padding-top: 25px;
+  display: inline-block;
+  padding: 25px;
 }
-/* line 24, sass/views/_modal.scss */
+/* line 22, sass/views/_modal.scss */
 body .modal-overlay {
   -webkit-transition: opacity 0.3s linear;
   -moz-transition: opacity 0.3s linear;
@@ -917,13 +955,13 @@ body .modal-overlay {
   max-height: 0;
   background: #050505;
   z-index: 205;
+  cursor: pointer;
 }
-/* line 32, sass/views/_modal.scss */
+/* line 31, sass/views/_modal.scss */
 body .close-btn {
   color: #050505;
-  opacity: 1;
-  height: 27px;
-  width: 27px;
+  font-family: "Oswald", sans-serif;
+  font-weight: 300;
   display: block;
   cursor: pointer;
   position: absolute;
@@ -931,13 +969,13 @@ body .close-btn {
   right: 20px;
 }
 
-/* line 45, sass/views/_modal.scss */
+/* line 43, sass/views/_modal.scss */
 body.modal-open #site-modal-window {
   display: block;
   top: 50%;
   margin-top: -200px;
 }
-/* line 50, sass/views/_modal.scss */
+/* line 48, sass/views/_modal.scss */
 body.modal-open .modal-overlay {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
   opacity: 0.8;
@@ -1078,13 +1116,13 @@ body.modal-open .modal-overlay {
   height: 50px;
   display: block;
   cursor: pointer;
-  font-size: 18px;
   text-transform: uppercase;
 }
-/* line 16, sass/views/_page-controls.scss */
+/* line 15, sass/views/_page-controls.scss */
 #page-controls .next-page a, #page-controls .prev-page a {
   color: white;
   font-weight: 300;
+  font-size: 16px;
   font-family: "Oswald", sans-serif;
 }
 /* line 22, sass/views/_page-controls.scss */

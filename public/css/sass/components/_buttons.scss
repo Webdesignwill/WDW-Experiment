@@ -1,16 +1,61 @@
 button {
   @include transition(all, 0.1s);
+  @include box-shadow(inset black 0px 0px 7px -4px);
   cursor:pointer;
   border:none;
+  padding:12px;
   margin:0;
+  height:40px;
+  line-height: 0;
+  font-size:17px;
+  border-radius:5px;
 }
 button.small-generic {
   color:$white;
   padding:0 10px 0 10px;
-  height:40px;
 }
 button.input-combo-button {
   background:$grey url('/img/icons/mini-arrow-right.png') no-repeat center center;
   height:40px;
   width:40px;
+  border-radius:0;
+}
+button:focus {
+  @include box-shadow(inset black 0px 0px 10px -4px);
+}
+
+// $blood & $lightBlood
+body.contact-page {
+  button {
+    background-color:$lightBlood;
+    color:$white;
+  }
+  button:focus,
+  button:hover {
+    background-color:$lightBloodHover;
+  }
+}
+
+// $vomit & $racingGreen
+body.github-page {
+  button {
+    background-color:$vomit;
+    color:$white;
+  }
+  button:focus,
+  button:hover {
+    background-color:$vomitHover;
+  }
+}
+
+// $lightBlue & $veryLightBlue
+body.home-page {
+  button {
+    background-color:$lightBlue;
+    color:$white;
+  }
+  button:focus,
+  button:hover {
+    background-color:$lightBlueHover;
+  }
 }

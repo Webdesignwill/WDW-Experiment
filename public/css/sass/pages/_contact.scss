@@ -8,29 +8,11 @@
     margin-top:33px;
     line-height:24px;
   }
-  form {
-    margin-top:30px;
-    input {
-      margin-bottom:10px;
-    }
-    textarea {
-      width:85%;
-      padding-top:10px;
-    }
-    button {
-      font-family:$Oswald;
-      font-size:65px;
-      float:right;
-      width: 55px;
-      height: 181px;
-      font-size:50px;
-    }
-  }
 }
 
 body.contact-page {
   background-color: $blood;
-  a:hover, #page-container a:hover {
+  a:hover, #page-container a:hover, #site-modal-window a:hover {
     color:$lightBlood;
   }
   .menu-icon {
@@ -62,23 +44,6 @@ body.contact-page {
   #site-header  {
     h1 {
       background-position: center -360px;
-    }
-  }
-  #page-container {
-    input, textarea {
-      border-left:3px solid $blood;
-    }
-    input:focus, textarea:focus {
-      border-left: 3px solid $lightBlood;
-    }
-    button:focus,
-    button.input-combo-button,
-    button.small-generic {
-      background-color:$blood;
-    }
-    button.input-combo-button:hover,
-    button.small-generic:hover {
-      background-color:$lightBlood;
     }
   }
 }

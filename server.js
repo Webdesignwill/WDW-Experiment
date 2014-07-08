@@ -22,7 +22,7 @@ app.use(morgan('dev'))
 app.set('port', 5000)
       .set('view engine', 'ejs'); // set up ejs for templating
 
-// require('./config/passport')(passport); // pass passport for configuration
+require('./config/passport')(passport); // pass passport for configuration
 
 // Passport
 app.use(session({ secret: 'webdesignwillisthebestsiteintheworldyeah' }))

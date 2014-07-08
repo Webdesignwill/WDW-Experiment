@@ -1,21 +1,60 @@
+
 form.input-button-combo {
   display:inline-flex;
+  input,
+  textarea {
+    @include transition(border-color, 0.1s);
+    border:none;
+  }
 }
 input,
 textarea {
-  @include transition(border-color, 0.1s);
+  @include box-shadow(inset #999 0px 0px 3px -1px);
   border:none;
-}
-input,
-textarea {
   padding:0;
-  margin:0;
+  margin:0 0 10px 0;
   background:$white;
   font-size: 14px;
-  padding-left:10px;
+  text-indent:10px;
   height:40px;
   min-width:280px;
+  width:100%;
+  box-sizing:border-box;
 }
 textarea {
   height:auto;
+}
+form {
+  .additional-form-text {
+    margin-top:10px;
+    border-top:1px solid $grey;
+    padding-top:15px;
+    p {
+      margin-bottom:6px;
+    }
+  }
+}
+body.contact-page {
+  input, textarea {
+    border-left:3px solid $blood;
+  }
+  input:focus, textarea:focus {
+    border-left: 3px solid $lightBlood;
+  }
+}
+body.home-page {
+  input, textarea {
+    border-left: 3px solid $lightBlue;
+  }
+  input:focus, textarea:focus {
+    border-left:3px solid $veryLightBlue;
+  }
+}
+body.github-page {
+  input, textarea {
+    border-left:3px solid $racingGreen;
+  }
+  input:focus, textarea:focus {
+    border-left: 3px solid $vomit;
+  }
 }
