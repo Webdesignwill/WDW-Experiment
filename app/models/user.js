@@ -36,12 +36,12 @@ var user = mongoose.Schema({
 
 // methods ======================
 // generating a hash
-user.methods.generateHash = function(password) {
+user.methods.generateHash = function (password) {
   return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
 };
 
 // checking if password is valid
-user.methods.validPassword = function(password) {
+user.methods.validPassword = function (password) {
   return bcrypt.compareSync(password, this.local.password);
 };
 

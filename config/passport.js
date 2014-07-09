@@ -21,14 +21,14 @@ module.exports = function(passport) {
   // we are using named strategies since we have one for login and one for register
   // by default, if there was no name, it would just be called 'local'
 
-  passport.use('local-register', new LocalStrategy({
+    passport.use('local-register', new LocalStrategy({
       usernameField: 'email',
       passwordField: 'password',
       passReqToCallback: true // allows us to pass back the entire request to the callback
     },
     function (req, email, password, done) {
       process.nextTick(function () {
-        User.findOne( {'local.email': email }, function (err, user) {
+        User.findOne( {'local.email': email }, function (err, user, info) {
           if (err) { return done(err); }
           if (user) {
             return done(null, false, req.flash('register', 'Email already exists'));
@@ -37,11 +37,12 @@ module.exports = function(passport) {
             newUser.local.email = email;
             newUser.local.password = newUser.generateHash(password);
             newUser.save(function (err) {
-              if (err) throw err;
-              return done(null, newUser, req.flash('register', 'User saved successfully'));
+              if (err) { throw err; }
+              return done(null, newUser);
             });
           }
         });
       });
-    }));
+    })
+  );
 };

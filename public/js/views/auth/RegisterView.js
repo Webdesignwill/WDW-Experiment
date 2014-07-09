@@ -1,9 +1,10 @@
 
 define([
+  '$topics',
   'webdesignwill',
   'RegisterModel',
   'text!views/auth/templates/register.tpl'
-], function (webdesignwill, RegisterModel, template) {
+], function ($topics, webdesignwill, RegisterModel, template) {
 
   "use strict";
 
@@ -32,11 +33,11 @@ define([
         password : this.el.password.value
       },{
         wait : true,
-        success : function (model, response) {
-          debugger;
+        success : function (model, response, options) {
+          $topics.publish('modal:close');
         },
-        error : function (model, response) {
-          debugger;
+        error : function (model, response, options) {
+          alert(response.responseJSON.message[0]);
         }
       });
     }

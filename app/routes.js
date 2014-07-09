@@ -19,11 +19,14 @@ module.exports = function (app, passport) {
   });
 
   /* Register */
-  app.post('/auth/register', passport.authenticate('local-register'), function (req, res) {
-    res.json({
-      email : req.user.local.email,
-      password : req.user.local.password
-    });
+  app.post('/auth/register', function (req, res, next) {
+    passport.authenticate('local-register', function (err, user, info) {
+      if (err) { return next(err); }
+      if (!user) {
+        return res.json(401, { message : req.flash('register') });
+      }
+      return res.json(200, user.local);
+    })(req, res, next);
   });
 
   /* Logout */
