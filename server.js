@@ -13,6 +13,7 @@ var express = require('express'),
 
 // App config
 app.use(morgan('dev'))
+      .use(flash())
       .use(cookieParser())
       .use(bodyParser())
       .use(express.static(__dirname + '/public'))
@@ -20,15 +21,14 @@ app.use(morgan('dev'))
 
 // Port vars
 app.set('port', 5000)
-      .set('view engine', 'ejs'); // set up ejs for templating
+      .set('view engine', 'ejs'); // set up ejs for templating. Not sure if I need this still
 
 require('./config/passport')(passport); // pass passport for configuration
 
 // Passport
 app.use(session({ secret: 'webdesignwillisthebestsiteintheworldyeah' }))
       .use(passport.initialize())
-      .use(passport.session())
-      .use(flash());
+      .use(passport.session());
 
 // Database
 var confDatabase = require('./config/database');

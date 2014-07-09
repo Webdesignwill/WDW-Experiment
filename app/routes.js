@@ -4,8 +4,8 @@ var Pages = require('../app/models/page');
 /* Check if the user is logged in. If they are, then hit next otherwise send error
 ================================================== */
 function isLoggedIn(req, res, next) {
-  if (req.isAuthenticated()) return next();
-  res.json({error : "You don't have permission to view this page"});
+  if (req.isAuthenticated()) { return next(); }
+  res.send(401, "You don't have permission to view this page");
 }
 
 module.exports = function (app, passport) {
@@ -15,18 +15,24 @@ module.exports = function (app, passport) {
 
   /* Login */
   app.get('/auth/login', function (req, res) {
-    res.render('login.ejs', { message: req.flash('loginMessage') });
+
   });
 
   /* Register */
   app.post('/auth/register', passport.authenticate('local-register'), function (req, res) {
-    res.json({success : 'Welcome'});
+    res.json({
+      email : req.user.local.email,
+      password : req.user.local.password
+    });
   });
 
   /* Logout */
   app.get('/auth/logout', function (req, res) {
     req.logout();
-    res.json({success : "User logged out"});
+    res.json({
+      success : true,
+      message : 'User logged out'
+    });
   });
 
   /* User profile pages and settings
@@ -51,7 +57,10 @@ module.exports = function (app, passport) {
 
     page.save(function(err) {
       if (err) res.send(err);
-      res.json({ message: 'New page created', data: page });
+      res.json({
+        success: 'New page created',
+        data: page
+      });
     });
   });
 
@@ -91,7 +100,7 @@ module.exports = function (app, passport) {
   app.delete('/api/page/delete/:page_id', function (req, res) {
     Pages.findByIdAndRemove(req.params.page_id, function (err) {
       if (err) res.send(err);
-      res.json({ message: 'Page deleted' });
+      res.json({success: 'Page deleted'});
     });
   });
 

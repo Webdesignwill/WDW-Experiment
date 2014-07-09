@@ -30,6 +30,14 @@ define([
       webdesignwill.user.save({
         email : this.el.email.value,
         password : this.el.password.value
+      },{
+        wait : true,
+        success : function (model, response) {
+          debugger;
+        },
+        error : function (model, response) {
+          debugger;
+        }
       });
     }
 
