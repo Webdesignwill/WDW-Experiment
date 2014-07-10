@@ -1,3 +1,4 @@
+<header id="admin-bar"></header>
 <header id="site-header"></header>
 <main role="main" id="page-container">
   <header id="site-content-header"></header>

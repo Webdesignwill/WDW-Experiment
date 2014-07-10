@@ -5,13 +5,14 @@
 define([
   'webdesignwill',
   'HeaderView',
+  'AdminBarView',
   'PageControlsView',
   'FooterView',
   'SiteContentHeaderView',
   'ModalView',
   '$topics',
   'text!templates/body.tpl'
-], function (webdesignwill, HeaderView, PageControlsView, FooterView, SiteContentHeaderView, ModalView, $topics, template) {
+], function (webdesignwill, HeaderView, AdminBarView, PageControlsView, FooterView, SiteContentHeaderView, ModalView, $topics, template) {
 
   "use strict";
 
@@ -72,6 +73,7 @@ define([
       this.$siteContentHeader = this.$el.find('#site-content-header');
       this.$siteContentBody = this.$el.find('#site-content-body');
       this.$siteModalWindow = this.$el.find('#site-modal-window');
+      this.$adminBar = this.$el.find('#admin-bar');
     },
 
     setSubscriptions : function () {
@@ -85,12 +87,21 @@ define([
         this.$el.removeClass('active-loader');
       }, this);
 
-      webdesignwill.page.on('change:page', function (model) {
-        this.toggleClasses(model.get('page').model);
+      this.listenTo(webdesignwill.user, 'change:loggedin', function (user) {
+        if(user.get('loggedin')) { return this.$el.addClass('logged-in'); }
+        this.$el.removeClass('logged-in');
+      }, this);
+
+      this.listenTo(webdesignwill.page, 'change:page', function (page) {
+        this.toggleClasses(page.get('page').model);
       }, this);
     },
 
     renderPageComponents : function () {
+
+      new AdminBarView({
+        el : this.$adminBar
+      });
 
       new ModalView({
         el : this.$siteModalWindow

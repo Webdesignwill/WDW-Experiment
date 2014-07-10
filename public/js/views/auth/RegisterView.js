@@ -2,9 +2,8 @@
 define([
   '$topics',
   'webdesignwill',
-  'RegisterModel',
   'text!views/auth/templates/register.tpl'
-], function ($topics, webdesignwill, RegisterModel, template) {
+], function ($topics, webdesignwill, template) {
 
   "use strict";
 
@@ -16,10 +15,6 @@ define([
       'submit' : 'handler'
     },
 
-    initialize : function () {
-      this.registerModel = new RegisterModel();
-    },
-
     render : function () {
       this.$el.html(template);
       return this;
@@ -27,18 +22,12 @@ define([
 
     handler : function (e) {
       e.preventDefault();
-      webdesignwill.user.url = webdesignwill.user.urls.register;
-      webdesignwill.user.save({
+      webdesignwill.user.register({
         email : this.el.email.value,
         password : this.el.password.value
-      },{
-        wait : true,
-        success : function (model, response, options) {
-          $topics.publish('modal:close');
-        },
-        error : function (model, response, options) {
-          alert(response.responseJSON.message[0]);
-        }
+      }, function (result, message) {
+        if(result) { return $topics.publish('modal:close'); }
+        alert(message);
       });
     }
 

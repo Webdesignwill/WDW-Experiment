@@ -5,8 +5,9 @@ var bcrypt = require('bcrypt-nodejs');
 // define the schema for our user model
 var user = mongoose.Schema({
   local: {
+    displayName : String,
     email: String,
-    password: String,
+    password: String
   },
   facebook: {
     id: String,
@@ -38,6 +39,12 @@ var user = mongoose.Schema({
 // generating a hash
 user.methods.generateHash = function (password) {
   return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
+};
+
+// Create displayName after initial regestration
+user.methods.createDisplayName = function (email) {
+  var name = email.split('@')[0];
+  return name.replace(name[0], name[0].toUpperCase());
 };
 
 // checking if password is valid

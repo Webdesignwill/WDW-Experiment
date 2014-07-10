@@ -42,11 +42,9 @@ var base_require = require.config({
     Sitemap                                      : 'models/app/Sitemap',
     PageModel                                  : 'models/page/PageModel',
     UserModel                                  : 'models/user/UserModel',
-    LoginModel                                : 'models/auth/LoginModel',
-    RegisterModel                            : 'models/auth/RegisterModel',
 
     // Admin Views
-    AdminBarView                            : 'admin/views/adminBar/AdminBarView',
+    AdminBarView                            : 'views/admin/AdminBarView',
 
     // Theme Views
     BodyView                                    : 'views/BodyView',
@@ -68,7 +66,8 @@ var base_require = require.config({
 
     // Auth views
     login                                          : 'views/auth/LoginView',
-    register                                      : 'views/auth/RegisterView'
+    register                                      : 'views/auth/RegisterView',
+    profile                                        : 'views/auth/ProfileView'
 
   },
   shim : {

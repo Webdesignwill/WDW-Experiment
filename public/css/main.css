@@ -77,6 +77,11 @@ html, body {
 
 /* line 5, sass/_globals.scss */
 body {
+  -webkit-transition: padding 0.2s linear;
+  -moz-transition: padding 0.2s linear;
+  -o-transition: padding 0.2s linear;
+  -ms-transition: padding 0.2s linear;
+  transition: padding 0.2s linear;
   -webkit-transition: background-color 0.5s linear;
   -moz-transition: background-color 0.5s linear;
   -o-transition: background-color 0.5s linear;
@@ -90,76 +95,83 @@ body {
   overflow-x: hidden;
   margin: 0;
   padding: 0;
+  top: 0;
 }
 
-/* line 14, sass/_globals.scss */
+/* line 16, sass/_globals.scss */
+body.logged-in {
+  top: 30px;
+  position: relative;
+}
+
+/* line 20, sass/_globals.scss */
 .left {
   float: left;
 }
 
-/* line 17, sass/_globals.scss */
+/* line 23, sass/_globals.scss */
 .right {
   float: right;
 }
 
-/* line 20, sass/_globals.scss */
+/* line 26, sass/_globals.scss */
 :focus {
   outline: 0;
 }
 
-/* line 23, sass/_globals.scss */
+/* line 29, sass/_globals.scss */
 .width-auto {
   width: 1024px;
   margin: 0 auto;
 }
 
-/* line 27, sass/_globals.scss */
+/* line 33, sass/_globals.scss */
 .clear:after {
   content: "";
   display: table;
   clear: both;
 }
 
-/* line 32, sass/_globals.scss */
+/* line 38, sass/_globals.scss */
 #page-container {
   background: url("/img/borders/trim-top-site-content.png") repeat-x top left;
   padding-top: 7px;
   position: relative;
 }
-/* line 36, sass/_globals.scss */
+/* line 42, sass/_globals.scss */
 #page-container .site-content-body {
   background: #eeeeee url("/img/body-bg.png") repeat top left;
 }
-/* line 38, sass/_globals.scss */
+/* line 44, sass/_globals.scss */
 #page-container .site-content-body div.page {
   position: relative;
 }
 
-/* line 45, sass/_globals.scss */
+/* line 51, sass/_globals.scss */
 section.sky-blue {
   background: #e2f6ff url("/img/body-bg.png") repeat top left;
 }
 
-/* line 48, sass/_globals.scss */
+/* line 54, sass/_globals.scss */
 section.pearly-white {
   background: white url("/img/body-bg.png") repeat top left;
 }
 
-/* line 51, sass/_globals.scss */
+/* line 57, sass/_globals.scss */
 section.english-skies {
   background: whitesmoke url("/img/body-bg.png") repeat top left;
 }
 
-/* line 54, sass/_globals.scss */
+/* line 60, sass/_globals.scss */
 section.racing-grey {
   background: #e1ded6 url("/img/body-bg.png") repeat top left;
 }
 
-/* line 59, sass/_globals.scss */
+/* line 65, sass/_globals.scss */
 #page-container section:last-child {
   padding-bottom: 175px;
 }
-/* line 62, sass/_globals.scss */
+/* line 68, sass/_globals.scss */
 #page-container .wdw-package section {
   padding-bottom: 0;
 }
@@ -227,6 +239,10 @@ a {
 /* line 43, sass/_typography.scss */
 form h2 {
   margin-bottom: 22px;
+}
+/* line 46, sass/_typography.scss */
+form p.intro {
+  margin-bottom: 12px;
 }
 
 /* line 1, sass/_grid.scss */
@@ -1199,6 +1215,51 @@ body.modal-open .modal-overlay {
   color: #fdedcd;
   margin-left: -17px;
   padding: 20px 40px;
+}
+
+/* line 1, sass/views/_admin-bar.scss */
+#admin-bar {
+  -webkit-transition: top 0.2s linear;
+  -moz-transition: top 0.2s linear;
+  -o-transition: top 0.2s linear;
+  -ms-transition: top 0.2s linear;
+  transition: top 0.2s linear;
+  background: url("/img/borders/trim-top.png") repeat-x bottom left;
+  position: fixed;
+  top: -33px;
+  right: 0;
+  left: 0;
+  height: 40px;
+  z-index: 100;
+}
+/* line 10, sass/views/_admin-bar.scss */
+#admin-bar .admin-bar-inner {
+  background: #444444 url("/img/body-bg.png") repeat top left;
+  height: 33px;
+  position: relative;
+}
+/* line 14, sass/views/_admin-bar.scss */
+#admin-bar .admin-bar-inner a:hover {
+  color: #00feff;
+}
+/* line 17, sass/views/_admin-bar.scss */
+#admin-bar .admin-bar-inner .gears-small-icon {
+  display: block;
+  margin: 6px 10px 0 0;
+  float: left;
+}
+/* line 22, sass/views/_admin-bar.scss */
+#admin-bar .admin-bar-inner p {
+  line-height: 37px;
+}
+/* line 24, sass/views/_admin-bar.scss */
+#admin-bar .admin-bar-inner p a:hover {
+  color: #00feff;
+}
+
+/* line 32, sass/views/_admin-bar.scss */
+body.logged-in #admin-bar {
+  top: 0;
 }
 
 /* line 1, sass/packages/github/_main.scss */

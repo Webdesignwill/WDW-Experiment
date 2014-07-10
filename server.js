@@ -20,8 +20,7 @@ app.use(morgan('dev'))
       .use(cookieParser());
 
 // Port vars
-app.set('port', 5000)
-      .set('view engine', 'ejs'); // set up ejs for templating. Not sure if I need this still
+app.set('port', 5000);
 
 require('./config/passport')(passport); // pass passport for configuration
 

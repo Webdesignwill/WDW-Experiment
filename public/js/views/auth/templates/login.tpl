@@ -1,7 +1,7 @@
 <h2>Login</h2>
 
-<input tab-index="1" type="email" placeholder="Email" />
-<input tab-index="2" type="password" placeholder="Password" />
+<input tab-index="1" type="email" placeholder="Email" name="email" />
+<input tab-index="2" type="password" placeholder="Password" name="password" />
 <div class="grid-40 right">
   <button tab-index="3" class="grid-100">Login</button>
 </div>

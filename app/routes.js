@@ -14,12 +14,18 @@ module.exports = function (app, passport) {
   ================================================= */
 
   /* Login */
-  app.get('/auth/login', function (req, res) {
-
+  app.post('/api/auth/login', function (req, res, next) {
+    passport.authenticate('local-login', function (err, user, info) {
+      if (err) { return next(err); }
+      if (!user) {
+        return res.json(401, { message : req.flash('login') });
+      }
+      return res.json(200, user.local);
+    })(req, res, next);
   });
 
   /* Register */
-  app.post('/auth/register', function (req, res, next) {
+  app.post('/api/auth/register', function (req, res, next) {
     passport.authenticate('local-register', function (err, user, info) {
       if (err) { return next(err); }
       if (!user) {
@@ -30,22 +36,19 @@ module.exports = function (app, passport) {
   });
 
   /* Logout */
-  app.get('/auth/logout', function (req, res) {
+  app.post('/api/auth/logout', function (req, res) {
     req.logout();
-    res.json({
-      success : true,
-      message : 'User logged out'
-    });
+    res.json(200);
   });
 
   /* User profile pages and settings
   ================================================= */
 
-  app.get('/user/profile', isLoggedIn, function (req, res) {
-    res.render('profile.ejs', {
-      user : req.user // get the user out of session and pass to template
-    });
-  });
+  // app.get('/api/user/profile', isLoggedIn, function (req, res) {
+  //   res.render('profile.ejs', {
+  //     user : req.user // get the user out of session and pass to template
+  //   });
+  // });
 
   /* Page CRUD actions
   ================================================= */

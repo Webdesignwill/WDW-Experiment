@@ -15,34 +15,50 @@ module.exports = function(passport) {
     });
   });
 
-  // =========================================================================
-  // LOCAL REGISTER ============================================================
-  // =========================================================================
-  // we are using named strategies since we have one for login and one for register
-  // by default, if there was no name, it would just be called 'local'
-
-    passport.use('local-register', new LocalStrategy({
-      usernameField: 'email',
-      passwordField: 'password',
-      passReqToCallback: true // allows us to pass back the entire request to the callback
-    },
-    function (req, email, password, done) {
-      process.nextTick(function () {
-        User.findOne( {'local.email': email }, function (err, user, info) {
-          if (err) { return done(err); }
-          if (user) {
-            return done(null, false, req.flash('register', 'Email already exists'));
-          } else {
-            var newUser = new User();
-            newUser.local.email = email;
-            newUser.local.password = newUser.generateHash(password);
-            newUser.save(function (err) {
-              if (err) { throw err; }
-              return done(null, newUser);
-            });
-          }
-        });
+  /* Register strategy
+  ================================================ */
+  passport.use('local-register', new LocalStrategy({
+    usernameField: 'email',
+    passwordField: 'password',
+    passReqToCallback: true // allows us to pass back the entire request to the callback
+  },
+  function (req, email, password, done) {
+    process.nextTick(function () {
+      User.findOne( {'local.email': email }, function (err, user, info) {
+        if (err) { return done(err); }
+        if (user) {
+          return done(null, false, req.flash('register', 'Email already exists'));
+        } else {
+          var newUser = new User();
+          newUser.local.email = email;
+          newUser.local.password = newUser.generateHash(password);
+          newUser.local.displayName = newUser.createDisplayName(email);
+          newUser.save(function (err) {
+            if (err) { throw err; }
+            return done(null, newUser);
+          });
+        }
       });
-    })
-  );
+    });
+  }));
+
+  /* Login strategy
+  ================================================ */
+  passport.use('local-login', new LocalStrategy({
+    usernameField : 'email',
+    passwordField : 'password',
+    passReqToCallback : true
+  },
+  function (req, email, password, done) {
+    User.findOne({ 'local.email' :  email }, function (err, user) {
+      if (err) { return done(err); }
+      if (!user) {
+        return done(null, false, req.flash('login', 'No user found.'));
+      }
+      if (!user.validPassword(password)) {
+        return done(null, false, req.flash('login', 'Oops! Wrong password.'));
+      }
+      return done(null, user);
+    });
+  }));
 };

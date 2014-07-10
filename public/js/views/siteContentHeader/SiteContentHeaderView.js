@@ -1,13 +1,12 @@
 
 define([
   'Backbone',
-  'webdesignwill',
   'handlebars',
   'text!views/siteContentHeader/templates/site-content-header.tpl',
   'i18n!nls/home'
 ],
 
-function (Backbone, webdesignwill, handlebars, template, content) {
+function (Backbone, handlebars, template, content) {
 
   "use strict";
 
@@ -15,13 +14,6 @@ function (Backbone, webdesignwill, handlebars, template, content) {
 
     initialize : function () {
       this.render();
-      this.setEvents();
-    },
-
-    setEvents : function () {
-      webdesignwill.page.on('change:theme', function (page) {
-        // change header things?!
-      });
     },
 
     render : function () {

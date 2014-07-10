@@ -3,6 +3,7 @@ html, body {
   min-height:100%;
 }
 body {
+  @include transition(padding, 0.2s);
   @include transition(background-color, 0.5s);
   @include box-shadow(inset rgba(0,0,0,0.5) 0 0 100px);
   background: $darkBlue url('/img/body-bg.png') top left;
@@ -10,6 +11,11 @@ body {
   overflow-x:hidden;
   margin: 0;
   padding: 0;
+  top:0;
+}
+body.logged-in {
+  top: 30px;
+  position:relative;
 }
 .left {
   float:left;
