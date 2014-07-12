@@ -1,4 +1,5 @@
 <h2>Register</h2>
+<p class="intro">Register to receive updates and play with additional features at Webdesignwill</p>
 <input tab-index="1" type="email" placeholder="Email" name="email" value="" />
 <input tab-index="2" type="password" placeholder="Password" name="password" value="" />
 <input tab-index="3" type="password" placeholder="Confirm password" value="" />

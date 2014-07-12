@@ -971,9 +971,8 @@ body .modal-overlay {
   max-height: 0;
   background: #050505;
   z-index: 205;
-  cursor: pointer;
 }
-/* line 31, sass/views/_modal.scss */
+/* line 30, sass/views/_modal.scss */
 body .close-btn {
   color: #050505;
   font-family: "Oswald", sans-serif;
@@ -985,13 +984,13 @@ body .close-btn {
   right: 20px;
 }
 
-/* line 43, sass/views/_modal.scss */
+/* line 42, sass/views/_modal.scss */
 body.modal-open #site-modal-window {
   display: block;
   top: 50%;
   margin-top: -200px;
 }
-/* line 48, sass/views/_modal.scss */
+/* line 47, sass/views/_modal.scss */
 body.modal-open .modal-overlay {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
   opacity: 0.8;

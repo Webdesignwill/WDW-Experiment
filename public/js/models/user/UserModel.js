@@ -21,7 +21,8 @@ function (webdesignwill, $topics) {
     urls : {
       register : '/api/auth/register',
       login : '/api/auth/login',
-      logout : '/api/auth/logout'
+      logout : '/api/auth/logout',
+      profile : '/api/auth/profile'
     },
 
     initialize : function () {
@@ -70,6 +71,20 @@ function (webdesignwill, $topics) {
       $.post(this.urls.logout, function (data) {
         self.clear({silent : true});
         self.set('loggedin', false);
+      });
+    },
+
+    getProfile : function (done) {
+      // TODO, get the user profile stuff
+      this.url = this.urls.profile;
+      this.fetch({
+        success : function (model, response, options) {
+          done();
+        },
+        error : function (model, response, options) {
+          alert(response.responseJSON.message[0]);
+          done();
+        }
       });
     }
 

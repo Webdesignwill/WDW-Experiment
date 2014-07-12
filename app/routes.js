@@ -1,8 +1,8 @@
 
 var Pages = require('../app/models/page');
 
-/* Check if the user is logged in. If they are, then hit next otherwise send error
-================================================== */
+/* Check if the user is logged in. If they are, then hit next otherwise send not authorised
+======================================================= */
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) { return next(); }
   res.send(401, "You don't have permission to view this page");
@@ -35,6 +35,14 @@ module.exports = function (app, passport) {
     })(req, res, next);
   });
 
+  /* ALL AUTHENTICATED ROUTES
+      app.get/post(/api/auth/*, function () {})
+
+      // Need to filter anonymous users somehow
+      /*if (not logged in) {
+          return res.json({ error: 'This is a secret message, login to see it.' });
+      } */
+
   /* Logout */
   app.post('/api/auth/logout', function (req, res) {
     req.logout();
@@ -44,14 +52,14 @@ module.exports = function (app, passport) {
   /* User profile pages and settings
   ================================================= */
 
-  // app.get('/api/user/profile', isLoggedIn, function (req, res) {
-  //   res.render('profile.ejs', {
-  //     user : req.user // get the user out of session and pass to template
-  //   });
-  // });
+  app.get('/api/auth/profile', isLoggedIn, function (req, res) {
+    res.json(200, req.user);
+  });
 
   /* Page CRUD actions
   ================================================= */
+
+  // http://passportjs.org/guide/oauth2-api/
 
   /* Create a new page */
   app.post('/api/page/create', function (req, res) {

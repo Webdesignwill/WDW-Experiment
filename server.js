@@ -1,5 +1,6 @@
 
 var express = require('express'),
+      config = require('./config/config')['development'],
       app = express(),
       bodyParser = require('body-parser'),
       cookieParser = require('cookie-parser'),
@@ -25,13 +26,12 @@ app.set('port', 5000);
 require('./config/passport')(passport); // pass passport for configuration
 
 // Passport
-app.use(session({ secret: 'webdesignwillisthebestsiteintheworldyeah' }))
+app.use(session({ secret: 'webdesignwillisthebestsiteintheworldyeah'}))
       .use(passport.initialize())
       .use(passport.session());
 
 // Database
-var confDatabase = require('./config/database');
-mongoose.connect(confDatabase.local.url);
+mongoose.connect(config.db);
 
 // Routes
 require('./app/routes.js')(app, passport);

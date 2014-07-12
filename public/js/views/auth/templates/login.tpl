@@ -1,5 +1,5 @@
 <h2>Login</h2>
-
+<p class="intro">Login to access your special place</p>
 <input tab-index="1" type="email" placeholder="Email" name="email" />
 <input tab-index="2" type="password" placeholder="Password" name="password" />
 <div class="grid-40 right">

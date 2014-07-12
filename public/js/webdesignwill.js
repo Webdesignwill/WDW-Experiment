@@ -50,7 +50,7 @@ define([
     init : function () {
 
       var self = this;
-
+alert('I think I need oauth 2, http://passportjs.org/guide/oauth2-api/');
       launchControl.call(this, {
         context : this,
         initMethods : this.dependencies,

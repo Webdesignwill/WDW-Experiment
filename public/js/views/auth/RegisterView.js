@@ -15,6 +15,8 @@ define([
       'submit' : 'handler'
     },
 
+    initialize : function () {},
+
     render : function () {
       this.$el.html(template);
       return this;

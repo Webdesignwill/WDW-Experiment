@@ -8,11 +8,18 @@ define([
   var ModalView = Backbone.View.extend({
 
     interests : {
-      open : function (pageName) {
+      open : function (viewName) {
         var self = this;
-        require([pageName], function (Page) {
-          var page = new Page();
-          self.$modalContent.html(page.render().el);
+
+        require([viewName], function (View) {
+          var view = new View();
+
+          function done () {
+            self.$modalContent.html(view.render().el);
+          }
+
+          if(view.preRender) { return view.preRender(done); }
+          done();
         });
       },
       close : function () {
