@@ -12,7 +12,7 @@ var env = process.env.NODE_ENV || 'development',
 mongoose.connect(config.db);
 
 // Load all models models
-var models_path = __dirname + '/app/models';
+var models_path = config.root + '/app/models';
 fs.readdirSync(models_path).forEach(function (file) {
   require(models_path + '/' + file);
 });
