@@ -1,42 +1,38 @@
 
 var express = require('express'),
-      config = require('./config/config')['development'],
-      app = express(),
-      bodyParser = require('body-parser'),
-      cookieParser = require('cookie-parser'),
-      session = require('express-session'),
       debug = require('debug')('webdesignwill'),
-      mongoose = require('mongoose'),
       passport = require('passport'),
-      flash = require('connect-flash'),
-      morgan = require('morgan'),
       fs = require('fs');
 
-// App config
-app.use(morgan('dev'))
-      .use(flash())
-      .use(cookieParser())
-      .use(bodyParser())
-      .use(express.static(__dirname + '/public'))
-      .use(cookieParser());
-
-// Port vars
-app.set('port', 5000);
-
-require('./config/passport')(passport); // pass passport for configuration
-
-// Passport
-app.use(session({ secret: 'webdesignwillisthebestsiteintheworldyeah'}))
-      .use(passport.initialize())
-      .use(passport.session());
+var env = process.env.NODE_ENV || 'development',
+      config = require('./config/config')[env],
+      mongoose = require('mongoose');
 
 // Database
 mongoose.connect(config.db);
 
-// Routes
-require('./app/routes.js')(app, passport);
+// Load all models models
+var models_path = __dirname + '/app/models';
+fs.readdirSync(models_path).forEach(function (file) {
+  require(models_path + '/' + file);
+});
+
+// Passport settings
+require('./config/passport')(config, passport);
+
+var app = express();
+
+// express settings
+require('./config/express')(app, config, passport);
+
+// express settings
+require('./config/routes')(app, passport);
 
 // Start
-var server = app.listen(app.get('port'), function() {
+var port = process.env.PORT || 3000;
+var server = app.listen(port, function() {
   debug('Express server listening on port ' + server.address().port);
 });
+
+//expose app
+exports = module.exports = app;
