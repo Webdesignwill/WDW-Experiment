@@ -19,6 +19,7 @@ function (webdesignwill, $topics) {
     },
 
     urls : {
+      token : '/api/oauth/token',
       register : '/api/auth/register',
       login : '/api/auth/login',
       logout : '/api/auth/logout',
@@ -53,7 +54,7 @@ function (webdesignwill, $topics) {
 
     login : function (user, done) {
       var self = this;
-      this.url = this.urls.login;
+      this.url = this.urls.token;
       this.save(user, {
         success : function (model, response, options) {
           self.set('loggedin', true);

@@ -33,4 +33,5 @@ module.exports = function (app, config, passport) {
   app.use(flash())
         .use(passport.initialize())
         .use(passport.session());
+
 };

@@ -10,30 +10,34 @@ function isLoggedIn(req, res, next) {
 
 module.exports = function (app, passport) {
 
+  // app.get('/', app.oauth.authorise(), function (req, res) {
+  //   res.send('Secret area');
+  // });
+
   /* Authentication routes
   ================================================= */
 
   /* Login */
-  app.post('/api/auth/login', function (req, res, next) {
-    passport.authenticate('local-login', function (err, user, info) {
-      if (err) { return next(err); }
-      if (!user) {
-        return res.json(401, { message : req.flash('login') });
-      }
-      return res.json(200, user.local);
-    })(req, res, next);
-  });
+  // app.post('/api/auth/login', function (req, res, next) {
+  //   passport.authenticate('local-login', function (err, user, info) {
+  //     if (err) { return next(err); }
+  //     if (!user) {
+  //       return res.json(401, { message : req.flash('login') });
+  //     }
+  //     return res.json(200, user.local);
+  //   })(req, res, next);
+  // });
 
   /* Register */
-  app.post('/api/auth/register', function (req, res, next) {
-    passport.authenticate('local-register', function (err, user, info) {
-      if (err) { return next(err); }
-      if (!user) {
-        return res.json(401, { message : req.flash('register') });
-      }
-      return res.json(200, user.local);
-    })(req, res, next);
-  });
+  // app.post('/api/auth/register', function (req, res, next) {
+  //   passport.authenticate('local-register', function (err, user, info) {
+  //     if (err) { return next(err); }
+  //     if (!user) {
+  //       return res.json(401, { message : req.flash('register') });
+  //     }
+  //     return res.json(200, user.local);
+  //   })(req, res, next);
+  // });
 
   /* ALL AUTHENTICATED ROUTES
       app.get/post(/api/auth/*, function () {})

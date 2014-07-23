@@ -1,56 +1,48 @@
 
-var mongoose = require('mongoose');
-var bcrypt = require('bcrypt-nodejs');
+var mongoose = require('mongoose'),
+      bcrypt = require('bcrypt-nodejs');
 
-// define the schema for our user model
-var user = mongoose.Schema({
-  local: {
-    displayName : String,
-    email: String,
-    password: String
-  },
-  facebook: {
-    id: String,
-    token: String,
-    email: String,
-    name: String
-  },
-  twitter: {
-    id: String,
-    token: String,
-    displayName: String,
-    username: String
-  },
-  google: {
-    id: String,
-    token: String,
-    email: String,
-    name: String
-  },
-  github: {
-    id: String,
-    token: String,
-    email: String,
-    name: String
-  }
+var OAuthUsersSchema = new mongoose.Schema({
+  email: { type: String, unique: true, required: true },
+  hashed_password: { type: String, required: true },
+  password_reset_token: { type: String, unique: true },
+  reset_token_expires: Date,
+  firstname: String,
+  lastname: String
 });
 
-// methods ======================
-// generating a hash
-user.methods.generateHash = function (password) {
-  return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
+function hashPassword(password) {
+  console.log('SALT ******************************** : ', salt);
+  var salt = bcrypt.genSaltSync(10);
+  return bcrypt.hashSync(password, salt);
+}
+
+OAuthUsersSchema.static('register', function (fields, cb) {
+  var user;
+
+  fields.hashed_password = hashPassword(fields.password);
+  delete fields.password;
+
+  user = new OAuthUsersModel(fields);
+  user.save(cb);
+});
+
+OAuthUsersSchema.statics.getUser = function (email, password, cb) {
+  OAuthUsersModel.authenticate(email, password, function (err, user) {
+    if (err || !user) return cb(err);
+    cb(null, user.email);
+  });
 };
 
-// Create displayName after initial regestration
-user.methods.createDisplayName = function (email) {
-  var name = email.split('@')[0];
-  return name.replace(name[0], name[0].toUpperCase());
+OAuthUsersSchema.statics.authenticate = function (email, password, cb) {
+  this.findOne({ email: email }, function (err, user) {
+    if (err || !user) return cb(err);
+    console.log('COMPARESYNC ******************************** : ', email, password);
+    cb(null, bcrypt.compareSync(password, user.hashed_password) ? user : null);
+  });
 };
 
-// checking if password is valid
-user.methods.validPassword = function (password) {
-  return bcrypt.compareSync(password, this.local.password);
-};
+mongoose.model('users', OAuthUsersSchema);
 
-// create the model for users and expose it to our app
-module.exports = mongoose.model('User', user);
+var OAuthUsersModel = mongoose.model('users');
+module.exports = OAuthUsersModel;

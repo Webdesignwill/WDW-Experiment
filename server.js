@@ -6,16 +6,11 @@ var express = require('express'),
 
 var env = process.env.NODE_ENV || 'development',
       config = require('./config/config')[env],
-      mongoose = require('mongoose');
+      mongoose = require('mongoose'),
+      models = require('./app/models');
 
 // Database
 mongoose.connect(config.db);
-
-// Load all models models
-var models_path = config.root + '/app/models';
-fs.readdirSync(models_path).forEach(function (file) {
-  require(models_path + '/' + file);
-});
 
 // Passport settings
 require('./config/passport')(config, passport);
@@ -33,6 +28,19 @@ var port = process.env.PORT || 3000;
 var server = app.listen(port, function() {
   debug('Express server listening on port ' + server.address().port);
 });
+
+
+oauth2server = require('node-oauth2-server');
+
+/* OAUTH PROTOTYPE
+============================== */
+app.oauth = oauth2server({
+  model: models.oauth,
+  grants: ['password', 'authorization_code', 'refresh_token'],
+  debug: true
+});
+
+app.post('/api/oauth/token', app.oauth.grant());
 
 //expose app
 exports = module.exports = app;
