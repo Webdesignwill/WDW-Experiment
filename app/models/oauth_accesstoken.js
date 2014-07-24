@@ -2,21 +2,26 @@
 var mongoose = require('mongoose');
 
 var OAuthAccessTokensSchema = new mongoose.Schema({
-  accessToken: { type: String, required: true, unique: true },
+  accessToken: {
+    type: String,
+    required: true,
+    unique: true
+  },
   clientId: String,
-  userId: { type: String, required: true },
+  userId: {
+    type: String,
+    required: true
+  },
   expires: Date
 });
 
-mongoose.model('oauth_accesstokens', OAuthAccessTokensSchema);
-
-var OAuthAccessTokensModel = mongoose.model('oauth_accesstokens');
-
 module.exports.getAccessToken = function(bearerToken, callback) {
+  console.log('*************** GET ACCESS TOKEN ***************');
   OAuthAccessTokensModel.findOne({ accessToken: bearerToken }, callback);
 };
 
 module.exports.saveAccessToken = function(token, clientId, expires, userId, callback) {
+  console.log('*************** SAVE ACCESS TOKEN ***************');
   var fields = {
     clientId: clientId,
     userId: userId,
@@ -24,10 +29,10 @@ module.exports.saveAccessToken = function(token, clientId, expires, userId, call
   };
 
   OAuthAccessTokensModel.update({ accessToken: token }, fields, { upsert: true }, function(err) {
-    if (err) {
-      console.error(err);
-    }
-
+    if (err) { console.error(err); }
     callback(err);
   });
 };
+
+mongoose.model('oauth_accesstokens', OAuthAccessTokensSchema);
+var OAuthAccessTokensModel = mongoose.model('oauth_accesstokens');

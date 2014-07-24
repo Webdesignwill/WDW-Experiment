@@ -9,6 +9,7 @@ var OAuthClientsSchema = new mongoose.Schema({
 });
 
 OAuthClientsSchema.statics.getClient = function (clientId, clientSecret, callback) {
+  console.log('*************** GET CLIENT ***************');
   var params = { clientId : clientId };
   if (clientSecret !== null) {
     params.clientSecret = clientSecret;
@@ -17,6 +18,7 @@ OAuthClientsSchema.statics.getClient = function (clientId, clientSecret, callbac
 };
 
 OAuthClientsSchema.statics.grantTypeAllowed = function (clientId, grantType, callback) {
+  console.log('*************** GRANT TYPE ALLOWED ***************');
   if (grantType === 'password' || grantType === 'authorization_code') {
     return callback(false, authorizedClientIds.indexOf(clientId) >= 0);
   }
