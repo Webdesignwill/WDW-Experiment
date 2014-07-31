@@ -47,6 +47,9 @@ module.exports = function (app, passport) {
           return res.json({ error: 'This is a secret message, login to see it.' });
       } */
 
+  /* Login for an hour */
+  app.post('/api/oauth/token', app.oauth.grant());
+
   /* Logout */
   app.post('/api/auth/logout', function (req, res) {
     req.logout();
@@ -56,9 +59,9 @@ module.exports = function (app, passport) {
   /* User profile pages and settings
   ================================================= */
 
-  app.get('/api/auth/profile', isLoggedIn, function (req, res) {
-    res.json(200, req.user);
-  });
+  // app.get('/api/auth/profile', isLoggedIn, function (req, res) {
+  //   res.json(200, req.user);
+  // });
 
   /* Page CRUD actions
   ================================================= */

@@ -33,8 +33,8 @@ var base_require = require.config({
     page                                           : 'extensions/page',
 
     // Managers
-    PackageManager                         : 'packages/PackageManager',
-    PageFactory                                : 'pages/PageFactory',
+    PackageManager                          : 'packages/PackageManager',
+    PageFactory                                 : 'pages/PageFactory',
     Router                                          : 'Router',
 
     // Application Models
@@ -42,6 +42,7 @@ var base_require = require.config({
     Sitemap                                      : 'models/app/Sitemap',
     PageModel                                  : 'models/page/PageModel',
     UserModel                                  : 'models/user/UserModel',
+    oauth2Model                              : 'models/oauth/Oauth2Model',
 
     // Admin Views
     AdminBarView                            : 'views/admin/AdminBarView',

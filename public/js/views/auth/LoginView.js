@@ -27,9 +27,9 @@ define([
       webdesignwill.user.login({
         email : this.el.email.value,
         password : this.el.password.value
-      }, function (result, message) {
+      }, function (result, data, status) {
         if(result) { return $topics.publish('modal:close'); }
-        alert(message);
+        alert('HANDLE VALIDATION');
       });
     }
 

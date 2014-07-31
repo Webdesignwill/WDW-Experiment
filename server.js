@@ -23,12 +23,10 @@ require('./config/express')(app, config, passport);
 require('./config/routes')(app, passport);
 
 // Start
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 5000;
 var server = app.listen(port, function() {
   debug('Express server listening on port ' + server.address().port);
 });
-
-app.post('/api/oauth/token', app.oauth.grant());
 
 //expose app
 exports = module.exports = app;

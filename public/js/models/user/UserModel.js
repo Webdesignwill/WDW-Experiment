@@ -1,10 +1,11 @@
 
 define([
   'webdesignwill',
+  'oauth2Model',
   '$topics'
 ],
 
-function (webdesignwill, $topics) {
+function (webdesignwill, oauth2Model, $topics) {
 
   "use strict";
 
@@ -19,7 +20,6 @@ function (webdesignwill, $topics) {
     },
 
     urls : {
-      token : '/api/oauth/token',
       register : '/api/auth/register',
       login : '/api/auth/login',
       logout : '/api/auth/logout',
@@ -54,14 +54,12 @@ function (webdesignwill, $topics) {
 
     login : function (user, done) {
       var self = this;
-      this.url = this.urls.token;
-      this.save(user, {
-        success : function (model, response, options) {
-          self.set('loggedin', true);
+      oauth2Model.requestAccessToken(user, function (data, status) {
+        if (status === 'success') {
+          self.set({ loggedin : true });
           done(true);
-        },
-        error : function (model, response, options) {
-          done(false, response.responseJSON.message[0]);
+        } else if (status === 'error') {
+          done(false, data, status);
         }
       });
     },
