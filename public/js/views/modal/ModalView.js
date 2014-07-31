@@ -18,8 +18,11 @@ define([
             self.$modalContent.html(view.render().el);
           }
 
+          // If there is a pre render on the view then call that and pass done
+          // otherwise, just call done.
           if(view.preRender) { return view.preRender(done); }
           done();
+
         });
       },
       close : function () {

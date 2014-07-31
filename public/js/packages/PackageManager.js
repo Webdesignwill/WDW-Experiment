@@ -54,7 +54,7 @@ define([
             initMethods : app.dependencies,
             launch : function () {
               console.log('%c Package ' + packageName + ' has started ', 'background: #444f64; color: #FFFFFF');
-              next();
+              nextPackage();
             }
           });
         });
@@ -76,7 +76,7 @@ define([
           packages[packageName].app.$el = attachPackageElement();
           packages[packageName].app.continue(function () {
             console.log('%c Continuing ' + packageName + ' package ', 'background: #444f64; color: #00FFFF');
-            next();
+            nextPackage();
           });
         }
       }
@@ -90,7 +90,7 @@ define([
 
       /* Check for the next package. Counter resets every time loadcommonJS is invoked
       =================================================== */
-      function next () {
+      function nextPackage () {
         counter = counter === undefined ? 0 : counter += 1;
 
         /* Check to see if there is another package. If not, they are all loaded */
@@ -102,7 +102,7 @@ define([
         }
       }
 
-      next();
+      nextPackage();
 
     }
 
