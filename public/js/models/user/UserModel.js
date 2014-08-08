@@ -1,17 +1,18 @@
 
 define([
-  'webdesignwill',
   'oauth2Model',
   '$topics'
 ],
 
-function (webdesignwill, oauth2Model, $topics) {
+function (oauth2Model, $topics) {
 
   "use strict";
 
   var UserModel = Backbone.Model.extend({
 
-    loggedin : false,
+    defaults : {
+      loggedin : false
+    },
 
     interests : {
       logout : function () {
@@ -20,10 +21,11 @@ function (webdesignwill, oauth2Model, $topics) {
     },
 
     urls : {
-      register : '/api/auth/register',
-      login : '/api/auth/login',
-      logout : '/api/auth/logout',
-      profile : '/api/auth/profile'
+      register : '/api/user/register',
+      login : '/api/user/login',
+      logout : '/api/user/logout',
+      profile : '/api/user/me',
+      session : '/api/user/session'
     },
 
     initialize : function () {
@@ -38,17 +40,20 @@ function (webdesignwill, oauth2Model, $topics) {
     },
 
     register : function (user, done) {
-      var self = this;
-      this.url = this.urls.register;
-      this.save(user, {
-        wait : true,
-        success : function (model, response, options) {
-          self.set('loggedin', true);
+      $.ajax({
+        type : 'POST',
+        context : this,
+        url : this.urls.register,
+        contentType : 'application/x-www-form-urlencoded',
+        data : {
+          email : user.email,
+          displayname : user.displayname,
+          password : user.password
+        },
+        success : function (data, status) {
           done(true);
         },
-        error : function (model, response, options) {
-          done(false, response.responseJSON.message[0]);
-        }
+        error : function () { alert('HANDLE ERROR'); }
       });
     },
 
@@ -56,8 +61,9 @@ function (webdesignwill, oauth2Model, $topics) {
       var self = this;
       oauth2Model.requestAccessToken(user, function (data, status) {
         if (status === 'success') {
-          self.set({ loggedin : true });
-          done(true);
+          self.startSession(user, function () {
+            done(true);
+          });
         } else if (status === 'error') {
           done(false, data, status);
         }
@@ -69,21 +75,42 @@ function (webdesignwill, oauth2Model, $topics) {
       this.url = this.urls.logout;
       $.post(this.urls.logout, function (data) {
         self.clear({silent : true});
-        self.set('loggedin', false);
+        self.set(data);
+      });
+    },
+
+    startSession : function (user, done) {
+      $.ajax({
+        type : 'POST',
+        context : this,
+        url : this.urls.session,
+        contentType : 'application/x-www-form-urlencoded',
+        data : {
+          email : user.email,
+          password : user.password
+        },
+        success : function (data, status) {
+          this.set(data);
+          done();
+        },
+        error : function () { alert('HANDLE ERROR'); }
       });
     },
 
     getProfile : function (done) {
-      // TODO, get the user profile stuff
-      this.url = this.urls.profile;
-      this.fetch({
-        success : function (model, response, options) {
+      $.ajax({
+        type : 'GET',
+        context : this,
+        url : this.urls.profile,
+        contentType : 'application/x-www-form-urlencoded',
+        headers : {
+          Authorization : 'Bearer ' + oauth2Model.get('access_token')
+        },
+        success : function (data, status) {
+          this.set(data);
           done();
         },
-        error : function (model, response, options) {
-          alert(response.responseJSON.message[0]);
-          done();
-        }
+        error : function () { alert('HANDLE ERROR'); }
       });
     }
 

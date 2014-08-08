@@ -8,7 +8,8 @@ function toLower (str) {
 var page = new mongoose.Schema({
   name : {
     type: String,
-    set : toLower
+    set : toLower,
+    unique : true
   },
   order : Number,
   page : {
@@ -21,6 +22,6 @@ var page = new mongoose.Schema({
     route : String,
     path : String
   }
-}, {strict : 'throw'});
+});
 
 module.exports = mongoose.model('Page', page);

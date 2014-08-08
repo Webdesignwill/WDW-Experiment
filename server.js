@@ -1,7 +1,25 @@
 
+/* oauth order of method calls
+
+*************** GET CLIENT *************** oauth_client.js
+*************** GRANT TYPE ALLOWED ***************
+*************** GET USER ***************
+*************** AUTHENTICATE ***************
+*************** SAVE ACCESS TOKEN ***************
+*************** SAVE REFRESH TOKEN ***************
+
+/* do cool things with figlet : var figlet = require("figlet");
+
+ _   _      _ _                            _     _ _
+ | | | | ___| | | ___   __      _____  _ __| | __| | |
+ | |_| |/ _ \ | |/ _ \  \ \ /\ / / _ \| '__| |/ _` | |
+ |  _  |  __/ | | (_) |  \ V  V / (_) | |  | | (_| |_|
+ |_| |_|\___|_|_|\___/    \_/\_/ \___/|_|  |_|\__
+
+=================================== */
+
 var express = require('express'),
       debug = require('debug')('webdesignwill'),
-      passport = require('passport'),
       fs = require('fs');
 
 var env = process.env.NODE_ENV || 'development',
@@ -11,16 +29,13 @@ var env = process.env.NODE_ENV || 'development',
 // Database
 mongoose.connect(config.db);
 
-// Passport settings
-require('./config/passport')(config, passport);
-
 var app = express();
 
 // express settings
-require('./config/express')(app, config, passport);
+require('./config/express')(app, config);
 
 // express settings
-require('./config/routes')(app, passport);
+require('./config/routes')(app);
 
 // Start
 var port = process.env.PORT || 5000;

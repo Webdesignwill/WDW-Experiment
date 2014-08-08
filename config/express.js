@@ -6,10 +6,10 @@ var express = require('express'),
       cookieParser = require('cookie-parser'),
       morgan = require('morgan'),
       flash = require('connect-flash'),
-      models = require('./../app/models'),
+      oauth = require('./../app/models/oauth'),
       oauth2server = require('node-oauth2-server');
 
-module.exports = function (app, config, passport) {
+module.exports = function (app, config) {
   app.set('showStackError', true);
 
   app.use(express.static(config.root + '/public'));
@@ -25,21 +25,16 @@ module.exports = function (app, config, passport) {
 
   app.use(session({
     secret: 'webdesignwillisthebestsightintheworld',
-      store: new mongoStore({
-        url: config.db,
-        collection: 'sessions'
-      })
+      store: new mongoStore({ url: config.db, collection: 'sessions'})
     })
   );
 
-  app.use(flash())
-        .use(passport.initialize())
-        .use(passport.session());
-
   app.oauth = oauth2server({
-    model: models.oauth,
-    grants: ['password', 'authorization_code', 'refresh_token'],
+    model: oauth,
+    grants: ['password', 'refresh_token'],
     debug: true
   });
+
+  app.use(app.oauth.errorHandler());
 
 };

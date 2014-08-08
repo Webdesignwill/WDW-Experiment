@@ -1,72 +1,59 @@
 
-var Pages = require('../app/models/page');
+var Pages = require('./../app/models').Page,
+      User = require('./../app/models').User,
+      Oauth = require('./../app/models/oauth');
 
-/* Check if the user is logged in. If they are, then hit next otherwise send not authorised
-======================================================= */
-function isLoggedIn(req, res, next) {
-  if (req.isAuthenticated()) { return next(); }
-  res.send(401, "You don't have permission to view this page");
-}
-
-module.exports = function (app, passport) {
-
-  // app.get('/', app.oauth.authorise(), function (req, res) {
-  //   res.send('Secret area');
-  // });
-
-  /* Authentication routes
-  ================================================= */
-
-  /* Login */
-  // app.post('/api/auth/login', function (req, res, next) {
-  //   passport.authenticate('local-login', function (err, user, info) {
-  //     if (err) { return next(err); }
-  //     if (!user) {
-  //       return res.json(401, { message : req.flash('login') });
-  //     }
-  //     return res.json(200, user.local);
-  //   })(req, res, next);
-  // });
-
-  /* Register */
-  // app.post('/api/auth/register', function (req, res, next) {
-  //   passport.authenticate('local-register', function (err, user, info) {
-  //     if (err) { return next(err); }
-  //     if (!user) {
-  //       return res.json(401, { message : req.flash('register') });
-  //     }
-  //     return res.json(200, user.local);
-  //   })(req, res, next);
-  // });
-
-  /* ALL AUTHENTICATED ROUTES
-      app.get/post(/api/auth/*, function () {})
-
-      // Need to filter anonymous users somehow
-      /*if (not logged in) {
-          return res.json({ error: 'This is a secret message, login to see it.' });
-      } */
+module.exports = function (app) {
 
   /* Login for an hour */
   app.post('/api/oauth/token', app.oauth.grant());
-
-  /* Logout */
-  app.post('/api/auth/logout', function (req, res) {
-    req.logout();
-    res.json(200);
+  app.post('/api/user/session', function (req, res, next) {
+    User.authenticate(req.body.email, req.body.password, function (err, user) {
+      if (err) return next(err);
+      if(user) {
+        req.session.userId = user.email;
+        res.send(200, {id : user._id, email : user.email, displayname : user.displayname, loggedin : true });
+      } else {
+        res.send(401, { message : 'Not authorised'} );
+      }
+    });
   });
 
-  /* User profile pages and settings
-  ================================================= */
+  /* Register */
+  app.post('/api/user/register', function (req, res, next) {
+    User.register(req.body, function (err, user) {
+      if (err) return next(err);
+      res.send(200, { message: 'New user created' } );
+    });
+  });
 
-  // app.get('/api/auth/profile', isLoggedIn, function (req, res) {
-  //   res.json(200, req.user);
-  // });
+  app.get('/api/user/me', app.oauth.authorise(), function (req, res) {
+    User.findOne({ email : req.user.id }, function (err, user) {
+      if (err) res.send(err);
+      res.send(200, { id : user._id, email : user.email, displayname : user.displayname });
+    });
+  });
+
+  app.get('/api/user/list', function (req, res) {
+    /* Only display displayable stuff like name, email etc */
+    User.find(null, null, {sort : {'order' : 1}}, function (err, users) {
+      if (err) res.send(err);
+      res.send(200, users);
+    });
+  });
+
+  app.post('/api/user/logout', function (req, res) {
+    Oauth.deleteAccessToken(req, function () {
+      Oauth.deleteRefreshToken(req, function () {
+        User.logout(req, function () {
+          res.send(200, {loggedin : false});
+        });
+      });
+    });
+  });
 
   /* Page CRUD actions
   ================================================= */
-
-  // http://passportjs.org/guide/oauth2-api/
 
   /* Create a new page */
   app.post('/api/page/create', function (req, res) {
@@ -87,7 +74,7 @@ module.exports = function (app, passport) {
 
   /* List all pages */
   app.get('/api/page/list', function (req, res) {
-    Pages.find(null, null, {sort : {'order' : 1}}, function(err, pages) {
+    Pages.find(null, null, {sort : {'order' : 1}}, function (err, pages) {
       if (err) res.send(err);
       res.json(pages);
     });

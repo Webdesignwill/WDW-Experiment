@@ -26,10 +26,10 @@ define([
       e.preventDefault();
       webdesignwill.user.register({
         email : this.el.email.value,
+        displayname : this.el.displayname.value,
         password : this.el.password.value
-      }, function (result, message) {
+      }, function (result) {
         if(result) { return $topics.publish('modal:close'); }
-        alert(message);
       });
     }
 

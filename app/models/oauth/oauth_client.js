@@ -9,7 +9,6 @@ var OAuthClientsSchema = new mongoose.Schema({
 });
 
 OAuthClientsSchema.statics.getClient = function (clientId, clientSecret, callback) {
-  console.log('*************** GET CLIENT ***************');
   var params = { clientId : clientId };
   if (clientSecret !== null) {
     params.clientSecret = clientSecret;
@@ -18,8 +17,7 @@ OAuthClientsSchema.statics.getClient = function (clientId, clientSecret, callbac
 };
 
 OAuthClientsSchema.statics.grantTypeAllowed = function (clientId, grantType, callback) {
-  console.log('*************** GRANT TYPE ALLOWED ***************');
-  if (grantType === 'password' || grantType === 'authorization_code') {
+  if (grantType === 'password') {
     return callback(false, authorizedClientIds.indexOf(clientId) >= 0);
   }
   callback(false, true);
@@ -28,3 +26,15 @@ OAuthClientsSchema.statics.grantTypeAllowed = function (clientId, grantType, cal
 mongoose.model('oauth_clients', OAuthClientsSchema);
 var OAuthClientsModel = mongoose.model('oauth_clients');
 module.exports = OAuthClientsModel;
+
+/* Client Secret and Client ID for authorized clients like for instance 'webdesignwill'
+If you drop the database, you need to run this once.
+==================================================== */
+
+// OAuthClientsModel.create({
+//   clientId: 'webdesignwill',
+//   clientSecret: 'webdesignwillisthebestsightintheworld',
+//   redirectUri: '/oauth/redirect'
+// }, function() {
+//   process.exit();
+// });

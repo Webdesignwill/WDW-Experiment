@@ -22,7 +22,7 @@ function () {
         url : this.urls.token,
         contentType : 'application/x-www-form-urlencoded',
         headers : {
-          Authorization : 'BASIC ' + this.app.secret
+          Authorization : 'Basic ' + this.app.secret
         },
         data : {
           'grant_type' : 'password',

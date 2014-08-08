@@ -8,49 +8,49 @@ var OAuthUsersSchema = new mongoose.Schema({
     unique: true,
     required: true
   },
+  displayname : String,
+  firstname: String,
+  lastname: String,
   hashed_password: {
     type: String,
     required: true
   },
   password_reset_token: {
-    type: String,
-    unique: true
+    type: String
+    // unique: true TODO Find out why this is duplicate if set
   },
-  reset_token_expires: Date,
-  firstname: String,
-  lastname: String
+  reset_token_expires: Date
 });
 
 function hashPassword(password) {
-  console.log('*************** HASH PASSWORD ***************');
   var salt = bcrypt.genSaltSync(10);
   return bcrypt.hashSync(password, salt);
 }
 
-OAuthUsersSchema.statics.register = function (fields, cb) {
-  console.log('*************** REGISTER ***************');
-  var user;
-
+OAuthUsersSchema.statics.register = function (fields, callback) {
   fields.hashed_password = hashPassword(fields.password);
   delete fields.password;
-
-  user = new OAuthUsersModel(fields);
-  user.save(cb);
+  var user = new OAuthUsersModel(fields);
+  user.save(callback);
 };
 
-OAuthUsersSchema.statics.getUser = function (email, password, cb) {
-  console.log('*************** GET USER ***************');
+OAuthUsersSchema.statics.getUser = function (email, password, callback) {
   OAuthUsersModel.authenticate(email, password, function (err, user) {
-    if (err || !user) return cb(err);
-    cb(null, user.email);
+    if (err || !user) return callback(err);
+    callback(null, user.email);
   });
 };
 
-OAuthUsersSchema.statics.authenticate = function (email, password, cb) {
-  console.log('*************** AUTHENTICATE ***************');
+OAuthUsersSchema.statics.authenticate = function (email, password, callback) {
   this.findOne({ email: email }, function (err, user) {
-    if (err || !user) return cb(err);
-    cb(null, bcrypt.compareSync(password, user.hashed_password) ? user : null);
+    if (err || !user) return callback(err);
+    callback(null, bcrypt.compareSync(password, user.hashed_password) ? user : null);
+  });
+};
+
+OAuthUsersSchema.statics.logout = function (req, callback) {
+  req.session.destroy(function () {
+    callback();
   });
 };
 

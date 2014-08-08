@@ -16,22 +16,24 @@ var OAuthAccessTokensSchema = new mongoose.Schema({
 });
 
 module.exports.getAccessToken = function(bearerToken, callback) {
-  console.log('*************** GET ACCESS TOKEN ***************');
   OAuthAccessTokensModel.findOne({ accessToken: bearerToken }, callback);
 };
 
 module.exports.saveAccessToken = function(token, clientId, expires, userId, callback) {
-  console.log('*************** SAVE ACCESS TOKEN ***************');
   var fields = {
     clientId: clientId,
     userId: userId,
     expires: expires
   };
 
-  OAuthAccessTokensModel.update({ accessToken: token }, fields, { upsert: true }, function(err) {
+  OAuthAccessTokensModel.update({ accessToken: token }, fields, { upsert: true }, function (err) {
     if (err) { console.error(err); }
     callback(err);
   });
+};
+
+module.exports.deleteAccessToken = function(req, callback) {
+  OAuthAccessTokensModel.findOneAndRemove({ userId: req.session.userId }, callback);
 };
 
 mongoose.model('oauth_accesstokens', OAuthAccessTokensSchema);
