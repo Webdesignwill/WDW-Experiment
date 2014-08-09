@@ -1,7 +1,7 @@
 
 body.github-page {
   background-color: $racingGreen;
-  a:hover, #page-container a:hover, #site-modal-window a:hover {
+  a:hover, #page-container a:hover, .site-modal-window a:hover {
     color:$vomit;
   }
   .menu-icon {
@@ -50,5 +50,11 @@ body.github-page {
     button.small-generic:hover {
       background-color:$vomit;
     }
+  }
+  .message.warning {
+    color : $errorRed;
+  }
+  .message.warning:hover {
+    color : $errorRedHover;
   }
 }

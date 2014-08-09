@@ -14,7 +14,7 @@ module.exports = function (app) {
         req.session.userId = user.email;
         res.send(200, {id : user._id, email : user.email, displayname : user.displayname, loggedin : true });
       } else {
-        res.send(401, { message : 'Not authorised'} );
+        res.send(401, {message : 'Not authorised'});
       }
     });
   });
@@ -30,7 +30,42 @@ module.exports = function (app) {
   app.get('/api/user/me', app.oauth.authorise(), function (req, res) {
     User.findOne({ email : req.user.id }, function (err, user) {
       if (err) res.send(err);
-      res.send(200, { id : user._id, email : user.email, displayname : user.displayname });
+
+      user.hashed_password = null;
+      res.send(200, user);
+    });
+  });
+
+  app.delete('/api/user/me', app.oauth.authorise(), function (req, res) {
+    User.findOne({ email : req.user.id }, function (err, user) {
+      if (err) res.send(err);
+      User.findByIdAndRemove(user.id, function (err) {
+        if (err) res.send(err);
+        Oauth.deleteAccessToken(req, function () {
+          Oauth.deleteRefreshToken(req, function () {
+            User.logout(req, function () {
+              res.send(200, {loggedin : false});
+            });
+          });
+        });
+      });
+    });
+  });
+
+  app.put('/api/user/me', app.oauth.authorise(), function (req, res) {
+    User.findOne({ email : req.user.id }, function (err, user) {
+      if (err) res.send(err);
+
+      for(var key in req.body) {
+        user[key] = req.body[key];
+      }
+
+      user.save(function (err, user) {
+        if (err) res.send(err);
+
+        user.hashed_password = null;
+        res.send(200, user);
+      });
     });
   });
 

@@ -22,9 +22,9 @@ function (Backbone, handlebars, webdesignwill, template) {
     },
 
     setEvents : function () {
-      webdesignwill.page.on('change:page', function (model) {
+      this.listenTo(webdesignwill.page, 'change:page', function (model) {
         this.highlightActive(model.get('page'));
-      }, this);
+      });
     },
 
     highlightActive : function (page) {

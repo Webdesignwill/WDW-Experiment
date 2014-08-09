@@ -2,7 +2,7 @@
   <div class="width-auto clear">
     <span class="gears-small-icon"></span>
     <div class="left">
-      <p><a href="">Hello</a></p>
+      <p><a href="">Siteify</a></p>
     </div>
     <div class="right">
       <p>

@@ -8,9 +8,22 @@ var OAuthUsersSchema = new mongoose.Schema({
     unique: true,
     required: true
   },
-  displayname : String,
-  firstname: String,
-  lastname: String,
+  displayname : {
+    type : String,
+    set : ifEmpty
+  },
+  firstname: {
+    type : String,
+    set : ifEmpty
+  },
+  lastname: {
+    type : String,
+    set : ifEmpty
+  },
+  company: {
+    type : String,
+    set : ifEmpty
+  },
   hashed_password: {
     type: String,
     required: true
@@ -21,6 +34,10 @@ var OAuthUsersSchema = new mongoose.Schema({
   },
   reset_token_expires: Date
 });
+
+function ifEmpty (str, user) {
+  return str.length > 0 ? str : user.path;
+}
 
 function hashPassword(password) {
   var salt = bcrypt.genSaltSync(10);

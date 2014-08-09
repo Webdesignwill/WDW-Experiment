@@ -11,7 +11,12 @@ function (oauth2Model, $topics) {
   var UserModel = Backbone.Model.extend({
 
     defaults : {
-      loggedin : false
+      loggedin : false,
+      displayname : null,
+      email : null,
+      company : null,
+      firstname : null,
+      lastname : null
     },
 
     interests : {
@@ -24,7 +29,7 @@ function (oauth2Model, $topics) {
       register : '/api/user/register',
       login : '/api/user/login',
       logout : '/api/user/logout',
-      profile : '/api/user/me',
+      me : '/api/user/me',
       session : '/api/user/session'
     },
 
@@ -45,11 +50,7 @@ function (oauth2Model, $topics) {
         context : this,
         url : this.urls.register,
         contentType : 'application/x-www-form-urlencoded',
-        data : {
-          email : user.email,
-          displayname : user.displayname,
-          password : user.password
-        },
+        data : user,
         success : function (data, status) {
           done(true);
         },
@@ -72,7 +73,6 @@ function (oauth2Model, $topics) {
 
     logout : function () {
       var self = this;
-      this.url = this.urls.logout;
       $.post(this.urls.logout, function (data) {
         self.clear({silent : true});
         self.set(data);
@@ -85,13 +85,10 @@ function (oauth2Model, $topics) {
         context : this,
         url : this.urls.session,
         contentType : 'application/x-www-form-urlencoded',
-        data : {
-          email : user.email,
-          password : user.password
-        },
+        data : user,
         success : function (data, status) {
           this.set(data);
-          done();
+          done(true);
         },
         error : function () { alert('HANDLE ERROR'); }
       });
@@ -101,14 +98,50 @@ function (oauth2Model, $topics) {
       $.ajax({
         type : 'GET',
         context : this,
-        url : this.urls.profile,
+        url : this.urls.me,
         contentType : 'application/x-www-form-urlencoded',
         headers : {
           Authorization : 'Bearer ' + oauth2Model.get('access_token')
         },
         success : function (data, status) {
           this.set(data);
-          done();
+          done(true);
+        },
+        error : function () { alert('HANDLE ERROR'); }
+      });
+    },
+
+    update : function (user, done) {
+      $.ajax({
+        type : 'PUT',
+        context : this,
+        url : this.urls.me,
+        contentType : 'application/x-www-form-urlencoded',
+        headers : {
+          Authorization : 'Bearer ' + oauth2Model.get('access_token')
+        },
+        data : user,
+        success : function (data, status) {
+          this.set(data);
+          done(true);
+        },
+        error : function () { alert('HANDLE ERROR'); }
+      });
+    },
+
+    deleteMe : function (done) {
+      $.ajax({
+        type : 'DELETE',
+        context : this,
+        url : this.urls.me,
+        contentType : 'application/x-www-form-urlencoded',
+        headers : {
+          Authorization : 'Bearer ' + oauth2Model.get('access_token')
+        },
+        success : function (data, status) {
+          this.clear({silent : true});
+          this.set(data);
+          done(true);
         },
         error : function () { alert('HANDLE ERROR'); }
       });

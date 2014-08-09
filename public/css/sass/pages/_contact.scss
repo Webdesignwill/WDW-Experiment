@@ -12,7 +12,7 @@
 
 body.contact-page {
   background-color: $blood;
-  a:hover, #page-container a:hover, #site-modal-window a:hover {
+  a:hover, #page-container a:hover, .site-modal-window a:hover {
     color:$lightBlood;
   }
   .menu-icon {
@@ -45,5 +45,11 @@ body.contact-page {
     h1 {
       background-position: center -360px;
     }
+  }
+  .message.warning {
+    color : $errorRed;
+  }
+  .message.warning:hover {
+    color : $errorRedHover;
   }
 }

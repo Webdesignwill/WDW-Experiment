@@ -66,9 +66,9 @@ var base_require = require.config({
     DefaultPage                               : 'pages/default/DefaultPage',
 
     // Auth views
-    login                                          : 'views/auth/LoginView',
-    register                                      : 'views/auth/RegisterView',
-    profile                                        : 'views/auth/ProfileView'
+    login                                          : 'views/user/LoginView',
+    register                                      : 'views/user/RegisterView',
+    profile                                        : 'views/user/ProfileView'
 
   },
   shim : {

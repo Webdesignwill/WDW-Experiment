@@ -232,7 +232,7 @@ a {
 }
 
 /* line 38, sass/_typography.scss */
-#page-container a, #site-modal-window a {
+#page-container a, .site-modal-window a {
   color: #444444;
 }
 
@@ -663,7 +663,7 @@ body.home-page {
   background-color: #444f64;
 }
 /* line 71, sass/pages/_home.scss */
-body.home-page a:hover, body.home-page #page-container a:hover, body.home-page #site-modal-window a:hover {
+body.home-page a:hover, body.home-page #page-container a:hover, body.home-page .site-modal-window a:hover {
   color: #c0e4ed;
 }
 /* line 74, sass/pages/_home.scss */
@@ -720,6 +720,14 @@ body.home-page #page-container button.input-combo-button:hover,
 body.home-page #page-container button.small-generic:hover {
   background-color: #e2f6ff;
 }
+/* line 127, sass/pages/_home.scss */
+body.home-page .message.warning {
+  color: red;
+}
+/* line 130, sass/pages/_home.scss */
+body.home-page .message.warning:hover {
+  color: #d20000;
+}
 
 /* line 1, sass/pages/_contact.scss */
 #contact-page {
@@ -741,7 +749,7 @@ body.contact-page {
   background-color: #76312d;
 }
 /* line 15, sass/pages/_contact.scss */
-body.contact-page a:hover, body.contact-page #page-container a:hover, body.contact-page #site-modal-window a:hover {
+body.contact-page a:hover, body.contact-page #page-container a:hover, body.contact-page .site-modal-window a:hover {
   color: #e86158;
 }
 /* line 18, sass/pages/_contact.scss */
@@ -772,13 +780,21 @@ body.contact-page #primary-nav ul li.active h3, body.contact-page #primary-nav u
 body.contact-page #site-header h1 {
   background-position: center -360px;
 }
+/* line 49, sass/pages/_contact.scss */
+body.contact-page .message.warning {
+  color: red;
+}
+/* line 52, sass/pages/_contact.scss */
+body.contact-page .message.warning:hover {
+  color: #d20000;
+}
 
 /* line 2, sass/pages/_github.scss */
 body.github-page {
   background-color: #376018;
 }
 /* line 4, sass/pages/_github.scss */
-body.github-page a:hover, body.github-page #page-container a:hover, body.github-page #site-modal-window a:hover {
+body.github-page a:hover, body.github-page #page-container a:hover, body.github-page .site-modal-window a:hover {
   color: #b2d233;
 }
 /* line 7, sass/pages/_github.scss */
@@ -826,6 +842,14 @@ body.github-page #page-container button.small-generic {
 body.github-page #page-container button.input-combo-button:hover,
 body.github-page #page-container button.small-generic:hover {
   background-color: #b2d233;
+}
+/* line 54, sass/pages/_github.scss */
+body.github-page .message.warning {
+  color: red;
+}
+/* line 57, sass/pages/_github.scss */
+body.github-page .message.warning:hover {
+  color: #d20000;
 }
 
 /* line 2, sass/views/_header.scss */

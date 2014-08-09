@@ -68,7 +68,7 @@
 
 body.home-page {
   background-color: $darkBlue;
-  a:hover, #page-container a:hover, #site-modal-window a:hover {
+  a:hover, #page-container a:hover, .site-modal-window a:hover {
     color:$lightBlue;
   }
   .menu-icon {
@@ -123,5 +123,11 @@ body.home-page {
     button.small-generic:hover {
       background-color:$veryLightBlue;
     }
+  }
+  .message.warning {
+    color : $errorRed;
+  }
+  .message.warning:hover {
+    color : $errorRedHover;
   }
 }

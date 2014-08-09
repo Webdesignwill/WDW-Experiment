@@ -2,7 +2,7 @@
 define([
   '$topics',
   'webdesignwill',
-  'text!views/auth/templates/login.tpl'
+  'text!views/user/templates/login.tpl'
 ], function ($topics, webdesignwill, template) {
 
   "use strict";
