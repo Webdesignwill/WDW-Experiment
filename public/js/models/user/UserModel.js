@@ -14,9 +14,9 @@ function (oauth2Model, $topics) {
       loggedin : false,
       displayname : null,
       email : null,
-      company : null,
-      firstname : null,
-      lastname : null
+      company : "Company",
+      firstname : "First name",
+      lastname : "Last Name"
     },
 
     interests : {
@@ -35,6 +35,10 @@ function (oauth2Model, $topics) {
 
     initialize : function () {
       this.setSubscriptions();
+      var self = this;
+      setInterval(function () {
+        console.log(self);
+      }, 5000);
     },
 
     setSubscriptions : function () {
