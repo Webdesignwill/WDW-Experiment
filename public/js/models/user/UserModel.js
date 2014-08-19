@@ -11,12 +11,7 @@ function (oauth2Model, $topics) {
   var UserModel = Backbone.Model.extend({
 
     defaults : {
-      loggedin : false,
-      displayname : null,
-      email : null,
-      company : "Company",
-      firstname : "First name",
-      lastname : "Last Name"
+      loggedin : false
     },
 
     interests : {

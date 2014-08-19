@@ -9,16 +9,20 @@ var OAuthUsersSchema = new mongoose.Schema({
     required: true
   },
   displayname : {
-    type : String
+    type : String,
+    default : 'Display name'
   },
   firstname: {
-    type : String
+    type : String,
+    default : 'First name'
   },
   lastname: {
-    type : String
+    type : String,
+    default : 'Last name'
   },
   company: {
-    type : String
+    type : String,
+    default : 'Company name'
   },
   hashed_password: {
     type: String,
