@@ -10,9 +10,7 @@ function (oauth2Model, $topics) {
 
   var UserModel = Backbone.Model.extend({
 
-    defaults : {
-      loggedin : false
-    },
+    defaults : { loggedin : false },
 
     interests : {
       logout : function () {
