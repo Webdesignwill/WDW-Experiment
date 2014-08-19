@@ -14,11 +14,11 @@ function parseUserObject (user) {
   };
 }
 
-function logMeOut (req) {
+function logMeOut (req, res, next) {
   Oauth.deleteAccessToken(req, function () {
     Oauth.deleteRefreshToken(req, function () {
       User.logout(req, function () {
-        res.send(200, {loggedin : false});
+        res.send(200, {message : 'Logged out'});
       });
     });
   });
@@ -60,10 +60,9 @@ module.exports.getMe = function (req, res, next) {
 ============================= */
 module.exports.deleteMe = function (req, res, next) {
   User.findOne({ email : req.user.id }, function (err, user) {
-    if (err) res.send(err);
     User.findByIdAndRemove(user.id, function (err) {
       if (err) res.send(err);
-      logMeOut(req);
+      logMeOut(req, res, next);
     });
   });
 };
@@ -71,7 +70,7 @@ module.exports.deleteMe = function (req, res, next) {
 /* Update me a user
 ============================= */
 module.exports.putMe = function (req, res, next) {
-  Models.User.findOne({ email : req.user.id }, function (err, user) {
+  User.findOne({ email : req.user.id }, function (err, user) {
     if (err) res.send(err);
     for(var key in req.body) {
       user[key] = req.body[key];
@@ -86,6 +85,5 @@ module.exports.putMe = function (req, res, next) {
 /* Log me out
 ============================= */
 module.exports.logout = function (req, res, next) {
-  if (err) res.send(err);
-  logMeOut(req);
+  logMeOut(req, res, next);
 };

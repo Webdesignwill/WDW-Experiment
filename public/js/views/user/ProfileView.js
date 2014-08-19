@@ -49,7 +49,7 @@ define([
         }
       }
 
-      webdesignwill.user.update(user, function (result, data, status) {
+      webdesignwill.user.put(user, function (result, data, status) {
         if(!result) { return alert('HANDLE VALIDATION'); }
       });
     },

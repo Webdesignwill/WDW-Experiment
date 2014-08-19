@@ -9,7 +9,7 @@ function (PageModel) {
 
   var Sitemap = Backbone.Model.extend({
 
-    url : '/api/page/list',
+    url : '/api/pages/all',
     affix : '-page',
     sitemap : {},
 

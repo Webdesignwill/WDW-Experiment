@@ -35,10 +35,11 @@ function (oauth2Model, $topics) {
 
     initialize : function () {
       this.setSubscriptions();
-      var self = this;
-      setInterval(function () {
-        console.log(self);
-      }, 5000);
+    },
+
+    clearUser : function () {
+      this.clear({silent : true});
+      this.set(this.defaults);
     },
 
     setSubscriptions : function () {
@@ -78,8 +79,7 @@ function (oauth2Model, $topics) {
     logout : function () {
       var self = this;
       $.post(this.urls.logout, function (data) {
-        self.clear({silent : true});
-        self.set(data);
+        self.clearUser();
       });
     },
 
@@ -115,7 +115,7 @@ function (oauth2Model, $topics) {
       });
     },
 
-    update : function (user, done) {
+    put : function (user, done) {
       $.ajax({
         type : 'PUT',
         context : this,
@@ -143,8 +143,7 @@ function (oauth2Model, $topics) {
           Authorization : 'Bearer ' + oauth2Model.get('access_token')
         },
         success : function (data, status) {
-          this.clear({silent : true});
-          this.set(data);
+          this.clearUser();
           done(true);
         },
         error : function () { alert('HANDLE ERROR'); }

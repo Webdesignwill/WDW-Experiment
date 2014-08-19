@@ -1,5 +1,6 @@
 
-var Controllers = require('./../app/controllers');
+var Controllers = require('./../app/controllers'),
+      Pages = require('./../app/models/page');
 
 module.exports = function (app) {
 
@@ -41,7 +42,7 @@ module.exports = function (app) {
   });
 
   /* List all pages */
-  app.get('/api/page/list', function (req, res) {
+  app.get('/api/pages/all', function (req, res) {
     Pages.find(null, null, {sort : {'order' : 1}}, function (err, pages) {
       if (err) res.send(err);
       res.json(pages);
