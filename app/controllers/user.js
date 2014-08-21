@@ -24,7 +24,7 @@ function logMeOut (req, res, next) {
   });
 }
 
-/* Start session
+/* Start session, login
 ============================= */
 module.exports.session = function (req, res, next) {
   User.authenticate(req.body.email, req.body.password, function (err, user) {

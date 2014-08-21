@@ -29,10 +29,9 @@ define([
         password : this.el.password.value
       }, function (result, data, status) {
         if(result) { return $topics.publish('modal:close'); }
-        alert('HANDLE VALIDATION');
+        alert('USER NOT FOUND');
       });
     }
-
   });
 
   return LoginView;

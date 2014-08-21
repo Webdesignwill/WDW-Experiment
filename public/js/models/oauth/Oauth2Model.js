@@ -34,9 +34,11 @@ function () {
             refresh_token : data.refresh_token,
             access_token : data.access_token
           });
-          callback(data, status);
+          callback(true, data, status);
         },
-        error : callback
+        error : function (data, status) {
+          callback(false, data, status);
+        }
       });
     }
 

@@ -50,29 +50,22 @@ function (oauth2Model, $topics) {
         contentType : 'application/x-www-form-urlencoded',
         data : user,
         success : function (data, status) {
-          done(true);
+          done(true, data, status);
         },
-        error : function () { alert('HANDLE ERROR'); }
-      });
-    },
-
-    login : function (user, done) {
-      var self = this;
-      oauth2Model.requestAccessToken(user, function (data, status) {
-        if (status === 'success') {
-          self.startSession(user, function () {
-            done(true);
-          });
-        } else if (status === 'error') {
+        error : function (data, status) {
           done(false, data, status);
         }
       });
     },
 
-    logout : function () {
+    login : function (user, done) {
       var self = this;
-      $.post(this.urls.logout, function (data) {
-        self.clearUser();
+      oauth2Model.requestAccessToken(user, function (result, data, status) {
+        if (result) {
+          self.startSession(user, done);
+        } else {
+          done(false, data, status);
+        }
       });
     },
 
@@ -85,9 +78,11 @@ function (oauth2Model, $topics) {
         data : user,
         success : function (data, status) {
           this.set(data);
-          done(true);
+          done(true, data, status);
         },
-        error : function () { alert('HANDLE ERROR'); }
+        error : function (data, status) {
+          done(false, data, status);
+        }
       });
     },
 
@@ -102,9 +97,11 @@ function (oauth2Model, $topics) {
         },
         success : function (data, status) {
           this.set(data);
-          done(true);
+          done(true, data, status);
         },
-        error : function () { alert('HANDLE ERROR'); }
+        error : function (data, status) {
+          done(false, data, status);
+        }
       });
     },
 
@@ -120,9 +117,11 @@ function (oauth2Model, $topics) {
         data : user,
         success : function (data, status) {
           this.set(data);
-          done(true);
+          done(true, data, status);
         },
-        error : function () { alert('HANDLE ERROR'); }
+        error : function (data, status) {
+          done(false, data, status);
+        }
       });
     },
 
@@ -137,9 +136,18 @@ function (oauth2Model, $topics) {
         },
         success : function (data, status) {
           this.clearUser();
-          done(true);
+          done(true, data, status);
         },
-        error : function () { alert('HANDLE ERROR'); }
+        error : function (data, status) {
+          done(false, data, status);
+        }
+      });
+    },
+
+    logout : function () {
+      var self = this;
+      $.post(this.urls.logout, function (data) {
+        self.clearUser();
       });
     }
 
