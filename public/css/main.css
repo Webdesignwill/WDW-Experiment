@@ -236,15 +236,6 @@ a {
   color: #444444;
 }
 
-/* line 43, sass/_typography.scss */
-form h2 {
-  margin-bottom: 22px;
-}
-/* line 46, sass/_typography.scss */
-form p.intro {
-  margin-bottom: 12px;
-}
-
 /* line 1, sass/_grid.scss */
 .grid-10 {
   width: 10%;
@@ -444,7 +435,7 @@ textarea {
   box-shadow: inset #999999 0px 0px 3px -1px;
   border: none;
   padding: 0;
-  margin: 0 0 10px 0;
+  margin: 0;
   background: white;
   font-size: 14px;
   text-indent: 10px;
@@ -460,41 +451,73 @@ textarea {
 }
 
 /* line 28, sass/components/_forms.scss */
+form h2 {
+  margin-bottom: 22px;
+}
+/* line 31, sass/components/_forms.scss */
+form p.intro {
+  margin-bottom: 12px;
+}
+/* line 34, sass/components/_forms.scss */
+form label {
+  display: block;
+  margin-bottom: 10px;
+  position: relative;
+}
+/* line 39, sass/components/_forms.scss */
+form .inline-error {
+  display: none;
+  right: 10px;
+  top: 14px;
+  position: absolute;
+  color: red;
+}
+/* line 46, sass/components/_forms.scss */
 form .additional-form-text {
   margin-top: 10px;
   border-top: 1px solid #eeeeee;
   padding-top: 15px;
 }
-/* line 32, sass/components/_forms.scss */
+/* line 50, sass/components/_forms.scss */
 form .additional-form-text p {
   margin-bottom: 6px;
 }
 
-/* line 38, sass/components/_forms.scss */
+/* line 56, sass/components/_forms.scss */
 body.contact-page input, body.contact-page textarea {
   border-left: 3px solid #76312d;
 }
-/* line 41, sass/components/_forms.scss */
+/* line 59, sass/components/_forms.scss */
 body.contact-page input:focus, body.contact-page textarea:focus {
   border-left: 3px solid #e86158;
 }
 
-/* line 46, sass/components/_forms.scss */
+/* line 64, sass/components/_forms.scss */
 body.home-page input, body.home-page textarea {
   border-left: 3px solid #c0e4ed;
 }
-/* line 49, sass/components/_forms.scss */
+/* line 67, sass/components/_forms.scss */
 body.home-page input:focus, body.home-page textarea:focus {
   border-left: 3px solid #e2f6ff;
 }
 
-/* line 54, sass/components/_forms.scss */
+/* line 72, sass/components/_forms.scss */
 body.github-page input, body.github-page textarea {
   border-left: 3px solid #376018;
 }
-/* line 57, sass/components/_forms.scss */
+/* line 75, sass/components/_forms.scss */
 body.github-page input:focus, body.github-page textarea:focus {
   border-left: 3px solid #b2d233;
+}
+
+/* line 82, sass/components/_forms.scss */
+body[class*="-page"] label.error input, body[class*="-page"] label.error textarea {
+  border-left: 3px solid red;
+  color: red;
+}
+/* line 86, sass/components/_forms.scss */
+body[class*="-page"] label.error .inline-error {
+  display: block;
 }
 
 /* line 1, sass/components/_buttons.scss */
@@ -569,6 +592,12 @@ body.home-page button {
 body.home-page button:focus,
 body.home-page button:hover {
   background-color: #caf0f9;
+}
+
+/* line 64, sass/components/_buttons.scss */
+body.home-page button[disabled="true"], body.github-page button[disabled="true"], body.contact-page button[disabled="true"] {
+  cursor: auto;
+  background-color: #eeeeee;
 }
 
 /* line 2, sass/components/_lists.scss */
@@ -979,7 +1008,7 @@ body #site-modal-window {
 }
 /* line 17, sass/views/_modal.scss */
 body #site-modal-window .modal-content {
-  display: inline-block;
+  display: block;
   padding: 25px;
 }
 /* line 22, sass/views/_modal.scss */

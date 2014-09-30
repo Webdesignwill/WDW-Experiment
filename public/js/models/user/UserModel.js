@@ -10,6 +10,20 @@ function (oauth2Model, $topics) {
 
   var UserModel = Backbone.Model.extend({
 
+    validation : {
+      email : [{
+        required : true,
+        msg : 'Please enter you email'
+      },{
+        pattern : 'email',
+        msg : 'Please enter a valid email'
+      }],
+      password : [{
+        required : true,
+        msg : 'Please enter your password'
+      }]
+    },
+
     defaults : { loggedin : false },
 
     interests : {
@@ -58,15 +72,21 @@ function (oauth2Model, $topics) {
       });
     },
 
+    /* Set the props to the model and check if the model's valid */
+    checkValidity : function (user) {
+      this.set(user, {validate : true, silent : true});
+    },
+
     login : function (user, done) {
-      var self = this;
-      oauth2Model.requestAccessToken(user, function (result, data, status) {
-        if (result) {
-          self.startSession(user, done);
-        } else {
-          done(false, data, status);
-        }
-      });
+      this.checkValidity(user);
+      // var self = this;
+      // oauth2Model.requestAccessToken(user, function (result, data, status) {
+      //   if (result) {
+      //     self.startSession(user, done);
+      //   } else {
+      //     done(false, data, status);
+      //   }
+      // });
     },
 
     startSession : function (user, done) {

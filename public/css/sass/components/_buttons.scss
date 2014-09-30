@@ -59,3 +59,10 @@ body.home-page {
     background-color:$lightBlueHover;
   }
 }
+
+body.home-page, body.github-page, body.contact-page {
+  button[disabled="true"] {
+    cursor: auto;
+    background-color:$grey
+  }
+}

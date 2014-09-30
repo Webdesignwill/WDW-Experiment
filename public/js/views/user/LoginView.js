@@ -9,29 +9,32 @@ define([
 
   var LoginView = Backbone.View.extend({
 
-    tagName : 'form',
-    className : 'login-form',
-    events : {
-      'submit' : 'handler'
-    },
-
-    initialize : function () {},
-
     render : function () {
       this.$el.html(template);
-      return this;
-    },
 
-    handler : function (e) {
-      e.preventDefault();
-      webdesignwill.user.login({
-        email : this.el.email.value,
-        password : this.el.password.value
-      }, function (result, data, status) {
-        if(result) { return $topics.publish('modal:close'); }
-        alert('USER NOT FOUND');
+      var $formEl = this.$el.find('form'),
+            formName = $formEl.data().name;
+
+      webdesignwill.formsManager.loadForm({
+        el : $formEl,
+        name : formName,
+        valid : webdesignwill.user.login,
+        invalid : function () { alert('not valid'); }
       });
+
+      return this;
     }
+
+    // submit : function (e) {
+    //   e.preventDefault();
+    //   webdesignwill.user.login({
+    //     email : this.el.email.value,
+    //     password : this.el.password.value
+    //   }, function (result, data, status) {
+    //     if(result) { return $topics.publish('modal:close'); }
+    //     alert('USER NOT FOUND');
+    //   });
+    // }
   });
 
   return LoginView;

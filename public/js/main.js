@@ -4,6 +4,7 @@ var base_require = require.config({
   baseUrl : '/js/',
   context : 'base_require',
 
+  /* Abstract these to the packages main file */
   packages: [{
     name : 'github',
     location : 'packages/github'
@@ -13,6 +14,9 @@ var base_require = require.config({
   },{
     name : 'twitch',
     location : 'packages/twitch'
+  },{
+    name : 'forms',
+    location : 'forms'
   }],
 
   paths : {
@@ -20,6 +24,7 @@ var base_require = require.config({
     jquery                                       : 'libs/jquery/jquery-min',
     velocity                                     : 'libs/jquery/velocity-min',
     Backbone                                  : 'libs/backbone/backbone-min',
+    Validation                                 : 'libs/backbone/backbone-validation-min',
     underscore                                : 'libs/underscore/underscore-min',
     handlebars                                : 'libs/handlebars/handlebars',
     text                                           : 'libs/require/text-min',
@@ -83,7 +88,7 @@ var base_require = require.config({
       deps : ['jquery']
     }
   },
-  deps : ['jquery', 'velocity', 'webdesignwill', 'domReady', 'page', 'PackageManager'],
+  deps : ['jquery', 'velocity', 'webdesignwill', 'domReady', 'page', 'PackageManager', 'Validation'],
   callback : function ($, velocity, webdesignwill, domReady) {
     domReady(function() {
       webdesignwill.init();

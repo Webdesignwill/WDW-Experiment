@@ -20,9 +20,9 @@ define([], function () {
           $.when($dfd.promise(page.close($dfd))).then(function () {
             done();
           });
-        } else {
-          done();
+          return;
         }
+        done();
       }
 
       function openNextPage ($container, page, done) {
@@ -33,9 +33,9 @@ define([], function () {
           $.when($dfd.promise(page.before($container, $dfd))).then(function () {
             done();
           });
-        } else {
-          done();
+          return;
         }
+        done();
       }
 
       this.make = function (templatePath, $container, pageModel, Page, identifier) {

@@ -34,10 +34,7 @@ define(function (require, exports, module) {
           exports: 'Handlebars'
         }
       },
-      deps : ['app', 'router'],
-      callback : function (app, router) {
-
-      }
+      deps : ['app', 'router']
     };
   };
 });

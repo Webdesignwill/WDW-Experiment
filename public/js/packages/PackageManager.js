@@ -68,7 +68,7 @@ define([
         /* If the package already exists, continue package operations */
         if(packages[packageName] === undefined) {
           packages[packageName] = {
-            req : require(config, function () {
+            req : window.require(config, function () {
               initPackage();
             })
           };
