@@ -35,7 +35,8 @@ var base_require = require.config({
     launchControl                            : 'utilities/launchControl',
 
     // Extensions
-    page                                           : 'extensions/page',
+    pageExt                                      : 'pages/pageExt',
+    formExt                                      : 'forms/formExt',
 
     // Managers
     PackageManager                          : 'packages/PackageManager',
@@ -88,7 +89,7 @@ var base_require = require.config({
       deps : ['jquery']
     }
   },
-  deps : ['jquery', 'velocity', 'webdesignwill', 'domReady', 'page', 'PackageManager', 'Validation'],
+  deps : ['jquery', 'velocity', 'webdesignwill', 'domReady', 'pageExt', 'formExt', 'PackageManager', 'Validation'],
   callback : function ($, velocity, webdesignwill, domReady) {
     domReady(function() {
       webdesignwill.init();

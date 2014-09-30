@@ -16,7 +16,7 @@ define([
             formName = $formEl.data().name;
 
       webdesignwill.formsManager.loadForm({
-        el : $formEl,
+        el : $formEl[0],
         name : formName,
         valid : webdesignwill.user.login,
         invalid : function () { alert('not valid'); }

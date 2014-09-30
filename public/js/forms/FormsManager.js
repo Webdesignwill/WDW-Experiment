@@ -13,13 +13,19 @@
 
 */
 
-define([], function () {
+define(['require'], function (require) {
 
   "use strict";
 
   var FormsManager = function () {
     this.loadForm = function (options) {
-      console.log('OPTIONS : ', options);
+      require([options.name + 'Form'], function (Form) {
+        var form = new Form({
+          el : options.el,
+          invalid : options.invalid,
+          valid : options.valid
+        });
+      });
     };
   };
 

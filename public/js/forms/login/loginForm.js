@@ -5,6 +5,10 @@ define([], function () {
 
   var LoginForm = Backbone.Forms.extend({
 
+    initialize : function () {
+      debugger;
+    },
+
     render : function () {
       return this;
     }
