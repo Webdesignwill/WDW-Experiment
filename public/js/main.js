@@ -14,9 +14,6 @@ var base_require = require.config({
   },{
     name : 'twitch',
     location : 'packages/twitch'
-  },{
-    name : 'forms',
-    location : 'forms'
   }],
 
   paths : {
@@ -89,8 +86,13 @@ var base_require = require.config({
       deps : ['jquery']
     }
   },
-  deps : ['jquery', 'velocity', 'webdesignwill', 'domReady', 'pageExt', 'formExt', 'PackageManager', 'Validation'],
-  callback : function ($, velocity, webdesignwill, domReady) {
+  deps : ['jquery', 'underscore', 'velocity', 'webdesignwill', 'domReady', 'pageExt', 'formExt', 'PackageManager', 'Validation'],
+  callback : function ($, _, velocity, webdesignwill, domReady) {
+
+    // Mix in the validation for all models
+    _.extend(Backbone.Model.prototype, Backbone.Validation.mixin);
+
+    // Fire her up once were ready
     domReady(function() {
       webdesignwill.init();
     });

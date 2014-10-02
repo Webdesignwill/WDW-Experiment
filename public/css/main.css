@@ -511,12 +511,12 @@ body.github-page input:focus, body.github-page textarea:focus {
 }
 
 /* line 82, sass/components/_forms.scss */
-body[class*="-page"] label.error input, body[class*="-page"] label.error textarea {
+body[class*="-page"] label.invalid input, body[class*="-page"] label.invalid textarea {
   border-left: 3px solid red;
   color: red;
 }
 /* line 86, sass/components/_forms.scss */
-body[class*="-page"] label.error .inline-error {
+body[class*="-page"] label.invalid .inline-error {
   display: block;
 }
 

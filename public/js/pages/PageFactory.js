@@ -26,9 +26,7 @@ define([], function () {
       }
 
       function openNextPage ($container, page, done) {
-
         var $dfd = new $.Deferred();
-
         if(typeof page.before === 'function') {
           $.when($dfd.promise(page.before($container, $dfd))).then(function () {
             done();

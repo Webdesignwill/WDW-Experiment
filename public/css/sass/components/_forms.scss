@@ -78,7 +78,7 @@ body.github-page {
 }
 
 body[class*="-page"] {
-  label.error {
+  label.invalid {
     input, textarea {
       border-left: 3px solid $errorRed;
       color:$errorRed;

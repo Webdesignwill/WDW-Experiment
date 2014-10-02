@@ -21,6 +21,10 @@ function (oauth2Model, $topics) {
       password : [{
         required : true,
         msg : 'Please enter your password'
+      }],
+      somethingElse : [{
+        required : true,
+        msg : 'This is something far different'
       }]
     },
 
@@ -72,21 +76,15 @@ function (oauth2Model, $topics) {
       });
     },
 
-    /* Set the props to the model and check if the model's valid */
-    checkValidity : function (user) {
-      this.set(user, {validate : true, silent : true});
-    },
-
     login : function (user, done) {
-      this.checkValidity(user);
-      // var self = this;
-      // oauth2Model.requestAccessToken(user, function (result, data, status) {
-      //   if (result) {
-      //     self.startSession(user, done);
-      //   } else {
-      //     done(false, data, status);
-      //   }
-      // });
+      this.validate(user, {changedAttrs : true});
+      if(this.isValid()) {
+        var self = this;
+        oauth2Model.requestAccessToken(user, function (result, data, status) {
+          if (result) { return self.startSession(user, done); }
+          done(false, data, status);
+        });
+      }
     },
 
     startSession : function (user, done) {
