@@ -17,6 +17,7 @@ define([
     },
 
     initialize : function () {
+      // TODO This needs to be cleared at some point.
       this.listenTo(webdesignwill.user, 'validated', function (isValid, model, errors) {
         this.updateErrors(errors);
       });

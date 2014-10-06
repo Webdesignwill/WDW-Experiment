@@ -16,8 +16,6 @@
   <button tab-index="3" class="grid-100">Login</button>
 </div>
 
-
-
 <div class="grid-100 left additional-form-text">
   <p><a href="modal:open:register">Need an account?</a></p>
   <p><a href="#">Forgot your details?</a></p>

@@ -5,7 +5,9 @@ define([], function () {
 
   var DefaultPage = Backbone.Page.extend({
 
-    initialize : function () {},
+    initialize : function (options) {
+      this.options = options;
+    },
 
     render : function () {
       this.$el.html(this.options.template);
