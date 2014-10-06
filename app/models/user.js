@@ -49,14 +49,14 @@ OAuthUsersSchema.statics.register = function (fields, callback) {
 
 OAuthUsersSchema.statics.authenticate = function (email, password, callback) {
   this.findOne({ email: email }, function (err, user) {
-    if (!user || err) return callback(err, user);
+    if (err || !user) return callback(err, user);
     callback(null, bcrypt.compareSync(password, user.hashed_password) ? user : null);
   });
 };
 
 OAuthUsersSchema.statics.getUser = function (email, password, callback) {
   OAuthUsersModel.authenticate(email, password, function (err, user) {
-    if (!user || err) return callback(err, user);
+    if (err || !user) return callback(err, user);
     callback(null, user.email);
   });
 };

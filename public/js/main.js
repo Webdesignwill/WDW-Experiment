@@ -14,6 +14,9 @@ var base_require = require.config({
   },{
     name : 'twitch',
     location : 'packages/twitch'
+  },{
+    name : 'forms',
+    location : 'forms'
   }],
 
   paths : {

@@ -29,12 +29,8 @@ function logMeOut (req, res, next) {
 module.exports.session = function (req, res, next) {
   User.authenticate(req.body.email, req.body.password, function (err, user) {
     if (err) return next(err);
-    if(user) {
-      req.session.userId = user.email;
-      res.send(200, parseUserObject(user));
-    } else {
-      res.send(401, {message : 'User not found'});
-    }
+    req.session.userId = user.email;
+    res.send(200, parseUserObject(user));
   });
 };
 

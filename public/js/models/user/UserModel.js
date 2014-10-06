@@ -78,7 +78,6 @@ function (oauth2Model, $topics) {
 
     login : function (user, done) {
       this.validate(user, {changedAttrs : true});
-
       if(this.isValid()) {
         var self = this;
         oauth2Model.requestAccessToken(user, function (result, data, status) {

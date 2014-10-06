@@ -54,18 +54,17 @@ define([
       }
     },{
       method : function ($dfd, context) {
-        // base_require(['forms'], function (config) {
-        //   var req = window.require(config(), function () {
-        //     load();
-        //   });
-        //   function load () {
-        //     req(['FormsManager'], function (FormsManager) {
-        //       context.formsManager = FormsManager;
-        //       $dfd.resolve();
-        //     });
-        //   }
-        // });
-        $dfd.resolve();
+        base_require(['forms'], function (config) {
+          var req = window.require(config(), function () {
+            load();
+          });
+          function load () {
+            req(['FormsManager'], function (FormsManager) {
+              context.formsManager = FormsManager;
+              $dfd.resolve();
+            });
+          }
+        });
       }
     }],
 

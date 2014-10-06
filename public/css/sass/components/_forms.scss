@@ -28,8 +28,12 @@ form {
   h2 {
     margin-bottom:22px;
   }
-  p.intro {
+  p.intro, p.error {
     margin-bottom:12px;
+  }
+  p.error {
+    display:none;
+    color:$errorRed;
   }
   label {
     display:block;
@@ -49,6 +53,11 @@ form {
     padding-top:15px;
     p {
       margin-bottom:6px;
+    }
+  }
+  &.server-error {
+    p.error {
+      display:block;
     }
   }
 }

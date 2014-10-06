@@ -18,12 +18,10 @@ define(['require'], function (require) {
   "use strict";
 
   var FormsManager = function () {
-    this.loadForm = function (options) {
+    this.make = function (options) {
       require([options.name + 'Form'], function (Form) {
-        var form = new Form({
-          el : options.el,
-          invalid : options.invalid,
-          valid : options.valid
+        new Form({
+          el : options.el
         });
       });
     };

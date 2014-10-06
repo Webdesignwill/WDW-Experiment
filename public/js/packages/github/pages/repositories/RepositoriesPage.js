@@ -9,7 +9,9 @@ define([
 
   var RepositoriesPage = Backbone.Page.extend({
 
-    initialize : function () {},
+    initialize : function (options) {
+      this.options = options;
+    },
 
     setElements : function () {
       this.$repoList = this.$el.find('#github-repositories-list');

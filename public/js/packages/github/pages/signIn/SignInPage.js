@@ -7,7 +7,8 @@ define([
 
   var SigninPage = Backbone.Page.extend({
 
-    initialize : function () {
+    initialize : function (options) {
+      this.options = options;
       this.render();
     },
 

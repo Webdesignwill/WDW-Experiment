@@ -4,6 +4,10 @@ define(function (require, exports, module) {
       baseUrl                                        : '/js/forms',
       context                                        : 'siteify_forms',
       paths : {
+
+        text                                           : '../libs/require/text-min',
+        handlebars                                : '../libs/handlebars/handlebars',
+
         FormsManager                            : 'FormsManager',
 
         // Forms
