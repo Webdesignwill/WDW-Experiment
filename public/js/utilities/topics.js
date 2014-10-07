@@ -1,7 +1,4 @@
 
-/* This is the messenger system that the app uses to communicate between modules
-  =================================================== */
-
 define(function () {
 
   "use strict";

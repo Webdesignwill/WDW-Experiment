@@ -1,19 +1,19 @@
 define(function (require, exports, module) {
   module.exports = function () {
     return {
-      baseUrl                                        : '/js/forms',
-      context                                        : 'siteify_forms',
+      baseUrl                                         : '/js/forms',
+      context                                         : 'siteify_forms',
       paths : {
 
-        text                                           : '../libs/require/text-min',
-        handlebars                                : '../libs/handlebars/handlebars',
+        text                                             : '../libs/require/text-min',
+        handlebars                                  : '../libs/handlebars/handlebars',
 
-        FormsManager                            : 'FormsManager',
+        Forms                                          : 'Forms',
 
         // Forms
         loginForm                                    : 'login/loginForm'
       },
-      deps : ['FormsManager']
+      deps : ['Forms']
     };
   };
 });

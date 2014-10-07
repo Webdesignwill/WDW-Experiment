@@ -59,8 +59,8 @@ define([
             load();
           });
           function load () {
-            req(['FormsManager'], function (FormsManager) {
-              context.formsManager = FormsManager;
+            req(['Forms'], function (Forms) {
+              context.forms = Forms;
               $dfd.resolve();
             });
           }

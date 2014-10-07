@@ -24,7 +24,7 @@ define([
     render : function () {
       this.$el.html(template);
 
-      new webdesignwill.formsManager.make({
+      new webdesignwill.forms.make({
         name : 'login',
         el : this.$el.find('form')
       });

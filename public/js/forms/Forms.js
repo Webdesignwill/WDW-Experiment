@@ -17,7 +17,7 @@ define(['require'], function (require) {
 
   "use strict";
 
-  var FormsManager = function () {
+  var Forms = function () {
     this.make = function (options) {
       require([options.name + 'Form'], function (Form) {
         new Form({
@@ -27,6 +27,6 @@ define(['require'], function (require) {
     };
   };
 
-  return new FormsManager();
+  return new Forms();
 
 });

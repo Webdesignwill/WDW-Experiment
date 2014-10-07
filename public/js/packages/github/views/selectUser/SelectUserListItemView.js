@@ -13,7 +13,9 @@ define([
       'click' : 'handler'
     },
 
-    initialize : function () {},
+    initialize : function (options) {
+      this.options = options;
+    },
 
     handler : function () {
       userModel.url = 'https://api.github.com/users/' + this.options.match;
