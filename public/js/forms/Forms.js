@@ -19,11 +19,19 @@ define(['require'], function (require) {
 
   var Forms = function () {
     this.make = function (options) {
+      var $dfd = new $.Deferred();
+
       require([options.name + 'Form'], function (Form) {
-        new Form({
-          el : options.el
-        });
+
+        // Pass int he deferred object here : $dfd.resolve();
+        // once it's sorted, then the form can resolve it :D DONE!!!
+
+        // Laaaavely
+
+        new Form({ el : options.el });
       });
+
+      return $dfd.promise();
     };
   };
 

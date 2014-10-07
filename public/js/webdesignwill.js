@@ -20,6 +20,9 @@ define([
       Worth exploring
       ============================== */
 
+      /* TODO : Dont pass in the deferred object and resolve it here. Instead,
+          have each method create the deferred and resolve it */
+
       method : function ($dfd, context) {
         require(['UserModel'], function (UserModel) {
           context.user = new UserModel();
@@ -60,7 +63,7 @@ define([
           });
           function load () {
             req(['Forms'], function (Forms) {
-              context.forms = Forms;
+              context.Forms = Forms;
               $dfd.resolve();
             });
           }

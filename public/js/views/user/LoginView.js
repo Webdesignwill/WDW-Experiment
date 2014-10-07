@@ -24,12 +24,20 @@ define([
     render : function () {
       this.$el.html(template);
 
-      new webdesignwill.forms.make({
+      /* TODO Get the form to create a deferred thing and then resolve it once it's valid
+      ================================================== */
+
+      // EXAMPLE : new Form().then(valid, invalid).catch().finally();
+
+      var form = webdesignwill.Forms.make({
         name : 'login',
         el : this.$el.find('form')
       });
 
-      // this.setFormEls();
+      $.when(form).then(function () {
+        alert('REsolved');
+      });
+
       return this;
     },
 
