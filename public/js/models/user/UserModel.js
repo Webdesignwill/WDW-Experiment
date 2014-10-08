@@ -10,24 +10,6 @@ function (oauth2Model, $topics) {
 
   var UserModel = Backbone.Model.extend({
 
-    validation : {
-      email : [{
-        required : true,
-        msg : 'Please enter you email'
-      },{
-        pattern : 'email',
-        msg : 'Please enter a valid email'
-      }],
-      password : [{
-        required : true,
-        msg : 'Please enter your password'
-      }],
-      somethingElse : [{
-        required : true,
-        msg : 'This is something far different'
-      }]
-    },
-
     defaults : { loggedin : false },
 
     interests : {
@@ -77,25 +59,11 @@ function (oauth2Model, $topics) {
     },
 
     login : function (user, done) {
-      this.validate(user, {changedAttrs : true});
-      if(this.isValid()) {
-        var self = this;
-        oauth2Model.requestAccessToken(user, function (result, data, status) {
-          if (result) { return self.startSession(user, done); }
-          done(false, data, status);
-        });
-      }
-
-      /* Would be cool if
-      ======================
-      this.validate(user, {changedAttrs : true}, function () {
-        var self = this;
-        oauth2Model.requestAccessToken(user, function (result, data, status) {
-          if (result) { return self.startSession(user, done); }
-          done(false, data, status);
-        });
-      }); */
-
+      var self = this;
+      oauth2Model.requestAccessToken(user, function (result, data, status) {
+        if (result) { return self.startSession(user, done); }
+        done(false, data, status);
+      });
     },
 
     startSession : function (user, done) {

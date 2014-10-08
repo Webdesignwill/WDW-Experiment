@@ -1,13 +1,4 @@
 
-/* oauth order of method calls
-
-*************** GET CLIENT *************** oauth_client.js
-*************** GRANT TYPE ALLOWED ***************
-*************** GET USER ***************
-*************** AUTHENTICATE ***************
-*************** SAVE ACCESS TOKEN ***************
-*************** SAVE REFRESH TOKEN ***************
-
 /* do cool things with figlet : var figlet = require("figlet");
 
  _   _      _ _                            _     _ _

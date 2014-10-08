@@ -21,4 +21,5 @@ function () {
       }]
     }
   });
+  return LoginModel;
 });
