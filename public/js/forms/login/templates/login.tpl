@@ -1,7 +1,6 @@
 
 <h2>Login</h2>
 <p class="intro">Login to access your special place</p>
-<p class="error">Your account credentials appear to be incorrect.</p>
 <label>
   <p class="inline-error"></p>
   <input tab-index="1" type="email" placeholder="Email" name="email" validate />

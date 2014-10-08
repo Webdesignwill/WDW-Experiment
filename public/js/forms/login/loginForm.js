@@ -61,10 +61,6 @@ define([
       }
     },
 
-    updateServerErrors : function (result) {
-      this.$el[!result ? 'addClass' : 'removeClass']('server-error');
-    },
-
     updateErrors : function (isValid, errors) {
       this.$el[!isValid ? 'addClass' : 'removeClass']('invalid');
       for(var key in this.formEls) {
