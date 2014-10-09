@@ -21,6 +21,29 @@ define([
       this.setEvents();
     },
 
+    render : function () {
+      var tpl = handlebars.compile(template);
+      var compiled = tpl(webdesignwill.user.attributes);
+
+      this.$el.html(compiled);
+
+      $.when(webdesignwill.Forms.make({
+        name : 'Profile',
+        el : this.$el.find('form')
+      })).then(this.put);
+
+      return this;
+    },
+
+    put : function (model) {
+      webdesignwill.user.login({
+        email : model.get('email'),
+        password : model.get('password')
+      }, function (result, data, status) {
+        if(result) { return $topics.publish('modal:close'); }
+      });
+    },
+
     setEvents : function () {
       this.listenTo(webdesignwill.user, 'change', function () {
         this.render();
@@ -29,15 +52,6 @@ define([
 
     preRender : function (done) {
       webdesignwill.user.getProfile(done);
-    },
-
-    render : function () {
-      var tpl = handlebars.compile(template);
-      var compiled = tpl(webdesignwill.user.attributes);
-
-      this.$el.html(compiled);
-
-      return this;
     },
 
     handler : function (e) {

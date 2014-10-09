@@ -9,25 +9,22 @@ define([
 
   var RegisterView = Backbone.View.extend({
 
-    tagName : 'form',
-    className : 'register-form',
-    events : {
-      'submit' : 'handler'
-    },
-
-    initialize : function () {},
-
     render : function () {
       this.$el.html(template);
+
+      $.when(webdesignwill.Forms.make({
+        name : 'Register',
+        el : this.$el.find('form')
+      })).then(this.register);
+
       return this;
     },
 
-    handler : function (e) {
-      e.preventDefault();
+    register : function (model) {
       webdesignwill.user.register({
-        email : this.el.email.value,
-        displayname : this.el.displayname.value,
-        password : this.el.password.value
+        email : model.get('email'),
+        displayname : model.get('displayname'),
+        password : model.get('password')
       }, function (result) {
         if(result) { return $topics.publish('modal:close'); }
       });

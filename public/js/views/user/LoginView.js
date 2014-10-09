@@ -13,7 +13,7 @@ define([
       this.$el.html(template);
 
       $.when(webdesignwill.Forms.make({
-        name : 'login',
+        name : 'Login',
         el : this.$el.find('form')
       })).then(this.login);
 

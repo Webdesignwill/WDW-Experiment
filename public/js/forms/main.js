@@ -12,8 +12,12 @@ define(function (require, exports, module) {
         Forms                                          : 'Forms',
 
         // Forms
-        loginForm                                    : 'login/loginForm',
-        LoginModel                                  : 'login/models/LoginModel'
+        LoginForm                                    : 'login/LoginForm',
+        LoginModel                                  : 'login/models/LoginModel',
+        ProfileForm                                  : 'profile/ProfileForm',
+        ProfileModel                                 : 'profile/models/ProfileModel',
+        RegisterForm                                : 'register/RegisterForm',
+        RegisterModel                               : 'register/models/RegisterModel'
       }
     };
   };
