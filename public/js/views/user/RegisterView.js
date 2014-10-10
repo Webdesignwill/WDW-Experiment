@@ -12,10 +12,10 @@ define([
     render : function () {
       this.$el.html(template);
 
-      $.when(webdesignwill.Forms.make({
+      webdesignwill.Forms.make({
         name : 'Register',
         el : this.$el.find('form')
-      })).then(this.register);
+      }, this.register);
 
       return this;
     },

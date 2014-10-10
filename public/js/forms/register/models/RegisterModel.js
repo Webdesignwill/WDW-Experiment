@@ -23,12 +23,15 @@ function () {
         required : true,
         msg : 'Please enter your password'
       },{
-        rangeLength : [6, 14],
-        msg : 'Your password must be between 6 and 14 characters'
+        rangeLength : [5, 14],
+        msg : 'Your password must be between 5 and 14 characters'
       }],
       confirmpassword : [{
+        required : true,
+        msg : 'Please confirm your password'
+      },{
         equalTo : 'password',
-        msg : 'Your passwords should match'
+        msg : 'This field should match the password field'
       }]
     }
   });

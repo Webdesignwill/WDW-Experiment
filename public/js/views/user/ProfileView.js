@@ -10,15 +10,12 @@ define([
 
   var ProfileView = Backbone.View.extend({
 
-    tagName : 'form',
-    className : 'profile-form',
     events : {
-      'submit' : 'handler',
       'click #delete-user' : 'deleteMe'
     },
 
-    initialize : function () {
-      this.setEvents();
+    preRender : function (done) {
+      webdesignwill.user.getProfile(done);
     },
 
     render : function () {
@@ -27,48 +24,28 @@ define([
 
       this.$el.html(compiled);
 
-      $.when(webdesignwill.Forms.make({
+      webdesignwill.Forms.make({
         name : 'Profile',
-        el : this.$el.find('form')
-      })).then(this.put);
+        el : this.$el.find('form'),
+        displayAttrs : webdesignwill.user.attributes
+      }, this.put);
 
       return this;
     },
 
     put : function (model) {
-      webdesignwill.user.login({
-        email : model.get('email'),
-        password : model.get('password')
+      webdesignwill.user.put({
+        displayname : model.get('displayname'),
+        company : model.get('company'),
+        firstname : model.get('firstname'),
+        lastname : model.get('lastname')
       }, function (result, data, status) {
-        if(result) { return $topics.publish('modal:close'); }
+        if(result) {}
       });
     },
 
-    setEvents : function () {
-      this.listenTo(webdesignwill.user, 'change', function () {
-        this.render();
-      });
-    },
-
-    preRender : function (done) {
-      webdesignwill.user.getProfile(done);
-    },
-
-    handler : function (e) {
+    deleteMe : function (e) {
       e.preventDefault();
-      var user = {};
-      for(var key in webdesignwill.user.attributes) {
-        if(this.el[key] && this.el[key].value.length > 0) {
-          user[key] = this.el[key].value;
-        }
-      }
-
-      webdesignwill.user.put(user, function (result, data, status) {
-        if(!result) { return alert('HANDLE VALIDATION'); }
-      });
-    },
-
-    deleteMe : function () {
       webdesignwill.user.deleteMe(function (result) {
         if(result) { return $topics.publish('modal:close'); }
         alert('HANDLE ERROR');

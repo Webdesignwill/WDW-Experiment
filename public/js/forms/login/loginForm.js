@@ -9,13 +9,15 @@ define([
   var LoginForm = Backbone.Forms.extend({
 
     formEls : {},
-    $dfd : new $.Deferred(),
     events : {
       'submit' : 'submit'
     },
 
-    initialize : function () {
+    initialize : function (options) {
+
+      this.options = options;
       this.model = new LoginModel();
+
       this.listenTo(this.model, 'validated', function (isValid, model, errors) {
         this.updateErrors(isValid, errors);
       });
@@ -37,12 +39,8 @@ define([
       }, {validate : true});
 
       if(this.model.isValid()) {
-        this.$dfd.resolve(this.model);
+        this.options.callback(this.model);
       }
-    },
-
-    askForPromise : function () {
-      return this.$dfd.promise();
     },
 
     setFormEls : function () {
